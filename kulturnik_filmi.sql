@@ -17,7 +17,7 @@ USE `mydb` ;
 -- -----------------------------------------------------
 -- Table `mydb`.`Film`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Film` (
+CREATE TABLE IF NOT EXISTS `Filmi`.`Film` (
   `ID` VARCHAR(45) NOT NULL,
   `Naslov` VARCHAR(45) NOT NULL,
   `Izvirni_naslov` VARCHAR(45) NULL,
