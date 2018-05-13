@@ -1,21 +1,19 @@
--- MySQL Workbench Forward Engineering
-
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema Filmi
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema Filmi
 -- -----------------------------------------------------
 CREATE SCHEMA IF NOT EXISTS `Filmi` DEFAULT CHARACTER SET utf8 ;
-USE `mydb` ;
+USE `Filmi` ;
 
 -- -----------------------------------------------------
--- Table `mydb`.`Film`
+-- Table `Filmi`.`Film`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Filmi`.`Film` (
   `ID` VARCHAR(45) NOT NULL,
@@ -37,9 +35,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Igralec`
+-- Table `Filmi`.`Igralec`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Igralec` (
+CREATE TABLE IF NOT EXISTS `Filmi`.`Igralec` (
   `ID` INT NOT NULL AUTO_INCREMENT,
   `Ime` VARCHAR(45) NOT NULL,
   `Priimek` VARCHAR(45) NOT NULL,
@@ -48,9 +46,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Direktor`
+-- Table `Filmi`.`Direktor`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Direktor` (
+CREATE TABLE IF NOT EXISTS `Filmi`.`Direktor` (
   `ID` INT NOT NULL AUTO_INCREMENT,
   `Ime` VARCHAR(45) NOT NULL,
   `Priimek` VARCHAR(45) NOT NULL,
@@ -59,9 +57,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Scenarist`
+-- Table `Filmi`.`Scenarist`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Scenarist` (
+CREATE TABLE IF NOT EXISTS `Filmi`.`Scenarist` (
   `ID` INT NOT NULL AUTO_INCREMENT,
   `Ime` VARCHAR(45) NOT NULL,
   `Priimek` VARCHAR(45) NOT NULL,
@@ -70,9 +68,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Producent`
+-- Table `Filmi`.`Producent`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Producent` (
+CREATE TABLE IF NOT EXISTS `Filmi`.`Producent` (
   `ID` INT NOT NULL AUTO_INCREMENT,
   `Ime` VARCHAR(45) NOT NULL,
   `Priimek` VARCHAR(45) NOT NULL,
@@ -81,9 +79,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Film_has_Direktor`
+-- Table `Filmi`.`Film_has_Direktor`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Film_has_Direktor` (
+CREATE TABLE IF NOT EXISTS `Filmi`.`Film_has_Direktor` (
   `Film_ID` VARCHAR(45) NOT NULL,
   `Direktor_ID` INT NOT NULL,
   PRIMARY KEY (`Film_ID`, `Direktor_ID`),
@@ -91,21 +89,21 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Film_has_Direktor` (
   INDEX `fk_Film_has_Direktor_Film_idx` (`Film_ID` ASC),
   CONSTRAINT `fk_Film_has_Direktor_Film`
     FOREIGN KEY (`Film_ID`)
-    REFERENCES `mydb`.`Film` (`ID`)
+    REFERENCES `Filmi`.`Film` (`ID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Film_has_Direktor_Direktor1`
     FOREIGN KEY (`Direktor_ID`)
-    REFERENCES `mydb`.`Direktor` (`ID`)
+    REFERENCES `Filmi`.`Direktor` (`ID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Film_has_Producent`
+-- Table `Filmi`.`Film_has_Producent`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Film_has_Producent` (
+CREATE TABLE IF NOT EXISTS `Filmi`.`Film_has_Producent` (
   `Film_ID` VARCHAR(45) NOT NULL,
   `Producent_ID` INT NOT NULL,
   PRIMARY KEY (`Film_ID`, `Producent_ID`),
@@ -113,21 +111,21 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Film_has_Producent` (
   INDEX `fk_Film_has_Producent_Film1_idx` (`Film_ID` ASC),
   CONSTRAINT `fk_Film_has_Producent_Film1`
     FOREIGN KEY (`Film_ID`)
-    REFERENCES `mydb`.`Film` (`ID`)
+    REFERENCES `Filmi`.`Film` (`ID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Film_has_Producent_Producent1`
     FOREIGN KEY (`Producent_ID`)
-    REFERENCES `mydb`.`Producent` (`ID`)
+    REFERENCES `Filmi`.`Producent` (`ID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Film_has_Scenarist`
+-- Table `Filmi`.`Film_has_Scenarist`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Film_has_Scenarist` (
+CREATE TABLE IF NOT EXISTS `Filmi`.`Film_has_Scenarist` (
   `Film_ID` VARCHAR(45) NOT NULL,
   `Scenarist_ID` INT NOT NULL,
   PRIMARY KEY (`Film_ID`, `Scenarist_ID`),
@@ -135,21 +133,21 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Film_has_Scenarist` (
   INDEX `fk_Film_has_Scenarist_Film1_idx` (`Film_ID` ASC),
   CONSTRAINT `fk_Film_has_Scenarist_Film1`
     FOREIGN KEY (`Film_ID`)
-    REFERENCES `mydb`.`Film` (`ID`)
+    REFERENCES `Filmi`.`Film` (`ID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Film_has_Scenarist_Scenarist1`
     FOREIGN KEY (`Scenarist_ID`)
-    REFERENCES `mydb`.`Scenarist` (`ID`)
+    REFERENCES `Filmi`.`Scenarist` (`ID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Film_has_Igralec`
+-- Table `Filmi`.`Film_has_Igralec`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Film_has_Igralec` (
+CREATE TABLE IF NOT EXISTS `FIlmi`.`Film_has_Igralec` (
   `Film_ID` VARCHAR(45) NOT NULL,
   `Igralec_ID` INT NOT NULL,
   PRIMARY KEY (`Film_ID`, `Igralec_ID`),
@@ -157,21 +155,21 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Film_has_Igralec` (
   INDEX `fk_Film_has_Igralec_Film1_idx` (`Film_ID` ASC),
   CONSTRAINT `fk_Film_has_Igralec_Film1`
     FOREIGN KEY (`Film_ID`)
-    REFERENCES `mydb`.`Film` (`ID`)
+    REFERENCES `Filmi`.`Film` (`ID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Film_has_Igralec_Igralec1`
     FOREIGN KEY (`Igralec_ID`)
-    REFERENCES `mydb`.`Igralec` (`ID`)
+    REFERENCES `Filmi`.`Igralec` (`ID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Predvajanje`
+-- Table `Filmi`.`Predvajanje`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Predvajanje` (
+CREATE TABLE IF NOT EXISTS `Filmi`.`Predvajanje` (
   `ID` VARCHAR(45) NOT NULL,
   `datum` DATE NOT NULL,
   `Cas` TIME NOT NULL,
@@ -182,7 +180,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Predvajanje` (
   INDEX `fk_Predvajanje_Film1_idx` (`Film_ID` ASC),
   CONSTRAINT `fk_Predvajanje_Film1`
     FOREIGN KEY (`Film_ID`)
-    REFERENCES `mydb`.`Film` (`ID`)
+    REFERENCES `Filmi`.`Film` (`ID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
