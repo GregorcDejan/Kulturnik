@@ -6,7 +6,7 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
 -- -----------------------------------------------------
 -- Schema mydb
--- --------  ---------------------------------------------
+-- -----------------------------------------------------
 
 -- -----------------------------------------------------
 -- Schema mydb
@@ -45,6 +45,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Dogodek` (
   `Tip_Dogodka` INT NOT NULL,
   `Kraj_ID` INT NOT NULL,
   `Opis` VARCHAR(2000) NULL,
+  `Naslov` VARCHAR(100) NULL,
   PRIMARY KEY (`ID`, `Tip_Dogodka`, `Kraj_ID`),
   INDEX `fk_Dogodek_Tip_Dogodka_idx` (`Tip_Dogodka` ASC),
   INDEX `fk_Dogodek_Kraj1_idx` (`Kraj_ID` ASC),
@@ -64,3 +65,4 @@ ENGINE = InnoDB;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
