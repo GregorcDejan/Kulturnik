@@ -1,2 +1,0 @@
-"# Kulturnik" 
-# Kulturnik
