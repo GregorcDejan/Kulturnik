@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Kulturnik</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+  <style>
+    .brand-logo {
+      margin-left: 0.2em;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="navbar-fixed">
+    <nav>
+      <div class="nav-wrapper teal darken-2 z-depth-3">
+        <a href="index.html" class="brand-logo">Kulturnik</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li>
+            <a href="index.html">Home</a>
+          </li>
+          <li>
+            <a href="#">Glasba</a>
+          </li>
+		  <li>
+            <a href="#">Gledališče</a>
+          </li>
+		  <li>
+            <a href="#">Razstave</a>
+          </li>
+		  <li>
+            <a href="#">Športni dogodki</a>
+          </li>
+		  <li>
+            <a href="#">Kino</a>
+          </li>
+          <li>
+            <a href="#">Blizu</a>
+          </li>
+		  <li>
+		  </li>
+		  <li class="active">
+            <a href="search.html">
+              <i class="material-icons">search</i>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="material-icons">person</i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  </body>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="js/materialize.min.js"></script>
+
+<script>
+  $(document).ready(function () {
+    $('.dropdown-button').dropdown({
+      constrainWidth: false,
+      hover: true,
+      belowOrigin: true,
+      alignment: 'left'
+    });
+
+
+  });
+</script>
+
+</html>
