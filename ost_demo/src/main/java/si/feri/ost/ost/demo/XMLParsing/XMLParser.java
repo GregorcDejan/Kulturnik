@@ -20,7 +20,7 @@ public class XMLParser {
         ArrayList<Dogodek> dogodki=new ArrayList<Dogodek>();
 
 
-        File fXmlFile = new File("C:/Users/Uporabnik/Documents/GitHub/Kulturnik/ost_demo/src/main/java/si/feri/ost/ost/demo/XMLParsing/test.xml");
+        File fXmlFile = new File("C:\\Users\\Dejan Gregorc\\Documents\\GitHub\\Kulturnik\\ost_demo\\out\\production\\main\\si\\feri\\ost\\ost\\demo\\XMLParsing\\test.xml");
         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder dBuilder;
         try {
