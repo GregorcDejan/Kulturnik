@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="sl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Kulturnik</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+  <style>
+    .brand-logo {
+      margin-left: 0.2em;
+    }
+
+    #sidenav-overlay {
+      z-index: 1;
+    }
+  </style>
+</head>
+
+<body>
+<div class="teal lighten-5">
+  <div class="navbar-fixed">
+    <nav class=" teal darken-2 z-depth-3">
+      <div class="nav-wrapper">
+        <a href="index.html" class="brand-logo">Kulturnik</a>
+        <a href="#" class="button-collapse" data-activates="mobile-sidenav">
+          <i class="material-icons">menu</i>
+        </a>
+        <ul class="right show-on-med-and-down">
+          <li>
+            <a href="search.html">
+              <i class="material-icons">search</i>
+            </a>
+          </li>
+          <li class="active">
+            <a href="add.html">
+              <i class="material-icons">add</i>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="material-icons">person</i>
+            </a>
+          </li>
+        </ul>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li>
+            <a href="index.html">Home</a>
+          </li>
+          <li>
+            <a href="#">Glasba</a>
+          </li>
+          <li>
+            <a href="#">Gledališče</a>
+          </li>
+          <li>
+            <a href="#">Razstave</a>
+          </li>
+          <li>
+            <a href="#">Športni dogodki</a>
+          </li>
+          <li>
+            <a href="#">Kino</a>
+          </li>
+          <li>
+            <a href="#">Blizu</a>
+          </li>
+        </ul>
+        <ul class="side-nav" id="mobile-sidenav">
+          <li class="active">
+            <a href="index.html">Home</a>
+          </li>
+          <li>
+            <a href="#">Glasba</a>
+          </li>
+          <li>
+            <a href="#">Gledališče</a>
+          </li>
+          <li>
+            <a href="#">Razstave</a>
+          </li>
+          <li>
+            <a href="#">Športni dogodki</a>
+          </li>
+          <li>
+            <a href="#">Kino</a>
+          </li>
+          <li>
+            <a href="#">Blizu</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+	<div class="container">
+	<h2>
+		Dodajanje dogodka
+	</h2>
+		<form action="#" method="post">
+			<input type="text" placeholder="Ime"/>
+			<input type="text" placeholder="Lokacija"/>
+			<input type="text" placeholder="Kategorija"/>
+			<input type="text" placeholder="Naslov"/>
+			<input type="text" placeholder="Kraj"/>
+			<input type="text" placeholder="Datum"/>
+			<input type="text" placeholder="Vir"/>
+			<button type="submit">Dodaj</button>
+		</form>
+	</div>
+ </div>
+</body>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="js/materialize.min.js"></script>
+
+<script>
+  $(document).ready(function () {
+    $('.dropdown-button').dropdown({
+      constrainWidth: false,
+      hover: true,
+      belowOrigin: true,
+      alignment: 'left'
+    });
+
+    $('.button-collapse').sideNav();
+
+
+
+  });
+</script>
+
+</html>
