@@ -56,16 +56,12 @@ public class XMLWebParsing
 
                     String opis=eElement.getElementsByTagName("plot_outline").item(0).getTextContent();
                     String datum=eElement.getElementsByTagName("date").item(0).getTextContent();
-                    System.out.println("--------------------------------------------------------------------------------------------------------------------------");
+
                     dogodki.add(new Dogodek(naziv,vir,virURL,"Film",opis,"Maribor","Loška ulica 13",datum));
 
 
                 }
-                for (Dogodek dogodek : dogodki) {
-                    System.out.println(dogodek);
 
-                }
-                System.out.println(dogodki.get(0).getDatum());
             }
         } catch (ParserConfigurationException e) {
             e.printStackTrace();
@@ -75,6 +71,11 @@ public class XMLWebParsing
             e.printStackTrace();
         }
 
+        for (Dogodek dogodek : dogodki) {
+            System.out.println(dogodek);
+
+        }
+        System.out.println(dogodki.get(0).getDatum());
 
     }
 }
