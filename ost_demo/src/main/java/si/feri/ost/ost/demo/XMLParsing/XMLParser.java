@@ -2,6 +2,7 @@ package si.feri.ost.ost.demo.XMLParsing;
 import java.io.File;
 import java.io.IOException;
 
+import java.net.URL;
 import java.util.ArrayList;
 
 import javax.xml.parsers.DocumentBuilderFactory;
