@@ -29,14 +29,31 @@
               </a>
             </li>
             <li>
-              <a href="add.html">
-                <i class="material-icons">add</i>
+              <a href="#">
+                <i class="material-icons">place</i>
               </a>
             </li>
             <li>
-              <a href="#">
-                <i class="material-icons">person</i>
+              <a class="dropdown-trigger" data-activates="dropdownPerson" href="#">
+                <i class="material-icons left">person</i>
               </a>
+              <ul id='dropdownPerson' class='dropdown-content'>
+                <li>
+                  <a href="add.html">Dodaj Dogodek</a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                  <a href="#!">Vpis</a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                  <a href="#!">Registracija</a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                  <a href="#!">Moji Dogodki</a>
+                </li>
+              </ul>
             </li>
           </ul>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
@@ -47,19 +64,16 @@
               <a href="events.html">Glasba</a>
             </li>
             <li>
-              <a href="#">Gledališče</a>
+              <a href="events.html">Gledališče</a>
             </li>
             <li>
-              <a href="#">Razstave</a>
+              <a href="events.html">Razstave</a>
             </li>
             <li>
-              <a href="#">Športni dogodki</a>
+              <a href="events.html">Športni dogodki</a>
             </li>
             <li>
-              <a href="#">Kino</a>
-            </li>
-            <li>
-              <a href="#">Blizu</a>
+              <a href="events.html">Kino</a>
             </li>
           </ul>
           <ul class="side-nav" id="mobile-sidenav">
@@ -70,19 +84,16 @@
               <a href="events.html">Glasba</a>
             </li>
             <li>
-              <a href="#">Gledališče</a>
+              <a href="events.html">Gledališče</a>
             </li>
             <li>
-              <a href="#">Razstave</a>
+              <a href="events.html">Razstave</a>
             </li>
             <li>
-              <a href="#">Športni dogodki</a>
+              <a href="events.html">Športni dogodki</a>
             </li>
             <li>
-              <a href="#">Kino</a>
-            </li>
-            <li>
-              <a href="#">Blizu</a>
+              <a href="events.html">Kino</a>
             </li>
           </ul>
         </div>
@@ -149,6 +160,7 @@
 <script type="text/javascript" src="js/materialize.min.js"></script>
 
 <script>
+  // Every page needs this dingy //
   $(document).ready(function () {
     $('.dropdown-button').dropdown({
       constrainWidth: false,
@@ -156,12 +168,19 @@
       belowOrigin: true,
       alignment: 'left'
     });
+    // Navbar //
+    $('.button-collapse').sideNav();
+    $('.dropdown-trigger').dropdown({
+      constrainWidth: false,
+      hover: true
+    });
 
-    // JAVASCRIPT START HERE //
+    // Page Specific //
+
+    // Carousel //
     $('.carousel.carousel-slider').carousel({
       fullWidth: true
     });
-    $('.button-collapse').sideNav();
 
 
 
