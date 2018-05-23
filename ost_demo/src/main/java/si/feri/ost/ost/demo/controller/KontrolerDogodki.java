@@ -22,9 +22,10 @@ public class KontrolerDogodki {
                                @RequestParam(value="urlDogodka",required = true)String url,
                                @RequestParam(value="datum",required = true)String datum,
                                @RequestParam(value="slika",required = false)String slika,
-                               @RequestParam(value="opis",required = false)String opis)  {
+                               @RequestParam(value="opis",required = false)String opis,
+                               @RequestParam(value="cena",required = false)String cena)  {
 
-        seznamDogodkov.add(new Dogodek(naziv,url,slika,tipD,opis,kraj,naslov,datum));
+        seznamDogodkov.add(new Dogodek(naziv,url,slika,tipD,opis,kraj,naslov,datum,cena));
 
         boolean jeDodan = true;
         model.addAttribute("dodanDogodek",jeDodan);
