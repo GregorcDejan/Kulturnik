@@ -1,14 +1,13 @@
 package si.feri.ost.ost.demo.XMLParsing;
 
-<<<<<<< HEAD:ost_demo/src/main/java/si/feri/ost/ost/demo/XMLParsing/XMLWebParsing.java
-=======
+
 import java.net.URL;
 import java.util.ArrayList;
 
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.DocumentBuilder;
->>>>>>> c0d193e3b319676cdd4917d8f58793feb2cf427f:ost_demo/src/main/java/si/feri/ost/ost/demo/XMLParsing/XMLParser.java
+
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
