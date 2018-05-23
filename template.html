@@ -1,23 +1,15 @@
 <!DOCTYPE html>
-<html lang="sl">
+<html>
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Dodaj Dogodek</title>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Dogodek</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
   <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
-  <style>
-    .brand-logo {
-      margin-left: 0.2em;
-    }
-
-    #sidenav-overlay {
-      z-index: 1;
-    }
-  </style>
+  <script src="main.js"></script>
 </head>
 
 <body>
@@ -35,7 +27,7 @@
                 <i class="material-icons">search</i>
               </a>
             </li>
-            <li class="active">
+            <li>
               <a href="add.html">
                 <i class="material-icons">add</i>
               </a>
@@ -50,7 +42,7 @@
             <li>
               <a href="index.html">Home</a>
             </li>
-            <li>
+            <li class="active">
               <a href="#">Glasba</a>
             </li>
             <li>
@@ -70,7 +62,7 @@
             </li>
           </ul>
           <ul class="side-nav" id="mobile-sidenav">
-            <li class="active">
+            <li>
               <a href="index.html">Home</a>
             </li>
             <li>
@@ -97,23 +89,15 @@
     </div>
     <div class="container">
       <h2>
-        Dodajanje dogodka
+        Dogodek
       </h2>
-      <form action="#" method="post">
-        <input type="text" placeholder="Naziv*: " />
-        <input type="text" placeholder="Kraj*: " />
-        <input type="text" placeholder="Naslov*: " />
-        <input type="text" placeholder="Tip dogodka*: " />
-        <input type="text" placeholder="Povezava na dogodek: " />
-        <input type="text" placeholder="Datum*: " />
-        <input type="text" placeholder="Slika: " />
-        <button type="submit">Dodaj dogodek</button>
-      </form>
+
     </div>
   </div>
 </body>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/materialize.min.js"></script>
+
 <script>
   $(document).ready(function () {
     $('.dropdown-button').dropdown({
