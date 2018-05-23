@@ -11,10 +11,11 @@ public class Dogodek
     private String kraj;
     private String naslov;
     private String datum;
+    private int idUporabnika;
 
     public Dogodek() {}
 
-    public Dogodek(int id, String naziv, String vir, String slikaURL, String tip, String opis, String kraj, String naslov, String datum) {
+    public Dogodek(int id, String naziv, String vir, String slikaURL, String tip, String opis, String kraj, String naslov, String datum,int idUporabnika) {
         this.id = id;
         this.naziv = naziv;
         this.vir = vir;
@@ -24,6 +25,7 @@ public class Dogodek
         this.kraj = kraj;
         this.naslov = naslov;
         this.datum = datum;
+        this.idUporabnika=idUporabnika;
     }
 
     public Dogodek(String naziv, String vir, String slikaURL, String tip, String opis, String kraj, String naslov, String datum)
