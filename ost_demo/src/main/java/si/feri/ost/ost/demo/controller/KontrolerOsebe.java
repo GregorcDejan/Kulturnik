@@ -1,5 +1,6 @@
 package si.feri.ost.ost.demo.controller;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -8,13 +9,13 @@ import si.feri.ost.ost.demo.Razredi.Dogodek;
 import si.feri.ost.ost.demo.Razredi.Oseba;
 
 import java.util.ArrayList;
-
+@Controller
 public class KontrolerOsebe {
 
     public static ArrayList<Oseba> seznamOseb = new ArrayList<>();
     public class KontrolerDogodki {
 
-        @RequestMapping(value = {"/", "/dodajanjeOseb"}, method = RequestMethod.POST)
+        @RequestMapping(value = {"/dodajanjeOseb"}, method = RequestMethod.POST)
         public String dodajOsebo(Model model, @RequestParam(value = "ime", required = true) String ime,
                                  @RequestParam(value = "priimek", required = true) String priimek,
                                  @RequestParam(value = "email", required = true) String email,
@@ -27,6 +28,13 @@ public class KontrolerOsebe {
             boolean jeDodan = true;
             model.addAttribute("dodanaOseba", jeDodan);
             return "dodajanjeOseb";
+        }
+
+
+        @RequestMapping(value={"/brisanjeOsebe"},method=RequestMethod.POST)
+        public void izbrisiDogodek(@RequestParam(value="idBrisanjaOsebe",required = true)String idBrisanja)
+        {
+            seznamOseb.remove(Integer.parseInt(idBrisanja));
         }
     }
 }
