@@ -1,0 +1,34 @@
+
+
+
+CREATE TABLE Uporabnik (
+  ID INT NOT NULL AUTO_INCREMENT,
+  Ime VARCHAR(45) NOT NULL,
+  Priimek VARCHAR(45) NOT NULL,
+  email VARCHAR(45) NOT NULL,
+  telefon VARCHAR(45) NOT NULL,
+  geslo VARCHAR(45) NOT NULL,
+  datum_rojstva VARCHAR(45) NOT NULL,
+  PRIMARY KEY (ID));
+
+
+
+CREATE TABLE Dogodek (
+  ID INT NOT NULL AUTO_INCREMENT,
+  Naziv VARCHAR(45) NOT NULL,
+  Vir VARCHAR(300) NOT NULL,
+  SlikaURL VARCHAR(300) NULL DEFAULT 'https://www.mearto.com/assets/no-image-83a2b680abc7af87cfff7777d0756fadb9f9aecd5ebda5d34f8139668e0fc842.png',
+  Tip_Dogodka NVARCHAR(45) NOT NULL,
+  Kraj NVARCHAR(45) NOT NULL,
+  Opis VARCHAR(2000) NULL,
+  Naslov VARCHAR(100) NULL,
+  Datum VARCHAR(45) NOT NULL,
+  Cena VARCHAR(45) NOT NULL DEFAULT 'Brezplačno',
+  ID_Uporabnika INT NULL,
+  PRIMARY KEY (ID),
+  FOREIGN KEY (ID_Uporabnika) REFERENCES Uporabnik(ID) ON DELETE CASCADE
+);
+
+
+
+
