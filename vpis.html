@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Registracija</title>
+  <title>Vpis</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
@@ -41,12 +41,12 @@
                   <a href="add.html">Dodaj Dogodek</a>
                 </li>
                 <li class="divider"></li>
-                <li>
-                  <a href="#!">Vpis</a>
+                <li class="active">
+                  <a href="vpis.html">Vpis</a>
                 </li>
                 <li class="divider"></li>
-                <li class="active">
-                  <a href="#!">Registracija</a>
+                <li>
+                  <a href="registracija.html">Registracija</a>
                 </li>
                 <li class="divider"></li>
                 <li>
@@ -100,19 +100,37 @@
     </div>
     <div class="container">
       <h2 class="center-align">
-        Registracija
+        Vpis
       </h2>
       <form action="#" method="post">
-        <input type="text" placeholder="Ime*: " />
-        <input type="text" placeholder="Priimek*: " />
-        <input type="text" placeholder="E-mail*: " />
-        <input type="text" placeholder="Geslo*: " />
-        <input type="text" placeholder="Datum Rojstva" />
-        <input type="text" placeholder="Telefon" />
-        <button class="btn btn-submit large" type="submit">
-          <div class="valign-wrapper">Registriraj se
+        <div class="row">
+          <div class="input-field col s10 offset-s1 col l8 offset-l2">
+            <input id="user" type="text" class="validate">
+            <label for="user">Uporabniško Ime</label>
           </div>
-        </button>
+        </div>
+        <div class="row">
+          <div class="input-field col s10 offset-s1 col l8 offset-l2">
+            <input id="password" type="password" class="validate">
+            <label for="password">Password</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="radio col s10 offset-s1 col l8 offset-l2">
+            <p>
+              <input type="checkbox" id="test5" />
+              <label for="test5">Zapomni si me</label>
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s10 offset-s4 col l6 offset-l5">
+            <button class="btn btn-submit large" type="submit">
+              <div class="valign-wrapper">Vpis
+              </div>
+          </div>
+          </button>
+        </div>
       </form>
     </div>
   </div>
@@ -137,12 +155,6 @@
     });
 
     // Page Specific //
-
-    // Carousel //
-    $('.carousel.carousel-slider').carousel({
-      fullWidth: true,
-      noWrap: true
-    });
 
 
 
