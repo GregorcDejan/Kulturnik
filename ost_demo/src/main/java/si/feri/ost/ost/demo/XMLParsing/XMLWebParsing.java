@@ -57,7 +57,7 @@ public class XMLWebParsing
                     String opis=eElement.getElementsByTagName("plot_outline").item(0).getTextContent();
                     String datum=eElement.getElementsByTagName("date").item(0).getTextContent();
 
-                    dogodki.add(new Dogodek(naziv,vir,virURL,"Film",opis,"Maribor","Loška ulica 13",datum));
+                    dogodki.add(new Dogodek(naziv,vir,virURL,"Film",opis,"Maribor","Loška ulica 13",datum,"3"));
 
 
                 }
