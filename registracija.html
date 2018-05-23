@@ -32,7 +32,7 @@
                 <i class="material-icons">place</i>
               </a>
             </li>
-            <li>
+            <li class="active">
               <a class="dropdown-trigger" data-activates="dropdownPerson" href="#">
                 <i class="material-icons left">person</i>
               </a>
@@ -45,8 +45,8 @@
                   <a href="#!">Vpis</a>
                 </li>
                 <li class="divider"></li>
-                <li>
-                  <a href="registracija.html">Registracija</a>
+                <li class="active">
+                  <a href="#!">Registracija</a>
                 </li>
                 <li class="divider"></li>
                 <li>
@@ -56,7 +56,7 @@
             </li>
           </ul>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li class="active">
+            <li>
               <a href="index.html">Domov</a>
             </li>
             <li>
@@ -76,7 +76,7 @@
             </li>
           </ul>
           <ul class="side-nav" id="mobile-sidenav">
-            <li class="active">
+            <li>
               <a href="index.html">Home</a>
             </li>
             <li>
@@ -100,10 +100,21 @@
     </div>
     <div class="container">
       <h2 class="center-align">
-        Dogodek
+        Registracija
       </h2>
-      <hr/>
-
+      <form action="#" method="post">
+        <input type="text" placeholder="Ime*: " />
+        <input type="text" placeholder="Priimek*: " />
+        <input type="text" placeholder="E-mail*: " />
+        <input type="text" placeholder="Geslo*: " />
+        <input type="text" placeholder="Datum Rojstva" />
+        <input type="text" placeholder="Telefon" />
+        <button class="btn btn-submit" type="submit">
+          <div class="valign-wrapper">Registriraj se
+            <i class="material-icons">send</i>
+          </div>
+        </button>
+      </form>
     </div>
   </div>
 </body>
