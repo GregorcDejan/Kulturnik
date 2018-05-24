@@ -98,18 +98,48 @@
               <i class="material-icons prefix">search</i>
               <input id="eventsSearchNaziv" type="text" class="validate" placeholder="Naziv">
               <input id="eventsSearchKraj" type="text" class="validate" placeholder="Kraj">
-              <input id="eventsSearchCena" type="text" class="validate" placeholder="Cena">
+              <input id="eventsSearchKategorija" type="text" class="validate" placeholder="Kategorija">
               <button class="btn-flat">
                 <i class="material-icons suffix" type="submit">keyboard_return</i>
               </button>
 
             </div>
           </div>
-          <div class="row">
-            <input type="text" class="datepicker" placeholder="datum prčetka">
-            <input type="text" class="datepicker" placeholder="datum konca">
-          </div>
+          <div class="filtri">
+            <div class="row">
+              <h4>Napredno</h4>
+              <div class="col m3">
+                <input type="text" class="datepicker" placeholder="Datum Pričetka">
+                <input type="text" class="datepicker" placeholder="Datum Konca">
+              </div>
+              <div class="col m3">
+                <p class="range-field">
+                  <label for="zacCena">Min Cena</label>
+                  <input type="range" id="zacCena" min="0" max="1000" />
+                </p>
+                <p class="range-field">
+                  <label for="najCena">Max Cena</label>
+                  <input type="range" id="najCena" min="0" max="1000" />
+                </p>
+              </div>
+              <div class="col m3">
+                <p>Pretekli dogodki</p>
+                <div class="switch">
+                  <label>
+                    Off
+                    <input type="checkbox">
+                    <span class="lever"></span>
+                    On
+                  </label>
+
+                </div>
+                <div class="input-field">
+
+                </div>
+              </div>
+            </div>
         </form>
+        </div>
       </div>
 
 
@@ -888,6 +918,7 @@
 <script type="text/javascript" src="js/materialize.min.js"></script>
 
 <script>
+  // Every page needs this dingy //
   $(document).ready(function () {
     $('.dropdown-button').dropdown({
       constrainWidth: false,
@@ -896,6 +927,11 @@
       alignment: 'left'
     });
     $('.button-collapse').sideNav();
+
+    // Page Specific //
+
+
+    // Pickdate //
     $('.datepicker').pickadate({
       selectMonths: true, // Creates a dropdown to control month
       selectYears: 15, // Creates a dropdown of 15 years to control year,
@@ -904,9 +940,11 @@
       close: 'Ok',
       closeOnSelect: false, // Close upon selecting a date,
       container: undefined // ex. 'body' will append picker to body
-    });
 
-  });
+      // Select list //
+      $('select').material_select();
+    })
+  };
 </script>
 
 </html>
