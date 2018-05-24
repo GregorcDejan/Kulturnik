@@ -11,22 +11,13 @@ public class Dogodek
     private String kraj;
     private String naslov;
     private String datum;
+    private int idUporabnika;
+    private String cena;
 
     public Dogodek() {}
 
-    public Dogodek(int id, String naziv, String vir, String slikaURL, String tip, String opis, String kraj, String naslov, String datum) {
-        this.id = id;
-        this.naziv = naziv;
-        this.vir = vir;
-        this.slikaURL = slikaURL;
-        this.tip = tip;
-        this.opis = opis;
-        this.kraj = kraj;
-        this.naslov = naslov;
-        this.datum = datum;
-    }
 
-    public Dogodek(String naziv, String vir, String slikaURL, String tip, String opis, String kraj, String naslov, String datum)
+    public Dogodek(String naziv, String vir, String slikaURL, String tip, String opis, String kraj, String naslov, String datum,String cena)
     {
 
         this.naziv=naziv;
@@ -37,6 +28,7 @@ public class Dogodek
         this.kraj=kraj;
         this.naslov=naslov;
         this.setDatum(datum);
+        this.cena=cena;
 
     }
 
