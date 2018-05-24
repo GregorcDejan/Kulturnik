@@ -8,8 +8,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Kulturnik</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link type="text/css" rel="stylesheet" href="static.css.css/materialize.min.css" media="screen,projection" />
-    <link rel="stylesheet" type="text/css" media="screen" href="static.css.css/style.css" />
+    <link type="text/css" rel="stylesheet" href="materialize.min.css" media="screen,projection" />
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
     <style>
     </style>
 </head>
