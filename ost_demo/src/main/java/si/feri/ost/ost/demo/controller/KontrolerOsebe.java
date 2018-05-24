@@ -27,7 +27,7 @@ public class KontrolerOsebe {
 
             boolean jeDodan = true;
             model.addAttribute("dodanaOseba", jeDodan);
-            return "dodajanjeOseb";
+            return "registracija";
         }
 
 

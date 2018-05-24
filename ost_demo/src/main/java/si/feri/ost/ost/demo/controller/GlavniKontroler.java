@@ -9,14 +9,30 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class GlavniKontroler {
 
-    // inject via application.properties
-    @Value("${welcome.message}")
-    private String message = "Hello World";
 
 
     @RequestMapping(value = { "/", "/index" }, method = RequestMethod.GET)
     public String index(Model model) {
-        model.addAttribute("message", this.message);
-        return "welcome";
+
+        return "index";
+    }
+
+    @RequestMapping(value = { "/Glasba" }, method = RequestMethod.GET)
+    public String glasba(Model model) {
+
+        return "events";//predlagam preimenovanje tega jsp-a v glasba
+    }
+
+    //testni jsp za izpise ipd.
+    @RequestMapping(value = { "/Test" }, method = RequestMethod.GET)
+    public String test(Model model) {
+
+        return "Konsola";
+    }
+
+    @RequestMapping(value = { "/vpis" }, method = RequestMethod.GET)
+    public String vpis(Model model) {
+
+        return "vpis";
     }
 }
