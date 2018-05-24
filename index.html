@@ -10,16 +10,90 @@
   <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
   <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
   <style type="text/css">
-	#napovednikbox{width:300px;margin:0;padding:0;font-size:12px!important;line-height:20px!important;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:lighter;background:#EEE}
-	#napovednikbox1{margin:0;padding:12px 16px;color:#FFF;background:#777;font-size:20px;font-weight:lighter}
-	#napovednikbox2 ul{margin:0!important;padding:0!important;list-style:none none;border-top:1px solid #E6E6E6!important;}
-	#napovednikbox2 li{margin:0!important;padding:0 16px 0 0!important;border-bottom:1px solid #E6E6E6!important; font-size:12px!important;line-height:20px!important; background: none!important;}
-	#napovednikbox2 a{color:#000;font-weight:700;text-decoration:none!important;display:block;padding:6px 16px;background:url(https://www.napovednik.com/images/icon-more.png) right center/auto 16px no-repeat}
-	#napovednikbox3{margin:0 3px 3px;text-align:right;font-size:10px}
-	#napovednikbox4{margin:0;background:#AA171C;font-weight:700;text-align:center;font-size:16px}
-	#napovednikbox4 a{color:#FFF;padding:12px 16px;display:block;text-decoration:none!important}
-</style>
-  
+    /*
+    #napovednikbox3 {
+      margin: 0 3px 3px;
+      text-align: right;
+      font-size: 10px
+    }
+
+    #napovednikbox4 {
+      margin: 0;
+      background: #AA171C;
+      font-weight: 700;
+      text-align: center;
+      font-size: 16px
+    }
+    #napovednikbox1 {
+      margin: 0;
+      padding: 12px 16px;
+      color: #FFF;
+      background: #777;
+      font-size: 20px;
+      font-weight: lighter
+    }
+    #napovednikbox {
+      width: 300px;
+      margin: 0;
+      padding: 0;
+      font-size: 12px !important;
+      line-height: 20px !important;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-weight: lighter;
+    }
+
+
+    #napovednikbox2 ul {
+      margin: 0 !important;
+      padding: 0 !important;
+      list-style: none none;
+      border-top: 1px solid #E6E6E6 !important;
+    }
+
+    #napovednikbox2 li {
+      margin: 0 !important;
+      padding: 0 16px 0 0 !important;
+      border-bottom: 1px solid #E6E6E6 !important;
+      font-size: 12px !important;
+      line-height: 20px !important;
+      background: none !important;
+    }
+
+    #napovednikbox2 a {
+      color: #000;
+      font-weight: 700;
+      text-decoration: none !important;
+      display: block;
+      padding: 6px 16px;
+      background: url(https://www.napovednik.com/images/icon-more.png) right center/auto 16px no-repeat
+    }
+
+    #napovednikbox4 a {
+      color: #FFF;
+      padding: 12px 16px;
+      display: block;
+      text-decoration: none !important
+    }*/
+
+    #napovednikbox2 a {
+      color: #000;
+      font-weight: 700;
+      text-decoration: none;
+      display: block;
+      padding: 6px 16px;
+      background: url(https://www.napovednik.com/images/icon-more.png) right center/auto 16px no-repeat
+    }
+
+    #napovednikbox2 a:hover {
+      font-size: larger;
+      text-decoration: underline;
+    }
+
+    .card-title blockquote {
+      margin-top: 0px;
+    }
+  </style>
+
 </head>
 
 <body>
@@ -134,23 +208,75 @@
         <div class="col s12">
           <h3 class="center-align">Dogodki na dlani</h3>
           <p class="flow-text center-align">
-		  <div id="napovednikbox">
-	<div id="napovednikbox1">Ne spreglejte:</div>
-	<div id="napovednikbox2"></div>
-	<div id="napovednikbox3"></div>
-	<div id="napovednikbox4"><a href="https://www.napovednik.com">Napovednik.com</a></div>
-</div>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi libero hic, laborum rem iusto quam unde, itaque repudiandae
+            molestiae ipsum obcaecati. Consequuntur eveniet harum, dolore minus beatae illo impedit? Odio.
           </p>
         </div>
       </div>
       <div class="row">
-        <div class="col s4">
+        <div class="col s12 xl3">
           <h3 class="center-align">Kontakt</h3>
-          <p class="flow-text center-align">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis enim corrupti excepturi fuga nam assumenda
-            repudiandae harum rec eaque consectetur blanditiis cumque. Voluptatum blanditiis tempora quam, nesciunt vitae
-            eveniet officiis possimus inventore perspiciatis?</p>
+          <div class="grey lighten-3">
+            <ul class="collection z-depth-1">
+              <li class="collection-item avatar grey lighten-3">
+                <img src="res/lucka.jpg" alt="" class="circle">
+                <span class="title">Lucija Brezočnik</span>
+                <p>
+                  Project Owner
+                  <br/> lucija.brezocnik@um.si
+                </p>
+                <a href="#!" class="secondary-content">
+                  <i class="material-icons red-text text-lighten-2">send</i>
+                </a>
+              </li>
+              <li class="collection-item avatar grey lighten-3">
+                <img src="res/lepotec.jpg" alt="" class="circle">
+                <span class="title">Marko Gluhak</span>
+                <p>
+                  Front-End
+                  <br/> markogl@comtrade.com
+                </p>
+                <a href="#!" class="secondary-content">
+                  <i class="material-icons red-text text-lighten-2">send</i>
+                </a>
+              </li>
+              <li class="collection-item avatar grey lighten-3">
+                <img src="res/lepotec.jpg" alt="" class="circle">
+                <span class="title">Nina Kliček</span>
+                <p>
+                  Back-End
+                  <br/> marko.mx.gluhak@gmail.com
+                </p>
+                <a href="#!" class="secondary-content">
+                  <i class="material-icons red-text text-lighten-2">send</i>
+                </a>
+              </li>
+              <li class="collection-item avatar grey lighten-3">
+                <img src="res/lepotec.jpg" alt="" class="circle">
+                <span class="title">Dejan Gregorc</span>
+                <p>
+                  Back-End
+                  <br/> gregorc.dejan@gmail.com
+                </p>
+                <a href="#!" class="secondary-content">
+                  <i class="material-icons red-text text-lighten-2">send</i>
+                </a>
+              </li>
+              <li class="collection-item avatar grey lighten-3">
+                <img src="res/lepotec.jpg" alt="" class="circle">
+                <span class="title">Maruša Konečnik</span>
+                <p>
+                  Back-End
+                  <br/> marko.mx.gluhak@gmail.com
+                </p>
+                <a href="#!" class="secondary-content">
+                  <i class="material-icons red-text text-lighten-2">send</i>
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
-        <div class="col s4">
+        <div class="col s12 xl6">
           <h3 class="center-align">O nas</h3>
           <p class="flow-text center-align">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis enim corrupti excepturi fuga nam assumenda
             repudiandae harum recusandae beatae! Quis porro obcaecati dolor, quasi explicabo illo nihil quas ipsum vitae!
@@ -159,10 +285,25 @@
             inventore perspiciatis?
           </p>
         </div>
-        <div class="col s4">
-          <h3 class="center-align">Sodelujemo z</h3>
-          <p class="flow-text center-align">Lorem ip eaque consectetur blanditiis cumque. Voluptatum blanditiis tempora quam, nesciunt vitae eveniet officiis
-            possimus inventore perspiciatis? lorem</p>
+        <div class="col s12 xl3">
+          <h3 class="center-align">V Sodelovanju</h3>
+          <p class="flow-text center-align">
+            <div class="card grey lighten-3 hoverable">
+              <div class="card-content white-text">
+                <span class="card-title">
+                  <blockquote class="grey-text">
+                    Napovednik.com
+                  </blockquote>
+                </span>
+                <p>
+                  <div id="napovednikbox2" class="grey-text text-darken-2 "></div>
+                </p>
+              </div>
+              <div class="card-action red lighten-2 center-align">
+                <a href="https://www.napovednik.com" class="grey-text text-lighten-2">Ne spreglejte tudi</a>
+              </div>
+            </div>
+          </p>
         </div>
       </div>
     </div>
@@ -173,26 +314,26 @@
 
 <script>
 
-   if (typeof jQuery == 'undefined') {
-	document.write('<script type="text/javascript" src="https://www.napovednik.com/script/jquery.js"></scrip'+'t>');
-   }
-   var rubrika = 0;
-   var regija = '';
-   var zapisov = 5;
-   var prireditelj = 0;
-   var conv = 0;
-   function getbox() {
-	jQuery.ajax({
-		type: 'GET',
-		url: 'https://www.napovednik.com/box.php?n='+zapisov+'&k='+rubrika+'&r='+regija+'&c='+conv+'&pr='+prireditelj+'&jsoncallback=?',
-		dataType: 'json',
-		jsonp:'jsoncallback',
-		success: function(data) {
-			document.getElementById('napovednikbox2').innerHTML = data['data'];
-		}
-	 });
-	}
-	jQuery( document ).ready(function() { getbox(); });
+  if (typeof jQuery == 'undefined') {
+    document.write('<script type="text/javascript" src="https://www.napovednik.com/script/jquery.js"></scrip' + 't>');
+  }
+  var rubrika = 0;
+  var regija = '';
+  var zapisov = 5;
+  var prireditelj = 0;
+  var conv = 0;
+  function getbox() {
+    jQuery.ajax({
+      type: 'GET',
+      url: 'https://www.napovednik.com/box.php?n=' + zapisov + '&k=' + rubrika + '&r=' + regija + '&c=' + conv + '&pr=' + prireditelj + '&jsoncallback=?',
+      dataType: 'json',
+      jsonp: 'jsoncallback',
+      success: function (data) {
+        document.getElementById('napovednikbox2').innerHTML = data['data'];
+      }
+    });
+  }
+  jQuery(document).ready(function () { getbox(); });
 
 
   // Every page needs this dingy //
