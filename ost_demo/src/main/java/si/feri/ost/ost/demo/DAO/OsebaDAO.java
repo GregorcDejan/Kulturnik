@@ -11,7 +11,7 @@ public class OsebaDAO {
 
     @Autowired
     JdbcTemplate jdbcTemplate;
-    
+
 
     public int addOseba(String ime,String priimek,String geslo, String email, String telefonska,String datum_rojstva)
     {
