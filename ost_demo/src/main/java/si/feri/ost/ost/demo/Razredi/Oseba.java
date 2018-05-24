@@ -1,6 +1,7 @@
 package si.feri.ost.ost.demo.Razredi;
 
 public class Oseba {
+    private int id;
     private String ime;
     private String priimek;
     private String email;
@@ -16,6 +17,10 @@ public class Oseba {
         this.geslo = geslo;
         this.datumRojstva = datumRojstva;
         this.telefonska = telefonska;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getIme() {
@@ -65,4 +70,17 @@ public class Oseba {
     public void setTelefonska(String telefonska) {
         this.telefonska = telefonska;
     }
+
+    @Override
+    public String toString() {
+        return "Ime='" + ime + '\'' +
+                ", Priimek='" + priimek + '\'' +
+                ", email='" + email + '\'' +
+                ", geslo='" + geslo + '\'' +
+                ", datumRojstva='" + datumRojstva + '\'' +
+                ", telefonska='" + telefonska + '\'' +
+                '}';
+    }
 }
+
+

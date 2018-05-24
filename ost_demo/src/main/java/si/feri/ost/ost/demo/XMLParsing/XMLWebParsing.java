@@ -1,31 +1,42 @@
 package si.feri.ost.ost.demo.XMLParsing;
-import java.io.File;
-import java.io.IOException;
 
+
+import java.net.URL;
 import java.util.ArrayList;
 
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.DocumentBuilder;
+
 import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
-import org.w3c.dom.Node;
-import org.w3c.dom.Element;
 import si.feri.ost.ost.demo.Razredi.Dogodek;
 
-public class XMLParser {
-    public XMLParser()
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import java.io.*;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.ArrayList;
+
+public class XMLWebParsing
+{
+    public XMLWebParsing()
     {
-        ArrayList<Dogodek> dogodki=new ArrayList<Dogodek>();
+        ArrayList<Dogodek> dogodki = new ArrayList<Dogodek>();
 
 
-        File fXmlFile = new File("C:\\Users\\Dejan Gregorc\\Documents\\GitHub\\Kulturnik\\ost_demo\\out\\production\\main\\si\\feri\\ost\\ost\\demo\\XMLParsing\\test.xml");
-        DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-        DocumentBuilder dBuilder;
+        DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+        DocumentBuilder db = null;
+
         try {
-            dBuilder = dbFactory.newDocumentBuilder();
-            Document doc = dBuilder.parse(fXmlFile);
+            URL url=new URL("https://www.kolosej.si/spored/xml/2.0/");
+            db = dbf.newDocumentBuilder();
+            Document doc = db.parse(url.openStream());
             doc.getDocumentElement().normalize();
             System.out.println("Root element: " + doc.getDocumentElement().getNodeName());
             NodeList nList = doc.getElementsByTagName("movie");
@@ -45,27 +56,26 @@ public class XMLParser {
 
                     String opis=eElement.getElementsByTagName("plot_outline").item(0).getTextContent();
                     String datum=eElement.getElementsByTagName("date").item(0).getTextContent();
-                    System.out.println("--------------------------------------------------------------------------------------------------------------------------");
-                    dogodki.add(new Dogodek(naziv,vir,virURL,"Film",opis,"Maribor","Loška ulica 13",datum));
+
+                    dogodki.add(new Dogodek(naziv,vir,virURL,"Film",opis,"Maribor","Loška ulica 13",datum,"3"));
 
 
                 }
-                for (Dogodek dogodek : dogodki) {
-                    System.out.println(dogodek);
 
-                }
-                System.out.println(dogodki.get(0).getDatum());
             }
-
-
-
-
-        } catch (ParserConfigurationException | SAXException | IOException e) {
-            // TODO Auto-generated catch block
+        } catch (ParserConfigurationException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (SAXException e) {
             e.printStackTrace();
         }
 
+        for (Dogodek dogodek : dogodki) {
+            System.out.println(dogodek);
 
+        }
+        System.out.println(dogodki.get(0).getDatum());
 
     }
 }

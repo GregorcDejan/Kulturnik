@@ -2,6 +2,7 @@ package si.feri.ost.ost.demo.Razredi;
 
 public class Dogodek
 {
+    private int id;
     private String naziv;
     private String vir;
     private String slikaURL;
@@ -10,10 +11,13 @@ public class Dogodek
     private String kraj;
     private String naslov;
     private String datum;
+    private int idUporabnika;
+    private String cena;
 
     public Dogodek() {}
 
-    public Dogodek(String naziv, String vir, String slikaURL, String tip,String opis,String kraj,String naslov,String datum)
+
+    public Dogodek(String naziv, String vir, String slikaURL, String tip, String opis, String kraj, String naslov, String datum,String cena)
     {
 
         this.naziv=naziv;
@@ -24,6 +28,7 @@ public class Dogodek
         this.kraj=kraj;
         this.naslov=naslov;
         this.setDatum(datum);
+        this.cena=cena;
 
     }
 
@@ -69,6 +74,9 @@ public class Dogodek
     }
     public void setOpis(String opis) {
         this.opis = opis;
+    }
+    public int getId() {
+        return id;
     }
 
     @Override
