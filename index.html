@@ -9,8 +9,17 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
   <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
-  <style>
-  </style>
+  <style type="text/css">
+	#napovednikbox{width:300px;margin:0;padding:0;font-size:12px!important;line-height:20px!important;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:lighter;background:#EEE}
+	#napovednikbox1{margin:0;padding:12px 16px;color:#FFF;background:#777;font-size:20px;font-weight:lighter}
+	#napovednikbox2 ul{margin:0!important;padding:0!important;list-style:none none;border-top:1px solid #E6E6E6!important;}
+	#napovednikbox2 li{margin:0!important;padding:0 16px 0 0!important;border-bottom:1px solid #E6E6E6!important; font-size:12px!important;line-height:20px!important; background: none!important;}
+	#napovednikbox2 a{color:#000;font-weight:700;text-decoration:none!important;display:block;padding:6px 16px;background:url(https://www.napovednik.com/images/icon-more.png) right center/auto 16px no-repeat}
+	#napovednikbox3{margin:0 3px 3px;text-align:right;font-size:10px}
+	#napovednikbox4{margin:0;background:#AA171C;font-weight:700;text-align:center;font-size:16px}
+	#napovednikbox4 a{color:#FFF;padding:12px 16px;display:block;text-decoration:none!important}
+</style>
+  
 </head>
 
 <body>
@@ -124,11 +133,13 @@
       <div class="row">
         <div class="col s12">
           <h3 class="center-align">Dogodki na dlani</h3>
-          <p class="flow-text center-align">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis enim corrupti excepturi fuga nam assumenda
-            repudiandae harum recusandae beatae! Quis porro obcaecati dolor, quasi explicabo illo nihil quas ipsum vitae!
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium error provident iste facere, nostrum sed
-            eaque consectetur blanditiis cumque. Voluptatum blanditiis tempora quam, nesciunt vitae eveniet officiis possimus
-            inventore perspiciatis?
+          <p class="flow-text center-align">
+		  <div id="napovednikbox">
+	<div id="napovednikbox1">Ne spreglejte:</div>
+	<div id="napovednikbox2"></div>
+	<div id="napovednikbox3"></div>
+	<div id="napovednikbox4"><a href="https://www.napovednik.com">Napovednik.com</a></div>
+</div>
           </p>
         </div>
       </div>
@@ -161,6 +172,29 @@
 <script type="text/javascript" src="js/materialize.min.js"></script>
 
 <script>
+
+   if (typeof jQuery == 'undefined') {
+	document.write('<script type="text/javascript" src="https://www.napovednik.com/script/jquery.js"></scrip'+'t>');
+   }
+   var rubrika = 0;
+   var regija = '';
+   var zapisov = 5;
+   var prireditelj = 0;
+   var conv = 0;
+   function getbox() {
+	jQuery.ajax({
+		type: 'GET',
+		url: 'https://www.napovednik.com/box.php?n='+zapisov+'&k='+rubrika+'&r='+regija+'&c='+conv+'&pr='+prireditelj+'&jsoncallback=?',
+		dataType: 'json',
+		jsonp:'jsoncallback',
+		success: function(data) {
+			document.getElementById('napovednikbox2').innerHTML = data['data'];
+		}
+	 });
+	}
+	jQuery( document ).ready(function() { getbox(); });
+
+
   // Every page needs this dingy //
   $(document).ready(function () {
     $('.dropdown-button').dropdown({
