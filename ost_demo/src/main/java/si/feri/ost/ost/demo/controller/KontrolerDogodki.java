@@ -29,7 +29,7 @@ public class KontrolerDogodki {
 
         boolean jeDodan = true;
         model.addAttribute("dodanDogodek",jeDodan);
-        return "dodajanjeDogodka";
+        return "add";
     }
 
     @RequestMapping(value={"/brisanjeDogodka"},method=RequestMethod.POST)
