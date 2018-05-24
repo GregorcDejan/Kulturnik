@@ -1,16 +1,15 @@
 <!DOCTYPE html>
-<html lang="sl">
+<html>
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Kulturnik</title>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Vpis</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
   <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
-  <style>
-  </style>
+  <script src="main.js"></script>
 </head>
 
 <body>
@@ -33,7 +32,7 @@
                 <i class="material-icons">place</i>
               </a>
             </li>
-            <li>
+            <li class="active">
               <a class="dropdown-trigger" data-activates="dropdownPerson" href="#">
                 <i class="material-icons left">person</i>
               </a>
@@ -42,7 +41,7 @@
                   <a href="add.html">Dodaj Dogodek</a>
                 </li>
                 <li class="divider"></li>
-                <li>
+                <li class="active">
                   <a href="vpis.html">Vpis</a>
                 </li>
                 <li class="divider"></li>
@@ -57,7 +56,7 @@
             </li>
           </ul>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li class="active">
+            <li>
               <a href="index.html">Domov</a>
             </li>
             <li>
@@ -77,7 +76,7 @@
             </li>
           </ul>
           <ul class="side-nav" id="mobile-sidenav">
-            <li class="active">
+            <li>
               <a href="index.html">Home</a>
             </li>
             <li>
@@ -100,62 +99,45 @@
       </nav>
     </div>
     <div class="container">
-      <div class="row">
-        <h1 class="center-align col s12">Kulturnik</h1>
-        <hr/>
-      </div>
-      <div class="carousel carousel-slider hoverable" data-indicators="true">
-        <a class="carousel-item" href="#one!">
-          <img src="res/hkphil1718.JPG">
-        </a>
-        <a class="carousel-item" href="#two!">
-          <img src="res/bkpam2284930_gallery6.jpeg">
-        </a>
-        <a class="carousel-item" href="#three!">
-          <img src="res/hammerfall.jpg">
-        </a>
-        <a class="carousel-item" href="#four!">
-          <img src="res/musicLogo.png">
-        </a>
-        <a class="carousel-item" href="#five!">
-          <img src="res/generic-event.jpg">
-        </a>
-      </div>
-      <div class="row">
-        <div class="col s12">
-          <h3 class="center-align">Dogodki na dlani</h3>
-          <p class="flow-text center-align">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis enim corrupti excepturi fuga nam assumenda
-            repudiandae harum recusandae beatae! Quis porro obcaecati dolor, quasi explicabo illo nihil quas ipsum vitae!
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium error provident iste facere, nostrum sed
-            eaque consectetur blanditiis cumque. Voluptatum blanditiis tempora quam, nesciunt vitae eveniet officiis possimus
-            inventore perspiciatis?
-          </p>
+      <h2 class="center-align">
+        Vpis
+      </h2>
+      <form action="#" method="post">
+        <div class="row">
+          <div class="input-field col s10 offset-s1 col l8 offset-l2">
+            <input id="user" type="text" class="validate">
+            <label for="user">Uporabniško Ime</label>
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col s4">
-          <h3 class="center-align">Kontakt</h3>
-          <p class="flow-text center-align">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis enim corrupti excepturi fuga nam assumenda
-            repudiandae harum rec eaque consectetur blanditiis cumque. Voluptatum blanditiis tempora quam, nesciunt vitae
-            eveniet officiis possimus inventore perspiciatis?</p>
+        <div class="row">
+          <div class="input-field col s10 offset-s1 col l8 offset-l2">
+            <input id="password" type="password" class="validate">
+            <label for="password">Password</label>
+          </div>
         </div>
-        <div class="col s4">
-          <h3 class="center-align">O nas</h3>
-          <p class="flow-text center-align">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis enim corrupti excepturi fuga nam assumenda
-            repudiandae harum recusandae beatae! Quis porro obcaecati dolor, quasi explicabo illo nihil quas ipsum vitae!
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium error provident iste facere, nostrum sed
-            eaque consectetur blanditiis cumque. Voluptatum blanditiis tempora quam, nesciunt vitae eveniet officiis possimus
-            inventore perspiciatis?
-          </p>
+        <div class="row">
+          <div class="radio col s10 offset-s1 col l8 offset-l2">
+            <p>
+              <input type="checkbox" id="remember" />
+              <label for="remember">Zapomni si me</label>
+            </p>
+          </div>
         </div>
-        <div class="col s4">
-          <h3 class="center-align">Sodelujemo z</h3>
-          <p class="flow-text center-align">Lorem ip eaque consectetur blanditiis cumque. Voluptatum blanditiis tempora quam, nesciunt vitae eveniet officiis
-            possimus inventore perspiciatis? lorem</p>
-        </div>
+        <div class="row">
+          <div class="input-field center-align">
+            <button id="signIn" class="btn btn-submit large" type="submit">Vpis</button>
+            <div class="input-field center-align">
+              <a href="registracija.html">Še nimate računa?</a>
+
+            </div>
+
+          </div>
+
+
+
+      </form>
       </div>
     </div>
-  </div>
 </body>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/materialize.min.js"></script>
@@ -177,12 +159,6 @@
     });
 
     // Page Specific //
-
-    // Carousel //
-    $('.carousel.carousel-slider').carousel({
-      fullWidth: true,
-      noWrap: true
-    });
 
 
 
