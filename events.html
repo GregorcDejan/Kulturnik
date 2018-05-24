@@ -126,15 +126,23 @@
                 <p>Pretekli dogodki</p>
                 <div class="switch">
                   <label>
-                    Off
+                    Ne
                     <input type="checkbox">
                     <span class="lever"></span>
-                    On
+                    Da
                   </label>
 
                 </div>
                 <div class="input-field">
-
+                  <select multiple>
+                    <option value="" disabled selected>Kategorija</option>
+                    <option value="1">Glasba</option>
+                    <option value="2">Gledališče</option>
+                    <option value="3">Razstave</option>
+                    <option value="4">Športni Dogodki</option>
+                    <option value="5">Kino</option>
+                  </select>
+                  <label>Izberite Kategorijo</label>
                 </div>
               </div>
             </div>
@@ -926,7 +934,12 @@
       belowOrigin: true,
       alignment: 'left'
     });
+    // Navbar //
     $('.button-collapse').sideNav();
+    $('.dropdown-trigger').dropdown({
+      constrainWidth: false,
+      hover: true
+    });
 
     // Page Specific //
 
@@ -941,10 +954,11 @@
       closeOnSelect: false, // Close upon selecting a date,
       container: undefined // ex. 'body' will append picker to body
 
-      // Select list //
-      $('select').material_select();
+
     })
-  };
+    // Select list //
+    $('select').material_select();
+  });
 </script>
 
 </html>
