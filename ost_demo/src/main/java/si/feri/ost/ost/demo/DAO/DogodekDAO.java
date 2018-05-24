@@ -3,6 +3,7 @@ package si.feri.ost.ost.demo.DAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 import si.feri.ost.ost.demo.Razredi.Dogodek;
 
@@ -92,14 +93,6 @@ public class DogodekDAO {
         List<Map<String,Object>> vrstice  = jdbcTemplate.queryForList(sql);
 
         for(Map vrstica: vrstice){
-            String naziv = (String)vrstica.get("Naziv");
-            String vir = (String)vrstica.get("Vir");
-            String urlSlike = (String)vrstica.get("SlikaURL");
-            String tipDogodka = (String)vrstica.get("Tip_Dogodka");
-            String kraj = (String)vrstica.get("Kraj");
-            String opis = (String)vrstica.get("Opis");
-            String naslov= (String)vrstica.get("Naslov");
-            String cena = (String)vrstica.get("Cena");
 
             Dogodek d= (Dogodek)jdbcTemplate.queryForObject(sql,
                     new Object[] {datum},
@@ -122,14 +115,7 @@ public class DogodekDAO {
         List<Map<String,Object>> vrstice  = jdbcTemplate.queryForList(sql);
 
         for(Map vrstica: vrstice){
-            String naziv = (String)vrstica.get("Naziv");
-            String vir = (String)vrstica.get("Vir");
-            String urlSlike = (String)vrstica.get("SlikaURL");
-            String tipDogodka = (String)vrstica.get("Tip_Dogodka");
-            String datum = (String)vrstica.get("Datum");
-            String opis = (String)vrstica.get("Opis");
-            String naslov= (String)vrstica.get("Naslov");
-            String cena = (String)vrstica.get("Cena");
+
 
             Dogodek d= (Dogodek)jdbcTemplate.queryForObject(sql,
                     new Object[] {kraj},
@@ -142,7 +128,7 @@ public class DogodekDAO {
 
     }
 
-    public List<Dogodek> getByCena(String cenaMin, String cenaMax){
+    public List<Dogodek> getByCena(String cenaMax){
 
         String sql = "SELECT * FROM dogodek WHERE cena BETWEEN ? AND ?";
 
@@ -152,17 +138,9 @@ public class DogodekDAO {
 
         for(Map vrstica:vrstice){
 
-            String naziv = (String)vrstica.get("Naziv");
-            String vir = (String)vrstica.get("Vir");
-            String urlSlike = (String)vrstica.get("SlikaURL");
-            String tipDogodka = (String)vrstica.get("Tip_Dogodka");
-            String kraj = (String)vrstica.get("Kraj");
-            String opis = (String)vrstica.get("Opis");
-            String naslov= (String)vrstica.get("Naslov");
-            String datum = (String)vrstica.get("Datum");
 
             Dogodek d= (Dogodek)jdbcTemplate.queryForObject(sql,
-                    new Object[] {cenaMin,cenaMax},
+                    new Object[] {cenaMax},
                     new BeanPropertyRowMapper(Dogodek.class));
 
             rez.add(d);
@@ -171,6 +149,27 @@ public class DogodekDAO {
 
         return rez;
 
+    }
+
+    public List<Dogodek> getByKategorija(String kategorija)
+    {
+        String sql = "SELECT * FROM dogodek WHERE Tip_Dogodka = ?";
+
+        List<Dogodek> rez = new ArrayList<>();
+
+        List<Map<String,Object>> vrstice = jdbcTemplate.queryForList(sql);
+
+        for(Map vrstica: vrstice){
+
+
+            Dogodek d= (Dogodek)jdbcTemplate.queryForObject(sql,
+                    new Object[] {kategorija},
+                    new BeanPropertyRowMapper(Dogodek.class));
+
+            rez.add(d);
+
+        }
+        return rez;
     }
 
 
