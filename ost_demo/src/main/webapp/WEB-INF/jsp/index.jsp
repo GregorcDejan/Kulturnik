@@ -8,8 +8,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Kulturnik</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<<<<<<< HEAD
     <link type="text/css" rel="stylesheet" href="/lib/css/materialize.min.css" media="screen,projection" />
     <link rel="stylesheet" type="text/css" media="screen" href="/lib/css/style.css" />
+=======
+    <link rel="stylesheet" type="text/css" href="materialize.min.css"  />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+>>>>>>> 1fd0da6afb78cdb05d7b3ff68ae5e9b15c1758a8
     <style>
     </style>
 </head>
@@ -159,7 +164,7 @@
 </div>
 </body>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script type="text/javascript" src="js/materialize.min.js"></script>
+<script type="text/javascript" src="materialize.min.js"></script>
 
 <script>
     // Every page needs this dingy //
