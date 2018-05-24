@@ -35,4 +35,16 @@ public class GlavniKontroler {
 
         return "vpis";
     }
+
+    @RequestMapping(value = { "/add" }, method = RequestMethod.GET)
+    public String dodajanjeDogodka(Model model) {
+
+        return "add";
+    }
+
+    @RequestMapping(value = { "/registracija" }, method = RequestMethod.GET)
+    public String registracija(Model model) {
+
+        return "registracija";
+    }
 }
