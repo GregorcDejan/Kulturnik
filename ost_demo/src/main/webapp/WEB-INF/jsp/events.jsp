@@ -197,14 +197,10 @@
                 <i class="material-icons right">expand_more</i>${dogodek.naziv}</span>
                     <p>Lokacija: ${dogodek.kraj}
                         <br/> Cena: ${dogodek.cena}
-                        <br/> Izvajalec: HammerFall
-                        <br/> Organizator: Rock of Ages
+                        <br/> Naslov: ${dogodek.naslov}
+                        
                         <br/>
-                    <p class="">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore velit nihil consectetur temporibus quae
-                        praesentium, soluta ratione ex dolorum unde illo sequi laudantium doloribus veniam ab ad aperiam vero at.
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum libero ut sunt tenetur doloribus consequuntur
-                        nesciunt nemo, laboriosam fuga. Nihil optio reiciendis sed officiis sit sapiente incidunt eligendi quidem
-                        excepturi?
+                    <p class="">${dogodek.opis}
                         <a href=""></a>
                     </p>
                     <button class="btn valign-wrapper right blue lighten-1 waves-effect">
