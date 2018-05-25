@@ -14,10 +14,7 @@
 <<<<<<< HEAD
     <link type="text/css" rel="stylesheet" href="/lib/css/materialize.min.css" media="screen,projection" />
     <link rel="stylesheet" type="text/css" media="screen" href="/lib/css/style.css" />
-=======
-    <link rel="stylesheet" type="text/css" href="materialize.min.css"  />
-    <link rel="stylesheet" type="text/css" href="style.css" />
->>>>>>> 1fd0da6afb78cdb05d7b3ff68ae5e9b15c1758a8
+
     <style>
     </style>
 </head>
