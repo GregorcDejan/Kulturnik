@@ -198,7 +198,7 @@
                     <p>Lokacija: ${dogodek.kraj}
                         <br/> Cena: ${dogodek.cena}
                         <br/> Naslov: ${dogodek.naslov}
-                        
+
                         <br/>
                     <p class="">${dogodek.opis}
                         <a href=""></a>
