@@ -1,4 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+         pageEncoding="utf-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="sl">
 
 <head>
@@ -7,8 +10,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Dodaj Dogodek</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
-    <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
+    <<<<<<< HEAD
+    <link type="text/css" rel="stylesheet" href="/lib/css/materialize.min.css" media="screen,projection" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/lib/css/style.css" />
+    =======
+    <link rel="stylesheet" type="text/css" href="materialize.min.css"  />
+    <link rel="stylesheet" type="text/css" href="style.css" />
     <style>
 
     </style>
@@ -19,7 +26,7 @@
     <div class="navbar-fixed">
         <nav class=" teal darken-2 z-depth-3">
             <div class="nav-wrapper">
-                <a href="index.html" class="brand-logo">Kulturnik</a>
+                <a href="index" class="brand-logo">Kulturnik</a>
                 <a href="#" class="button-collapse" data-activates="mobile-sidenav">
                     <i class="material-icons">menu</i>
                 </a>
@@ -29,61 +36,72 @@
                             <i class="material-icons">search</i>
                         </a>
                     </li>
-                    <li class="active">
-                        <a href="add.html">
-                            <i class="material-icons">add</i>
+                    <li>
+                        <a href="#">
+                            <i class="material-icons">place</i>
                         </a>
                     </li>
                     <li>
-                        <a href="#">
-                            <i class="material-icons">person</i>
+                        <a class="dropdown-trigger" data-activates="dropdownPerson" href="#">
+                            <i class="material-icons left">person</i>
                         </a>
+                        <ul id='dropdownPerson' class='dropdown-content'>
+                            <li>
+                                <a href="events">Dodaj Dogodek</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="vpis">Vpis</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="registracija">Registracija</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="#!">Moji Dogodki</a>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li>
-                        <a href="index.html">Home</a>
+                    <li class="active">
+                        <a href="index">Domov</a>
                     </li>
                     <li>
-                        <a href="#">Glasba</a>
+                        <a href="events">Glasba</a>
                     </li>
                     <li>
-                        <a href="#">Gledališče</a>
+                        <a href="events">Gledališče</a>
                     </li>
                     <li>
-                        <a href="#">Razstave</a>
+                        <a href="events">Razstave</a>
                     </li>
                     <li>
-                        <a href="#">Športni dogodki</a>
+                        <a href="events">Športni dogodki</a>
                     </li>
                     <li>
-                        <a href="#">Kino</a>
-                    </li>
-                    <li>
-                        <a href="#">Blizu</a>
+                        <a href="events">Kino</a>
                     </li>
                 </ul>
                 <ul class="side-nav" id="mobile-sidenav">
                     <li class="active">
-                        <a href="index.html">Home</a>
+                        <a href="index">Home</a>
                     </li>
                     <li>
-                        <a href="#">Glasba</a>
+                        <a href="events">Glasba</a>
                     </li>
                     <li>
-                        <a href="#">Gledališče</a>
+                        <a href="events">Gledališče</a>
                     </li>
                     <li>
-                        <a href="#">Razstave</a>
+                        <a href="events">Razstave</a>
                     </li>
                     <li>
-                        <a href="#">Športni dogodki</a>
+                        <a href="events">Športni dogodki</a>
                     </li>
                     <li>
-                        <a href="#">Kino</a>
-                    </li>
-                    <li>
-                        <a href="#">Blizu</a>
+                        <a href="events">Kino</a>
                     </li>
                 </ul>
             </div>
