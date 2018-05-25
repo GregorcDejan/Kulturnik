@@ -106,6 +106,38 @@ public class DogodekDAO {
 
     }
 
+    public List<Dogodek> getByTip(String tip)
+    {
+        String sql = "SELECT * FROM dogodek WHERE tip_dogodka=?";
+        List<Dogodek> rez = new ArrayList<>();
+
+        List<Map<String,Object>> vrstice  = jdbcTemplate.queryForList(sql,new Object[]{tip});
+
+        for(Map vrstica: vrstice){
+
+
+                    int id=(Integer)(vrstica.get("ID"));
+                    String naziv=(String)vrstica.get("Naziv");
+                    String vir=(String)vrstica.get("Vir");
+                    String slikaURL=(String)vrstica.get("slikaURL");
+
+                    String opis=(String)vrstica.get("opis");
+                    String kraj=(String)vrstica.get("kraj");
+                    String naslov=(String)vrstica.get("naslov");
+                    String datum=(String)vrstica.get("datum");
+                    int idUporabnik=(Integer)vrstica.get("id_Uporabnika");
+                    String cena=(String)vrstica.get("cena");
+            Dogodek d= new Dogodek(id,naziv,vir,slikaURL,tip,opis,kraj,naslov,datum,idUporabnik,cena);
+
+            rez.add(d);
+
+        }
+
+        return rez;
+
+
+    }
+
     public List<Dogodek> getByKraj(String kraj)
     {
         String sql = "SELECT * FROM dogodek WHERE kraj=?";
