@@ -9,17 +9,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </head>
-private int id;
-private String naziv;
-private String vir;
-private String slikaURL;
-private String tip;
-private String opis;
-private String kraj;
-private String naslov;
-private String datum;
-private int idUporabnika;
-private String cena;
+String ime,String priimek,String geslo, String email, String telefonska,String datum_rojstva
 <body>
 <h1>Seznam dodanih oseb</h1>
 <table border=1>
@@ -29,6 +19,19 @@ private String cena;
             <td>${d.getNaziv()}</td>
             <td><a href="${d.vir}" />${d.vir}</td>
             <td><img src="${d.slikaURL}" /></td>
+        </tr>
+    </c:forEach>
+</table>
+
+<table border=1>
+    <tr><th>ID</th><th>ime</th><th>priimek</th><th>email</th><th>telefonska</th><th>datum orjstva</th>/tr>
+    <c:forEach  items="${osebe}" var ="d">
+        <tr>
+            <td>${d.getIme()}</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
         </tr>
     </c:forEach>
 </table>

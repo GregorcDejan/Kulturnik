@@ -21,7 +21,11 @@ public class KontrolerBaze {
     @Autowired
     DogodekDAO dogodki;
     @Autowired
+<<<<<<< HEAD
     OsebaDAO osebe;
+=======
+    OsebaDAO oseba;
+>>>>>>> 761034c0b12b1b376a7827a6e4c2c163ab2fb0c1
 
     @RequestMapping(value={"/Konzola",}, method=RequestMethod.GET)
     public String konzola(Model model,@RequestParam(value="tip", required=false)String tip)
@@ -30,6 +34,13 @@ public class KontrolerBaze {
             model.addAttribute("dogodki",dogodki.getAllDogodki());
             else
         model.addAttribute("dogodki",dogodki.getByTip(tip));
+        return "Konsola";
+    }
+
+    @RequestMapping(value={"/Osebice",}, method=RequestMethod.GET)
+    public String bazaOseb(Model model,@RequestParam(value="", required=false)String tip)
+    {
+
         return "Konsola";
     }
 
