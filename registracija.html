@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="teal lighten-5">
 
 <head>
   <meta charset="utf-8" />
@@ -11,9 +11,12 @@
   <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
   <script src="main.js"></script>
 </head>
+<script>
+
+</script>
 
 <body>
-  <div class="teal lighten-5">
+  <main class="teal lighten-5">
     <div class="navbar-fixed">
       <nav class=" teal darken-2 z-depth-3">
         <div class="nav-wrapper">
@@ -32,7 +35,7 @@
                 <i class="material-icons">place</i>
               </a>
             </li>
-            <li>
+            <li class="active">
               <a class="dropdown-trigger" data-activates="dropdownPerson" href="#">
                 <i class="material-icons left">person</i>
               </a>
@@ -49,7 +52,7 @@
                   </a>
                 </li>
                 <li class="divider"></li>
-                <li>
+                <li class="active">
                   <a href="registracija.html">
                     <button class="btn-flat teal-text">Registracija</button>
                   </a>
@@ -65,7 +68,7 @@
           </ul>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
 
-            <li class="active">
+            <li>
               <a href="index.html">Domov</a>
             </li>
             <li>
@@ -110,7 +113,7 @@
           </ul>
           <ul class="side-nav" id="mobile-sidenav">
             <form action="events.html" method="get">
-              <li class="active">
+              <li>
                 <a href="index.html">Home</a>
               </li>
 
@@ -135,11 +138,11 @@
       </nav>
     </div>
     <div class="container">
+      <h2 class="center-align">
+        Registracija
+      </h2>
       <div class="row">
         <div class="col s6 offset-s3">
-          <h2 class="center-align">
-            Registracija
-          </h2>
           <form action="#" method="post">
             <div class="input-field col s6">
               <input required id="first_name" type="text" class="validate">
@@ -148,25 +151,15 @@
             <div class="input-field col s6">
               <input required id="last_name" type="text" class="validate">
               <label for="last_name">Priimek</label>
-
             </div>
             <div class="input-field col s6">
               <input required id="geslo" type="password" class="validate">
               <label for="geslo">Geslo</label>
             </div>
             <div class="input-field col s6">
-              <input required id="gesloPonovi" type="password" class="validate">
-              <label for="gesloPonovi">Ponovi Geslo</label>
-            </div>
-            <div class="input-field col s6">
               <input required id="email" type="email" class="validate">
               <label for="email" data-error="wrong" data-success="right">Email</label>
             </div>
-            <div class="input-field col s6">
-              <input required id="emailPonovi" type="email" class="validate">
-              <label for="emailPonovi" data-error="wrong" data-success="right">Ponovi Email</label>
-            </div>
-
             <div class="input-field col s6">
               <input required id="datumRojstva" type="text" class="datepicker validate">
               <label for="datumRojstva">Datum Rojstva</label>
@@ -175,13 +168,24 @@
               <input id="telefon" type="text" class="validate">
               <label for="telefon">Telefon</label>
             </div>
-            <button class="btn btn-submit btn-large " type="submit">Registriraj se
+            <div class="file-field input-field col s12">
+              <div class="btn">
+                <span class="left">Naloži
+                  <i class="material-icons right">file_upload</i>
+                </span>
+                <input type="file">
+              </div>
+              <div class="file-path-wrapper">
+                <input class="file-path validate" type="text" placeholder="Prenesite osebno identifikacijo">
+              </div>
+            </div>
+            <button class="btn col offset-s4 s4" type="submit">Registriraj se
             </button>
           </form>
         </div>
       </div>
     </div>
-  </div>
+  </main>
 </body>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/materialize.min.js"></script>

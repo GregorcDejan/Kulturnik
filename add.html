@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="sl">
+<html class="teal lighten-5" lang="sl">
 
 <head>
   <meta charset="UTF-8">
@@ -14,7 +14,7 @@
 </head>
 
 <body>
-  <div class="teal lighten-5">
+  <main class="teal lighten-5">
     <div class="navbar-fixed">
       <nav class=" teal darken-2 z-depth-3">
         <div class="nav-wrapper">
@@ -33,12 +33,12 @@
                 <i class="material-icons">place</i>
               </a>
             </li>
-            <li>
+            <li class="active">
               <a class="dropdown-trigger" data-activates="dropdownPerson" href="#">
                 <i class="material-icons left">person</i>
               </a>
               <ul id='dropdownPerson' class='dropdown-content'>
-                <li>
+                <li class="active">
                   <a href="add.html">
                     <button class="btn-flat teal-text">Dodaj Dogodek</button>
                   </a>
@@ -66,7 +66,7 @@
           </ul>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
 
-            <li class="active">
+            <li>
               <a href="index.html">Domov</a>
             </li>
             <li>
@@ -111,7 +111,7 @@
           </ul>
           <ul class="side-nav" id="mobile-sidenav">
             <form action="events.html" method="get">
-              <li class="active">
+              <li>
                 <a href="index.html">Home</a>
               </li>
 
@@ -154,7 +154,7 @@
         </button>
       </form>
     </div>
-  </div>
+  </main>
 </body>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/materialize.min.js"></script>
@@ -166,7 +166,17 @@
       belowOrigin: true,
       alignment: 'left'
     });
+    // Navbar //
     $('.button-collapse').sideNav();
+    $('.dropdown-trigger').dropdown({
+      constrainWidth: false,
+      hover: true
+    });
+
+    // Page Specific //
+
+
+
   });
 </script>
 

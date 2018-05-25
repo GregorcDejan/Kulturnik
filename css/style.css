@@ -24,8 +24,13 @@
   margin-top: 0px;
 }
 
-nav li .btn-flat {
+nav #nav-mobile .btn-flat,
+nav #dropdownPerson .btn-flat {
   margin: 0px;
   padding: 0px;
   text-transform: capitalize;
+}
+nav li .btn-flat {
+  text-transform: capitalize;
+  padding-left: 3em;
 }
