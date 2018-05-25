@@ -11,6 +11,20 @@ public class OsebaDAO {
 
     @Autowired
     JdbcTemplate jdbcTemplate;
+/*
+    public List<Oseba> getAllOsebe(){
+        String sql = "SELECT * FROM UPORABNIK";
+        List<Artikli> ret = new ArrayList<Artikli>();
+        List<Map<String,Object>> rows = jdbcTemplate.queryForList(sql);
+        for (Map<String,Object> row : rows) {
+            int id = (int)row.get("Id");
+            String naziv = (String)row.get("Naziv");
+
+            ret.add(new Artikli(id, naziv));
+        }
+        return ret;
+    }*/
+
 
 
     public int addOseba(String ime,String priimek,String geslo, String email, String telefonska,String datum_rojstva)
