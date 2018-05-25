@@ -99,21 +99,51 @@
       </nav>
     </div>
     <div class="container">
-      <h2 class="center-align">
-        Registracija
-      </h2>
-      <form action="#" method="post">
-        <input type="text" placeholder="Ime*: " />
-        <input type="text" placeholder="Priimek*: " />
-        <input type="text" placeholder="E-mail*: " />
-        <input type="text" placeholder="Geslo*: " />
-        <input type="text" placeholder="Datum Rojstva" />
-        <input type="text" placeholder="Telefon" />
-        <button class="btn btn-submit large" type="submit">
-          <div class="valign-wrapper">Registriraj se
-          </div>
-        </button>
-      </form>
+      <div class="row">
+        <div class="col s6 offset-s3">
+          <h2 class="center-align">
+            Registracija
+          </h2>
+          <form action="#" method="post">
+            <div class="input-field col s6">
+              <input required id="first_name" type="text" class="validate">
+              <label for="first_name">Ime</label>
+            </div>
+            <div class="input-field col s6">
+              <input required id="last_name" type="text" class="validate">
+              <label for="last_name">Priimek</label>
+
+            </div>
+            <div class="input-field col s6">
+              <input required id="geslo" type="password" class="validate">
+              <label for="geslo">Geslo</label>
+            </div>
+            <div class="input-field col s6">
+              <input required id="gesloPonovi" type="password" class="validate">
+              <label for="gesloPonovi">Ponovi Geslo</label>
+            </div>
+            <div class="input-field col s6">
+              <input required id="email" type="email" class="validate">
+              <label for="email" data-error="wrong" data-success="right">Email</label>
+            </div>
+            <div class="input-field col s6">
+              <input required id="emailPonovi" type="email" class="validate">
+              <label for="emailPonovi" data-error="wrong" data-success="right">Ponovi Email</label>
+            </div>
+
+            <div class="input-field col s6">
+              <input required id="datumRojstva" type="text" class="datepicker validate">
+              <label for="datumRojstva">Datum Rojstva</label>
+            </div>
+            <div class="input-field col s6">
+              <input id="telefon" type="text" class="validate">
+              <label for="telefon">Telefon</label>
+            </div>
+            <button class="btn btn-submit btn-large " type="submit">Registriraj se
+            </button>
+          </form>
+        </div>
+      </div>
     </div>
   </div>
 </body>
@@ -138,13 +168,19 @@
 
     // Page Specific //
 
-    // Carousel //
-    $('.carousel.carousel-slider').carousel({
-      fullWidth: true,
-      noWrap: true
-    });
+
+    // Pickdate //
+    $('.datepicker').pickadate({
+      selectMonths: true, // Creates a dropdown to control month
+      selectYears: 15, // Creates a dropdown of 15 years to control year,
+      today: 'Today',
+      clear: 'Clear',
+      close: 'Ok',
+      closeOnSelect: false, // Close upon selecting a date,
+      container: undefined // ex. 'body' will append picker to body
 
 
+    })
 
   });
 </script>

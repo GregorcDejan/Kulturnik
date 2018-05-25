@@ -33,55 +33,95 @@
               </a>
             </li>
             <li>
-              <a href="add.html">
-                <i class="material-icons">add</i>
+              <a class="dropdown-trigger" data-activates="dropdownPerson" href="#">
+                <i class="material-icons left">person</i>
               </a>
-            </li>
-            <li>
-              <a href="#">
-                <i class="material-icons">person</i>
-              </a>
+              <ul id='dropdownPerson' class='dropdown-content'>
+                <li>
+                  <a href="add.html">Dodaj Dogodek</a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                  <a href="vpis.html">Vpis</a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                  <a href="registracija.html">Registracija</a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                  <a href="#!">Moji Dogodki</a>
+                </li>
+              </ul>
             </li>
           </ul>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
+
             <li>
               <a href="index.html">Domov</a>
             </li>
             <li class="active">
-              <a href="events.html">Glasba</a>
+              <form action="events.html" method="get">
+                <a class="dropdown-trigger" data-activates="dropdownEvents" href="#">
+                  Dogodki
+                  <i class="material-icons right">arrow_drop_down</i>
+                </a>
+                <ul id='dropdownEvents' class='dropdown-content'>
+                  <li class="active">
+                    <a href="#">
+                      <button class="btn-flat teal-text" type="submit" name="event" value="Glasba">Glasba</button>
+                    </a>
+                  </li>
+                  <li class="divider"></li>
+                  <li>
+                    <a href="#">
+                      <button class="btn-flat teal-text" type="submit" name="event" value="Glasba">Gledališče</button>
+                    </a>
+                  </li>
+                  <li class="divider"></li>
+                  <li>
+                    <a href="#">
+                      <button class="btn-flat teal-text" type="submit" name="event" value="Glasba">Razstave</button>
+                    </a>
+                  </li>
+                  <li class="divider"></li>
+                  <li>
+                    <a href="#">
+                      <button class="btn-flat teal-text" type="submit" name="event" value="Glasba">Šport</button>
+                    </a>
+                  </li>
+                  <li class="divider"></li>
+                  <li>
+                    <a href="#">
+                      <button class="btn-flat teal-text" type="submit" name="event" value="Glasba">Kino</button>
+                    </a>
+                  </li>
+                </ul>
             </li>
-            <li>
-              <a href="events.html">Gledališče</a>
-            </li>
-            <li>
-              <a href="events.html">Razstave</a>
-            </li>
-            <li>
-              <a href="events.html">Športni dogodki</a>
-            </li>
-            <li>
-              <a href="events.html">Kino</a>
-            </li>
+            </form>
           </ul>
           <ul class="side-nav" id="mobile-sidenav">
-            <li>
-              <a href="index.html">Home</a>
-            </li>
-            <li class="active">
-              <a href="events.html">Glasba</a>
-            </li>
-            <li>
-              <a href="events.html">Gledališče</a>
-            </li>
-            <li>
-              <a href="events.html">Razstave</a>
-            </li>
-            <li>
-              <a href="events.html">Športni dogodki</a>
-            </li>
-            <li>
-              <a href="events.html">Kino</a>
-            </li>
+            <form action="events.html" method="get">
+              <li>
+                <a href="index.html">Home</a>
+              </li>
+
+              <li class="active">
+                <button class="btn-flat" type="submit" name="event" value="Glasba">Glasba</button>
+              </li>
+              <li>
+                <button class="btn-flat" type="submit" name="event" value="Glasba">Gledališče</button>
+              </li>
+              <li>
+                <button class="btn-flat" type="submit" name="event" value="Glasba">Razstave</button>
+              </li>
+              <li>
+                <button class="btn-flat" type="submit" name="event" value="Glasba">Šport</button>
+              </li>
+              <li>
+                <button class="btn-flat" type="submit" name="event" value="Glasba">Kino</button>
+              </li>
+            </form>
           </ul>
         </div>
       </nav>
@@ -98,56 +138,26 @@
               <i class="material-icons prefix">search</i>
               <input id="eventsSearchNaziv" type="text" class="validate" placeholder="Naziv">
               <input id="eventsSearchKraj" type="text" class="validate" placeholder="Kraj">
-              <input id="eventsSearchKategorija" type="text" class="validate" placeholder="Kategorija">
-              <button class="btn-flat">
-                <i class="material-icons suffix" type="submit">keyboard_return</i>
+              <button class="btn-flat" type="submit" name="search">
+                <i class="material-icons suffix">keyboard_return</i>
               </button>
 
             </div>
           </div>
-          <div class="filtri">
-            <div class="row">
-              <h4>Napredno</h4>
-              <div class="col m3">
-                <input type="text" class="datepicker" placeholder="Datum Pričetka">
-                <input type="text" class="datepicker" placeholder="Datum Konca">
-              </div>
-              <div class="col m3">
-                <p class="range-field">
-                  <label for="zacCena">Min Cena</label>
-                  <input type="range" id="zacCena" min="0" max="1000" />
-                </p>
-                <p class="range-field">
-                  <label for="najCena">Max Cena</label>
-                  <input type="range" id="najCena" min="0" max="1000" />
-                </p>
-              </div>
-              <div class="col m3">
-                <p>Pretekli dogodki</p>
-                <div class="switch">
-                  <label>
-                    Ne
-                    <input type="checkbox">
-                    <span class="lever"></span>
-                    Da
-                  </label>
 
-                </div>
-                <div class="input-field">
-                  <select multiple>
-                    <option value="" disabled selected>Kategorija</option>
-                    <option value="1">Glasba</option>
-                    <option value="2">Gledališče</option>
-                    <option value="3">Razstave</option>
-                    <option value="4">Športni Dogodki</option>
-                    <option value="5">Kino</option>
-                  </select>
-                  <label>Izberite Kategorijo</label>
-                </div>
-              </div>
+          <div class="row center-align">
+            <h4>Dodatno </h4>
+            <div class="offset-s3 col s3">
+              <input type="text" class="datepicker" placeholder="Datum Pričetka">
             </div>
+            <div class="col s3">
+              <p class="range-field">
+                <label for="najCena">Max Cena</label>
+                <input type="range" id="najCena" min="0" max="1000" />
+              </p>
+            </div>
+          </div>
         </form>
-        </div>
       </div>
 
 
@@ -599,8 +609,7 @@
 
 
     })
-    // Select list //
-    $('select').material_select();
+
   });
 </script>
 
