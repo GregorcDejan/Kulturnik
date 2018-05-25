@@ -5,3 +5,27 @@
 #sidenav-overlay {
   z-index: 1;
 }
+#napovednikbox2 a {
+  color: #000;
+  font-weight: 700;
+  text-decoration: none;
+  display: block;
+  padding: 6px 16px;
+  background: url(https://www.napovednik.com/images/icon-more.png) right
+    center/auto 16px no-repeat;
+}
+
+#napovednikbox2 a:hover {
+  font-size: larger;
+  text-decoration: underline;
+}
+
+.card-title blockquote {
+  margin-top: 0px;
+}
+
+nav li .btn-flat {
+  margin: 0px;
+  padding: 0px;
+  text-transform: capitalize;
+}
