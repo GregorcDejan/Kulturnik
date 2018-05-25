@@ -10,12 +10,12 @@
     <title>Dogodek</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <<<<<<< HEAD
+
     <link type="text/css" rel="stylesheet" href="/lib/css/materialize.min.css" media="screen,projection" />
     <link rel="stylesheet" type="text/css" media="screen" href="/lib/css/style.css" />
-    =======
 
-    <script src="main.js"></script>
+
+
 </head>
 
 <body>
@@ -69,16 +69,16 @@
                         <form action="/events" method="get"><button type="submit">Glasba</button><input type="hidden" value="Glasba" name="tip"/></form>
                     </li>
                     <li>
-                        <a href="events">Gledališče</a>
+                        <form action="/events" method="get"><button type="submit">Gledališče</button><input type="hidden" value="Gledališče" name="tip"/></form>
                     </li>
                     <li>
-                        <a href="events">Razstave</a>
+                        <form action="/events" method="get"><button type="submit">Razstava</button><input type="hidden" value="Razstava" name="tip"/></form>
                     </li>
                     <li>
-                        <a href="events">Športni dogodki</a>
+                        <form action="/events" method="get"><button type="submit">Šport</button><input type="hidden" value="Šport" name="tip"/></form>
                     </li>
                     <li>
-                        <a href="events">Kino</a>
+                        <form action="/events" method="get"><button type="submit">Kino</button><input type="hidden" value="film" name="tip"/></form>
                     </li>
                 </ul>
                 <ul class="side-nav" id="mobile-sidenav">
@@ -226,7 +226,7 @@
 </div>
 </body>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script type="text/javascript" src="js/materialize.min.js"></script>
+<script type="text/javascript" src="/lib/javascript/materialize.min.js"></script>
 
 <script>
     // Every page needs this dingy //

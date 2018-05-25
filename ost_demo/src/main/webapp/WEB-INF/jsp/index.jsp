@@ -70,16 +70,16 @@
                         <form action="/events" method="get"><button type="submit">Glasba</button><input type="hidden" value="Glasba" name="tip"/></form>
                     </li>
                     <li>
-                        <a href="events">Gledališče</a>
+                        <form action="/events" method="get"><button type="submit">Gledališče</button><input type="hidden" value="Gledališče" name="tip"/></form>
                     </li>
                     <li>
-                        <a href="events">Razstave</a>
+                        <form action="/events" method="get"><button type="submit">Razstava</button><input type="hidden" value="Razstava" name="tip"/></form>
                     </li>
                     <li>
-                        <a href="events">Športni dogodki</a>
+                        <form action="/events" method="get"><button type="submit">Šport</button><input type="hidden" value="Šport" name="tip"/></form>
                     </li>
                     <li>
-                        <a href="events">Kino</a>
+                        <form action="/events" method="get"><button type="submit">Kino</button><input type="hidden" value="Film" name="tip"/></form>
                     </li>
                 </ul>
                 <ul class="side-nav" id="mobile-sidenav">
