@@ -24,14 +24,16 @@ String ime,String priimek,String geslo, String email, String telefonska,String d
 </table>
 
 <table border=1>
-    <tr><th>ID</th><th>ime</th><th>priimek</th><th>email</th><th>telefonska</th><th>datum orjstva</th>/tr>
-    <c:forEach  items="${osebe}" var ="d">
+    <tr><<th>ime</th><th>priimek</th><th>email</th><th>telefonska</th><th>datum rojstva</th><th>geslo</th>/tr>
+    <c:forEach  items="${oseba}" var ="d">
         <tr>
-            <td>${d.getIme()}</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>${d.ime}</td>
+            <td>${d.priimek}</td>
+            <td>${d.email}</td>
+            <td>${d.telefonska}</td>
+            <td>${d.datumRojstva}</td>
+            <td>${d.geslo}</td>
+
         </tr>
     </c:forEach>
 </table>

@@ -34,9 +34,9 @@ public class KontrolerBaze {
     }
 
     @RequestMapping(value={"/Osebice",}, method=RequestMethod.GET)
-    public String bazaOseb(Model model,@RequestParam(value="", required=false)String tip)
+    public String bazaOseb(Model model,@RequestParam(value="osebe", required=false)String tip)
     {
-
+            model.addAttribute("oseba",oseba.getAllOsebe());
         return "Konsola";
     }
 
