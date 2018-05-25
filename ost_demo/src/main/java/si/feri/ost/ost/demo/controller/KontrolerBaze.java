@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import si.feri.ost.ost.demo.DAO.DogodekDAO;
+import si.feri.ost.ost.demo.DAO.OsebaDAO;
 import si.feri.ost.ost.demo.Razredi.Dogodek;
 
 import java.util.ArrayList;
@@ -19,6 +20,8 @@ import java.util.ArrayList;
 public class KontrolerBaze {
     @Autowired
     DogodekDAO dogodki;
+    @Autowired
+    OsebaDAO osebe;
 
     @RequestMapping(value={"/Konzola",}, method=RequestMethod.GET)
     public String konzola(Model model,@RequestParam(value="tip", required=false)String tip)
@@ -28,6 +31,17 @@ public class KontrolerBaze {
             else
         model.addAttribute("dogodki",dogodki.getByTip(tip));
         return "Konsola";
+    }
+
+
+    @RequestMapping(value={"/events",}, method=RequestMethod.GET)
+    public String events(Model model,@RequestParam(value="tip", required=false)String tip)
+    {
+        if(tip==null)
+            model.addAttribute("dogodki",dogodki.getAllDogodki());
+        else
+            model.addAttribute("dogodki",dogodki.getByTip(tip));
+        return "events";
     }
 
 

@@ -67,7 +67,7 @@
                         <a href="index">Domov</a>
                     </li>
                     <li>
-                        <a href="events">Glasba</a>
+                        <form action="/events" method="get"><button type="submit">Glasba</button><input type="hidden" value="Glasba" name="tip"/></form>
                     </li>
                     <li>
                         <a href="events">Gledališče</a>

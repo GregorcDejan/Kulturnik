@@ -17,11 +17,7 @@ public class GlavniKontroler {
         return "index";
     }
 
-    @RequestMapping(value = { "/events" }, method = RequestMethod.GET)
-    public String glasba(Model model) {
 
-        return "events";
-    }
 
     //testni jsp za izpise ipd.
     @RequestMapping(value = { "/Test" }, method = RequestMethod.GET)
