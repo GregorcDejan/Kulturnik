@@ -13,29 +13,24 @@
 </head>
 
 <body>
-  <div class="carousel">
-    <a class="carousel-item" href="#one!">
-      <img src="res/bkpam2284930_gallery6.jpeg">
-    </a>
-    <a class="carousel-item" href="#two!">
-      <img src="res/bkpam2284930_gallery6.jpeg">
-    </a>
-    <a class="carousel-item" href="#three!">
-      <img src="res/bkpam2284930_gallery6.jpeg">
-    </a>
-    <a class="carousel-item" href="#four!">
-      <img src="res/bkpam2284930_gallery6.jpeg">
-    </a>
-    <a class="carousel-item" href="#five!">
-      <img src="res/bkpam2284930_gallery6.jpeg">
-    </a>
-  </div>
+  <form action="events.html" method="get">
+    <button type="submit" value="Glasba" name="tip"> Glasba </button>
+    <button value="imeDogodka2" type="submit" name="events"> Zabave </button>
+    <button value="imeDogodka3" type="submit" name="events"> Pivo </button>
+    <button value="imeDogodka4" type="submit" name="events"> Razstave</button>
+  </form>
+
+  <form action="events.html" method="get">
+
+    <button type="submit">Glasba</button>
+
+    <input type="hidden" value="Glasba" name="tip" />
+    <div class="divider"></div>
+    <button type="submit" value="Glasba" name="tip"> GlasbaM </button>
+  </form>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 <script>
-  $(document).ready(function () {
-    $('.carousel').carousel();
-  });
 
 </script>
 
