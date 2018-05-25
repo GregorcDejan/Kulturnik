@@ -125,4 +125,20 @@ public class Dogodek
     public void setDatum(String datum) {
         this.datum = datum;
     }
+
+    public String getCena() {
+        return cena;
+    }
+
+    public void setCena(String cena) {
+        this.cena = cena;
+    }
+
+    public int getIdUporabnika() {
+        return idUporabnika;
+    }
+
+    public void setIdUporabnika(int idUporabnika) {
+        this.idUporabnika = idUporabnika;
+    }
 }

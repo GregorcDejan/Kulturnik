@@ -21,6 +21,9 @@ public class KontrolerBaze {
     @Autowired
     DogodekDAO dogodki;
     @Autowired
+
+    OsebaDAO osebe;
+
     OsebaDAO oseba;
 
     @RequestMapping(value={"/Konzola",}, method=RequestMethod.GET)
@@ -38,6 +41,17 @@ public class KontrolerBaze {
     {
             model.addAttribute("oseba",oseba.getAllOsebe());
         return "Konsola";
+    }
+
+
+    @RequestMapping(value={"/events",}, method=RequestMethod.GET)
+    public String events(Model model,@RequestParam(value="tip", required=false)String tip)
+    {
+        if(tip==null)
+            model.addAttribute("dogodki",dogodki.getAllDogodki());
+        else
+            model.addAttribute("dogodki",dogodki.getByTip(tip));
+        return "events";
     }
 
 
