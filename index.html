@@ -140,44 +140,72 @@
             </li>
           </ul>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
+
             <li class="active">
               <a href="index.html">Domov</a>
             </li>
             <li>
-              <a href="events.html">Glasba</a>
+              <form action="events.html" method="get">
+                <a class="dropdown-trigger" data-activates="dropdownEvents" href="#">
+                  Dogodki
+                  <i class="material-icons right">arrow_drop_down</i>
+                </a>
+                <ul id='dropdownEvents' class='dropdown-content'>
+                  <li>
+                    <a href="#">
+                      <button class="btn-flat teal-text" type="submit" name="event" value="Glasba">Glasba</button>
+                    </a>
+                  </li>
+                  <li class="divider"></li>
+                  <li>
+                    <a href="#">
+                      <button class="btn-flat teal-text" type="submit" name="event" value="Glasba">Gledališče</button>
+                    </a>
+                  </li>
+                  <li class="divider"></li>
+                  <li>
+                    <a href="#">
+                      <button class="btn-flat teal-text" type="submit" name="event" value="Glasba">Razstave</button>
+                    </a>
+                  </li>
+                  <li class="divider"></li>
+                  <li>
+                    <a href="#">
+                      <button class="btn-flat teal-text" type="submit" name="event" value="Glasba">Šport</button>
+                    </a>
+                  </li>
+                  <li class="divider"></li>
+                  <li>
+                    <a href="#">
+                      <button class="btn-flat teal-text" type="submit" name="event" value="Glasba">Kino</button>
+                    </a>
+                  </li>
+                </ul>
             </li>
-            <li>
-              <a href="events.html">Gledališče</a>
-            </li>
-            <li>
-              <a href="events.html">Razstave</a>
-            </li>
-            <li>
-              <a href="events.html">Športni dogodki</a>
-            </li>
-            <li>
-              <a href="events.html">Kino</a>
-            </li>
+            </form>
           </ul>
           <ul class="side-nav" id="mobile-sidenav">
-            <li class="active">
-              <a href="index.html">Home</a>
-            </li>
-            <li>
-              <a href="events.html">Glasba</a>
-            </li>
-            <li>
-              <a href="events.html">Gledališče</a>
-            </li>
-            <li>
-              <a href="events.html">Razstave</a>
-            </li>
-            <li>
-              <a href="events.html">Športni dogodki</a>
-            </li>
-            <li>
-              <a href="events.html">Kino</a>
-            </li>
+            <form action="events.html" method="get">
+              <li class="active">
+                <a href="index.html">Home</a>
+              </li>
+
+              <li>
+                <button class="btn-flat" type="submit" name="event" value="Glasba">Glasba</button>
+              </li>
+              <li>
+                <button class="btn-flat" type="submit" name="event" value="Glasba">Gledališče</button>
+              </li>
+              <li>
+                <button class="btn-flat" type="submit" name="event" value="Glasba">Razstave</button>
+              </li>
+              <li>
+                <button class="btn-flat" type="submit" name="event" value="Glasba">Šport</button>
+              </li>
+              <li>
+                <button class="btn-flat" type="submit" name="event" value="Glasba">Kino</button>
+              </li>
+            </form>
           </ul>
         </div>
       </nav>
