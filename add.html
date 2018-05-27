@@ -140,18 +140,80 @@
         Dodajanje dogodka
       </h2>
       <form action="#" method="post">
-        <input type="text" placeholder="Naziv*: " />
-        <input type="text" placeholder="Kraj*: " />
-        <input type="text" placeholder="Naslov*: " />
-        <input type="text" placeholder="Tip dogodka*: " />
-        <input type="text" placeholder="Povezava na dogodek: " />
-        <input type="text" placeholder="Datum*: " />
-        <input type="text" placeholder="Slika: " />
-        <button class="btn btn-submit" type="submit">
-          <div class="valign-wrapper">Dodaj dogodek &nbsp
-            <i class="material-icons">send</i>
+        <div class="row">
+          <div class="input-field col s8 offset-s2">
+            <input required type="text" name="" id="nazivInput" class="validate">
+            <label for="nazivInput">Naziv</label>
           </div>
-        </button>
+        </div>
+        <div class="row">
+          <div class="input-field col s8 offset-s2">
+            <input required type="text" name="" id="krajInput" class="validate">
+            <label for="krajInput">Kraj</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s8 offset-s2">
+            <input required type="text" name="" id="lokacijaInput" class="validate">
+            <label for="lokacijaInput">Lokacija</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s8 offset-s2">
+            <select required name="inputKategorija" id="inputKategorija">
+              <option value="" disabled selected>Izberite tip dogodka</option>
+              <option value="Glasba">Glasba</option>
+              <option value="Gledališče">Gledališče</option>
+              <option value="Razstave">Razstave</option>
+              <option value="Šport">Šport</option>
+              <option value="Kino">Kino</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s8 offset-s2">
+            <input required type="text" name="" id="linkInput" class="validate">
+            <label for="linkInput">Povezava do dogodka</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s8 offset-s2">
+            <input required type="text" id="datumInput" class="datepicker">
+            <label for="datumInput">Datum dogodka</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s8 offset-s2">
+            <input required type="text" id="casInput" class="timepicker">
+            <label for="casInput">Čas začetka</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s8 offset-s2">
+            <textarea required id="opisDogodkaInput" name="" class="materialize-textarea"></textarea>
+            <label for="opisDogodkaInput">Opis dogodka</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="file-field input-field col s8 offset-s2">
+            <div class="btn teal darken-2">
+              <span>Naloži</span>
+              <input type="file" multiple>
+            </div>
+            <div class="file-path-wrapper">
+              <input class="file-path validate" type="text" placeholder="Naložite slike dogodka">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col offset-s4">
+            <button class="btn teal darken-2 z-depth-3" type="submit">
+              <div class="valign-wrapper">Dodaj dogodek
+                <i class="material-icons right">send</i>
+              </div>
+          </div>
+          </button>
+        </div>
       </form>
     </div>
   </main>
@@ -174,8 +236,30 @@
     });
 
     // Page Specific //
-
-
+    $(document).ready(function () {
+      $('select').material_select();
+    });
+    $('.datepicker').pickadate({
+      selectMonths: true, // Creates a dropdown to control month
+      selectYears: 15, // Creates a dropdown of 15 years to control year,
+      today: 'Danes',
+      clear: 'Zbriši',
+      close: 'Potrdi',
+      closeOnSelect: false, // Close upon selecting a date,
+      container: undefined // ex. 'body' will append picker to body
+    });
+    $('.timepicker').pickatime({
+      default: 'now', // Set default time: 'now', '1:30AM', '16:30'
+      fromnow: 0,       // set default time to * milliseconds from now (using with default = 'now')
+      twelvehour: false, // Use AM/PM or 24-hour format
+      donetext: 'Potrdi', // text for done-button
+      cleartext: 'Počisti', // text for clear-button
+      canceltext: 'Prekliči', // Text for cancel-button,
+      container: undefined, // ex. 'body' will append picker to body
+      autoclose: false, // automatic close timepicker
+      ampmclickable: true, // make AM PM clickable
+      aftershow: function () { } //Function for after opening timepicker
+    });
 
   });
 </script>
