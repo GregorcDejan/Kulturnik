@@ -47,10 +47,17 @@ public class KontrolerBaze {
     @RequestMapping(value={"/events",}, method=RequestMethod.GET)
     public String events(Model model,@RequestParam(value="tip", required=false)String tip)
     {
+
+
         if(tip==null)
             model.addAttribute("dogodki",dogodki.getAllDogodki());
         else
+        {
             model.addAttribute("dogodki",dogodki.getByTip(tip));
+            model.addAttribute("Kategorija",tip);
+        }
+
+
         return "events";
     }
 
@@ -77,6 +84,8 @@ public class KontrolerBaze {
         DogodekDAO glasba=new DogodekDAO();
         return glasba.getAllDogodki().toString();
     }
+
+
 
 
 

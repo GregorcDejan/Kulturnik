@@ -71,16 +71,57 @@ public class DogodekDAO {
         return jdbcTemplate.update(sql,new Object[]{id});
     }
 
-    public Dogodek getByNaziv(String naziv)
+    public List<Dogodek> getByNaziv(String naziv)
     {
         String sql = "SELECT * FROM dogodek WHERE naziv=? ";
 
-        Dogodek d= (Dogodek)jdbcTemplate.queryForObject(sql,
-                new Object[] {naziv},
-                new BeanPropertyRowMapper(Dogodek.class));
+        List<Dogodek> rez = new ArrayList<>();
+
+        List<Map<String,Object>> vrstice  = jdbcTemplate.queryForList(sql);
+
+        for(Map<String,Object> vrstica: vrstice){
+
+            int id=(Integer)(vrstica.get("ID"));
+            String datum=(String)vrstica.get("datum");
+            String vir=(String)vrstica.get("Vir");
+            String slikaURL=(String)vrstica.get("slikaURL");
+
+            String opis=(String)vrstica.get("opis");
+            String kraj=(String)vrstica.get("kraj");
+            String naslov=(String)vrstica.get("naslov");
+            String tip=(String)vrstica.get("tip");
+            int idUporabnik=(Integer)vrstica.get("id_Uporabnika");
+            String cena=(String)vrstica.get("cena");
+
+            Dogodek d= new Dogodek(id,naziv,vir,slikaURL,tip,opis,kraj,naslov,datum,idUporabnik,cena);
+
+            rez.add(d);
+
+        }
 
 
-        return d;
+        return rez;
+
+    }
+    public List<Dogodek> getByID(String id)
+    {
+        String sql = "SELECT * FROM dogodek WHERE id=? ";
+
+        List<Map<String,Object>> vrstice = jdbcTemplate.queryForList(sql);
+
+        List<Dogodek> rez = new ArrayList<>();
+
+            Dogodek d = (Dogodek) jdbcTemplate.queryForObject(sql,
+                    new Object[]{id},
+                    new BeanPropertyRowMapper(Dogodek.class));
+
+            rez.add(d);
+
+
+
+
+
+        return rez;
 
     }
 
@@ -90,13 +131,23 @@ public class DogodekDAO {
 
         List<Dogodek> rez = new ArrayList<>();
 
-        List<Map<String,Object>> vrstice  = jdbcTemplate.queryForList(sql);
+        List<Map<String,Object>> vrstice  = jdbcTemplate.queryForList(sql,new Object[]{datum});
 
         for(Map vrstica: vrstice){
 
-            Dogodek d= (Dogodek)jdbcTemplate.queryForObject(sql,
-                    new Object[] {datum},
-                    new BeanPropertyRowMapper(Dogodek.class));
+            int id=(Integer)(vrstica.get("ID"));
+            String naziv=(String)vrstica.get("Naziv");
+            String vir=(String)vrstica.get("Vir");
+            String slikaURL=(String)vrstica.get("slikaURL");
+
+            String opis=(String)vrstica.get("opis");
+            String kraj=(String)vrstica.get("kraj");
+            String naslov=(String)vrstica.get("naslov");
+            String tip=(String)vrstica.get("tip");
+            int idUporabnik=(Integer)vrstica.get("id_Uporabnika");
+            String cena=(String)vrstica.get("cena");
+
+            Dogodek d= new Dogodek(id,naziv,vir,slikaURL,tip,opis,kraj,naslov,datum,idUporabnik,cena);
             rez.add(d);
 
         }
@@ -144,14 +195,24 @@ public class DogodekDAO {
 
         List<Dogodek> rez = new ArrayList<>();
 
-        List<Map<String,Object>> vrstice  = jdbcTemplate.queryForList(sql);
+        List<Map<String,Object>> vrstice  = jdbcTemplate.queryForList(sql,new Object[]{kraj});
 
         for(Map vrstica: vrstice){
 
 
-            Dogodek d= (Dogodek)jdbcTemplate.queryForObject(sql,
-                    new Object[] {kraj},
-                    new BeanPropertyRowMapper(Dogodek.class));
+            int id=(Integer)(vrstica.get("ID"));
+            String naziv=(String)vrstica.get("Naziv");
+            String vir=(String)vrstica.get("Vir");
+            String slikaURL=(String)vrstica.get("slikaURL");
+
+            String opis=(String)vrstica.get("opis");
+            String tip=(String)vrstica.get("tip");
+            String naslov=(String)vrstica.get("naslov");
+            String datum=(String)vrstica.get("datum");
+            int idUporabnik=(Integer)vrstica.get("id_Uporabnika");
+            String cena=(String)vrstica.get("cena");
+
+            Dogodek d= new Dogodek(id,naziv,vir,slikaURL,tip,opis,kraj,naslov,datum,idUporabnik,cena);
 
             rez.add(d);
 
@@ -166,15 +227,23 @@ public class DogodekDAO {
 
         List<Dogodek> rez = new ArrayList<>();
 
-        List<Map<String,Object>> vrstice = jdbcTemplate.queryForList(sql);
+        List<Map<String,Object>> vrstice = jdbcTemplate.queryForList(sql,new Object[]{cenaMax});
 
         for(Map vrstica:vrstice){
 
+            int id=(Integer)(vrstica.get("ID"));
+            String naziv=(String)vrstica.get("Naziv");
+            String vir=(String)vrstica.get("Vir");
+            String slikaURL=(String)vrstica.get("slikaURL");
 
-            Dogodek d= (Dogodek)jdbcTemplate.queryForObject(sql,
-                    new Object[] {cenaMax},
-                    new BeanPropertyRowMapper(Dogodek.class));
+            String opis=(String)vrstica.get("opis");
+            String tip=(String)vrstica.get("tip");
+            String naslov=(String)vrstica.get("naslov");
+            String datum=(String)vrstica.get("datum");
+            int idUporabnik=(Integer)vrstica.get("id_Uporabnika");
+            String kraj=(String)vrstica.get("kraj");
 
+            Dogodek d= new Dogodek(id,naziv,vir,slikaURL,tip,opis,kraj,naslov,datum,idUporabnik,cenaMax);
             rez.add(d);
 
         }
@@ -182,29 +251,6 @@ public class DogodekDAO {
         return rez;
 
     }
-
-    public List<Dogodek> getByKategorija(String kategorija)
-    {
-        String sql = "SELECT * FROM dogodek WHERE Tip_Dogodka = ?";
-
-        List<Dogodek> rez = new ArrayList<>();
-
-        List<Map<String,Object>> vrstice = jdbcTemplate.queryForList(sql);
-
-        for(Map vrstica: vrstice){
-
-
-            Dogodek d= (Dogodek)jdbcTemplate.queryForObject(sql,
-                    new Object[] {kategorija},
-                    new BeanPropertyRowMapper(Dogodek.class));
-
-            rez.add(d);
-
-        }
-        return rez;
-    }
-
-
 
 
 }
