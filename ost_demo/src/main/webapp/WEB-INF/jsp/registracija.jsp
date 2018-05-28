@@ -109,13 +109,13 @@
         <h2 class="center-align">
             Registracija
         </h2>
-        <form action="#" method="post">
-            <input type="text" placeholder="Ime*: " />
-            <input type="text" placeholder="Priimek*: " />
-            <input type="text" placeholder="E-mail*: " />
-            <input type="text" placeholder="Geslo*: " />
-            <input type="text" placeholder="Datum Rojstva" />
-            <input type="text" placeholder="Telefon" />
+        <form action="/dodajanjeOsebe" method="post">
+            <input name="ime" type="text" placeholder="Ime*: " />
+            <input name="priimek" type="text" placeholder="Priimek*: " />
+            <input name="email" type="text" placeholder="E-mail*: " />
+            <input name="geslo" type="text" placeholder="Geslo*: " />
+            <input name="datumRojstva" type="text" placeholder="Datum Rojstva" />
+            <input name="telefonska" type="text" placeholder="Telefon" />
             <button class="btn btn-submit large" type="submit">
                 <div class="valign-wrapper">Registriraj se
                 </div>

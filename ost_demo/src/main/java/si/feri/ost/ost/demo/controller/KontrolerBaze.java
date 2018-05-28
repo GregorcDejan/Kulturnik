@@ -26,6 +26,26 @@ public class KontrolerBaze {
 
     OsebaDAO oseba;
 
+
+
+    @RequestMapping(value = {"/dodajanjeOsebe"}, method = RequestMethod.POST)
+    public String dodajOsebo(Model model, @RequestParam(value = "ime", required = true) String ime,
+                             @RequestParam(value = "priimek", required = true) String priimek,
+                             @RequestParam(value = "email", required = true) String email,
+                             @RequestParam(value = "geslo", required = true) String geslo,
+                             @RequestParam(value = "datumRojstva", required = true) String datumRojstva,
+                             @RequestParam(value = "telefonska", required = true) String telefonska) {
+
+
+        osebe.addOseba(ime, priimek, email, geslo, datumRojstva, telefonska);
+        boolean jeDodan = true;
+        model.addAttribute("dodanaOseba", jeDodan);
+        return "/registracija";
+    }
+
+
+
+
     @RequestMapping(value={"/Konzola",}, method=RequestMethod.GET)
     public String konzola(Model model,@RequestParam(value="tip", required=false)String tip)
     {
@@ -78,12 +98,7 @@ public class KontrolerBaze {
         return "/seznamDogodkov";
     }
 
-    @RequestMapping(value={"/glasba"},method=RequestMethod.GET)
-    public String vrniGlasbo()
-    {
-        DogodekDAO glasba=new DogodekDAO();
-        return glasba.getAllDogodki().toString();
-    }
+
 
 
 
