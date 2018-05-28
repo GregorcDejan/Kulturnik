@@ -109,7 +109,7 @@
         <h2 class="center-align">
             Registracija
         </h2>
-        <form action="#" method="post">
+        <form action="/dodajanjeOseb" method="post">
             <input type="text" placeholder="Ime*: " />
             <input type="text" placeholder="Priimek*: " />
             <input type="text" placeholder="E-mail*: " />

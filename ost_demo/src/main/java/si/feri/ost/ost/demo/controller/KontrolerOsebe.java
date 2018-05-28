@@ -5,6 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import si.feri.ost.ost.demo.DAO.OsebaDAO;
 import si.feri.ost.ost.demo.Razredi.Dogodek;
 import si.feri.ost.ost.demo.Razredi.Oseba;
 
@@ -24,7 +25,7 @@ public class KontrolerOsebe {
                                  @RequestParam(value = "telefonska", required = true) String telefonska) {
 
             seznamOseb.add(new Oseba(ime, priimek, email, geslo, datumRojstva, telefonska));
-
+            new OsebaDAO().addOseba(ime, priimek, email, geslo, datumRojstva, telefonska);
             boolean jeDodan = true;
             model.addAttribute("dodanaOseba", jeDodan);
             return "registracija";
