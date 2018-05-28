@@ -8,28 +8,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 import si.feri.ost.ost.demo.DAO.OsebaDAO;
 import si.feri.ost.ost.demo.Razredi.Dogodek;
 import si.feri.ost.ost.demo.Razredi.Oseba;
-
 import java.util.ArrayList;
 @Controller
 public class KontrolerOsebe {
 
+    OsebaDAO osebe;
     public static ArrayList<Oseba> seznamOseb = new ArrayList<>();
     public class KontrolerDogodki {
 
-        @RequestMapping(value = {"/dodajanjeOseb"}, method = RequestMethod.POST)
-        public String dodajOsebo(Model model, @RequestParam(value = "ime", required = true) String ime,
-                                 @RequestParam(value = "priimek", required = true) String priimek,
-                                 @RequestParam(value = "email", required = true) String email,
-                                 @RequestParam(value = "geslo", required = true) String geslo,
-                                 @RequestParam(value = "datumRojstva", required = true) String datumRojstva,
-                                 @RequestParam(value = "telefonska", required = true) String telefonska) {
 
-            seznamOseb.add(new Oseba(ime, priimek, email, geslo, datumRojstva, telefonska));
-            new OsebaDAO().addOseba(ime, priimek, email, geslo, datumRojstva, telefonska);
-            boolean jeDodan = true;
-            model.addAttribute("dodanaOseba", jeDodan);
-            return "registracija";
-        }
 
 
         @RequestMapping(value={"/brisanjeOsebe"},method=RequestMethod.POST)

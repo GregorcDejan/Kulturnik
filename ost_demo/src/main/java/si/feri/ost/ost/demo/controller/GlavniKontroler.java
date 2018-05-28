@@ -5,6 +5,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import si.feri.ost.ost.demo.DAO.OsebaDAO;
+import si.feri.ost.ost.demo.Razredi.Oseba;
 
 @Controller
 public class GlavniKontroler {
@@ -37,6 +40,8 @@ public class GlavniKontroler {
 
         return "add";
     }
+
+
 
     @RequestMapping(value = { "/registracija" }, method = RequestMethod.GET)
     public String registracija(Model model) {
