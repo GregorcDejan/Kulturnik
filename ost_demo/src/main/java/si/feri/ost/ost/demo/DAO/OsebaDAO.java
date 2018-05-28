@@ -5,25 +5,39 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 import si.feri.ost.ost.demo.Razredi.Dogodek;
+import si.feri.ost.ost.demo.Razredi.Oseba;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 @Component
 public class OsebaDAO {
 
     @Autowired
     JdbcTemplate jdbcTemplate;
-/*
+
     public List<Oseba> getAllOsebe(){
         String sql = "SELECT * FROM UPORABNIK";
-        List<Artikli> ret = new ArrayList<Artikli>();
-        List<Map<String,Object>> rows = jdbcTemplate.queryForList(sql);
-        for (Map<String,Object> row : rows) {
-            int id = (int)row.get("Id");
-            String naziv = (String)row.get("Naziv");
 
-            ret.add(new Artikli(id, naziv));
+        List<Oseba> seznam = new ArrayList<Oseba>();
+
+        List<Map<String,Object>> vrstice = jdbcTemplate.queryForList(sql);
+
+        for (Map<String,Object> vrstica : vrstice) {
+
+            String ime = (String)vrstica.get("Ime");
+            String priimek = (String)vrstica.get("Priimek");
+            String email = (String)vrstica.get("Email");
+            String geslo = (String)vrstica.get("Geslo");
+            String datumRojstva = (String)vrstica.get("Datum_rojstva");
+            String telefonska = (String)vrstica.get("Telefon");
+
+
+            seznam.add(new Oseba(ime,priimek,email, geslo, datumRojstva, telefonska));
         }
-        return ret;
-    }*/
+        return seznam;
+    }
 
 
 
@@ -43,29 +57,37 @@ public class OsebaDAO {
         return jdbcTemplate.update(sql,new Object[]{id});
     }
 
-    public Dogodek getByEmail(String email)
+    public Oseba getByEmail(String email)
     {
         String sql = "SELECT * FROM dogodek WHERE email=? ";
 
-        Dogodek d= (Dogodek)jdbcTemplate.queryForObject(sql,
+        Oseba d= (Oseba) jdbcTemplate.queryForObject(sql,
                 new Object[] {email},
-                new BeanPropertyRowMapper(Dogodek.class));
+                new BeanPropertyRowMapper(Oseba.class));
 
 
         return d;
 
     }
 
-    public Dogodek getByGeslo(String geslo)
+    public List<Oseba> getByGeslo(String geslo)
     {
-        String sql = "SELECT * FROM dogodek WHERE geslo=? ";
+        String sql = "SELECT * FROM uporabnik WHERE geslo=? ";
 
-        Dogodek d= (Dogodek)jdbcTemplate.queryForObject(sql,
-                new Object[] {geslo},
-                new BeanPropertyRowMapper(Dogodek.class));
+        List<Oseba> seznam = new ArrayList<>();
 
+        List<Map<String,Object>> vrstice = jdbcTemplate.queryForList(sql);
 
-        return d;
+        for(Map vrstica:vrstice) {
+
+            Oseba d = (Oseba) jdbcTemplate.queryForObject(sql,
+                    new Object[]{geslo},
+                    new BeanPropertyRowMapper(Oseba.class));
+
+            seznam.add(d);
+
+        }
+        return seznam;
 
     }
 }
