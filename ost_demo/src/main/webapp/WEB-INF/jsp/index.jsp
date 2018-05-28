@@ -20,7 +20,7 @@
 </head>
 
 <body>
-<div class="teal lighten-5">
+<main class="teal lighten-5">
     <div class="navbar-fixed">
         <nav class=" teal darken-2 z-depth-3">
             <div class="nav-wrapper">
@@ -30,7 +30,7 @@
                 </a>
                 <ul class="right show-on-med-and-down">
                     <li>
-                        <a href="search.html">
+                        <a href="search">
                             <i class="material-icons">search</i>
                         </a>
                     </li>
@@ -45,62 +45,97 @@
                         </a>
                         <ul id='dropdownPerson' class='dropdown-content'>
                             <li>
-                                <a href="events">Dodaj Dogodek</a>
+                                <a href="add">
+                                    <button class="btn-flat teal-text">Dodaj Dogodek</button>
+                                </a>
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <a href="vpis">Vpis</a>
+                                <a href="vpis">
+                                    <button class="btn-flat teal-text">Vpis</button>
+                                </a>
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <a href="registracija">Registracija</a>
+                                <a href="registracija">
+                                    <button class="btn-flat teal-text">Registracija</button>
+                                </a>
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <a href="#!">Moji Dogodki</a>
+                                <a href="#!">
+                                    <button class="btn-flat teal-text">Moji Dogodki</button>
+                                </a>
                             </li>
                         </ul>
                     </li>
                 </ul>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
+
                     <li class="active">
                         <a href="index">Domov</a>
                     </li>
                     <li>
-                        <a href="events">Glasba</a>
-                    </li>
-                    <li>
-                        <a href="events">Gledališče</a>
-                    </li>
-                    <li>
-                        <a href="events">Razstave</a>
-                    </li>
-                    <li>
-                        <a href="events">Športni dogodki</a>
-                    </li>
-                    <li>
-                        <a href="events">Kino</a>
-                    </li>
+                        <form action="events" method="get">
+                            <a class="dropdown-trigger" data-activates="dropdownEvents" href="#">
+                                Dogodki
+                                <i class="material-icons right">arrow_drop_down</i>
+                            </a>
+                            <ul id='dropdownEvents' class='dropdown-content'>
+                                <li>
+                                    <a href="#">
+                                        <button class="btn-flat teal-text" type="submit" name="event" value="Glasba">Glasba</button>
+                                    </a>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <a href="#">
+                                        <button class="btn-flat teal-text" type="submit" name="event" value="Glasba">Gledališče</button>
+                                    </a>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <a href="#">
+                                        <button class="btn-flat teal-text" type="submit" name="event" value="Glasba">Razstave</button>
+                                    </a>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <a href="#">
+                                        <button class="btn-flat teal-text" type="submit" name="event" value="Glasba">Šport</button>
+                                    </a>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <a href="#">
+                                        <button class="btn-flat teal-text" type="submit" name="event" value="Glasba">Kino</button>
+                                    </a>
+                                </li>
+                            </ul>
+                    </form>
                 </ul>
                 <ul class="side-nav" id="mobile-sidenav">
-                    <li class="active">
-                        <a href="index">Home</a>
-                    </li>
-                    <li>
-                        <a href="events">Glasba</a>
-                    </li>
-                    <li>
-                        <a href="events">Gledališče</a>
-                    </li>
-                    <li>
-                        <a href="events">Razstave</a>
-                    </li>
-                    <li>
-                        <a href="events">Športni dogodki</a>
-                    </li>
-                    <li>
-                        <a href="events">Kino</a>
-                    </li>
+                    <form action="events" method="get">
+                        <li class="active">
+                            <a href="index">Home</a>
+                        </li>
+                        <li>
+                            <button class="btn-flat" type="submit" name="event" value="Glasba">Glasba</button>
+                        </li>
+                        <li>
+                            <button class="btn-flat" type="submit" name="event" value="Glasba">Gledališče</button>
+                        </li>
+                        <li>
+                            <button class="btn-flat" type="submit" name="event" value="Glasba">Razstave</button>
+                        </li>
+                        <li>
+                            <button class="btn-flat" type="submit" name="event" value="Glasba">Šport</button>
+                        </li>
+                        <li>
+                            <button class="btn-flat" type="submit" name="event" value="Glasba">Kino</button>
+                        </li>
+
+                    </form>
                 </ul>
             </div>
         </nav>
@@ -110,7 +145,7 @@
             <h1 class="center-align col s12">Kulturnik</h1>
             <hr/>
         </div>
-        <div class="carousel carousel-slider hoverable" data-indicators="true">
+        <div class="carousel carousel-slider hoverable z-depth-4" data-indicators="true">
             <a class="carousel-item" href="#one!">
                 <img src="res/hkphil1718.JPG">
             </a>
@@ -129,7 +164,7 @@
         </div>
         <div class="row">
             <div class="col s12">
-                <h3 class="center-align">Dogodki na dlani</h3>
+                <h3 class="center-align">O nas</h3>
                 <p class="flow-text center-align">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis enim corrupti excepturi fuga nam assumenda
                     repudiandae harum recusandae beatae! Quis porro obcaecati dolor, quasi explicabo illo nihil quas ipsum vitae!
                     Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium error provident iste facere, nostrum sed
@@ -139,34 +174,126 @@
             </div>
         </div>
         <div class="row">
-            <div class="col s4">
+            <div class="col s12 xl3">
                 <h3 class="center-align">Kontakt</h3>
-                <p class="flow-text center-align">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis enim corrupti excepturi fuga nam assumenda
-                    repudiandae harum rec eaque consectetur blanditiis cumque. Voluptatum blanditiis tempora quam, nesciunt vitae
-                    eveniet officiis possimus inventore perspiciatis?</p>
+                <div class="grey lighten-3">
+                    <ul class="collection z-depth-1">
+                        <li class="collection-item avatar grey lighten-3">
+                            <img src="res/lucka.jpg" alt="" class="circle">
+                            <span class="title">Lucija Brezočnik</span>
+                            <p>
+                                Project Owner
+                                <br/> lucija.brezocnik@um.si
+                            </p>
+                            <a href="#!" class="secondary-content">
+                                <i class="material-icons red-text text-lighten-2">send</i>
+                            </a>
+                        </li>
+                        <li class="collection-item avatar grey lighten-3">
+                            <img src="res/lepotec.jpg" alt="" class="circle">
+                            <span class="title">Marko Gluhak</span>
+                            <p>
+                                Front-End
+                                <br/> markogl@comtrade.com
+                            </p>
+                            <a href="#!" class="secondary-content">
+                                <i class="material-icons red-text text-lighten-2">send</i>
+                            </a>
+                        </li>
+                        <li class="collection-item avatar grey lighten-3">
+                            <img src="res/ninc.jpg" alt="" class="circle">
+                            <span class="title">Nina Kliček</span>
+                            <p>
+                                Back-End
+                                <br/> marko.mx.gluhak@gmail.com
+                            </p>
+                            <a href="#!" class="secondary-content">
+                                <i class="material-icons red-text text-lighten-2">send</i>
+                            </a>
+                        </li>
+                        <li class="collection-item avatar grey lighten-3">
+                            <img src="res/dejc.jpg" alt="" class="circle">
+                            <span class="title">Dejan Gregorc</span>
+                            <p>
+                                Back-End
+                                <br/> gregorc.dejan@gmail.com
+                            </p>
+                            <a href="#!" class="secondary-content">
+                                <i class="material-icons red-text text-lighten-2">send</i>
+                            </a>
+                        </li>
+                        <li class="collection-item avatar grey lighten-3">
+                            <img src="res/lepotec.jpg" alt="" class="circle">
+                            <span class="title">Maruša Konečnik</span>
+                            <p>
+                                Back-End
+                                <br/> marko.mx.gluhak@gmail.com
+                            </p>
+                            <a href="#!" class="secondary-content">
+                                <i class="material-icons red-text text-lighten-2">send</i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <div class="col s4">
-                <h3 class="center-align">O nas</h3>
-                <p class="flow-text center-align">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis enim corrupti excepturi fuga nam assumenda
-                    repudiandae harum recusandae beatae! Quis porro obcaecati dolor, quasi explicabo illo nihil quas ipsum vitae!
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium error provident iste facere, nostrum sed
-                    eaque consectetur blanditiis cumque. Voluptatum blanditiis tempora quam, nesciunt vitae eveniet officiis possimus
-                    inventore perspiciatis?
+            <div class="col s12 xl6 section">
+                <h3 class="center-align">Dogodki na dlani</h3>
+                <p class="flow-text center-align">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi libero hic, laborum rem iusto quam unde, itaque repudiandae
+                    molestiae ipsum obcaecati. Consequuntur eveniet harum, dolore minus beatae illo impedit? Odio.
                 </p>
             </div>
-            <div class="col s4">
-                <h3 class="center-align">Sodelujemo z</h3>
-                <p class="flow-text center-align">Lorem ip eaque consectetur blanditiis cumque. Voluptatum blanditiis tempora quam, nesciunt vitae eveniet officiis
-                    possimus inventore perspiciatis? lorem</p>
+            <div class="col s12 xl3">
+                <h3 class="center-align">V Sodelovanju</h3>
+                <p class="flow-text center-align">
+                    <div class="card grey lighten-3 hoverable">
+                        <div class="card-content white-text">
+                <span class="card-title">
+                  <blockquote class="grey-text">
+                    Napovednik.com
+                  </blockquote>
+                </span>
+                <p>
+                <div id="napovednikbox2" class="grey-text text-darken-2 "></div>
+                </p>
+            </div>
+            <div class="card-action red lighten-2 center-align">
+                <a href="https://www.napovednik.com" class="grey-text text-lighten-2">Ne spreglejte tudi</a>
             </div>
         </div>
+        </p>
     </div>
-</div>
+    </div>
+    </div>
+</main>
 </body>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script type="text/javascript" src="materialize.min.js"></script>
+<script type="text/javascript" src="js/materialize.min.js"></script>
 
 <script>
+
+    if (typeof jQuery == 'undefined') {
+        document.write('<script type="text/javascript" src="https://www.napovednik.com/script/jquery.js"></scrip' + 't>');
+    }
+    var rubrika = 0;
+    var regija = '';
+    var zapisov = 5;
+    var prireditelj = 0;
+    var conv = 0;
+    function getbox() {
+        jQuery.ajax({
+            type: 'GET',
+            url: 'https://www.napovednik.com/box.php?n=' + zapisov + '&k=' + rubrika + '&r=' + regija + '&c=' + conv + '&pr=' + prireditelj + '&jsoncallback=?',
+            dataType: 'json',
+            jsonp: 'jsoncallback',
+            success: function (data) {
+                document.getElementById('napovednikbox2').innerHTML = data['data'];
+            }
+        });
+    }
+    jQuery(document).ready(function () { getbox(); });
+
+
     // Every page needs this dingy //
     $(document).ready(function () {
         $('.dropdown-button').dropdown({
