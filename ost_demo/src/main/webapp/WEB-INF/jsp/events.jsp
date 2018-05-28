@@ -78,7 +78,7 @@
                         <form action="/events" method="get"><button type="submit">Šport</button><input type="hidden" value="Šport" name="tip"/></form>
                     </li>
                     <li>
-                        <form action="/events" method="get"><button type="submit">Kino</button><input type="hidden" value="film" name="tip"/></form>
+                        <form action="/events" method="get"><button type="submit">Kino</button><input type="hidden" value="Kino" name="tip"/></form>
                     </li>
                 </ul>
                 <ul class="side-nav" id="mobile-sidenav">
@@ -106,7 +106,7 @@
     </div>
     <div class="container">
         <h2 class="center-align">
-            Glasba
+            ${Kategorija}
         </h2>
         <hr/>
         <div class="row">
