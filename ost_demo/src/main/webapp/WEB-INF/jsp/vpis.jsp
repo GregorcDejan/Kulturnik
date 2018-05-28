@@ -112,13 +112,13 @@
         <form action="#" method="post">
             <div class="row">
                 <div class="input-field col s10 offset-s1 col l8 offset-l2">
-                    <input id="user" type="text" class="validate">
+                    <input id="user" type="text" class="validate" name="user">
                     <label for="user">Uporabniško Ime</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s10 offset-s1 col l8 offset-l2">
-                    <input id="password" type="password" class="validate">
+                    <input id="password" type="password" class="validate" name="password">
                     <label for="password">Password</label>
                 </div>
             </div>

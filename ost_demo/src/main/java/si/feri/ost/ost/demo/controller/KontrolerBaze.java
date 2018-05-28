@@ -13,8 +13,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import si.feri.ost.ost.demo.DAO.DogodekDAO;
 import si.feri.ost.ost.demo.DAO.OsebaDAO;
 import si.feri.ost.ost.demo.Razredi.Dogodek;
+import si.feri.ost.ost.demo.Razredi.Oseba;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class KontrolerBaze {
@@ -79,6 +81,24 @@ public class KontrolerBaze {
 
 
         return "events";
+    }
+
+    @RequestMapping(value={"/prijava"},method=RequestMethod.POST)
+    public String prijava(Model model,
+                          @RequestParam(value="user")String email,
+                          @RequestParam(value="password")String geslo){
+
+        List<Oseba> vseOsebe = oseba.getAllOsebe();
+
+        for(int i=0; i<vseOsebe.size(); i++){
+
+            if(vseOsebe.get(i).getEmail().equals(email) && vseOsebe.get(i).getGeslo().equals(geslo))
+                return "profilUporabnika";
+
+
+        }
+        return "prijava";
+
     }
 
 
