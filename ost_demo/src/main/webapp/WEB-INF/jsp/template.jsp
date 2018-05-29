@@ -12,7 +12,7 @@
     <title>Kulturnik</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="/lib/css/materialize.min.css" media="screen,projection" />
-    <link rel="stylesheet" type="text/css" media="screen" href="/lib/css/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/lib/css/style.css">
 </head>
 
 <body>
