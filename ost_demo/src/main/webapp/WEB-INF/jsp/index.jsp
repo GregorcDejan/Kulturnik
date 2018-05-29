@@ -59,7 +59,7 @@
                 </li>
                 <li class="divider"></li>
                 <li>
-                  <a href="#!">
+                  <a href="/dodajanjeDogodkov">
                     <button class="btn-flat teal-text">Moji Dogodki</button>
                   </a>
                 </li>

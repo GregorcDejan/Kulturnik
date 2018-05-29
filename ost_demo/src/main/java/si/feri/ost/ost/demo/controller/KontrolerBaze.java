@@ -45,7 +45,24 @@ public class KontrolerBaze {
         return "/registracija";
     }
 
+    public static ArrayList<Dogodek> seznamDogodkov = new ArrayList<>();
+    @RequestMapping(value = {"/dodajDogodek" }, method = RequestMethod.POST)
+    public String dodajDogodek(Model model, @RequestParam(value="naziv",required=true)String naziv,
+                               @RequestParam(value="kraj",required=true)String kraj,
+                               @RequestParam(value="naslov",required = true)String naslov,
+                               @RequestParam(value="tipDogodka",required = true)String tipD,
+                               @RequestParam(value="urlDogodka",required = true)String url,
+                               @RequestParam(value="datum",required = true)String datum,
+                               @RequestParam(value="slika",required = false)String slika,
+                               @RequestParam(value="opis",required = false)String opis,
+                               @RequestParam(value="cena",required = false)String cena)  {
 
+        dogodki.addDogodek(naziv,url,slika,tipD,opis,kraj,naslov,datum,cena);
+
+        boolean jeDodan = true;
+        model.addAttribute("dodanDogodek",jeDodan);
+        return "add";
+    }
 
 
     @RequestMapping(value={"/Konzola",}, method=RequestMethod.GET)

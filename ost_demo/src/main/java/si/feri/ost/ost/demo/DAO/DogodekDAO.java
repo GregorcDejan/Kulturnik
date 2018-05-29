@@ -49,7 +49,7 @@ public class DogodekDAO {
 
     public int addDogodek(String naziv, String vir, String SlikaURL, String Tip_Dogodka, String kraj,String opis, String naslov, String datum,String cena)
     {
-     String sql = "INSERT INTO DOGODEK(naziv,vir,SlikaURL,Tip_Dogodka,kraj,opis,naslov,datum,cena) VALUES(?,?,?,?,?,?,?,?)";
+     String sql = "INSERT INTO DOGODEK(naziv,vir,SlikaURL,Tip_Dogodka,kraj,opis,naslov,datum,cena) VALUES(?,?,?,?,?,?,?,?,?)";
 
      return jdbcTemplate.update(sql,new Object[]{naziv,vir,SlikaURL,Tip_Dogodka,kraj,opis,naslov,datum,cena});
 
@@ -176,7 +176,10 @@ public class DogodekDAO {
                     String kraj=(String)vrstica.get("kraj");
                     String naslov=(String)vrstica.get("naslov");
                     String datum=(String)vrstica.get("datum");
-                    int idUporabnik=(Integer)vrstica.get("id_Uporabnika");
+            int idUporabnik=0;
+            if((Integer)vrstica.get("id_Uporabnika")!=null) {
+                        idUporabnik= (Integer) vrstica.get("id_Uporabnika");
+                    }
                     String cena=(String)vrstica.get("cena");
             Dogodek d= new Dogodek(id,naziv,vir,slikaURL,tip,opis,kraj,naslov,datum,idUporabnik,cena);
 

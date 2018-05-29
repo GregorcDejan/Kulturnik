@@ -7,7 +7,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Registracija</title>
+    <title>Search</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="/lib/css/materialize.min.css" media="screen,projection" />
@@ -48,13 +48,13 @@
                   </a>
                 </li>
                 <li class="divider"></li>
-                <li>
+                <li class="active">
                   <a href="vpis">
                     <button class="btn-flat teal-text">Vpis</button>
                   </a>
                 </li>
                 <li class="divider"></li>
-                <li class="active">
+                <li>
                   <a href="registracija">
                     <button class="btn-flat teal-text">Registracija</button>
                   </a>
@@ -69,7 +69,6 @@
             </li>
           </ul>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
-
             <li>
               <a href="index">Domov</a>
             </li>
@@ -118,7 +117,6 @@
               <li>
                 <a href="index">Home</a>
               </li>
-
               <li>
                 <button class="btn-flat" type="submit" name="event" value="Glasba">Glasba</button>
               </li>
@@ -141,52 +139,38 @@
     </div>
     <div class="container">
       <h2 class="center-align">
-        Registracija
+        Vpis
       </h2>
-      <div class="row">
-        <div class="col s6 offset-s3">
-          <form action="#" method="post">
-            <div class="input-field col s6">
-              <input required id="first_name" type="text" class="validate">
-              <label for="first_name">Ime</label>
-            </div>
-            <div class="input-field col s6">
-              <input required id="last_name" type="text" class="validate">
-              <label for="last_name">Priimek</label>
-            </div>
-            <div class="input-field col s6">
-              <input required id="geslo" type="password" class="validate">
-              <label for="geslo">Geslo</label>
-            </div>
-            <div class="input-field col s6">
-              <input required id="email" type="email" class="validate">
-              <label for="email" data-error="wrong" data-success="right">Email</label>
-            </div>
-            <div class="input-field col s6">
-              <input required id="datumRojstva" type="text" class="datepicker validate">
-              <label for="datumRojstva">Datum Rojstva</label>
-            </div>
-            <div class="input-field col s6">
-              <input id="telefon" type="text" class="validate">
-              <label for="telefon">Telefon</label>
-            </div>
-            <div class="file-field input-field col s12">
-              <div class="btn">
-                <span class="left">Naloži
-                  <i class="material-icons right">file_upload</i>
-                </span>
-                <input type="file">
-              </div>
-              <div class="file-path-wrapper">
-                <input class="file-path validate" type="text" placeholder="Prenesite osebno identifikacijo">
-              </div>
-            </div>
-            <button class="btn col offset-s4 s4" type="submit">Registriraj se
-            </button>
-          </form>
+      <form action="#" method="post">
+        <div class="row">
+          <div class="input-field col s10 offset-s1 col l8 offset-l2">
+            <input id="user" type="text" class="validate">
+            <label for="user">Uporabniško Ime</label>
+          </div>
         </div>
+        <div class="row">
+          <div class="input-field col s10 offset-s1 col l8 offset-l2">
+            <input id="password" type="password" class="validate">
+            <label for="password">Password</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="radio col s10 offset-s1 col l8 offset-l2">
+            <p>
+              <input type="checkbox" id="remember" />
+              <label for="remember">Zapomni si me</label>
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field center-align">
+            <button id="signIn" class="btn btn-submit large" type="submit">Vpis</button>
+            <div class="input-field center-align">
+              <a href="registracija">Še nimate računa?</a>
+            </div>
+          </div>
+      </form>
       </div>
-    </div>
   </main>
 </body>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
@@ -211,20 +195,7 @@
     // Page Specific //
 
 
-    // Pickdate //
-    $('.datepicker').pickadate({
-      selectMonths: true, // Creates a dropdown to control month
-      selectYears: 15, // Creates a dropdown of 15 years to control year,
-      today: 'Today',
-      clear: 'Clear',
-      close: 'Ok',
-      closeOnSelect: false, // Close upon selecting a date,
-      container: undefined // ex. 'body' will append picker to body
-
-
-    })
 
   });
 </script>
-
 </html>

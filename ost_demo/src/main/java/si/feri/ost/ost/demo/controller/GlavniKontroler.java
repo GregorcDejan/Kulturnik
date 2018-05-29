@@ -20,7 +20,11 @@ public class GlavniKontroler {
         return "index";
     }
 
+    @RequestMapping(value = { "/", "/dodajanjeDogodkov" }, method = RequestMethod.GET)
+    public String doddog(Model model) {
 
+        return "dodajanjeDogodkov";
+    }
 
     //testni jsp za izpise ipd.
     @RequestMapping(value = { "/Test" }, method = RequestMethod.GET)
