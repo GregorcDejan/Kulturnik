@@ -181,7 +181,7 @@
 
 
 
-
+      src="${pageContext.request.contextPath}/lib/slike
 
       <!-- Začetek Vrstice-->
       <div class="row">
@@ -189,7 +189,7 @@
         <div class="col s12 m6 l4">
           <div class="card hoverable">
             <div class="card-image waves-effect waves-block">
-              <img class="activator responsive-image" src="res/hammerfall.jpg">
+              <img class="activator responsive-image" src="${pageContext.request.contextPath}/lib/slike/hammerfall.jpg">
             </div>
             <div class="card-content">
               <span class="card-title activator grey-text text-darken-4">HammerFall Rock of Ages!
@@ -231,7 +231,7 @@
         <div class="col s12 m6 l4">
           <div class="card hoverable">
             <div class="card-image waves-effect waves-block">
-              <img class="activator responsive-image" src="res/hammerfall.jpg">
+              <img class="activator responsive-image" src="${pageContext.request.contextPath}/lib/slike/hammerfall.jpg">
             </div>
             <div class="card-content">
               <span class="card-title activator grey-text text-darken-4">HammerFall Rock of Ages!
@@ -273,7 +273,7 @@
         <div class="col s12 m6 l4">
           <div class="card hoverable">
             <div class="card-image waves-effect waves-block">
-              <img class="activator responsive-image" src="res/hammerfall.jpg">
+              <img class="activator responsive-image" src="${pageContext.request.contextPath}/lib/slike/hammerfall.jpg">
             </div>
             <div class="card-content">
               <span class="card-title activator grey-text text-darken-4">HammerFall Rock of Ages!
@@ -315,7 +315,7 @@
         <div class="col s12 m6 l4">
           <div class="card hoverable">
             <div class="card-image waves-effect waves-block">
-              <img class="activator responsive-image" src="res/hammerfall.jpg">
+              <img class="activator responsive-image" src="${pageContext.request.contextPath}/lib/slike/hammerfall.jpg">
             </div>
             <div class="card-content">
               <span class="card-title activator grey-text text-darken-4">HammerFall Rock of Ages!
@@ -357,7 +357,7 @@
         <div class="col s12 m6 l4">
           <div class="card hoverable">
             <div class="card-image waves-effect waves-block">
-              <img class="activator responsive-image" src="res/hammerfall.jpg">
+              <img class="activator responsive-image" src="${pageContext.request.contextPath}/lib/slike/hammerfall.jpg">
             </div>
             <div class="card-content">
               <span class="card-title activator grey-text text-darken-4">HammerFall Rock of Ages!
@@ -399,7 +399,7 @@
         <div class="col s12 m6 l4">
           <div class="card hoverable">
             <div class="card-image waves-effect waves-block">
-              <img class="activator responsive-image" src="res/hammerfall.jpg">
+              <img class="activator responsive-image" src="${pageContext.request.contextPath}/lib/slike/hammerfall.jpg">
             </div>
             <div class="card-content">
               <span class="card-title activator grey-text text-darken-4">HammerFall Rock of Ages!
@@ -441,7 +441,7 @@
         <div class="col s12 m6 l4">
           <div class="card hoverable">
             <div class="card-image waves-effect waves-block">
-              <img class="activator responsive-image" src="res/hammerfall.jpg">
+              <img class="activator responsive-image" src="${pageContext.request.contextPath}/lib/slike/hammerfall.jpg">
             </div>
             <div class="card-content">
               <span class="card-title activator grey-text text-darken-4">HammerFall Rock of Ages!
@@ -483,7 +483,7 @@
         <div class="col s12 m6 l4">
           <div class="card hoverable">
             <div class="card-image waves-effect waves-block">
-              <img class="activator responsive-image" src="res/hammerfall.jpg">
+              <img class="activator responsive-image" src="${pageContext.request.contextPath}/lib/slike/hammerfall.jpg">
             </div>
             <div class="card-content">
               <span class="card-title activator grey-text text-darken-4">HammerFall Rock of Ages!
@@ -525,7 +525,7 @@
         <div class="col s12 m6 l4">
           <div class="card hoverable">
             <div class="card-image waves-effect waves-block">
-              <img class="activator responsive-image" src="res/hammerfall.jpg">
+              <img class="activator responsive-image" src="${pageContext.request.contextPath}/lib/slike/hammerfall.jpg">
             </div>
             <div class="card-content">
               <span class="card-title activator grey-text text-darken-4">HammerFall Rock of Ages!

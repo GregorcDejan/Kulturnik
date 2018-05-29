@@ -181,7 +181,7 @@
           <div class="grey lighten-3">
             <ul class="collection z-depth-1">
               <li class="collection-item avatar grey lighten-3">
-                <img src="res/lucka.jpg" alt="" class="circle">
+                <img src="${pageContext.request.contextPath}/lib/slike/lucka.jpg" alt="" class="circle">
                 <span class="title">Lucija Brezočnik</span>
                 <p>
                   Project Owner
