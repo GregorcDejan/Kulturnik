@@ -207,7 +207,7 @@
         </div>
         <div class="row">
           <div class="file-field input-field col s8 offset-s2">
-            <div class="btn teal darken-2">
+            <div class="btn teal darken-1">
               <span>Naloži</span>
               <input type="file" multiple>
             </div>
@@ -218,7 +218,7 @@
         </div>
         <div class="row">
           <div class="col offset-s4">
-            <button class="btn teal darken-2 z-depth-3" type="submit">
+            <button class="btn teal darken-1 z-depth-3" type="submit">
               <div class="valign-wrapper">Dodaj dogodek
                 <i class="material-icons right">send</i>
               </div>
