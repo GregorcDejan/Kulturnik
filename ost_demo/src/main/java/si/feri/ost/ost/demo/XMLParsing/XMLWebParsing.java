@@ -27,7 +27,7 @@ public class XMLWebParsing
 {
     public XMLWebParsing()
     {
-        ArrayList<Dogodek> dogodki = new ArrayList<Dogodek>();
+        ArrayList<Dogodek> dogod = new ArrayList<Dogodek>();
 
 
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
@@ -57,7 +57,7 @@ public class XMLWebParsing
                     String opis=eElement.getElementsByTagName("plot_outline").item(0).getTextContent();
                     String datum=eElement.getElementsByTagName("date").item(0).getTextContent();
 
-                    dogodki.add(new Dogodek(naziv,vir,virURL,"Film",opis,"Maribor","Loška ulica 13",datum,"3"));
+                    dogod.add(new Dogodek(naziv,vir,virURL,"Film",opis,"Maribor","Loška ulica 13",datum,"3"));
 
 
                 }
@@ -71,11 +71,11 @@ public class XMLWebParsing
             e.printStackTrace();
         }
 
-        for (Dogodek dogodek : dogodki) {
+        for (Dogodek dogodek : dogod) {
             System.out.println(dogodek);
 
         }
-        System.out.println(dogodki.get(0).getDatum());
+        System.out.println(dogod.get(0).getDatum());
 
     }
 }
