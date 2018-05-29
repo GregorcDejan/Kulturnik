@@ -22,13 +22,13 @@
     <div class="navbar-fixed">
       <nav class=" teal darken-2 z-depth-3">
         <div class="nav-wrapper">
-          <a href="index.html" class="brand-logo">Kulturnik</a>
+          <a href="index" class="brand-logo">Kulturnik</a>
           <a href="#" class="button-collapse" data-activates="mobile-sidenav">
             <i class="material-icons">menu</i>
           </a>
           <ul class="right show-on-med-and-down">
             <li>
-              <a href="search.html">
+              <a href="search">
                 <i class="material-icons">search</i>
               </a>
             </li>
@@ -43,19 +43,19 @@
               </a>
               <ul id='dropdownPerson' class='dropdown-content'>
                 <li>
-                  <a href="add.html">
+                  <a href="add">
                     <button class="btn-flat teal-text">Dodaj Dogodek</button>
                   </a>
                 </li>
                 <li class="divider"></li>
                 <li class="active">
-                  <a href="vpis.html">
+                  <a href="vpis">
                     <button class="btn-flat teal-text">Vpis</button>
                   </a>
                 </li>
                 <li class="divider"></li>
                 <li>
-                  <a href="registracija.html">
+                  <a href="registracija">
                     <button class="btn-flat teal-text">Registracija</button>
                   </a>
                 </li>
@@ -70,10 +70,10 @@
           </ul>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li>
-              <a href="index.html">Domov</a>
+              <a href="index">Domov</a>
             </li>
             <li>
-              <form action="events.html" method="get">
+              <form action="events" method="get">
                 <a class="dropdown-trigger" data-activates="dropdownEvents" href="#">
                   Dogodki
                   <i class="material-icons right">arrow_drop_down</i>
@@ -113,9 +113,9 @@
             </form>
           </ul>
           <ul class="side-nav" id="mobile-sidenav">
-            <form action="events.html" method="get">
+            <form action="events" method="get">
               <li>
-                <a href="index.html">Home</a>
+                <a href="index">Home</a>
               </li>
               <li>
                 <button class="btn-flat" type="submit" name="event" value="Glasba">Glasba</button>
@@ -166,7 +166,7 @@
           <div class="input-field center-align">
             <button id="signIn" class="btn btn-submit large" type="submit">Vpis</button>
             <div class="input-field center-align">
-              <a href="registracija.html">Še nimate računa?</a>
+              <a href="registracija">Še nimate računa?</a>
             </div>
           </div>
       </form>
