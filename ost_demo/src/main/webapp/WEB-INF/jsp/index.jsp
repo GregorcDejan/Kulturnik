@@ -192,7 +192,7 @@
                 </a>
               </li>
               <li class="collection-item avatar grey lighten-3">
-                <img src="res/lepotec.jpg" alt="" class="circle">
+                <img src="${pageContext.request.contextPath}/lib/slike/lepotec.jpg" alt="" class="circle">
                 <span class="title">Marko Gluhak</span>
                 <p>
                   Front-End
@@ -203,7 +203,7 @@
                 </a>
               </li>
               <li class="collection-item avatar grey lighten-3">
-                <img src="res/ninc.jpg" alt="" class="circle">
+                <img src="${pageContext.request.contextPath}/lib/slike/ninc.jpg" alt="" class="circle">
                 <span class="title">Nina Kliček</span>
                 <p>
                   Back-End
@@ -214,7 +214,7 @@
                 </a>
               </li>
               <li class="collection-item avatar grey lighten-3">
-                <img src="res/dejc.jpg" alt="" class="circle">
+                <img src="${pageContext.request.contextPath}/lib/slike/dejc.jpg" alt="" class="circle">
                 <span class="title">Dejan Gregorc</span>
                 <p>
                   Back-End
@@ -225,7 +225,7 @@
                 </a>
               </li>
               <li class="collection-item avatar grey lighten-3">
-                <img src="res/lepotec.jpg" alt="" class="circle">
+                <img src="${pageContext.request.contextPath}/lib/slike/lepotec.jpg" alt="" class="circle">
                 <span class="title">Maruša Konečnik</span>
                 <p>
                   Back-End
