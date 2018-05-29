@@ -26,6 +26,7 @@ public class OsebaDAO {
 
         for (Map<String,Object> vrstica : vrstice) {
 
+            int id = (Integer)vrstica.get("ID");
             String ime = (String)vrstica.get("Ime");
             String priimek = (String)vrstica.get("Priimek");
             String email = (String)vrstica.get("Email");
@@ -34,7 +35,7 @@ public class OsebaDAO {
             String telefonska = (String)vrstica.get("Telefon");
 
 
-            seznam.add(new Oseba(ime,priimek,email, geslo, datumRojstva, telefonska));
+            seznam.add(new Oseba(id,ime,priimek,email, geslo, datumRojstva, telefonska));
         }
         return seznam;
     }
@@ -60,6 +61,7 @@ public class OsebaDAO {
     public Oseba getByEmail(String email)
     {
         String sql = "SELECT * FROM uporabnik WHERE email=? ";
+
 
         Oseba d= (Oseba) jdbcTemplate.queryForObject(sql,
                 new Object[] {email},

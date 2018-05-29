@@ -13,6 +13,16 @@ public class Oseba {
     public Oseba() {
     }
 
+    public Oseba(int id, String ime, String priimek, String email, String geslo, String datumRojstva, String telefonska) {
+        this.id = id;
+        this.ime = ime;
+        this.priimek = priimek;
+        this.email = email;
+        this.geslo = geslo;
+        this.datumRojstva = datumRojstva;
+        this.telefonska = telefonska;
+    }
+
     public Oseba(String ime, String priimek, String email, String geslo, String datumRojstva, String telefonska) {
         this.ime = ime;
         this.priimek = priimek;
