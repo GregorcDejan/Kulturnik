@@ -142,7 +142,7 @@
     </div>
     <div class="container">
       <h2 class="center-align">
-        Glasba
+        Glasba ${Kategorija}
       </h2>
       <hr/>
       <div class="row">
