@@ -66,7 +66,7 @@
                 </li>
                 <li>
                   <a href="#!">
-                    <button class="btn-flat teal-text">Izpis</button>
+                    <button class="btn-flat teal-text">Izpis <i class="material-icons">eject</i></button>
                   </a>
                 </li>
               </ul>
@@ -155,13 +155,9 @@
               <ul class="collection">
                 <li class="collection-item"><div>Napačno uporabniško ime ali geslo !<a href="#!" class="secondary-content"></a></div></li>
                 </ul>
-
             </div>
           </div>
-
         </c:when>
-
-
       </c:choose>
       <form action="/prijava" method="post">
         <div class="row">
@@ -174,7 +170,6 @@
           <div class="input-field col s10 offset-s1 col l8 offset-l2">
             <input id="password" type="password" class="validate" name="password">
             <label for="password">Password</label>
-            <div class="red-text center-align"> Narobe uporabniško ime in geslo</div>
           </div>
         </div>
         <div class="row">
@@ -217,7 +212,7 @@
     });
 
     // Page Specific //
-      Materialize.toast('I am a toast!', 3000, 'rounded')
+
 
 
   });

@@ -10,6 +10,9 @@ public class Oseba {
     private String telefonska;
 
 
+    public Oseba() {
+    }
+
     public Oseba(String ime, String priimek, String email, String geslo, String datumRojstva, String telefonska) {
         this.ime = ime;
         this.priimek = priimek;
