@@ -67,6 +67,11 @@
                     <button class="btn-flat teal-text">Moji Dogodki</button>
                   </a>
                 </li>
+                <li>
+                  <a href="#!">
+                    <button class="btn-flat teal-text">Izpis <i class="material-icons">eject</i></button>
+                  </a>
+                </li>
               </ul>
             </li>
           </ul>
