@@ -189,12 +189,12 @@ public class KontrolerBaze {
 
 
         }
-<<<<<<< HEAD
+
 
         return "prijava";
-=======
-        return "vpis";
->>>>>>> a5fd2e96f9f6afd796ca4331616c54089a6d4490
+
+        
+
 
     }
 

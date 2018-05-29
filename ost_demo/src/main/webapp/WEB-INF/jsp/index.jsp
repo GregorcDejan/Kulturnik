@@ -149,19 +149,19 @@
       </div>
       <div class="carousel carousel-slider hoverable z-depth-4" data-indicators="true">
         <a class="carousel-item" href="#one!">
-          <img src="res/hkphil1718.JPG">
+          <img src="${pageContext.request.contextPath}/lib/slike/hkphil1718.JPG">
         </a>
         <a class="carousel-item" href="#two!">
-          <img src="res/bkpam2284930_gallery6.jpeg">
+          <img src="${pageContext.request.contextPath}/lib/slike/bkpam2284930_gallery6.jpeg">
         </a>
         <a class="carousel-item" href="#three!">
-          <img src="res/hammerfall.jpg">
+          <img src="${pageContext.request.contextPath}/lib/slike/res/hammerfall.jpg">
         </a>
         <a class="carousel-item" href="#four!">
-          <img src="res/musicLogo.png">
+          <img src="${pageContext.request.contextPath}/lib/slike/res/musicLogo.png">
         </a>
         <a class="carousel-item" href="#five!">
-          <img src="res/generic-event.jpg">
+          <img src="${pageContext.request.contextPath}/lib/slike/res/generic-event.jpg">
         </a>
       </div>
       <div class="row">
