@@ -81,7 +81,7 @@ public class KontrolerBaze {
 
 
     @RequestMapping(value={"/Konzola",}, method=RequestMethod.GET)
-    public String konzola(Model model,@RequestParam(value="tip", required=false)String tip)
+    public String konzola(Model model,@RequestParam(value="event", required=false)String tip)
     {
         if(tip==null)
             model.addAttribute("dogodki",dogodki.getAllDogodki());
@@ -99,7 +99,7 @@ public class KontrolerBaze {
 
 
     @RequestMapping(value={"/events",}, method=RequestMethod.GET)
-    public String events(Model model,@RequestParam(value="tip", required=false)String tip)
+    public String events(Model model,@RequestParam(value="event", required=false)String tip)
     {
 
 
@@ -172,7 +172,7 @@ public class KontrolerBaze {
                     String opis=eElement.getElementsByTagName("plot_outline").item(0).getTextContent();
                     String datum=eElement.getElementsByTagName("date").item(0).getTextContent();
 
-                    dogod.add(new Dogodek(naziv,vir,virURL,"film",opis,"Maribor","Loška ulica 13",datum,"3"));
+                    dogod.add(new Dogodek(naziv,vir,virURL,"Kino",opis,"Maribor","Loška ulica 13",datum,"3"));
 
 
                 }
