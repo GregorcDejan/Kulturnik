@@ -66,7 +66,7 @@
                 </li>
                 <li>
                   <a href="#!">
-                    <button class="btn-flat teal-text">Izpis <i class="material-icons">eject</i></button>
+                    <button class="btn-flat teal-text">Izpis</button>
                   </a>
                 </li>
               </ul>
@@ -172,6 +172,7 @@
           <div class="input-field col s10 offset-s1 col l8 offset-l2">
             <input id="password" type="password" class="validate" name="password">
             <label for="password">Password</label>
+            <div class="red-text center-align"> Narobe uporabniško ime in geslo</div>
           </div>
         </div>
         <div class="row">
