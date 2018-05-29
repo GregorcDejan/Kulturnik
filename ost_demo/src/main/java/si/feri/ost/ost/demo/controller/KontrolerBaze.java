@@ -117,6 +117,28 @@ public class KontrolerBaze {
         return "events";
     }
 
+<<<<<<< HEAD
+    @RequestMapping(value={"/filter",}, method=RequestMethod.GET)
+    public String eventsFilter(Model model,
+                               @RequestParam(value="nazivDogodka", required=false)String naziv,
+                               @RequestParam(value="krajDogodka", required=false)String kraj,
+                               @RequestParam(value="datumDogodka", required=false)String datum,
+                               @RequestParam(value="cenaDogodka", required=false)String cena)
+    {
+        List<Dogodek> vsiDogodki =  dogodki.getAllDogodki();
+
+        for(int i=0; i<vsiDogodki.size(); i++)
+        {
+            if(vsiDogodki.get(i).getNaziv().equalsIgnoreCase(naziv))
+                model.addAttribute("dogodki",dogodki.getByNaziv(naziv));
+
+        }
+
+
+        return "events";
+    }
+
+=======
     @RequestMapping(value={"/parseXML"},method=RequestMethod.GET)
     public String xmlpars(Model model)
     {
@@ -180,6 +202,7 @@ public class KontrolerBaze {
     }
 
 
+>>>>>>> 51e530601f2f20dde7d402f96c22bf8fb5abcdd9
     @RequestMapping(value={"/prijava"},method=RequestMethod.POST)
     public String prijava(Model model,
                           @RequestParam(value="username")String email,
