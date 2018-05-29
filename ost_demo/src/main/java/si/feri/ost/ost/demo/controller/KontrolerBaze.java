@@ -112,7 +112,7 @@ public class KontrolerBaze {
         return "events";
     }
 
-<<<<<<< HEAD
+
     @RequestMapping(value={"/filter",}, method=RequestMethod.GET)
     public String eventsFilter(Model model,
                                @RequestParam(value="nazivDogodka", required=false)String naziv,
@@ -133,7 +133,7 @@ public class KontrolerBaze {
         return "events";
     }
 
-=======
+
     @RequestMapping(value={"/parseXML"},method=RequestMethod.GET)
     public String xmlpars(Model model)
     {
@@ -197,7 +197,7 @@ public class KontrolerBaze {
     }
 
 
->>>>>>> 51e530601f2f20dde7d402f96c22bf8fb5abcdd9
+
     @RequestMapping(value={"/prijava"},method=RequestMethod.POST)
     public String prijava(Model model,
                           @RequestParam(value="username")String email,
