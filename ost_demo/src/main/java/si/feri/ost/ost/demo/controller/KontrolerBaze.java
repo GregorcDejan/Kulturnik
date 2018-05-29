@@ -104,7 +104,9 @@ public class KontrolerBaze {
         {
             model.addAttribute("dogodki",dogodki.getByTip(tip));
             model.addAttribute("Kategorija",tip);
+
         }
+
 
 
         return "events";
@@ -175,7 +177,7 @@ public class KontrolerBaze {
 
     @RequestMapping(value={"/prijava"},method=RequestMethod.POST)
     public String prijava(Model model,
-                          @RequestParam(value="user")String email,
+                          @RequestParam(value="username")String email,
                           @RequestParam(value="password")String geslo){
 
         List<Oseba> vseOsebe = oseba.getAllOsebe();
@@ -183,12 +185,16 @@ public class KontrolerBaze {
         for(int i=0; i<vseOsebe.size(); i++){
 
             if(vseOsebe.get(i).getEmail().equals(email) && vseOsebe.get(i).getGeslo().equals(geslo))
-                return "profilUporabnika";
+                return "events";
 
 
         }
+<<<<<<< HEAD
 
         return "prijava";
+=======
+        return "vpis";
+>>>>>>> a5fd2e96f9f6afd796ca4331616c54089a6d4490
 
     }
 

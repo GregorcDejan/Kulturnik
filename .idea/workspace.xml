@@ -47,7 +47,7 @@
         <entry file="file://$PROJECT_DIR$/ost_demo/src/main/java/si/feri/ost/ost/demo/controller/GlavniKontroler.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="272">
-              <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+              <caret line="23" selection-start-line="23" selection-end-line="23" />
             </state>
           </provider>
         </entry>
@@ -56,14 +56,9 @@
         <entry file="file://$PROJECT_DIR$/ost_demo/src/main/webapp/WEB-INF/jsp/index.jsp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1870">
-              <caret line="110" column="17" lean-forward="true" selection-start-line="110" selection-start-column="17" selection-end-line="110" selection-end-column="17" />
+              <caret line="110" column="17" selection-start-line="110" selection-start-column="17" selection-end-line="110" selection-end-column="17" />
             </state>
           </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="workspace.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file leaf-file-name="Zagonski.java" pinned="false" current-in-tab="false">
@@ -132,7 +127,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
@@ -197,6 +191,16 @@
               <item name="ost_demo" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="demo" type="462c0819:PsiDirectoryNode" />
+              <item name="DAO" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Kulturnik" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Kulturnik" type="462c0819:PsiDirectoryNode" />
+              <item name="ost_demo" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -251,6 +255,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -356,11 +361,12 @@
       <workItem from="1527520676567" duration="408000" />
       <workItem from="1527522892304" duration="323000" />
       <workItem from="1527523283664" duration="268000" />
+      <workItem from="1527523621375" duration="408000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18752000" />
+    <option name="totallyTimeSpent" value="19160000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -373,10 +379,11 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="13" sideWeight="0.30703625" side_tool="true" visible="true" weight="0.25381264" />
-      <window_info anchor="right" id="Maven Projects" order="9" visible="true" weight="0.08528785" />
+      <window_info anchor="bottom" id="Event Log" order="13" sideWeight="0.3075693" side_tool="true" weight="0.25381264" />
+      <window_info anchor="right" id="Maven Projects" order="9" weight="0.08528785" />
       <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
       <window_info id="Capture Tool" order="7" />
       <window_info id="Designer" order="2" />
@@ -392,10 +399,10 @@
       <window_info anchor="bottom" id="Java Enterprise" order="10" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="bottom" id="Version Control" order="12" sideWeight="0.4978678" weight="0.32897604" />
-      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.6929638" weight="0.25381264" />
+      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.6924307" weight="0.25381264" />
       <window_info anchor="bottom" id="Spring" order="8" sideWeight="0.49946696" weight="0.32897604" />
       <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49840087" weight="0.32897604" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49512988" visible="true" weight="0.26226014" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49512988" visible="true" weight="0.26492536" />
       <window_info anchor="right" id="Bean Validation" order="8" />
       <window_info id="Web" order="6" side_tool="true" />
       <window_info id="Learn" order="2" />
@@ -517,20 +524,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/ost_demo/src/main/webapp/WEB-INF/jsp/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1870">
-          <caret line="110" column="17" lean-forward="true" selection-start-line="110" selection-start-column="17" selection-end-line="110" selection-end-column="17" />
+          <caret line="110" column="17" selection-start-line="110" selection-start-column="17" selection-end-line="110" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ost_demo/src/main/java/si/feri/ost/ost/demo/DAO/OsebaDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ost_demo/src/main/java/si/feri/ost/ost/demo/controller/GlavniKontroler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
-          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
         </state>
       </provider>
     </entry>

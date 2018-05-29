@@ -10,150 +10,227 @@
     <title>Registracija</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <<<<<<< HEAD
     <link type="text/css" rel="stylesheet" href="/lib/css/materialize.min.css" media="screen,projection" />
     <link rel="stylesheet" type="text/css" media="screen" href="/lib/css/style.css" />
-    =======
     <link rel="stylesheet" type="text/css" href="materialize.min.css"  />
     <link rel="stylesheet" type="text/css" href="style.css" />
     <script src="main.js"></script>
 </head>
 
 <body>
-<div class="teal lighten-5">
+  <main class="teal lighten-5">
     <div class="navbar-fixed">
-        <nav class=" teal darken-2 z-depth-3">
-            <div class="nav-wrapper">
-                <a href="index" class="brand-logo">Kulturnik</a>
-                <a href="#" class="button-collapse" data-activates="mobile-sidenav">
-                    <i class="material-icons">menu</i>
+      <nav class=" teal darken-2 z-depth-3">
+        <div class="nav-wrapper">
+          <a href="index" class="brand-logo">Kulturnik</a>
+          <a href="#" class="button-collapse" data-activates="mobile-sidenav">
+            <i class="material-icons">menu</i>
+          </a>
+          <ul class="right show-on-med-and-down">
+            <li>
+              <a href="search">
+                <i class="material-icons">search</i>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="material-icons">place</i>
+              </a>
+            </li>
+            <li class="active">
+              <a class="dropdown-trigger" data-activates="dropdownPerson" href="#">
+                <i class="material-icons left">person</i>
+              </a>
+              <ul id='dropdownPerson' class='dropdown-content'>
+                <li>
+                  <a href="add">
+                    <button class="btn-flat teal-text">Dodaj Dogodek</button>
+                  </a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                  <a href="vpis">
+                    <button class="btn-flat teal-text">Vpis</button>
+                  </a>
+                </li>
+                <li class="divider"></li>
+                <li class="active">
+                  <a href="registracija">
+                    <button class="btn-flat teal-text">Registracija</button>
+                  </a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                  <a href="#!">
+                    <button class="btn-flat teal-text">Moji Dogodki</button>
+                  </a>
+                </li>
+                <li>
+                  <a href="#!">
+                    <button class="btn-flat teal-text">Izpis</button>
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+
+            <li>
+              <a href="index">Domov</a>
+            </li>
+            <li>
+              <form action="events" method="get">
+                <a class="dropdown-trigger" data-activates="dropdownEvents" href="#">
+                  Dogodki
+                  <i class="material-icons right">arrow_drop_down</i>
                 </a>
-                <ul class="right show-on-med-and-down">
-                    <li>
-                        <a href="search.html">
-                            <i class="material-icons">search</i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="material-icons">place</i>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-trigger" data-activates="dropdownPerson" href="#">
-                            <i class="material-icons left">person</i>
-                        </a>
-                        <ul id='dropdownPerson' class='dropdown-content'>
-                            <li>
-                                <a href="events">Dodaj Dogodek</a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                                <a href="vpis">Vpis</a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                                <a href="registracija">Registracija</a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                                <a href="#!">Moji Dogodki</a>
-                            </li>
-                        </ul>
-                    </li>
+                <ul id='dropdownEvents' class='dropdown-content'>
+                  <li>
+                    <a href="#">
+                      <button class="btn-flat teal-text" type="submit" name="event" value="Glasba">Glasba</button>
+                    </a>
+                  </li>
+                  <li class="divider"></li>
+                  <li>
+                    <a href="#">
+                      <button class="btn-flat teal-text" type="submit" name="event" value="Glasba">Gledališče</button>
+                    </a>
+                  </li>
+                  <li class="divider"></li>
+                  <li>
+                    <a href="#">
+                      <button class="btn-flat teal-text" type="submit" name="event" value="Glasba">Razstave</button>
+                    </a>
+                  </li>
+                  <li class="divider"></li>
+                  <li>
+                    <a href="#">
+                      <button class="btn-flat teal-text" type="submit" name="event" value="Glasba">Šport</button>
+                    </a>
+                  </li>
+                  <li class="divider"></li>
+                  <li>
+                    <a href="#">
+                      <button class="btn-flat teal-text" type="submit" name="event" value="Glasba">Kino</button>
+                    </a>
+                  </li>
                 </ul>
-                <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li class="active">
-                        <a href="index">Domov</a>
-                    </li>
-                    <li>
-                        <a href="events">Glasba</a>
-                    </li>
-                    <li>
-                        <a href="events">Gledališče</a>
-                    </li>
-                    <li>
-                        <a href="events">Razstave</a>
-                    </li>
-                    <li>
-                        <a href="events">Športni dogodki</a>
-                    </li>
-                    <li>
-                        <a href="events">Kino</a>
-                    </li>
-                </ul>
-                <ul class="side-nav" id="mobile-sidenav">
-                    <li class="active">
-                        <a href="index">Home</a>
-                    </li>
-                    <li>
-                        <a href="events">Glasba</a>
-                    </li>
-                    <li>
-                        <a href="events">Gledališče</a>
-                    </li>
-                    <li>
-                        <a href="events">Razstave</a>
-                    </li>
-                    <li>
-                        <a href="events">Športni dogodki</a>
-                    </li>
-                    <li>
-                        <a href="events">Kino</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+            </li>
+            </form>
+          </ul>
+          <ul class="side-nav" id="mobile-sidenav">
+            <form action="events" method="get">
+              <li>
+                <a href="index">Home</a>
+              </li>
+
+              <li>
+                <button class="btn-flat" type="submit" name="event" value="Glasba">Glasba</button>
+              </li>
+              <li>
+                <button class="btn-flat" type="submit" name="event" value="Glasba">Gledališče</button>
+              </li>
+              <li>
+                <button class="btn-flat" type="submit" name="event" value="Glasba">Razstave</button>
+              </li>
+              <li>
+                <button class="btn-flat" type="submit" name="event" value="Glasba">Šport</button>
+              </li>
+              <li>
+                <button class="btn-flat" type="submit" name="event" value="Glasba">Kino</button>
+              </li>
+            </form>
+          </ul>
+        </div>
+      </nav>
     </div>
     <div class="container">
-        <h2 class="center-align">
-            Registracija
-        </h2>
-        <form action="/dodajanjeOsebe" method="post">
-            <input name="ime" type="text" placeholder="Ime*: " />
-            <input name="priimek" type="text" placeholder="Priimek*: " />
-            <input name="email" type="text" placeholder="E-mail*: " />
-            <input name="geslo" type="text" placeholder="Geslo*: " />
-            <input name="datumRojstva" type="text" placeholder="Datum Rojstva" />
-            <input name="telefonska" type="text" placeholder="Telefon" />
-            <button class="btn btn-submit large" type="submit">
-                <div class="valign-wrapper">Registriraj se
-                </div>
+      <h2 class="center-align">
+        Registracija
+      </h2>
+      <div class="row">
+        <div class="col s6 offset-s3">
+          <form action="#" method="post">
+            <div class="input-field col s6">
+              <input required id="first_name" type="text" class="validate">
+              <label for="first_name">Ime</label>
+            </div>
+            <div class="input-field col s6">
+              <input required id="last_name" type="text" class="validate">
+              <label for="last_name">Priimek</label>
+            </div>
+            <div class="input-field col s6">
+              <input required id="geslo" type="password" class="validate">
+              <label for="geslo">Geslo</label>
+            </div>
+            <div class="input-field col s6">
+              <input required id="email" type="email" class="validate">
+              <label for="email" data-error="wrong" data-success="right">Email</label>
+            </div>
+            <div class="input-field col s6">
+              <input required id="datumRojstva" type="text" class="datepicker validate">
+              <label for="datumRojstva">Datum Rojstva</label>
+            </div>
+            <div class="input-field col s6">
+              <input id="telefon" type="text" class="validate">
+              <label for="telefon">Telefon</label>
+            </div>
+            <div class="file-field input-field col s12">
+              <div class="btn">
+                <span class="left">Naloži
+                  <i class="material-icons right">file_upload</i>
+                </span>
+                <input type="file">
+              </div>
+              <div class="file-path-wrapper">
+                <input class="file-path validate" type="text" placeholder="Prenesite osebno identifikacijo">
+              </div>
+            </div>
+            <button class="btn col offset-s4 s4" type="submit">Registriraj se
             </button>
-        </form>
+          </form>
+        </div>
+      </div>
     </div>
-</div>
+  </main>
 </body>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script type="text/javascript" src="js/materialize.min.js"></script>
+<script type="text/javascript" src="/lib/javascript/materialize.min.js"></script>
+
 
 <script>
-    // Every page needs this dingy //
-    $(document).ready(function () {
-        $('.dropdown-button').dropdown({
-            constrainWidth: false,
-            hover: true,
-            belowOrigin: true,
-            alignment: 'left'
-        });
-        // Navbar //
-        $('.button-collapse').sideNav();
-        $('.dropdown-trigger').dropdown({
-            constrainWidth: false,
-            hover: true
-        });
-
-        // Page Specific //
-
-        // Carousel //
-        $('.carousel.carousel-slider').carousel({
-            fullWidth: true,
-            noWrap: true
-        });
-
-
-
+  // Every page needs this dingy //
+  $(document).ready(function () {
+    $('.dropdown-button').dropdown({
+      constrainWidth: false,
+      hover: true,
+      belowOrigin: true,
+      alignment: 'left'
     });
+    // Navbar //
+    $('.button-collapse').sideNav();
+    $('.dropdown-trigger').dropdown({
+      constrainWidth: false,
+      hover: true
+    });
+
+    // Page Specific //
+
+
+    // Pickdate //
+    $('.datepicker').pickadate({
+      selectMonths: true, // Creates a dropdown to control month
+      selectYears: 15, // Creates a dropdown of 15 years to control year,
+      today: 'Today',
+      clear: 'Clear',
+      close: 'Ok',
+      closeOnSelect: false, // Close upon selecting a date,
+      container: undefined // ex. 'body' will append picker to body
+
+
+    })
+
+  });
 </script>
 
 </html>
