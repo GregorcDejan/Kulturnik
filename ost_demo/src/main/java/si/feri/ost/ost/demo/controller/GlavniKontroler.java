@@ -20,7 +20,7 @@ public class GlavniKontroler {
         return "index";
     }
 
-    @RequestMapping(value = { "/", "/dodajanjeDogodkov" }, method = RequestMethod.GET)
+    @RequestMapping(value = {"/dodajanjeDogodkov" }, method = RequestMethod.GET)
     public String doddog(Model model) {
 
         return "dodajanjeDogodkov";
