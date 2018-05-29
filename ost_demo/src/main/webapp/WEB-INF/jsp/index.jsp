@@ -155,13 +155,13 @@
           <img src="${pageContext.request.contextPath}/lib/slike/bkpam2284930_gallery6.jpeg">
         </a>
         <a class="carousel-item" href="#three!">
-          <img src="${pageContext.request.contextPath}/lib/slike/res/hammerfall.jpg">
+          <img src="${pageContext.request.contextPath}/lib/slike/hammerfall.jpg">
         </a>
         <a class="carousel-item" href="#four!">
-          <img src="${pageContext.request.contextPath}/lib/slike/res/musicLogo.png">
+          <img src="${pageContext.request.contextPath}/lib/slike/musicLogo.png">
         </a>
         <a class="carousel-item" href="#five!">
-          <img src="${pageContext.request.contextPath}/lib/slike/res/generic-event.jpg">
+          <img src="${pageContext.request.contextPath}/lib/slike/generic-event.jpg">
         </a>
       </div>
       <div class="row">
