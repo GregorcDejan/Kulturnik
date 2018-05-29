@@ -145,6 +145,22 @@
       <h2 class="center-align">
         Vpis
       </h2>
+
+      <c:choose>
+        <c:when test="${uspesnost==false}">
+          <div class ="row">
+            <div class="alert center-align col m6 offset-m3 s8 offset-s2">
+              <ul class="collection">
+                <li class="collection-item"><div>Napačno uporabniško ime ali geslo !<a href="#!" class="secondary-content"></a></div></li>
+                </ul>
+
+            </div>
+          </div>
+
+        </c:when>
+
+
+      </c:choose>
       <form action="/prijava" method="post">
         <div class="row">
           <div class="input-field col s10 offset-s1 col l8 offset-l2">
@@ -198,7 +214,7 @@
     });
 
     // Page Specific //
-
+      Materialize.toast('I am a toast!', 3000, 'rounded')
 
 
   });

@@ -107,13 +107,25 @@ public class KontrolerBaze {
                           @RequestParam(value="username")String email,
                           @RequestParam(value="password")String geslo){
 
-        List<Oseba> vseOsebe = oseba.getAllOsebe();
+        List<Oseba> vseOsebe = osebe.getAllOsebe();
+
+        boolean prijavaUspesna = false;
 
         for(int i=0; i<vseOsebe.size(); i++){
 
             if(vseOsebe.get(i).getEmail().equals(email) && vseOsebe.get(i).getGeslo().equals(geslo))
+            {
+                prijavaUspesna = true;
+                model.addAttribute("uspesnost",prijavaUspesna);
                 return "events";
 
+            }
+
+
+        }
+        if(prijavaUspesna==false)
+        {
+            model.addAttribute("uspesnost",prijavaUspesna);
 
         }
         return "vpis";
