@@ -103,7 +103,7 @@ public class DogodekDAO {
         return rez;
 
     }
-    public List<Dogodek> getByID(String id)
+    public Dogodek getByID(String id)
     {
         String sql = "SELECT * FROM dogodek WHERE id=? ";
 
@@ -115,13 +115,41 @@ public class DogodekDAO {
                     new Object[]{id},
                     new BeanPropertyRowMapper(Dogodek.class));
 
+
+        return d;
+
+    }
+
+    public List<Dogodek> getByIdUporabnika(int id){
+        String sql = "SELECT * FROM dogodek WHERE ID_UPORABNIKA=?";
+
+        List<Dogodek> rez = new ArrayList<>();
+
+        List<Map<String,Object>> vrstice  = jdbcTemplate.queryForList(sql,new Object[]{id});
+
+        for(Map vrstica: vrstice){
+
+            int ID=(Integer)(vrstica.get("ID"));
+            String naziv=(String)vrstica.get("Naziv");
+            String vir=(String)vrstica.get("Vir");
+            String slikaURL=(String)vrstica.get("slikaURL");
+
+            String opis=(String)vrstica.get("opis");
+            String kraj=(String)vrstica.get("kraj");
+            String naslov=(String)vrstica.get("naslov");
+            String tip=(String)vrstica.get("tip");
+            String datum=(String)vrstica.get("datum");
+            String cena=(String)vrstica.get("cena");
+
+            Dogodek d= new Dogodek(ID,naziv,vir,slikaURL,tip,opis,kraj,naslov,datum,id,cena);
             rez.add(d);
 
-
-
-
+        }
 
         return rez;
+
+
+
 
     }
 
@@ -160,6 +188,7 @@ public class DogodekDAO {
     public List<Dogodek> getByTip(String tip)
     {
         String sql = "SELECT * FROM dogodek WHERE tip_dogodka=?";
+
         List<Dogodek> rez = new ArrayList<>();
 
         List<Map<String,Object>> vrstice  = jdbcTemplate.queryForList(sql,new Object[]{tip});

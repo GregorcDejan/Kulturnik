@@ -16,10 +16,14 @@
 </head>
 
 <body>
+
+
+
   <main class="teal lighten-5">
     <div class="navbar-fixed">
       <nav class=" teal darken-2 z-depth-3">
         <div class="nav-wrapper">
+
           <a href="index" class="brand-logo">Kulturnik</a>
           <a href="#" class="button-collapse" data-activates="mobile-sidenav">
             <i class="material-icons">menu</i>
@@ -60,12 +64,12 @@
                 <li class="divider"></li>
                 <li>
                   <a href="/dodajanjeDogodkov">
-                    <button class="btn-flat teal-text">Moji Dogodki</button>
+                    <form action="/events" method="get"><button class="btn-flat teal-text" name="event" type="submit" value="Moji dogodki">Moji Dogodki</button></form>
                   </a>
                 </li>
                 <li>
                   <a href="#!">
-                    <button class="btn-flat teal-text">Izpis</button>
+                    <form action="/izpis" method="get"><button class="btn-flat teal-text">Izpis <i class="material-icons">eject</i></button></form>
                   </a>
                 </li>
               </ul>

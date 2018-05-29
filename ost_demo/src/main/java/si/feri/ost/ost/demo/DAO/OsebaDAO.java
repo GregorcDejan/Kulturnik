@@ -62,13 +62,30 @@ public class OsebaDAO {
     {
         String sql = "SELECT * FROM uporabnik WHERE email=? ";
 
+        List<Map<String,Object>> vrstice = jdbcTemplate.queryForList(sql, new Object[]{email});
 
-        Oseba d= (Oseba) jdbcTemplate.queryForObject(sql,
+
+        Oseba os = new Oseba();
+        for(Map vrstica: vrstice){
+            int id = (Integer)vrstica.get("ID");
+            String ime = (String)vrstica.get("Ime");
+            String priimek = (String)vrstica.get("Priimek");
+            String geslo = (String)vrstica.get("Geslo");
+            String datumRojstva = (String)vrstica.get("Datum_rojstva");
+            String telefonska = (String)vrstica.get("Telefon");
+
+
+            Oseba o =new Oseba(id,ime,priimek,email, geslo, datumRojstva, telefonska);
+
+            os = o;
+        }
+
+      /*  Oseba d= (Oseba) jdbcTemplate.queryForObject(sql,
                 new Object[] {email},
-                new BeanPropertyRowMapper(Oseba.class));
+                new BeanPropertyRowMapper(Oseba.class)); */
 
 
-        return d;
+        return os;
 
     }
 
@@ -91,5 +108,20 @@ public class OsebaDAO {
         }
         return seznam;
 
+    }
+
+    public Oseba getByID(int id)
+    {
+        String sql = "SELECT * FROM dogodek WHERE id=? ";
+
+        List<Map<String,Object>> vrstice = jdbcTemplate.queryForList(sql);
+
+
+        Oseba o = (Oseba) jdbcTemplate.queryForObject(sql,
+                new Object[]{id},
+                new BeanPropertyRowMapper(Oseba.class));
+
+
+        return o;
     }
 }

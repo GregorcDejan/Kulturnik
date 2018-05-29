@@ -97,31 +97,50 @@ public class KontrolerBaze {
         return "Konsola";
     }
 
-
+//dodajala
     @RequestMapping(value={"/events",}, method=RequestMethod.GET)
     public String events(Model model,@RequestParam(value="event", required=false)String tip)
     {
+        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+        HttpSession session = request.getSession(false);//true will create if necessary
 
+        int idUporabnika;
+        Oseba prijavljenUporabnik;
 
-        if(tip==null)
-            model.addAttribute("dogodki",dogodki.getAllDogodki());
-        else
+        if(tip.equals("Moji dogodki") && Boolean.valueOf(String.valueOf(session.getAttribute("uporabnikPrijavljen"))))
         {
-            model.addAttribute("dogodki",dogodki.getByTip(tip));
-            model.addAttribute("Kategorija",tip);
+            idUporabnika=Integer.parseInt(String.valueOf(session.getAttribute("idUporabnika")) );
+            List<Dogodek> temp =dogodki.getByIdUporabnika(idUporabnika);
+            model.addAttribute("dogodki",temp);
+            model.addAttribute("Kategorija", tip);
 
         }
 
+        else {
+            if (tip == null)
+                model.addAttribute("dogodki", dogodki.getAllDogodki());
+
+            else if (tip.equals("Moji dogodki"))
+                return "vpis";
+
+
+            else {
+
+                model.addAttribute("dogodki", dogodki.getByTip(tip));
+                model.addAttribute("Kategorija", tip);
+
+            }
+        }
 
 
         return "events";
     }
 
-<<<<<<< HEAD
 //<<<<<<< HEAD
-=======
+//<<<<<<< HEAD
+//=======
 
->>>>>>> 699923fb904f7dd1786fe13ac7d0d4fc3e5841a3
+//>>>>>>> 699923fb904f7dd1786fe13ac7d0d4fc3e5841a3
     @RequestMapping(value={"/filter",}, method=RequestMethod.GET)
     public String eventsFilter(Model model,
                                @RequestParam(value="nazivDogodka", required=false)String naziv,
@@ -142,11 +161,11 @@ public class KontrolerBaze {
         return "events";
     }
 
-<<<<<<< HEAD
+//<<<<<<< HEAD
 //=======
-=======
+//=======
 
->>>>>>> 699923fb904f7dd1786fe13ac7d0d4fc3e5841a3
+//>>>>>>> 699923fb904f7dd1786fe13ac7d0d4fc3e5841a3
     @RequestMapping(value={"/parseXML"},method=RequestMethod.GET)
     public String xmlpars(Model model)
     {
@@ -210,11 +229,10 @@ public class KontrolerBaze {
     }
 
 
-<<<<<<< HEAD
+//<<<<<<< HEAD
 //>>>>>>> 51e530601f2f20dde7d402f96c22bf8fb5abcdd9
-=======
-
->>>>>>> 699923fb904f7dd1786fe13ac7d0d4fc3e5841a3
+//=======
+        //>>>>>>> 699923fb904f7dd1786fe13ac7d0d4fc3e5841a3
     @RequestMapping(value={"/prijava"},method=RequestMethod.POST)
     public String prijava(Model model,
                           @RequestParam(value="username")String email,
@@ -223,7 +241,6 @@ public class KontrolerBaze {
         List<Oseba> vseOsebe = osebe.getAllOsebe();
 
         boolean prijavaUspesna = false;
-        boolean prijavljenUporabnik=false;
 
         for(int i=0; i<vseOsebe.size(); i++){
 
@@ -236,12 +253,13 @@ public class KontrolerBaze {
                 HttpSession session = request.getSession(true);
 
                 Oseba uporabnik = osebe.getByEmail(email);
-                prijavljenUporabnik= true;
                 session.setAttribute("idUporabnika",uporabnik.getId());
-                session.setAttribute("uporabnikPrijavljen",prijavljenUporabnik);
+                session.setAttribute("uporabnikPrijavljen",prijavaUspesna);
 
+                model.addAttribute("imeUporabnika",uporabnik.getIme());
+                model.addAttribute("priimekUporabnika",uporabnik.getPriimek());
 
-                return "events";
+                return "index";
 
             }
 
@@ -255,8 +273,6 @@ public class KontrolerBaze {
 
 
         return "vpis";
-
-
 
 
     }

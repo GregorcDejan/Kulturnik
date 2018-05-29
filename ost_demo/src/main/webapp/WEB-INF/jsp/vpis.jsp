@@ -17,6 +17,7 @@
 </head>
 
 <body>
+
   <main class="teal lighten-5">
     <div class="navbar-fixed">
       <nav class=" teal darken-2 z-depth-3">
@@ -61,12 +62,12 @@
                 <li class="divider"></li>
                 <li>
                   <a href="/dodajanjeDogodkov">
-                    <button class="btn-flat teal-text">Moji Dogodki</button>
+                    <form action="/events" method="get"><button class="btn-flat teal-text" name="event" type="submit" value="Moji dogodki">Moji Dogodki</button></form>
                   </a>
                 </li>
                 <li>
                   <a href="#!">
-                    <button class="btn-flat teal-text">Izpis <i class="material-icons">eject</i></button>
+                    <form action="/izpis" method="get"><button class="btn-flat teal-text">Izpis <i class="material-icons">eject</i></button></form>
                   </a>
                 </li>
               </ul>
@@ -147,7 +148,7 @@
       <h2 class="center-align">
         Vpis
       </h2>
-
+  <!-- preverjanje ustreznosti podatkov pri prijavi -->
       <c:choose>
         <c:when test="${uspesnost==false}">
           <div class ="row">
@@ -159,6 +160,7 @@
           </div>
         </c:when>
       </c:choose>
+
       <form action="/prijava" method="post">
         <div class="row">
           <div class="input-field col s10 offset-s1 col l8 offset-l2">
@@ -182,7 +184,7 @@
         </div>
         <div class="row">
           <div class="input-field center-align">
-            <button id="signIn" class="btn btn-submit large" type="submit">Vpis</button>
+           <button id="signIn" class="btn btn-submit large" type="submit">Vpis</button>
             <div class="input-field center-align">
               <a href="registracija">Še nimate računa?</a>
             </div>

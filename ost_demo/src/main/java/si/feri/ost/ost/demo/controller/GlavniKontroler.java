@@ -26,11 +26,11 @@ public class GlavniKontroler {
         return "index";
     }
 
-    @RequestMapping(value = {"/dodajanjeDogodkov" }, method = RequestMethod.GET)
+  /*  @RequestMapping(value = {"/dodajanjeDogodkov" }, method = RequestMethod.GET)
     public String doddog(Model model) {
 
         return "dodajanjeDogodkov";
-    }
+    }*/
 
     //testni jsp za izpise ipd.
     @RequestMapping(value = { "/Test" }, method = RequestMethod.GET)
@@ -39,31 +39,47 @@ public class GlavniKontroler {
         return "Konsola";
     }
 
+    @RequestMapping(value = { "/registracija" }, method = RequestMethod.GET)
+    public String registracija(Model model) {
+
+        return "registracija";
+    }
+
     @RequestMapping(value = { "/vpis" }, method = RequestMethod.GET)
     public String vpis(Model model) {
 
         return "vpis";
     }
-
+//dodajala
     @RequestMapping(value = {"/izpis"}, method=RequestMethod.GET)
-    public String izpis(){
+    public String izpis(Model model){
 
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
         HttpSession session = request.getSession(true);
 
         session.invalidate();
 
+        model.addAttribute("sejaVzpostavljena",false);
+
         return "index";
     }
-
+//dodajala
     @RequestMapping(value = { "/add" }, method = RequestMethod.GET)
     public String dodajanjeDogodka(Model model) {
 
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
         HttpSession session = request.getSession(true);
 
-        int idUporabnika= Integer.parseInt(String.valueOf(session.getAttribute("idUporabnika")));
-        boolean prijavljen =Boolean.valueOf(String.valueOf(session.getAttribute("uporabnikPrijavljen")));
+        int idUporabnika;
+        boolean prijavljen=false;
+
+
+        if(session.getAttribute("idUporabnika")!=null)
+        {
+            idUporabnika=Integer.parseInt(String.valueOf(session.getAttribute("idUporabnika")) );
+            prijavljen =Boolean.valueOf(String.valueOf(session.getAttribute("uporabnikPrijavljen")));
+        }
+
 
         if(prijavljen)
             return "add";
@@ -75,10 +91,4 @@ public class GlavniKontroler {
 
 
 
-
-    @RequestMapping(value = { "/registracija" }, method = RequestMethod.GET)
-    public String registracija(Model model) {
-
-        return "registracija";
-    }
 }
