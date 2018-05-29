@@ -14,7 +14,6 @@
     <link rel="stylesheet" type="text/css" media="screen" href="/lib/css/style.css" />
     <link rel="stylesheet" type="text/css" href="materialize.min.css"  />
     <link rel="stylesheet" type="text/css" href="style.css" />
-    <script src="main.js"></script>
 </head>
 
 <body>
