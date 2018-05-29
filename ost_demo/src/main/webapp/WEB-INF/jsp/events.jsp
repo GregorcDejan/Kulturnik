@@ -66,6 +66,11 @@
                     <button class="btn-flat teal-text">Moji Dogodki</button>
                   </a>
                 </li>
+                <li>
+                  <a href="#!">
+                    <button class="btn-flat teal-text">Izpis</button>
+                  </a>
+                </li>
               </ul>
             </li>
           </ul>
@@ -142,7 +147,7 @@
     </div>
     <div class="container">
       <h2 class="center-align">
-        Glasba
+        Glasba ${Kategorija}
       </h2>
       <hr/>
       <!-- Začetek searcha OSNOVNO-->

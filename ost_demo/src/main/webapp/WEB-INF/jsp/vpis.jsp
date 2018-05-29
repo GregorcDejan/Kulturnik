@@ -64,6 +64,11 @@
                     <button class="btn-flat teal-text">Moji Dogodki</button>
                   </a>
                 </li>
+                <li>
+                  <a href="#!">
+                    <button class="btn-flat teal-text">Izpis</button>
+                  </a>
+                </li>
               </ul>
             </li>
           </ul>
@@ -140,17 +145,34 @@
       <h2 class="center-align">
         Vpis
       </h2>
-      <form action="#" method="post">
+
+      <c:choose>
+        <c:when test="${uspesnost==false}">
+          <div class ="row">
+            <div class="alert center-align col m6 offset-m3 s8 offset-s2">
+              <ul class="collection">
+                <li class="collection-item"><div>Napačno uporabniško ime ali geslo !<a href="#!" class="secondary-content"></a></div></li>
+                </ul>
+
+            </div>
+          </div>
+
+        </c:when>
+
+
+      </c:choose>
+      <form action="/prijava" method="post">
         <div class="row">
           <div class="input-field col s10 offset-s1 col l8 offset-l2">
-            <input id="user" type="text" class="validate">
+            <input id="user" type="text" class="validate" name="username">
             <label for="user">Uporabniško Ime</label>
           </div>
         </div>
         <div class="row">
           <div class="input-field col s10 offset-s1 col l8 offset-l2">
-            <input id="password" type="password" class="validate">
+            <input id="password" type="password" class="validate" name="password">
             <label for="password">Password</label>
+            <div class="red-text center-align"> Narobe uporabniško ime in geslo</div>
           </div>
         </div>
         <div class="row">
@@ -193,7 +215,7 @@
     });
 
     // Page Specific //
-
+      Materialize.toast('I am a toast!', 3000, 'rounded')
 
 
   });

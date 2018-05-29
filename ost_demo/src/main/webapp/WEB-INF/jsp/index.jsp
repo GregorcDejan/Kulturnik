@@ -63,6 +63,11 @@
                     <button class="btn-flat teal-text">Moji Dogodki</button>
                   </a>
                 </li>
+                <li>
+                  <a href="#!">
+                    <button class="btn-flat teal-text">Izpis</button>
+                  </a>
+                </li>
               </ul>
             </li>
           </ul>
@@ -144,19 +149,19 @@
       </div>
       <div class="carousel carousel-slider hoverable z-depth-4" data-indicators="true">
         <a class="carousel-item" href="#one!">
-          <img src="res/hkphil1718.JPG">
+          <img src="${pageContext.request.contextPath}/lib/slike/hkphil1718.JPG">
         </a>
         <a class="carousel-item" href="#two!">
-          <img src="res/bkpam2284930_gallery6.jpeg">
+          <img src="${pageContext.request.contextPath}/lib/slike/bkpam2284930_gallery6.jpeg">
         </a>
         <a class="carousel-item" href="#three!">
-          <img src="res/hammerfall.jpg">
+          <img src="${pageContext.request.contextPath}/lib/slike/hammerfall.jpg">
         </a>
         <a class="carousel-item" href="#four!">
-          <img src="res/musicLogo.png">
+          <img src="${pageContext.request.contextPath}/lib/slike/musicLogo.png">
         </a>
         <a class="carousel-item" href="#five!">
-          <img src="res/generic-event.jpg">
+          <img src="${pageContext.request.contextPath}/lib/slike/generic-event.jpg">
         </a>
       </div>
       <div class="row">
@@ -187,7 +192,7 @@
                 </a>
               </li>
               <li class="collection-item avatar grey lighten-3">
-                <img src="res/lepotec.jpg" alt="" class="circle">
+                <img src="${pageContext.request.contextPath}/lib/slike/lepotec.jpg" alt="" class="circle">
                 <span class="title">Marko Gluhak</span>
                 <p>
                   Front-End
@@ -198,7 +203,7 @@
                 </a>
               </li>
               <li class="collection-item avatar grey lighten-3">
-                <img src="res/ninc.jpg" alt="" class="circle">
+                <img src="${pageContext.request.contextPath}/lib/slike/ninc.jpg" alt="" class="circle">
                 <span class="title">Nina Kliček</span>
                 <p>
                   Back-End
@@ -209,7 +214,7 @@
                 </a>
               </li>
               <li class="collection-item avatar grey lighten-3">
-                <img src="res/dejc.jpg" alt="" class="circle">
+                <img src="${pageContext.request.contextPath}/lib/slike/dejc.jpg" alt="" class="circle">
                 <span class="title">Dejan Gregorc</span>
                 <p>
                   Back-End
@@ -220,7 +225,7 @@
                 </a>
               </li>
               <li class="collection-item avatar grey lighten-3">
-                <img src="res/lepotec.jpg" alt="" class="circle">
+                <img src="${pageContext.request.contextPath}/lib/slike/lepotec.jpg" alt="" class="circle">
                 <span class="title">Maruša Konečnik</span>
                 <p>
                   Back-End

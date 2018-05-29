@@ -10,11 +10,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
 import si.feri.ost.ost.demo.DAO.DogodekDAO;
 import si.feri.ost.ost.demo.DAO.OsebaDAO;
 import si.feri.ost.ost.demo.Razredi.Dogodek;
 import si.feri.ost.ost.demo.Razredi.Oseba;
 
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -94,12 +104,15 @@ public class KontrolerBaze {
         {
             model.addAttribute("dogodki",dogodki.getByTip(tip));
             model.addAttribute("Kategorija",tip);
+
         }
+
 
 
         return "events";
     }
 
+<<<<<<< HEAD
     @RequestMapping(value={"/filter",}, method=RequestMethod.GET)
     public String eventsFilter(Model model,
                                @RequestParam(value="nazivDogodka", required=false)String naziv,
@@ -120,21 +133,103 @@ public class KontrolerBaze {
         return "events";
     }
 
+=======
+    @RequestMapping(value={"/parseXML"},method=RequestMethod.GET)
+    public String xmlpars(Model model)
+    {
+        ArrayList<Dogodek> dogod = new ArrayList<Dogodek>();
+
+
+        DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+        DocumentBuilder db = null;
+
+        try {
+            URL url=new URL("https://www.kolosej.si/spored/xml/2.0/");
+            db = dbf.newDocumentBuilder();
+            Document doc = db.parse(url.openStream());
+            doc.getDocumentElement().normalize();
+            System.out.println("Root element: " + doc.getDocumentElement().getNodeName());
+            NodeList nList = doc.getElementsByTagName("movie");
+            System.out.println("--------------------------------------------------------------------------------------------------------------------------");
+            for (int temp = 0; temp < nList.getLength(); temp++) {
+
+                Node nNode = nList.item(temp);
+
+                if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+
+                    Element eElement = (Element) nNode;
+                    String naziv=eElement.getElementsByTagName("title").item(0).getTextContent();
+
+                    String vir=eElement.getElementsByTagName("url").item(0).getTextContent();
+
+                    String virURL=eElement.getElementsByTagName("poster").item(0).getTextContent().trim();
+
+                    String opis=eElement.getElementsByTagName("plot_outline").item(0).getTextContent();
+                    String datum=eElement.getElementsByTagName("date").item(0).getTextContent();
+
+                    dogod.add(new Dogodek(naziv,vir,virURL,"film",opis,"Maribor","Loška ulica 13",datum,"3"));
+
+
+                }
+
+            }
+        } catch (ParserConfigurationException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (SAXException e) {
+            e.printStackTrace();
+        }
+
+        for (Dogodek dogodek : dogod) {
+            System.out.println(dogodek);
+
+        }
+        System.out.println(dogod.get(0).getDatum());
+        for (Dogodek d:dogod)
+        {
+            dogodki.addDogodek(d.getNaziv(),d.getVir(),d.getSlikaURL(),d.getTip(),d.getKraj(),d.getOpis(),d.getNaslov(),d.getDatum(),d.getCena());
+
+
+        }
+
+        return "Konsola";
+    }
+
+
+>>>>>>> 51e530601f2f20dde7d402f96c22bf8fb5abcdd9
     @RequestMapping(value={"/prijava"},method=RequestMethod.POST)
     public String prijava(Model model,
-                          @RequestParam(value="user")String email,
+                          @RequestParam(value="username")String email,
                           @RequestParam(value="password")String geslo){
 
-        List<Oseba> vseOsebe = oseba.getAllOsebe();
+        List<Oseba> vseOsebe = osebe.getAllOsebe();
+
+        boolean prijavaUspesna = false;
 
         for(int i=0; i<vseOsebe.size(); i++){
 
             if(vseOsebe.get(i).getEmail().equals(email) && vseOsebe.get(i).getGeslo().equals(geslo))
-                return "profilUporabnika";
+            {
+                prijavaUspesna = true;
+                model.addAttribute("uspesnost",prijavaUspesna);
+                return "events";
+
+            }
 
 
         }
-        return "vpis";
+        if(prijavaUspesna==false)
+        {
+            model.addAttribute("uspesnost",prijavaUspesna);
+
+        }
+
+
+        return "prijava";
+
+
+
 
     }
 
