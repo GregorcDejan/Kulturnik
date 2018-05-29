@@ -97,7 +97,7 @@ public class KontrolerBaze {
 
 
         }
-        return "prijava";
+        return "vpis";
 
     }
 
