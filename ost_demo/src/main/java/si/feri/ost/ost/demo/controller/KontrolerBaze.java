@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -20,6 +22,9 @@ import si.feri.ost.ost.demo.DAO.OsebaDAO;
 import si.feri.ost.ost.demo.Razredi.Dogodek;
 import si.feri.ost.ost.demo.Razredi.Oseba;
 
+import javax.servlet.ServletRequestAttributeEvent;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -183,13 +188,24 @@ public class KontrolerBaze {
         List<Oseba> vseOsebe = osebe.getAllOsebe();
 
         boolean prijavaUspesna = false;
+        boolean prijavljenUporabnik=false;
 
         for(int i=0; i<vseOsebe.size(); i++){
 
             if(vseOsebe.get(i).getEmail().equals(email) && vseOsebe.get(i).getGeslo().equals(geslo))
             {
                 prijavaUspesna = true;
+
                 model.addAttribute("uspesnost",prijavaUspesna);
+                HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+                HttpSession session = request.getSession(true);
+
+                Oseba uporabnik = osebe.getByEmail(email);
+                prijavljenUporabnik= true;
+                session.setAttribute("idUporabnika",uporabnik.getId());
+                session.setAttribute("uporabnikPrijavljen",prijavljenUporabnik);
+
+
                 return "events";
 
             }
@@ -203,7 +219,7 @@ public class KontrolerBaze {
         }
 
 
-        return "prijava";
+        return "vpis";
 
 
 

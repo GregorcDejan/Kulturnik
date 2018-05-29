@@ -6,8 +6,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 import si.feri.ost.ost.demo.DAO.OsebaDAO;
 import si.feri.ost.ost.demo.Razredi.Oseba;
+
+import javax.servlet.ServletRequestAttributeEvent;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 @Controller
 public class GlavniKontroler {
@@ -39,11 +45,34 @@ public class GlavniKontroler {
         return "vpis";
     }
 
+    @RequestMapping(value = {"/izpis"}, method=RequestMethod.GET)
+    public String izpis(){
+
+        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+        HttpSession session = request.getSession(true);
+
+        session.invalidate();
+
+        return "index";
+    }
+
     @RequestMapping(value = { "/add" }, method = RequestMethod.GET)
     public String dodajanjeDogodka(Model model) {
 
-        return "add";
+        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+        HttpSession session = request.getSession(true);
+
+        int idUporabnika= Integer.parseInt(String.valueOf(session.getAttribute("idUporabnika")));
+        boolean prijavljen =Boolean.valueOf(String.valueOf(session.getAttribute("uporabnikPrijavljen")));
+
+        if(prijavljen)
+            return "add";
+
+        else
+            return "vpis";
     }
+
+
 
 
 

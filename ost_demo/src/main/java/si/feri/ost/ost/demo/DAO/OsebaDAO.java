@@ -59,7 +59,7 @@ public class OsebaDAO {
 
     public Oseba getByEmail(String email)
     {
-        String sql = "SELECT * FROM dogodek WHERE email=? ";
+        String sql = "SELECT * FROM uporabnik WHERE email=? ";
 
         Oseba d= (Oseba) jdbcTemplate.queryForObject(sql,
                 new Object[] {email},
