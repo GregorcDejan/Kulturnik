@@ -10,10 +10,8 @@
     <title>Vpis</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <<<<<<< HEAD
     <link type="text/css" rel="stylesheet" href="/lib/css/materialize.min.css" media="screen,projection" />
     <link rel="stylesheet" type="text/css" media="screen" href="/lib/css/style.css" />
-    =======
     <link rel="stylesheet" type="text/css" href="materialize.min.css"  />
     <link rel="stylesheet" type="text/css" href="style.css" />
     <script src="main.js"></script>
