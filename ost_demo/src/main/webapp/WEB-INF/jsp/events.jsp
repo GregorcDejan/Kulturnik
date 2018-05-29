@@ -165,6 +165,7 @@
 
           </div>
         </div>
+<<<<<<< HEAD
         <!-- Zaèetek searcha NAPREDNO-->
         <div class="row center-align">
           <h4>Dodatno </h4>
@@ -176,12 +177,48 @@
               <label for="najCena">Max Cena</label>
               <input type="range" id="najCena" min="0" max="1000"  name="cenaDogodka"/>
             </p>
+=======
+      </nav>
+    </div>
+    <div class="container">
+      <h2 class="center-align">
+        Glasba ${Kategorija}
+      </h2>
+      <hr/>
+      <!-- Začetek searcha OSNOVNO-->
+      <div class="row">
+        <form class="col s12">
+          <div class="row ">
+            <div class="input-field col offset-l3 l6 offset-m2 m8 offset-s1 s10 valign-wrapper center-align">
+              <i class="material-icons prefix">search</i>
+              <input id="eventsSearchNaziv" type="text" class="validate" placeholder="Naziv" name="nazivDOgodka">
+              <input id="eventsSearchKraj" type="text" class="validate" placeholder="Kraj" name="krajDOgodka">
+              <button class="btn-flat" type="submit" name="search">
+                <i class="material-icons suffix">keyboard_return</i>
+              </button>
+
+            </div>
+          </div>
+          <!-- Začetek searcha NAPREDNO-->
+          <div class="row center-align">
+            <h4>Dodatno </h4>
+            <div class="offset-s3 col s3">
+              <input type="text" class="datepicker" placeholder="Datum Pričetka" name="datumDogodka">
+            </div>
+            <div class="col s3">
+              <p class="range-field">
+                <label for="najCena">Max Cena</label>
+                <input type="range" id="najCena" min="0" max="1000"  name="cenaDogodka"/>
+              </p>
+            </div>
+>>>>>>> a97a00576937554be4a5f57afd23b35c5f67e2d8
           </div>
         </div>
       </form>
     </div>
 
 
+<<<<<<< HEAD
 
     <!--src="${pageContext.request.contextPath}/lib/slike
 
@@ -196,6 +233,146 @@
           </div>
           <div class="card-content">
               <span class="card-title activator grey-text text-darken-4">${d.naziv}
+=======
+      src="${pageContext.request.contextPath}/lib/slike
+
+      <!-- Začetek Vrstice-->
+      <div class="row">
+        <!-- Začetek ENE Karte-->
+        <div class="col s12 m6 l4">
+          <div class="card hoverable">
+            <div class="card-image waves-effect waves-block">
+              <img class="activator responsive-image" src="${pageContext.request.contextPath}/lib/slike/hammerfall.jpg">
+            </div>
+            <div class="card-content">
+              <span class="card-title activator grey-text text-darken-4">HammerFall Rock of Ages!
+                <i class="material-icons right">expand_less</i>
+              </span>
+              <p>
+                <span class="">Lokacija: Vienna
+                  <br/>
+                </span>
+                <a href="">Več...</a>
+              </p>
+            </div>
+            <div class="card-reveal">
+              <span class="card-title grey-text text-darken-4">
+                <i class="material-icons right">expand_more</i>HammerFall Rock of Ages!</span>
+              <p>Lokacija: Vienna
+                <br/> Cena: 25€
+                <br/> Izvajalec: HammerFall
+                <br/> Organizator: Rock of Ages
+                <br/>
+                <p class="">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore velit nihil consectetur temporibus quae
+                  praesentium, soluta ratione ex dolorum unde illo sequi laudantium doloribus veniam ab ad aperiam vero at.
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum libero ut sunt tenetur doloribus consequuntur
+                  nesciunt nemo, laboriosam fuga. Nihil optio reiciendis sed officiis sit sapiente incidunt eligendi quidem
+                  excepturi?
+                  <a href=""></a>
+                </p>
+                <button class="btn valign-wrapper right blue lighten-1 waves-effect">
+                  <div class="valign-wrapper"> Več &nbsp
+                    <i class="material-icons">add_circle</i>
+                  </div>
+                </button>
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- Konec ENE Karte-->
+        <!-- Začetek ENE Karte-->
+        <div class="col s12 m6 l4">
+          <div class="card hoverable">
+            <div class="card-image waves-effect waves-block">
+              <img class="activator responsive-image" src="${pageContext.request.contextPath}/lib/slike/hammerfall.jpg">
+            </div>
+            <div class="card-content">
+              <span class="card-title activator grey-text text-darken-4">HammerFall Rock of Ages!
+                <i class="material-icons right">expand_less</i>
+              </span>
+              <p>
+                <span class="">Lokacija: Vienna
+                  <br/>
+                </span>
+                <a href="">Več...</a>
+              </p>
+            </div>
+            <div class="card-reveal">
+              <span class="card-title grey-text text-darken-4">
+                <i class="material-icons right">expand_more</i>HammerFall Rock of Ages!</span>
+              <p>Lokacija: Vienna
+                <br/> Cena: 25€
+                <br/> Izvajalec: HammerFall
+                <br/> Organizator: Rock of Ages
+                <br/>
+                <p class="">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore velit nihil consectetur temporibus quae
+                  praesentium, soluta ratione ex dolorum unde illo sequi laudantium doloribus veniam ab ad aperiam vero at.
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum libero ut sunt tenetur doloribus consequuntur
+                  nesciunt nemo, laboriosam fuga. Nihil optio reiciendis sed officiis sit sapiente incidunt eligendi quidem
+                  excepturi?
+                  <a href=""></a>
+                </p>
+                <button class="btn valign-wrapper right blue lighten-1 waves-effect">
+                  <div class="valign-wrapper"> Več &nbsp
+                    <i class="material-icons">add_circle</i>
+                  </div>
+                </button>
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- Konec ENE Karte-->
+        <!-- Začetek ENE Karte-->
+        <div class="col s12 m6 l4">
+          <div class="card hoverable">
+            <div class="card-image waves-effect waves-block">
+              <img class="activator responsive-image" src="${pageContext.request.contextPath}/lib/slike/hammerfall.jpg">
+            </div>
+            <div class="card-content">
+              <span class="card-title activator grey-text text-darken-4">HammerFall Rock of Ages!
+                <i class="material-icons right">expand_less</i>
+              </span>
+              <p>
+                <span class="">Lokacija: Vienna
+                  <br/>
+                </span>
+                <a href="">Več...</a>
+              </p>
+            </div>
+            <div class="card-reveal">
+              <span class="card-title grey-text text-darken-4">
+                <i class="material-icons right">expand_more</i>HammerFall Rock of Ages!</span>
+              <p>Lokacija: Vienna
+                <br/> Cena: 25€
+                <br/> Izvajalec: HammerFall
+                <br/> Organizator: Rock of Ages
+                <br/>
+                <p class="">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore velit nihil consectetur temporibus quae
+                  praesentium, soluta ratione ex dolorum unde illo sequi laudantium doloribus veniam ab ad aperiam vero at.
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum libero ut sunt tenetur doloribus consequuntur
+                  nesciunt nemo, laboriosam fuga. Nihil optio reiciendis sed officiis sit sapiente incidunt eligendi quidem
+                  excepturi?
+                  <a href=""></a>
+                </p>
+                <button class="btn valign-wrapper right blue lighten-1 waves-effect">
+                  <div class="valign-wrapper"> Več &nbsp
+                    <i class="material-icons">add_circle</i>
+                  </div>
+                </button>
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- Konec ENE Karte-->
+        <!-- Začetek ENE Karte-->
+        <div class="col s12 m6 l4">
+          <div class="card hoverable">
+            <div class="card-image waves-effect waves-block">
+              <img class="activator responsive-image" src="${pageContext.request.contextPath}/lib/slike/hammerfall.jpg">
+            </div>
+            <div class="card-content">
+              <span class="card-title activator grey-text text-darken-4">HammerFall Rock of Ages!
+>>>>>>> a97a00576937554be4a5f57afd23b35c5f67e2d8
                 <i class="material-icons right">expand_less</i>
               </span>
             <p>
@@ -205,7 +382,30 @@
               <a href="">Veè...</a>
             </p>
           </div>
+<<<<<<< HEAD
           <div class="card-reveal">
+=======
+        </div>
+        <!-- Konec ENE Karte-->
+        <!-- Začetek ENE Karte-->
+        <div class="col s12 m6 l4">
+          <div class="card hoverable">
+            <div class="card-image waves-effect waves-block">
+              <img class="activator responsive-image" src="${pageContext.request.contextPath}/lib/slike/hammerfall.jpg">
+            </div>
+            <div class="card-content">
+              <span class="card-title activator grey-text text-darken-4">HammerFall Rock of Ages!
+                <i class="material-icons right">expand_less</i>
+              </span>
+              <p>
+                <span class="">Lokacija: Vienna
+                  <br/>
+                </span>
+                <a href="">Več...</a>
+              </p>
+            </div>
+            <div class="card-reveal">
+>>>>>>> a97a00576937554be4a5f57afd23b35c5f67e2d8
               <span class="card-title grey-text text-darken-4">
                 <i class="material-icons right">expand_more</i>HammerFall Rock of Ages!</span>
             <p>Lokacija: Vienna
@@ -228,6 +428,178 @@
             </p>
           </div>
         </div>
+<<<<<<< HEAD
+=======
+        <!-- Konec ENE Karte-->
+        <!-- Začetek ENE Karte-->
+        <div class="col s12 m6 l4">
+          <div class="card hoverable">
+            <div class="card-image waves-effect waves-block">
+              <img class="activator responsive-image" src="${pageContext.request.contextPath}/lib/slike/hammerfall.jpg">
+            </div>
+            <div class="card-content">
+              <span class="card-title activator grey-text text-darken-4">HammerFall Rock of Ages!
+                <i class="material-icons right">expand_less</i>
+              </span>
+              <p>
+                <span class="">Lokacija: Vienna
+                  <br/>
+                </span>
+                <a href="">Več...</a>
+              </p>
+            </div>
+            <div class="card-reveal">
+              <span class="card-title grey-text text-darken-4">
+                <i class="material-icons right">expand_more</i>HammerFall Rock of Ages!</span>
+              <p>Lokacija: Vienna
+                <br/> Cena: 25€
+                <br/> Izvajalec: HammerFall
+                <br/> Organizator: Rock of Ages
+                <br/>
+                <p class="">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore velit nihil consectetur temporibus quae
+                  praesentium, soluta ratione ex dolorum unde illo sequi laudantium doloribus veniam ab ad aperiam vero at.
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum libero ut sunt tenetur doloribus consequuntur
+                  nesciunt nemo, laboriosam fuga. Nihil optio reiciendis sed officiis sit sapiente incidunt eligendi quidem
+                  excepturi?
+                  <a href=""></a>
+                </p>
+                <button class="btn valign-wrapper right blue lighten-1 waves-effect">
+                  <div class="valign-wrapper"> Več &nbsp
+                    <i class="material-icons">add_circle</i>
+                  </div>
+                </button>
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- Konec ENE Karte-->
+        <!-- Začetek ENE Karte-->
+        <div class="col s12 m6 l4">
+          <div class="card hoverable">
+            <div class="card-image waves-effect waves-block">
+              <img class="activator responsive-image" src="${pageContext.request.contextPath}/lib/slike/hammerfall.jpg">
+            </div>
+            <div class="card-content">
+              <span class="card-title activator grey-text text-darken-4">HammerFall Rock of Ages!
+                <i class="material-icons right">expand_less</i>
+              </span>
+              <p>
+                <span class="">Lokacija: Vienna
+                  <br/>
+                </span>
+                <a href="">Več...</a>
+              </p>
+            </div>
+            <div class="card-reveal">
+              <span class="card-title grey-text text-darken-4">
+                <i class="material-icons right">expand_more</i>HammerFall Rock of Ages!</span>
+              <p>Lokacija: Vienna
+                <br/> Cena: 25€
+                <br/> Izvajalec: HammerFall
+                <br/> Organizator: Rock of Ages
+                <br/>
+                <p class="">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore velit nihil consectetur temporibus quae
+                  praesentium, soluta ratione ex dolorum unde illo sequi laudantium doloribus veniam ab ad aperiam vero at.
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum libero ut sunt tenetur doloribus consequuntur
+                  nesciunt nemo, laboriosam fuga. Nihil optio reiciendis sed officiis sit sapiente incidunt eligendi quidem
+                  excepturi?
+                  <a href=""></a>
+                </p>
+                <button class="btn valign-wrapper right blue lighten-1 waves-effect">
+                  <div class="valign-wrapper"> Več &nbsp
+                    <i class="material-icons">add_circle</i>
+                  </div>
+                </button>
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- Konec ENE Karte-->
+        <!-- Začetek ENE Karte-->
+        <div class="col s12 m6 l4">
+          <div class="card hoverable">
+            <div class="card-image waves-effect waves-block">
+              <img class="activator responsive-image" src="${pageContext.request.contextPath}/lib/slike/hammerfall.jpg">
+            </div>
+            <div class="card-content">
+              <span class="card-title activator grey-text text-darken-4">HammerFall Rock of Ages!
+                <i class="material-icons right">expand_less</i>
+              </span>
+              <p>
+                <span class="">Lokacija: Vienna
+                  <br/>
+                </span>
+                <a href="">Več...</a>
+              </p>
+            </div>
+            <div class="card-reveal">
+              <span class="card-title grey-text text-darken-4">
+                <i class="material-icons right">expand_more</i>HammerFall Rock of Ages!</span>
+              <p>Lokacija: Vienna
+                <br/> Cena: 25€
+                <br/> Izvajalec: HammerFall
+                <br/> Organizator: Rock of Ages
+                <br/>
+                <p class="">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore velit nihil consectetur temporibus quae
+                  praesentium, soluta ratione ex dolorum unde illo sequi laudantium doloribus veniam ab ad aperiam vero at.
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum libero ut sunt tenetur doloribus consequuntur
+                  nesciunt nemo, laboriosam fuga. Nihil optio reiciendis sed officiis sit sapiente incidunt eligendi quidem
+                  excepturi?
+                  <a href=""></a>
+                </p>
+                <button class="btn valign-wrapper right blue lighten-1 waves-effect">
+                  <div class="valign-wrapper"> Več &nbsp
+                    <i class="material-icons">add_circle</i>
+                  </div>
+                </button>
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- Konec ENE Karte-->
+        <!-- Začetek ENE Karte-->
+        <div class="col s12 m6 l4">
+          <div class="card hoverable">
+            <div class="card-image waves-effect waves-block">
+              <img class="activator responsive-image" src="${pageContext.request.contextPath}/lib/slike/hammerfall.jpg">
+            </div>
+            <div class="card-content">
+              <span class="card-title activator grey-text text-darken-4">HammerFall Rock of Ages!
+                <i class="material-icons right">expand_less</i>
+              </span>
+              <p>
+                <span class="">Lokacija: Vienna
+                  <br/>
+                </span>
+                <a href="">Več...</a>
+              </p>
+            </div>
+            <div class="card-reveal">
+              <span class="card-title grey-text text-darken-4">
+                <i class="material-icons right">expand_more</i>HammerFall Rock of Ages!</span>
+              <p>Lokacija: Vienna
+                <br/> Cena: 25€
+                <br/> Izvajalec: HammerFall
+                <br/> Organizator: Rock of Ages
+                <br/>
+                <p class="">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore velit nihil consectetur temporibus quae
+                  praesentium, soluta ratione ex dolorum unde illo sequi laudantium doloribus veniam ab ad aperiam vero at.
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum libero ut sunt tenetur doloribus consequuntur
+                  nesciunt nemo, laboriosam fuga. Nihil optio reiciendis sed officiis sit sapiente incidunt eligendi quidem
+                  excepturi?
+                  <a href=""></a>
+                </p>
+                <button class="btn valign-wrapper right blue lighten-1 waves-effect">
+                  <div class="valign-wrapper"> Več &nbsp
+                    <i class="material-icons">add_circle</i>
+                  </div>
+                </button>
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- Konec ENE Karte-->
+>>>>>>> a97a00576937554be4a5f57afd23b35c5f67e2d8
       </div>
       <!-- Konec ENE Karte-->
       </c:forEach>
