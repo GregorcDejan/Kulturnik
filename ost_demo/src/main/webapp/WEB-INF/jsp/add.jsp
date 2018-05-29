@@ -39,12 +39,12 @@
                 <i class="material-icons">place</i>
               </a>
             </li>
-            <li class="active">
+            <li>
               <a class="dropdown-trigger" data-activates="dropdownPerson" href="#">
                 <i class="material-icons left">person</i>
               </a>
               <ul id='dropdownPerson' class='dropdown-content'>
-                <li class="active">
+                <li>
                   <a href="add">
                     <button class="btn-flat teal-text">Dodaj Dogodek</button>
                   </a>
@@ -63,7 +63,7 @@
                 </li>
                 <li class="divider"></li>
                 <li>
-                  <a href="#!">
+                  <a href="/dodajanjeDogodkov">
                     <button class="btn-flat teal-text">Moji Dogodki</button>
                   </a>
                 </li>
@@ -77,11 +77,11 @@
           </ul>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
 
-            <li>
+            <li class="active">
               <a href="index">Domov</a>
             </li>
             <li>
-              <form action="events" method="get">
+              <form action="/events" method="get">
                 <a class="dropdown-trigger" data-activates="dropdownEvents" href="#">
                   Dogodki
                   <i class="material-icons right">arrow_drop_down</i>
@@ -95,52 +95,52 @@
                   <li class="divider"></li>
                   <li>
                     <a href="#">
-                      <button class="btn-flat teal-text" type="submit" name="event" value="Glasba">Gledališče</button>
+                      <button class="btn-flat teal-text" type="submit" name="event" value="Gledališče">Gledališče</button>
                     </a>
                   </li>
                   <li class="divider"></li>
                   <li>
                     <a href="#">
-                      <button class="btn-flat teal-text" type="submit" name="event" value="Glasba">Razstave</button>
+                      <button class="btn-flat teal-text" type="submit" name="event" value="Razstava">Razstave</button>
                     </a>
                   </li>
                   <li class="divider"></li>
                   <li>
                     <a href="#">
-                      <button class="btn-flat teal-text" type="submit" name="event" value="Glasba">Šport</button>
+                      <button class="btn-flat teal-text" type="submit" name="event" value="Šport">Šport</button>
                     </a>
                   </li>
                   <li class="divider"></li>
                   <li>
                     <a href="#">
-                      <button class="btn-flat teal-text" type="submit" name="event" value="Glasba">Kino</button>
+                      <button class="btn-flat teal-text" type="submit" name="event" value="Kino">Kino</button>
                     </a>
                   </li>
                 </ul>
+              </form>
             </li>
-            </form>
           </ul>
           <ul class="side-nav" id="mobile-sidenav">
-            <form action="events" method="get">
-              <li>
+            <form action="/events" method="get">
+              <li class="active">
                 <a href="index">Home</a>
               </li>
-
               <li>
                 <button class="btn-flat" type="submit" name="event" value="Glasba">Glasba</button>
               </li>
               <li>
-                <button class="btn-flat" type="submit" name="event" value="Glasba">Gledališče</button>
+                <button class="btn-flat" type="submit" name="event" value="Gledališče">Gledališče</button>
               </li>
               <li>
-                <button class="btn-flat" type="submit" name="event" value="Glasba">Razstave</button>
+                <button class="btn-flat" type="submit" name="event" value="Razstava">Razstave</button>
               </li>
               <li>
-                <button class="btn-flat" type="submit" name="event" value="Glasba">Šport</button>
+                <button class="btn-flat" type="submit" name="event" value="Šport">Šport</button>
               </li>
               <li>
-                <button class="btn-flat" type="submit" name="event" value="Glasba">Kino</button>
+                <button class="btn-flat" type="submit" name="event" value="Kino">Kino</button>
               </li>
+
             </form>
           </ul>
         </div>
@@ -175,7 +175,7 @@
               <option value="" disabled selected>Izberite tip dogodka</option>
               <option value="Glasba">Glasba</option>
               <option value="Gledališče">Gledališče</option>
-              <option value="Razstave">Razstave</option>
+              <option value="Razstava">Razstava</option>
               <option value="Šport">Šport</option>
               <option value="Kino">Kino</option>
             </select>
