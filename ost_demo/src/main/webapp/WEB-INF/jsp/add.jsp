@@ -69,7 +69,7 @@
                 </li>
                 <li>
                   <a href="#!">
-                    <button class="btn-flat teal-text">Izpis <i class="material-icons">eject</i></button>
+                    <button class="btn-flat teal-text">Izpis</button>
                   </a>
                 </li>
               </ul>
