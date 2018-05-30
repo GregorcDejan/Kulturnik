@@ -175,6 +175,7 @@ public class KontrolerBaze {
         List<Dogodek> datumDogodki =  dogodki.getByDatum(datum);
         List<Dogodek> cenaDogodki =  dogodki.getByCena(cena);
 
+
         
 
 
