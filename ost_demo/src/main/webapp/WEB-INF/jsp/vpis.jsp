@@ -17,6 +17,13 @@
 </head>
 
 <body>
+<% if(Boolean.valueOf(String.valueOf(session.getAttribute("uporabnikPrijavljen")))){
+%>
+Prijavljeni ste kot <%=
+String.valueOf(session.getAttribute("imeUporabnika"))%>
+<%= String.valueOf(session.getAttribute("priimekUporabnika"))
+
+%><%}%>
 
   <main class="teal lighten-5">
     <div class="navbar-fixed">
@@ -67,7 +74,7 @@
                 </li>
                 <li>
                   <a href="#!">
-                    <form action="/izpis" method="get"><button class="btn-flat teal-text">Izpis <i class="material-icons">eject</i></button></form>
+                    <form action="/izpis" method="get"><button class="btn-flat teal-text">Izpis</button></form>
                   </a>
                 </li>
               </ul>

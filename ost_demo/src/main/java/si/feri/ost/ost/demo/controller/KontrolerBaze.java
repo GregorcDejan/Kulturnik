@@ -60,9 +60,17 @@ public class KontrolerBaze {
         return "/registracija";
     }
 
+    @RequestMapping(value={"/","/index",},method=RequestMethod.GET)
+    public String zadnjih5(Model model)
+    {
+        model.addAttribute("dogodki",dogodki.zadnjihNeki());
+        return "index";
+    }
+
     public static ArrayList<Dogodek> seznamDogodkov = new ArrayList<>();
     @RequestMapping(value = {"/dodajDogodek" }, method = RequestMethod.POST)
     public String dodajDogodek(Model model, @RequestParam(value="naziv",required=true)String naziv,
+<<<<<<< HEAD
                                @RequestParam(value="kraj",required=true)String kraj,
                                @RequestParam(value="naslov",required = true)String naslov,
                                @RequestParam(value="tipDogodka",required = true)String tipD,
@@ -71,9 +79,28 @@ public class KontrolerBaze {
                                @RequestParam(value="slika",required = false)String slika,
                                @RequestParam(value="opis",required = false)String opis,
                                @RequestParam(value="cena",required = false)String cena)
-    {
 
-        dogodki.addDogodek(naziv,url,slika,tipD,kraj,opis,naslov,datum,cena);
+
+
+=======
+                                @RequestParam(value="kraj",required=true)String kraj,
+                                @RequestParam(value="naslov",required = true)String naslov,
+                                @RequestParam(value="tipDogodka",required = true)String tipD,
+                                @RequestParam(value="urlDogodka",required = true)String url,
+                                @RequestParam(value="datum",required = true)String datum,
+                                @RequestParam(value="slika",required = false)String slika,
+                                @RequestParam(value="opis",required = false)String opis,
+                                @RequestParam(value="cena",required = false)String cena)
+>>>>>>> ccc777fa72e437f9970f6136ee6e831e3f9119f6
+    {
+        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+        HttpSession session = request.getSession(true);
+
+        int id =Integer.parseInt(String.valueOf(session.getAttribute("idUporabnika")));
+
+
+
+        dogodki.addDogodek(naziv,url,slika,tipD,kraj,opis,naslov,datum,id,cena);
 
         boolean jeDodan = true;
         model.addAttribute("dodanDogodek",jeDodan);
@@ -222,7 +249,7 @@ public class KontrolerBaze {
         System.out.println(dogod.get(0).getDatum());
         for (Dogodek d:dogod)
         {
-            dogodki.addDogodek(d.getNaziv(),d.getVir(),d.getSlikaURL(),d.getTip(),d.getKraj(),d.getOpis(),d.getNaslov(),d.getDatum(),d.getCena());
+            dogodki.addDogodek(d.getNaziv(),d.getVir(),d.getSlikaURL(),d.getTip(),d.getKraj(),d.getOpis(),d.getNaslov(),d.getDatum(),d.getIdUporabnika(),d.getCena());
 
 
         }
@@ -258,8 +285,9 @@ public class KontrolerBaze {
                 session.setAttribute("idUporabnika",uporabnik.getId());
                 session.setAttribute("uporabnikPrijavljen",prijavaUspesna);
 
-                model.addAttribute("imeUporabnika",uporabnik.getIme());
-                model.addAttribute("priimekUporabnika",uporabnik.getPriimek());
+                session.setAttribute("imeUporabnika",uporabnik.getIme());
+                session.setAttribute("priimekUporabnika",uporabnik.getPriimek());
+
 
                 return "index";
 
@@ -292,7 +320,7 @@ public class KontrolerBaze {
                                @RequestParam(value="opis",required = false)String opis,
                                @RequestParam(value="cena",required = false)String cena)
     {
-        dogodki.addDogodek(naziv,url,slika,tipD,kraj,opis,naslov,datum,cena);
+       // dogodki.addDogodek(naziv,url,slika,tipD,kraj,opis,naslov,datum,cena);
         return "/seznamDogodkov";
     }
 
