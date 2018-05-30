@@ -7,9 +7,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 import si.feri.ost.ost.demo.Razredi.Dogodek;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 
 @Component
@@ -44,6 +42,20 @@ public class DogodekDAO {
         }
 
         return seznam;
+
+    }
+
+    public List<Dogodek> zadnjihNeki()
+    {
+        List<Dogodek> vsi=getAllDogodki();
+        Collections.reverse(vsi);
+        ArrayList<Dogodek>five = new ArrayList<>();
+        for(int i=0;i<5;i++)
+        {
+            five.add(vsi.get(i));
+        }
+        Collections.reverse(five);
+        return five;
 
     }
 
