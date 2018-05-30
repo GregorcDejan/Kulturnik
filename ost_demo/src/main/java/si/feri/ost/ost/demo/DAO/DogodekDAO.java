@@ -45,9 +45,6 @@ public class DogodekDAO {
 
     }
 
-//<<<<<<< HEAD
-  // public int addDogodek(String naziv, String vir, String SlikaURL, String Tip_Dogodka, String kraj,String opis, String naslov, String datum,int idUporabnika,String cena){
-//=======
     public List<Dogodek> zadnjihNeki()
     {
         List<Dogodek> vsi=getAllDogodki();
@@ -63,7 +60,6 @@ public class DogodekDAO {
     }
 
     public int addDogodek(String naziv, String vir, String SlikaURL, String Tip_Dogodka, String kraj,String opis, String naslov, String datum,String cena,int idUporabnika)
-//>>>>>>> ccc777fa72e437f9970f6136ee6e831e3f9119f6
     {
      String sql = "INSERT INTO DOGODEK(naziv,vir,SlikaURL,Tip_Dogodka,kraj,opis,naslov,datum,cena,id_uporabnika) VALUES(?,?,?,?,?,?,?,?,?,?)";
 
@@ -163,8 +159,6 @@ public class DogodekDAO {
         }
 
         return rez;
-
-
 
 
     }
