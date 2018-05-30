@@ -42,7 +42,7 @@ public class OsebaDAO {
 
 
 
-    public int addOseba(String ime,String priimek,String geslo, String email, String telefonska,String datum_rojstva)
+    public int addOseba(String ime,String priimek, String email, String geslo,String datum_rojstva, String telefonska)
     {
         String sql = "INSERT INTO UPORABNIK(ime,priimek,email,telefon,geslo,datum_rojstva) VALUES(?,?,?,?,?,?)";
 

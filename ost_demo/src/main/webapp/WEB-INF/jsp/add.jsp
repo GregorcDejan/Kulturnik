@@ -157,28 +157,28 @@
       <h2 class="center-align">
         Dodaj dogodek
       </h2>
-      <form action="#" method="post">
+      <form action="/dodajDogodek" method="post">
         <div class="row">
           <div class="input-field col s8 offset-s2">
-            <input required type="text" name="" id="nazivInput" class="validate">
+            <input required type="text" name="naziv" id="nazivInput" class="validate">
             <label for="nazivInput">Naziv</label>
           </div>
         </div>
         <div class="row">
           <div class="input-field col s8 offset-s2">
-            <input required type="text" name="" id="krajInput" class="validate">
+            <input required type="text" name="kraj" id="krajInput" class="validate">
             <label for="krajInput">Kraj</label>
           </div>
         </div>
         <div class="row">
           <div class="input-field col s8 offset-s2">
-            <input required type="text" name="" id="lokacijaInput" class="validate">
+            <input required type="text" name="naslov" id="lokacijaInput" class="validate">
             <label for="lokacijaInput">Lokacija</label>
           </div>
         </div>
         <div class="row">
           <div class="input-field col s8 offset-s2 ">
-            <select required name="inputKategorija" id="inputKategorija">
+            <select required name="tipDogodka" id="inputKategorija">
               <option value="" disabled selected>Izberite tip dogodka</option>
               <option value="Glasba">Glasba</option>
               <option value="Gledališče">Gledališče</option>
@@ -190,25 +190,25 @@
         </div>
         <div class="row">
           <div class="input-field col s8 offset-s2">
-            <input required type="text" name="" id="linkInput" class="validate">
+            <input required type="text" name="urlDogodka" id="linkInput" class="validate">
             <label for="linkInput">Povezava do dogodka</label>
           </div>
         </div>
         <div class="row">
           <div class="input-field col s8 offset-s2">
-            <input required type="text" id="datumInput" class="datepicker">
+            <input required type="text" id="datumInput" name="datum" class="datepicker">
             <label for="datumInput">Datum dogodka</label>
           </div>
         </div>
         <div class="row">
           <div class="input-field col s8 offset-s2">
-            <input required type="text" id="casInput" class="timepicker">
-            <label for="casInput">Čas začetka</label>
+            <input required type="text" id="casInput" name="cena" class="timepicker">
+            <label for="casInput">Cena</label>
           </div>
         </div>
         <div class="row">
           <div class="input-field col s8 offset-s2">
-            <textarea required id="opisDogodkaInput" name="" class="materialize-textarea"></textarea>
+            <textarea required id="opisDogodkaInput" name="opis" class="materialize-textarea"></textarea>
             <label for="opisDogodkaInput">Opis dogodka</label>
           </div>
         </div>
@@ -219,7 +219,7 @@
               <input type="file" multiple>
             </div>
             <div class="file-path-wrapper">
-              <input class="file-path validate" type="text" placeholder="Naložite slike dogodka">
+              <input class="file-path validate" name="slika"  type="text" placeholder="Naložite slike dogodka">
             </div>
           </div>
         </div>
