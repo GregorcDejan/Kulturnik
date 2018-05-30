@@ -64,6 +64,20 @@ public class Dogodek
         this.idUporabnika=idUporabnika;
     }
 
+    public Dogodek(String naziv, String vir, String slikaURL, String tip, String opis, String kraj, String naslov, String datum,int idUporabnika,String cena)
+    {
+        this.naziv=naziv;
+        this.vir=vir;
+        this.slikaURL=slikaURL;
+        this.tip=tip;
+        this.opis=opis;
+        this.kraj=kraj;
+        this.naslov=naslov;
+        this.setDatum(datum);
+        this.cena=cena;
+        this.idUporabnika=idUporabnika;
+    }
+
 
 
     public String getNaziv() {

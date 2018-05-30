@@ -19,7 +19,13 @@
 </head>
 
 <body>
+<% if(Boolean.valueOf(String.valueOf(session.getAttribute("uporabnikPrijavljen")))){
+%>
+Prijavljeni ste kot <%=
+String.valueOf(session.getAttribute("imeUporabnika"))%>
+<%= String.valueOf(session.getAttribute("priimekUporabnika"))
 
+%><%}%>
 <main class="teal lighten-5">
   <div class="navbar-fixed">
     <nav class=" teal darken-2 z-depth-3">
