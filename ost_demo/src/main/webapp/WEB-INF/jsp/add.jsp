@@ -20,12 +20,13 @@
 </head>
 
 <body>
-<!-- podatki o prijavljenosti -->
-  <c:choose>
-    <c:when test="${sejaVzpostavljena==true}">
-      Prijavljeni ste kot ${imeUporabnika} ${priimekUporabnika}
-    </c:when>
-  </c:choose>
+<% if(Boolean.valueOf(String.valueOf(session.getAttribute("uporabnikPrijavljen")))){
+%>
+Prijavljeni ste kot <%=
+String.valueOf(session.getAttribute("imeUporabnika"))%>
+<%= String.valueOf(session.getAttribute("priimekUporabnika"))
+
+%><%}%>
 
   <main class="teal lighten-5">
     <div class="navbar-fixed">
@@ -202,7 +203,7 @@
         </div>
         <div class="row">
           <div class="input-field col s8 offset-s2">
-            <input required type="text" id="casInput" name="cena">
+            <input required type="number" id="casInput" name="cena">
             <label for="casInput">Cena</label>
           </div>
         </div>

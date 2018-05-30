@@ -7,9 +7,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 import si.feri.ost.ost.demo.Razredi.Dogodek;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 
 @Component
@@ -47,11 +45,29 @@ public class DogodekDAO {
 
     }
 
-    public int addDogodek(String naziv, String vir, String SlikaURL, String Tip_Dogodka, String kraj,String opis, String naslov, String datum,String cena)
+<<<<<<< HEAD
+    public int addDogodek(String naziv, String vir, String SlikaURL, String Tip_Dogodka, String kraj,String opis, String naslov, String datum,int idUporabnika,String cena)
+=======
+    public List<Dogodek> zadnjihNeki()
     {
-     String sql = "INSERT INTO DOGODEK(naziv,vir,SlikaURL,Tip_Dogodka,kraj,opis,naslov,datum,cena) VALUES(?,?,?,?,?,?,?,?,?)";
+        List<Dogodek> vsi=getAllDogodki();
+        Collections.reverse(vsi);
+        ArrayList<Dogodek>five = new ArrayList<>();
+        for(int i=0;i<5;i++)
+        {
+            five.add(vsi.get(i));
+        }
+        Collections.reverse(five);
+        return five;
 
-     return jdbcTemplate.update(sql,new Object[]{naziv,vir,SlikaURL,Tip_Dogodka,kraj,opis,naslov,datum,cena});
+    }
+
+    public int addDogodek(String naziv, String vir, String SlikaURL, String Tip_Dogodka, String kraj,String opis, String naslov, String datum,String cena)
+>>>>>>> ccc777fa72e437f9970f6136ee6e831e3f9119f6
+    {
+     String sql = "INSERT INTO DOGODEK(naziv,vir,SlikaURL,Tip_Dogodka,kraj,opis,naslov,datum,cena,id_uporabnika) VALUES(?,?,?,?,?,?,?,?,?,?)";
+
+     return jdbcTemplate.update(sql,new Object[]{naziv,vir,SlikaURL,Tip_Dogodka,kraj,opis,naslov,datum,cena,idUporabnika});
 
 
     }
@@ -255,32 +271,41 @@ public class DogodekDAO {
 
     public List<Dogodek> getByCena(String cenaMax){
 
-        String sql = "SELECT * FROM dogodek WHERE cena BETWEEN ? AND ?";
+        String sql = "SELECT * FROM dogodek";
 
-        List<Dogodek> rez = new ArrayList<>();
+        List<Dogodek> seznamVsehDogodkov = new ArrayList<>();
+        List<Dogodek> seznamUjemajocih = new ArrayList<>();
 
-        List<Map<String,Object>> vrstice = jdbcTemplate.queryForList(sql,new Object[]{cenaMax});
+
+        List<Map<String,Object>> vrstice = jdbcTemplate.queryForList(sql);
 
         for(Map vrstica:vrstice){
-
             int id=(Integer)(vrstica.get("ID"));
             String naziv=(String)vrstica.get("Naziv");
             String vir=(String)vrstica.get("Vir");
             String slikaURL=(String)vrstica.get("slikaURL");
-
             String opis=(String)vrstica.get("opis");
             String tip=(String)vrstica.get("tip");
             String naslov=(String)vrstica.get("naslov");
             String datum=(String)vrstica.get("datum");
             int idUporabnik=(Integer)vrstica.get("id_Uporabnika");
             String kraj=(String)vrstica.get("kraj");
+            String cena=(String)vrstica.get("cena");
 
-            Dogodek d= new Dogodek(id,naziv,vir,slikaURL,tip,opis,kraj,naslov,datum,idUporabnik,cenaMax);
-            rez.add(d);
-
+            Dogodek d= new Dogodek(id,naziv,vir,slikaURL,tip,opis,kraj,naslov,datum,idUporabnik,cena);
+            seznamVsehDogodkov.add(d);
         }
 
-        return rez;
+        for (int i=0; i<seznamVsehDogodkov.size(); i++)
+        {
+            if (Integer.parseInt(seznamVsehDogodkov.get(i).getCena())<=Integer.parseInt(cenaMax))
+            {
+                seznamUjemajocih.add(seznamVsehDogodkov.get(i));
+            }
+        }
+
+
+        return seznamUjemajocih;
 
     }
 

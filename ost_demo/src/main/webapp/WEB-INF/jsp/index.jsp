@@ -16,6 +16,20 @@
 </head>
 
 <body>
+<!-- podatki o prijavljenosti -->
+<c:choose>
+  <c:when test="${sejaVzpostavljena==true}">
+    Prijavljeni ste kot ${imeUporabnika} ${priimekUporabnika}
+  </c:when>
+</c:choose>
+
+<% if(Boolean.valueOf(String.valueOf(session.getAttribute("uporabnikPrijavljen")))){
+    %>
+    Prijavljeni ste kot <%=
+     String.valueOf(session.getAttribute("imeUporabnika"))%>
+    <%= String.valueOf(session.getAttribute("priimekUporabnika"))
+
+%><%}%>
 
 
 
@@ -257,18 +271,15 @@
           </p>
         </div>
         <div class="col s12 xl3">
-          <h3 class="center-align">V Sodelovanju</h3>
+          <h3 class="center-align">Zadnjih 5</h3>
           <p class="flow-text center-align">
             <div class="card grey lighten-3 hoverable">
               <div class="card-content white-text">
-                <span class="card-title">
-                  <blockquote class="grey-text">
-                    Napovednik.com
-                  </blockquote>
-                </span>
+            <c:forEach items="${dogodki}" var="d">
                 <p>
-                  <div id="napovednikbox2" class="grey-text text-darken-2 "></div>
+            <div id="napovednikbox2" class="grey-text text-darken-2 "><a href="${d.vir}">${d.naziv}</a></div>
                 </p>
+            </c:forEach>
               </div>
               <div class="card-action red lighten-2 center-align">
                 <a href="https://www.napovednik.com" class="grey-text text-lighten-2">Ne spreglejte tudi</a>
@@ -285,26 +296,7 @@
 
 <script>
 
-  if (typeof jQuery == 'undefined') {
-    document.write('<script type="text/javascript" src="https://www.napovednik.com/script/jquery.js"></scrip' + 't>');
-  }
-  var rubrika = 0;
-  var regija = '';
-  var zapisov = 5;
-  var prireditelj = 0;
-  var conv = 0;
-  function getbox() {
-    jQuery.ajax({
-      type: 'GET',
-      url: 'https://www.napovednik.com/box.php?n=' + zapisov + '&k=' + rubrika + '&r=' + regija + '&c=' + conv + '&pr=' + prireditelj + '&jsoncallback=?',
-      dataType: 'json',
-      jsonp: 'jsoncallback',
-      success: function (data) {
-        document.getElementById('napovednikbox2').innerHTML = data['data'];
-      }
-    });
-  }
-  jQuery(document).ready(function () { getbox(); });
+
 
 
   // Every page needs this dingy //

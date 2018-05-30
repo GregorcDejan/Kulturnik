@@ -20,11 +20,11 @@ public class GlavniKontroler {
 
 
 
-    @RequestMapping(value = { "/", "/index" }, method = RequestMethod.GET)
+    /*@RequestMapping(value = { "/", "/index" }, method = RequestMethod.GET)
     public String index(Model model) {
 
         return "index";
-    }
+    }*/
 
   /*  @RequestMapping(value = {"/dodajanjeDogodkov" }, method = RequestMethod.GET)
     public String doddog(Model model) {
