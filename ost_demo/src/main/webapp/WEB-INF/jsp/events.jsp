@@ -169,8 +169,8 @@
 
         <!-- Zaèetek searcha NAPREDNO-->
         <div class="row center-align">
-          <h4>Dodatno </h4>
-          <div class="offset-s2 col s2">
+          <h5 class="offset-s1 left-align">Dodatno <i class="material-icons tiny">add_circle</i></h5>
+          <div class="offset-s1 col s3">
             <input type="text" class="datepicker" placeholder="Datum Prièetka" name="datumDogodka">
           </div>
           <div class="col s4">
@@ -179,7 +179,7 @@
               <input type="range" id="najCena" min="0" max="1000" name="cenaDogodka" />
             </p>
           </div>
-          <div class="col s2">
+          <div class="col s3">
             <select required name="inputKategorija" id="inputKategorija">
             <option value="" disabled selected>Sortiraj po</option>
             <option value="Glasba">Najcenejši naprej</option>
@@ -288,6 +288,11 @@
 </body>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="/lib/javascript/materialize.min.js"></script>
+
+<script>
+
+
+</script>
 
 
 <script>
