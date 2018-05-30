@@ -18,7 +18,6 @@
 <body>
 
 
-
 <main class="teal lighten-5">
     <div class="navbar-fixed">
         <nav class=" teal darken-2 z-depth-3">
@@ -40,31 +39,32 @@
                         </a>
                     </li>
                     <li>
-                      <a class="dropdown-trigger" data-activates="dropdownPerson" href="#">
-                        <i class="material-icons left">person</i>
-                      </a>
-                      <ul id='dropdownPerson' class='dropdown-content'>
-                        <li class="collection-item avatar valign-wrapper">
-                          <i class="material-icons right teal-text">person </i>
-                          <form action="uporabnik" method="get">
-                            <button class="btn-flat teal-text" name="event" value="Moji dogodki">
+                        <a class="dropdown-trigger" data-activates="dropdownPerson" href="#">
+                            <i class="material-icons left">person</i>
+                        </a>
+                        <ul id='dropdownPerson' class='dropdown-content'>
+                            <li class="collection-item avatar valign-wrapper">
+                                <i class="material-icons right teal-text">person </i>
+                                <form action="uporabnik" method="get">
+                                    <button class="btn-flat teal-text" name="event" value="Moji dogodki">
                                 <span class="right ">
-                                  <% if(Boolean.valueOf(String.valueOf(session.getAttribute("uporabnikPrijavljen")))){%>
+                                  <% if (Boolean.valueOf(String.valueOf(session.getAttribute("uporabnikPrijavljen"))))
+                                  {%>
                                   <%=
                                   String.valueOf(session.getAttribute("imeUporabnika"))
                                   %>
                                   <%=
                                   String.valueOf(session.getAttribute("priimekUporabnika"))
                                   %>
-                                 <% }
-                                 else
+                                 <% } else
                                  {%>
                                      <%="Neprijavljen uporabnik"%>
                                   <%}%>
                                 </span>
-                            </button>
-                          </form>
-                        </li>
+                                    </button>
+                                </form>
+                            </li>
+                            <li class="divider"></li>
                             <li>
                                 <a href="add">
                                     <button class="btn-flat teal-text">Dodaj Dogodek</button>

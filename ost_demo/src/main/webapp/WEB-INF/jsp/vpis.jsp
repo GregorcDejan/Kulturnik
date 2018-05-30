@@ -71,6 +71,7 @@ String.valueOf(session.getAttribute("imeUporabnika"))%>
                     </button>
                   </form>
                 </li>
+                <li class="divider"></li>
                 <li>
                   <a href="add">
                     <button class="btn-flat teal-text">Dodaj Dogodek</button>
