@@ -73,7 +73,7 @@ public class KontrolerBaze {
                                @RequestParam(value="cena",required = false)String cena)
     {
 
-        dogodki.addDogodek(naziv,url,slika,tipD,opis,kraj,naslov,datum,cena);
+        dogodki.addDogodek(naziv,url,slika,tipD,kraj,opis,naslov,datum,cena);
 
         boolean jeDodan = true;
         model.addAttribute("dodanDogodek",jeDodan);

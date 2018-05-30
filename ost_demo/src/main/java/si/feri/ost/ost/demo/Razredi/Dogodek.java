@@ -20,7 +20,7 @@ public class Dogodek
     {
         this.naziv=naziv;
     }
-    public Dogodek(String naziv, String vir, String slikaURL, String tip, String opis, String kraj, String naslov, String datum,String cena)
+    public Dogodek(String naziv, String vir, String slikaURL, String tip, String kraj, String opis,  String naslov, String datum,String cena)
     {
 
         this.naziv=naziv;

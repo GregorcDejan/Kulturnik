@@ -56,7 +56,7 @@ public class DogodekDAO {
 
     }
 
-    public int updateDogodek(int id,String naziv, String vir, String SlikaURL, String Tip_Dogodka, String kraj,String opis, String naslov, String datum,String cena){
+    public int updateDogodek(int id,String naziv, String vir, String SlikaURL, String Tip_Dogodka, String kraj, String opis, String naslov, String datum,String cena){
         String sql = "UPDATE DOGODEK SET naziv=?,vir=?,SlikaURL=?,Tip_Dogodka=?,Kraj=?,Opis=?,Naslov=?,Datum=?,Cena=? WHERE id=?";
 
         return jdbcTemplate.update(sql,new Object[]{naziv,vir,SlikaURL,Tip_Dogodka,kraj,opis,naslov,datum,cena,id});

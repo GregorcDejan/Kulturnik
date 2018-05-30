@@ -218,10 +218,10 @@
                 <i class="material-icons right">expand_less</i>
               </span>
                           <p>
-                <span class="">Lokacija: Vienna
+                <span class="">Lokacija: ${d.naslov}
                   <br/>
                 </span>
-                              <a href="">Veè...</a>
+                              <a href="${d.vir}">Več...</a>
                           </p>
                       </div>
                       <div class="card-reveal">
@@ -234,7 +234,7 @@
                               <a href=""></a>
                           </p>
                           <button class="btn valign-wrapper right blue lighten-1 waves-effect">
-                              <div class="valign-wrapper"> Veè &nbsp
+                              <div class="valign-wrapper"> Več &nbsp
                                   <i class="material-icons">add_circle</i>
                               </div>
                           </button>
