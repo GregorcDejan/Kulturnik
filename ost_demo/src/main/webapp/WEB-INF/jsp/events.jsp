@@ -168,10 +168,10 @@
         </div>
 
         <!-- Zaèetek searcha NAPREDNO-->
-        <div class="row center-align">
-          <h5 class="offset-s1 left-align">Dodatno <i class="material-icons tiny">add_circle</i></h5>
+        <div id="naprednoRow" class="row center-align">
+          <h5 class="offset-s1 left-align">Dodatno <button class="btn btn-flat btn-floating"> <i id="naprednoShow" onclick="showNapredno()" class="material-icons black-text">remove</i></button></h5>
           <div class="offset-s1 col s3">
-            <input type="text" class="datepicker" placeholder="Datum Prièetka" name="datumDogodka">
+            <input type="text" class="datepicker" placeholder="Datum Pričetka" name="datumDogodka">
           </div>
           <div class="col s4">
             <p class="range-field">
@@ -234,8 +234,8 @@
                               <a href=""></a>
                           </p>
                           <button class="btn valign-wrapper right blue lighten-1 waves-effect">
-                              <div class="valign-wrapper"> Veè &nbsp
-                                  <i class="material-icons">add_circle</i>
+                              <div class="valign-wrapper"> Več
+                                  <i class="material-icons right">add_circle</i>
                               </div>
                           </button>
                           </p>
@@ -291,10 +291,67 @@
 
 <script>
 
+        function showNapredno() {
+            if(document.getElementById('naprednoShow').innerHTML === 'add') {
+                document.getElementById('naprednoRow').innerHTML='' +
+                    '<h5 class="offset-s1 left-align">Dodatno <button class="btn btn-flat btn-floating"> ' +
+                    '<i id="naprednoShow" onclick="showNapredno()" class="material-icons black-text">remove</i></button></h5>\n' +
+                    '          <div class="offset-s1 col s3">\n' +
+                    '            <input type="text" class="datepicker" placeholder="Datum Pričetka" name="datumDogodka">\n' +
+                    '          </div>\n' +
+                    '          <div class="col s4">\n' +
+                    '            <p class="range-field">\n' +
+                    '              <label for="najCena">Max Cena</label>\n' +
+                    '              <input type="range" id="najCena" min="0" max="1000" name="cenaDogodka" />\n' +
+                    '            </p>\n' +
+                    '          </div>\n' +
+                    '          <div class="col s3">\n' +
+                    '            <select required name="inputKategorija" id="inputKategorija">\n' +
+                    '            <option value="" disabled selected>Sortiraj po</option>\n' +
+                    '            <option value="Glasba">Najcenejši naprej</option>\n' +
+                    '            <option value="Gledališče">Najdražji naprej</option>\n' +
+                    '            <option value="Razstava">Po imenu A-Z</option>\n' +
+                    '            <option value="Šport">Po imenu Z-A</option>\n' +
+                    '            <option value="Kino">Po organizatorju A-Z</option>\n' +
+                    '            <option value="Kino">Po organizatorju Z-A</option>\n' +
+                    '          </select>\n' +
+                    '          </div>';
+                $(document).ready(function () {
+                    $('.dropdown-button').dropdown({
+                        constrainWidth: false,
+                        hover: true,
+                        belowOrigin: true,
+                        alignment: 'left'
+                    });
+                    
+                    $('.datepicker').pickadate({
+                        selectMonths: true, // Creates a dropdown to control month
+                        selectYears: 15, // Creates a dropdown of 15 years to control year,
+                        today: 'Today',
+                        clear: 'Clear',
+                        close: 'Ok',
+                        closeOnSelect: false, // Close upon selecting a date,
+                        container: undefined // ex. 'body' will append picker to body
 
+
+                    })
+                    $(document).ready(function () {
+                        $('select').material_select();
+                    });
+                });
+
+                /*
+
+
+
+                 */
+
+            }
+            else if(document.getElementById('naprednoShow').innerHTML === 'remove') {
+                document.getElementById('naprednoRow').innerHTML='<h5 class="offset-s1 left-align">Dodatno <button class="btn btn-flat btn-floating"> <i id="naprednoShow" onclick="showNapredno()" class="material-icons black-text">add</i></button></h5>';
+            }
+        }
 </script>
-
-
 <script>
     // Every page needs this dingy //
     $(document).ready(function () {
