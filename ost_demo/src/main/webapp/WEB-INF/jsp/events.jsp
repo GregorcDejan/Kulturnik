@@ -178,7 +178,7 @@
         <hr/>
         <!-- Zaèetek searcha OSNOVNO-->
         <div class="row">
-            <form class="col s12">
+            <form class="col s12" action="/filter" method="get">
                 <div class="row ">
                     <div class="input-field col offset-l3 l6 offset-m2 m8 offset-s1 s10 valign-wrapper center-align">
                         <i class="material-icons prefix">search</i>
