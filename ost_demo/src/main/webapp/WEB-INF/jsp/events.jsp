@@ -184,10 +184,10 @@
             <option value="" disabled selected>Sortiraj po</option>
             <option value="Glasba">Najcenejši naprej</option>
             <option value="Gledališče">Najdražji naprej</option>
-            <option value="Razstava">Po imenu AZ</option>
-            <option value="Šport">Po imenu ZA</option>
-            <option value="Kino">Po organizatorju AZ</option>
-            <option value="Kino">Po organizatorju ZA</option>
+            <option value="Razstava">Po imenu A-Z</option>
+            <option value="Šport">Po imenu Z-A</option>
+            <option value="Kino">Po organizatorju A-Z</option>
+            <option value="Kino">Po organizatorju Z-A</option>
           </select>
           </div>
         </div>
