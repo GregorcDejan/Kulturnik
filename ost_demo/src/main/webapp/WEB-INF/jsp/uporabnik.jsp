@@ -186,9 +186,10 @@
             <div class="col m8">
                 <div class="row">
                     <div class="col m12"><h4>Dogodki uporabnika</h4></div>
+                    <hr>
                             <!-- Začetek ENE Karte-->
                     <div class="col s12 m6 l4">
-                        <div class="card hoverable large">
+                        <div class="card hoverable medium">
                             <div class="card-image waves-effect waves-block">
                                 <img class="activator responsive-image" src="/lib/slike/hammerfall.jpg">
                             </div>
@@ -230,7 +231,7 @@
                     <!-- Konec ENE Karte-->
                     <!-- Začetek ENE Karte-->
                     <div class="col s12 m6 l4">
-                        <div class="card hoverable large">
+                        <div class="card hoverable medium">
                             <div class="card-image waves-effect waves-block">
                                 <img class="activator responsive-image" src="/lib/slike/hammerfall.jpg">
                             </div>
@@ -272,7 +273,7 @@
                     <!-- Konec ENE Karte-->
                     <!-- Začetek ENE Karte-->
                     <div class="col s12 m6 l4">
-                        <div class="card hoverable large">
+                        <div class="card hoverable medium">
                             <div class="card-image waves-effect waves-block">
                                 <img class="activator responsive-image" src="/lib/slike/hammerfall.jpg">
                             </div>
@@ -314,7 +315,7 @@
                     <!-- Konec ENE Karte-->
                     <!-- Začetek ENE Karte-->
                     <div class="col s12 m6 l4">
-                        <div class="card hoverable large">
+                        <div class="card hoverable medium">
                             <div class="card-image waves-effect waves-block">
                                 <img class="activator responsive-image" src="/lib/slike/hammerfall.jpg">
                             </div>
@@ -356,7 +357,7 @@
                     <!-- Konec ENE Karte-->
                     <!-- Začetek ENE Karte-->
                     <div class="col s12 m6 l4">
-                        <div class="card hoverable large">
+                        <div class="card hoverable medium">
                             <div class="card-image waves-effect waves-block">
                                 <img class="activator responsive-image" src="/lib/slike/hammerfall.jpg">
                             </div>
@@ -398,7 +399,7 @@
                     <!-- Konec ENE Karte-->
                     <!-- Začetek ENE Karte-->
                     <div class="col s12 m6 l4">
-                        <div class="card hoverable large">
+                        <div class="card hoverable medium">
                             <div class="card-image waves-effect waves-block">
                                 <img class="activator responsive-image" src="/lib/slike/hammerfall.jpg">
                             </div>
