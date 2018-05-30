@@ -1,288 +1,286 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
-         pageEncoding="utf-8"%>
+         pageEncoding="utf-8" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="sl">
 
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Dogodek</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-  <link type="text/css" rel="stylesheet" href="/lib/css/materialize.min.css" media="screen,projection" />
-  <link rel="stylesheet" type="text/css" media="screen" href="/lib/css/style.css" />
-
-
-
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Dogodek</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="/lib/css/materialize.min.css" media="screen,projection"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="/lib/css/style.css"/>
 </head>
-
 <body>
-
 <main class="teal lighten-5">
-  <div class="navbar-fixed">
-    <nav class=" teal darken-2 z-depth-3">
-      <div class="nav-wrapper">
-        <a href="index" class="brand-logo">Kulturnik</a>
-        <a href="#" class="button-collapse" data-activates="mobile-sidenav">
-          <i class="material-icons">menu</i>
-        </a>
-        <ul class="right show-on-med-and-down">
-          <li>
-            <a href="search">
-              <i class="material-icons">search</i>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <i class="material-icons">place</i>
-            </a>
-          </li>
-          <li>
-            <a class="dropdown-trigger" data-activates="dropdownPerson" href="#">
-              <i class="material-icons left">person</i>
-            </a>
-            <ul id='dropdownPerson' class='dropdown-content'>
-              <li>
-                <a href="add">
-                  <button class="btn-flat teal-text">Dodaj Dogodek</button>
+    <div class="navbar-fixed">
+        <nav class=" teal darken-2 z-depth-3">
+            <div class="nav-wrapper">
+                <a href="index" class="brand-logo">Kulturnik</a>
+                <a href="#" class="button-collapse" data-activates="mobile-sidenav">
+                    <i class="material-icons">menu</i>
                 </a>
-              </li>
-              <li class="divider"></li>
-              <li>
-                <a href="vpis">
-                  <button class="btn-flat teal-text">Vpis</button>
-                </a>
-              </li>
-              <li class="divider"></li>
-              <li>
-                <a href="registracija">
-                  <button class="btn-flat teal-text">Registracija</button>
-                </a>
-              </li>
-              <li class="divider"></li>
-              <li>
-                <a href="#!">
-                  <form action="/events" method="get"><button class="btn-flat teal-text" name="event" type="submit" value="Moji dogodki">Moji Dogodki</button></form>
-                </a>
-              </li>
-              <li>
-                <a href="#!">
-                  <form action="/izpis" method="get"><button class="btn-flat teal-text">Izpis <i class="material-icons">eject</i></button></form>
-                </a>
-              </li>
-            </ul>
-          </li>
-        </ul>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <ul class="right show-on-med-and-down">
+                    <li>
+                        <a href="search">
+                            <i class="material-icons">search</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="material-icons">place</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-trigger" data-activates="dropdownPerson" href="#">
+                            <i class="material-icons left">person</i>
+                        </a>
+                        <ul id='dropdownPerson' class='dropdown-content'>
+                            <li>
+                                <a href="add">
+                                    <button class="btn-flat teal-text">Dodaj Dogodek</button>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="vpis">
+                                    <button class="btn-flat teal-text">Vpis</button>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="registracija">
+                                    <button class="btn-flat teal-text">Registracija</button>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="#!">
+                                    <form action="/events" method="get">
+                                        <button class="btn-flat teal-text" name="event" type="submit"
+                                                value="Moji dogodki">Moji Dogodki
+                                        </button>
+                                    </form>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#!">
+                                    <form action="/izpis" method="get">
+                                        <button class="btn-flat teal-text">Izpis</button>
+                                    </form>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
 
-          <li>
-            <a href="index">Domov</a>
-          </li>
-          <li class="active">
-            <form action="/events" method="get">
-              <a class="dropdown-trigger" data-activates="dropdownEvents" href="#">
-                Dogodki
-                <i class="material-icons right">arrow_drop_down</i>
-              </a>
-              <ul id='dropdownEvents' class='dropdown-content'>
-                <li class="active">
-                  <a href="#">
-                    <button class="btn-flat teal-text" type="submit" name="event" value="Glasba">Glasba</button>
-                  </a>
-                </li>
-                <li class="divider"></li>
-                <li>
-                  <a href="#">
-                    <button class="btn-flat teal-text" type="submit" name="event" value="Gledališče">Gledališèe</button>
-                  </a>
-                </li>
-                <li class="divider"></li>
-                <li>
-                  <a href="#">
-                    <button class="btn-flat teal-text" type="submit" name="event" value="Razstava">Razstave</button>
-                  </a>
-                </li>
-                <li class="divider"></li>
-                <li>
-                  <a href="#">
-                    <button class="btn-flat teal-text" type="submit" name="event" value="Šport">Šport</button>
-                  </a>
-                </li>
-                <li class="divider"></li>
-                <li>
-                  <a href="#">
-                    <button class="btn-flat teal-text" type="submit" name="event" value="Film">Kino</button>
-                  </a>
-                </li>
-              </ul>
-            </form>
-          </li>
+                    <li>
+                        <a href="index">Domov</a>
+                    </li>
+                    <li class="active">
+                        <form action="/events" method="get">
+                            <a class="dropdown-trigger" data-activates="dropdownEvents" href="#">
+                                Dogodki
+                                <i class="material-icons right">arrow_drop_down</i>
+                            </a>
+                            <ul id='dropdownEvents' class='dropdown-content'>
+                                <li class="active">
+                                    <a href="#">
+                                        <button class="btn-flat teal-text" type="submit" name="event" value="Glasba">
+                                            Glasba
+                                        </button>
+                                    </a>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <a href="#">
+                                        <button class="btn-flat teal-text" type="submit" name="event"
+                                                value="Gledališče">Gledališèe
+                                        </button>
+                                    </a>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <a href="#">
+                                        <button class="btn-flat teal-text" type="submit" name="event" value="Razstava">
+                                            Razstave
+                                        </button>
+                                    </a>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <a href="#">
+                                        <button class="btn-flat teal-text" type="submit" name="event" value="Šport">
+                                            Šport
+                                        </button>
+                                    </a>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <a href="#">
+                                        <button class="btn-flat teal-text" type="submit" name="event" value="Film">
+                                            Kino
+                                        </button>
+                                    </a>
+                                </li>
+                            </ul>
+                        </form>
+                    </li>
 
-        </ul>
-        <ul class="side-nav" id="mobile-sidenav">
-          <form action="/events" method="get">
-            <li>
-              <a href="index">Home</a>
-            </li>
+                </ul>
+                <ul class="side-nav" id="mobile-sidenav">
+                    <form action="/events" method="get">
+                        <li>
+                            <a href="index">Home</a>
+                        </li>
 
-            <li class="active">
-              <button class="btn-flat" type="submit" name="event" value="Glasba">Glasba</button>
-            </li>
-            <li>
-              <button class="btn-flat" type="submit" name="event" value="Gledališče">Gledališèe</button>
-            </li>
-            <li>
-              <button class="btn-flat" type="submit" name="event" value="Razstava">Razstave</button>
-            </li>
-            <li>
-              <button class="btn-flat" type="submit" name="event" value="Šport">Šport</button>
-            </li>
-            <li>
-              <button class="btn-flat" type="submit" name="event" value="Kino">Kino</button>
-            </li>
-          </form>
-        </ul>
-      </div>
-    </nav>
-  </div>
-  <div class="container">
-    <h2 class="center-align">
-      ${Kategorija}
-    </h2>
-    <hr/>
-    <!-- Zaèetek searcha OSNOVNO-->
-    <div class="row">
-      <form class="col s12">
-        <div class="row ">
-          <div class="input-field col offset-l3 l6 offset-m2 m8 offset-s1 s10 valign-wrapper center-align">
-            <i class="material-icons prefix">search</i>
-            <input id="eventsSearchNaziv" type="text" class="validate" placeholder="Naziv" name="nazivDOgodka">
-            <input id="eventsSearchKraj" type="text" class="validate" placeholder="Kraj" name="krajDOgodka">
-            <button class="btn-flat" type="submit" name="search">
-              <i class="material-icons suffix">keyboard_return</i>
-            </button>
-
-          </div>
-        </div>
-
-        <!-- Zaèetek searcha NAPREDNO-->
-        <div id="naprednoRow" class="row center-align">
-          <h5 class="offset-s1 left-align">Dodatno <button class="btn btn-flat btn-floating"> <i id="naprednoShow" onclick="showNapredno()" class="material-icons black-text">remove</i></button></h5>
-          <div class="offset-s1 col s3">
-            <input type="text" class="datepicker" placeholder="Datum Pričetka" name="datumDogodka">
-          </div>
-          <div class="col s4">
-            <p class="range-field">
-              <label for="najCena">Max Cena</label>
-              <input type="range" id="najCena" min="0" max="1000" name="cenaDogodka" />
-            </p>
-          </div>
-          <div class="col s3">
-            <select required name="inputKategorija" id="inputKategorija">
-            <option value="" disabled selected>Sortiraj po</option>
-            <option value="Glasba">Najcenejši naprej</option>
-            <option value="Gledališče">Najdražji naprej</option>
-            <option value="Razstava">Po imenu A-Z</option>
-            <option value="Šport">Po imenu Z-A</option>
-            <option value="Kino">Po organizatorju A-Z</option>
-            <option value="Kino">Po organizatorju Z-A</option>
-          </select>
-          </div>
-        </div>
-      </form>
+                        <li class="active">
+                            <button class="btn-flat" type="submit" name="event" value="Glasba">Glasba</button>
+                        </li>
+                        <li>
+                            <button class="btn-flat" type="submit" name="event" value="Gledališče">Gledališèe</button>
+                        </li>
+                        <li>
+                            <button class="btn-flat" type="submit" name="event" value="Razstava">Razstave</button>
+                        </li>
+                        <li>
+                            <button class="btn-flat" type="submit" name="event" value="Šport">Šport</button>
+                        </li>
+                        <li>
+                            <button class="btn-flat" type="submit" name="event" value="Kino">Kino</button>
+                        </li>
+                    </form>
+                </ul>
+            </div>
+        </nav>
     </div>
-
-
-
-
-
-
-
+    <div class="container">
+        <h2 class="center-align">
+            ${Kategorija}
+        </h2>
+        <hr/>
+        <!-- Zaèetek searcha OSNOVNO-->
         <div class="row">
+            <form class="col s12">
+                <div class="row ">
+                    <div class="input-field col offset-l3 l6 offset-m2 m8 offset-s1 s10 valign-wrapper center-align">
+                        <i class="material-icons prefix">search</i>
+                        <input id="eventsSearchNaziv" type="text" class="validate" placeholder="Naziv"
+                               name="nazivDOgodka">
+                        <input id="eventsSearchKraj" type="text" class="validate" placeholder="Kraj" name="krajDOgodka">
+                        <button class="btn-flat" type="submit" name="search">
+                            <i class="material-icons suffix">keyboard_return</i>
+                        </button>
 
-<c:forEach items="${dogodki}" var="d">
-    <!-- Zaèetek Vrstice-->
+                    </div>
+                </div>
+
+                <!-- Zaèetek searcha NAPREDNO-->
+                <div id="naprednoRow" class="row center-align">
+                    <h5 class="offset-s1 left-align">Dodatno
+                        <button class="btn btn-flat btn-floating"><i id="naprednoShow" onclick="showNapredno()"
+                                                                     class="material-icons black-text">remove</i>
+                        </button>
+                    </h5>
+                    <div class="offset-s1 col s3">
+                        <input type="text" class="datepicker" placeholder="Datum Pričetka" name="datumDogodka">
+                    </div>
+                    <div class="col s4">
+                        <p class="range-field">
+                            <label for="najCena">Max Cena</label>
+                            <input type="range" id="najCena" min="0" max="1000" name="cenaDogodka"/>
+                        </p>
+                    </div>
+                    <div class="col s3">
+                        <select required name="inputKategorija" id="inputKategorija">
+                            <option value="" disabled selected>Sortiraj po</option>
+                            <option value="Glasba">Najcenejši naprej</option>
+                            <option value="Gledališče">Najdražji naprej</option>
+                            <option value="Razstava">Po imenu A-Z</option>
+                            <option value="Šport">Po imenu Z-A</option>
+                            <option value="Kino">Po organizatorju A-Z</option>
+                            <option value="Kino">Po organizatorju Z-A</option>
+                        </select>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="row">
+            <c:forEach items="${dogodki}" var="d">
+                <!-- Zaèetek Vrstice-->
 
 
-
-              <!-- Zaèetek ENE Karte-->
-              <div class="col s12 m6 l4">
-                  <div class="card hoverable medium">
-                      <div class="card-image waves-effect waves-block">
-                          <img class="activator responsive-image" src="${d.slikaURL}">
-                      </div>
-                      <div class="card-content">
+                <!-- Zaèetek ENE Karte-->
+                <div class="col s12 m6 l4">
+                    <div class="card hoverable medium">
+                        <div class="card-image waves-effect waves-block">
+                            <img class="activator responsive-image" src="${d.slikaURL}">
+                        </div>
+                        <div class="card-content">
               <span class="card-title activator grey-text text-darken-4">${d.naziv}
                 <i class="material-icons right">expand_less</i>
               </span>
-                          <p>
+                            <p>
                 <span class="">Lokacija: ${d.naslov}
                   <br/>
                 </span>
-                              <a href="${d.vir}">Več...</a>
-                          </p>
-                      </div>
-                      <div class="card-reveal">
+                                <a href="${d.vir}">Več...</a>
+                            </p>
+                        </div>
+                        <div class="card-reveal">
               <span class="card-title grey-text text-darken-4">
                 <i class="material-icons right">expand_more</i>${d.naziv}</span>
-                          <p>Lokacija: ${d.naslov}
-                              <br/> Cena: ${d.cena}
-
-                          <p class="">${d.opis}
-                              <a href=""></a>
-                          </p>
-                          <button class="btn valign-wrapper right blue lighten-1 waves-effect">
-                              <div class="valign-wrapper"> Več
-                                  <i class="material-icons right">add_circle</i>
-                              </div>
-                          </button>
-                          </p>
-                      </div>
-                  </div>
-              </div>
-
+                            <p>Lokacija: ${d.naslov}
+                                <br/> Cena: ${d.cena}
+                            <p class="">${d.opis}
+                                <a href=""></a>
+                            </p>
+                            <button class="btn valign-wrapper right blue lighten-1 waves-effect">
+                                <div class="valign-wrapper"> Več
+                                    <i class="material-icons right">add_circle</i>
+                                </div>
+                            </button>
+                            </p>
+                        </div>
+                    </div>
+                </div>
 
 
-
-
-
-
-
-
-      <!-- Konec ENE Karte-->
-      </c:forEach>
+                <!-- Konec ENE Karte-->
+            </c:forEach>
         </div>
 
-    <!-- Konec Vrstice-->
-    <ul class="pagination right">
-      <li class="disabled">
-        <a href="#!">
-          <i class="material-icons">chevron_left</i>
-        </a>
-      </li>
-      <li class="active teal darken-2">
-        <a href="#!">1</a>
-      </li>
-      <li class="waves-effect">
-        <a href="#!">2</a>
-      </li>
-      <li class="waves-effect">
-        <a href="#!">3</a>
-      </li>
-      <li class="waves-effect">
-        <a href="#!">4</a>
-      </li>
-      <li class="waves-effect">
-        <a href="#!">5</a>
-      </li>
-      <li class="waves-effect">
-        <a href="#!">
-          <i class="material-icons">chevron_right</i>
-        </a>
-      </li>
-    </ul>
+        <!-- Konec Vrstice-->
+        <ul class="pagination right">
+            <li class="disabled">
+                <a href="#!">
+                    <i class="material-icons">chevron_left</i>
+                </a>
+            </li>
+            <li class="active teal darken-2">
+                <a href="#!">1</a>
+            </li>
+            <li class="waves-effect">
+                <a href="#!">2</a>
+            </li>
+            <li class="waves-effect">
+                <a href="#!">3</a>
+            </li>
+            <li class="waves-effect">
+                <a href="#!">4</a>
+            </li>
+            <li class="waves-effect">
+                <a href="#!">5</a>
+            </li>
+            <li class="waves-effect">
+                <a href="#!">
+                    <i class="material-icons">chevron_right</i>
+                </a>
+            </li>
+        </ul>
     </div>
 </main>
 </body>
@@ -291,66 +289,66 @@
 
 <script>
 
-        function showNapredno() {
-            if(document.getElementById('naprednoShow').innerHTML === 'add') {
-                document.getElementById('naprednoRow').innerHTML='' +
-                    '<h5 class="offset-s1 left-align">Dodatno <button class="btn btn-flat btn-floating"> ' +
-                    '<i id="naprednoShow" onclick="showNapredno()" class="material-icons black-text">remove</i></button></h5>\n' +
-                    '          <div class="offset-s1 col s3">\n' +
-                    '            <input type="text" class="datepicker" placeholder="Datum Pričetka" name="datumDogodka">\n' +
-                    '          </div>\n' +
-                    '          <div class="col s4">\n' +
-                    '            <p class="range-field">\n' +
-                    '              <label for="najCena">Max Cena</label>\n' +
-                    '              <input type="range" id="najCena" min="0" max="1000" name="cenaDogodka" />\n' +
-                    '            </p>\n' +
-                    '          </div>\n' +
-                    '          <div class="col s3">\n' +
-                    '            <select required name="inputKategorija" id="inputKategorija">\n' +
-                    '            <option value="" disabled selected>Sortiraj po</option>\n' +
-                    '            <option value="Glasba">Najcenejši naprej</option>\n' +
-                    '            <option value="Gledališče">Najdražji naprej</option>\n' +
-                    '            <option value="Razstava">Po imenu A-Z</option>\n' +
-                    '            <option value="Šport">Po imenu Z-A</option>\n' +
-                    '            <option value="Kino">Po organizatorju A-Z</option>\n' +
-                    '            <option value="Kino">Po organizatorju Z-A</option>\n' +
-                    '          </select>\n' +
-                    '          </div>';
-                $(document).ready(function () {
-                    $('.dropdown-button').dropdown({
-                        constrainWidth: false,
-                        hover: true,
-                        belowOrigin: true,
-                        alignment: 'left'
-                    });
-                    
-                    $('.datepicker').pickadate({
-                        selectMonths: true, // Creates a dropdown to control month
-                        selectYears: 15, // Creates a dropdown of 15 years to control year,
-                        today: 'Today',
-                        clear: 'Clear',
-                        close: 'Ok',
-                        closeOnSelect: false, // Close upon selecting a date,
-                        container: undefined // ex. 'body' will append picker to body
-
-
-                    })
-                    $(document).ready(function () {
-                        $('select').material_select();
-                    });
+    function showNapredno() {
+        if (document.getElementById('naprednoShow').innerHTML === 'add') {
+            document.getElementById('naprednoRow').innerHTML = '' +
+                '<h5 class="offset-s1 left-align">Dodatno <button class="btn btn-flat btn-floating"> ' +
+                '<i id="naprednoShow" onclick="showNapredno()" class="material-icons black-text">remove</i></button></h5>\n' +
+                '          <div class="offset-s1 col s3">\n' +
+                '            <input type="text" class="datepicker" placeholder="Datum Pričetka" name="datumDogodka">\n' +
+                '          </div>\n' +
+                '          <div class="col s4">\n' +
+                '            <p class="range-field">\n' +
+                '              <label for="najCena">Max Cena</label>\n' +
+                '              <input type="range" id="najCena" min="0" max="1000" name="cenaDogodka" />\n' +
+                '            </p>\n' +
+                '          </div>\n' +
+                '          <div class="col s3">\n' +
+                '            <select required name="inputKategorija" id="inputKategorija">\n' +
+                '            <option value="" disabled selected>Sortiraj po</option>\n' +
+                '            <option value="Glasba">Najcenejši naprej</option>\n' +
+                '            <option value="Gledališče">Najdražji naprej</option>\n' +
+                '            <option value="Razstava">Po imenu A-Z</option>\n' +
+                '            <option value="Šport">Po imenu Z-A</option>\n' +
+                '            <option value="Kino">Po organizatorju A-Z</option>\n' +
+                '            <option value="Kino">Po organizatorju Z-A</option>\n' +
+                '          </select>\n' +
+                '          </div>';
+            $(document).ready(function () {
+                $('.dropdown-button').dropdown({
+                    constrainWidth: false,
+                    hover: true,
+                    belowOrigin: true,
+                    alignment: 'left'
                 });
 
-                /*
+                $('.datepicker').pickadate({
+                    selectMonths: true, // Creates a dropdown to control month
+                    selectYears: 15, // Creates a dropdown of 15 years to control year,
+                    today: 'Today',
+                    clear: 'Clear',
+                    close: 'Ok',
+                    closeOnSelect: false, // Close upon selecting a date,
+                    container: undefined // ex. 'body' will append picker to body
+
+
+                })
+                $(document).ready(function () {
+                    $('select').material_select();
+                });
+            });
+
+            /*
 
 
 
-                 */
+             */
 
-            }
-            else if(document.getElementById('naprednoShow').innerHTML === 'remove') {
-                document.getElementById('naprednoRow').innerHTML='<h5 class="offset-s1 left-align">Dodatno <button class="btn btn-flat btn-floating"> <i id="naprednoShow" onclick="showNapredno()" class="material-icons black-text">add</i></button></h5>';
-            }
         }
+        else if (document.getElementById('naprednoShow').innerHTML === 'remove') {
+            document.getElementById('naprednoRow').innerHTML = '<h5 class="offset-s1 left-align">Dodatno <button class="btn btn-flat btn-floating"> <i id="naprednoShow" onclick="showNapredno()" class="material-icons black-text">add</i></button></h5>';
+        }
+    }
 </script>
 <script>
     // Every page needs this dingy //

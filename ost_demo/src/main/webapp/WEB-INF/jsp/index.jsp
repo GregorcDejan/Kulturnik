@@ -69,7 +69,7 @@
                 </li>
                 <li>
                   <a href="#!">
-                    <form action="/izpis" method="get"><button class="btn-flat teal-text">Izpis <i class="material-icons">eject</i></button></form>
+                    <form action="/izpis" method="get"><button class="btn-flat teal-text">Izpis</button></form>
                   </a>
                 </li>
               </ul>
@@ -211,7 +211,7 @@
                 <span class="title">Nina Kliček</span>
                 <p>
                   Back-End
-                  <br/> marko.mx.gluhak@gmail.com
+                  <br/> nina.klicek@student.um.si
                 </p>
                 <a href="#!" class="secondary-content">
                   <i class="material-icons red-text text-lighten-2">send</i>
@@ -233,7 +233,7 @@
                 <span class="title">Maruša Konečnik</span>
                 <p>
                   Back-End
-                  <br/> marko.mx.gluhak@gmail.com
+                  <br/> marusa.konecnik@student.um.si
                 </p>
                 <a href="#!" class="secondary-content">
                   <i class="material-icons red-text text-lighten-2">send</i>
