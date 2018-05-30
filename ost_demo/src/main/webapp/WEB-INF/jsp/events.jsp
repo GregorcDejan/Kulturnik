@@ -176,14 +176,12 @@
           <div class="col s3">
             <p class="range-field">
               <label for="najCena">Max Cena</label>
-              <input type="range" id="najCena" min="0" max="1000"  name="cenaDogodka"/>
+              <input type="range" id="najCena" min="0" max="1000" name="cenaDogodka" />
             </p>
-
-      </nav>
+          </div>
+        </div>
+      </form>
     </div>
-    <div class="container">
-
-      <hr/>
 
 
 
@@ -200,7 +198,7 @@
 
               <!-- Zaèetek ENE Karte-->
               <div class="col s12 m6 l4">
-                  <div class="card hoverable">
+                  <div class="card hoverable medium">
                       <div class="card-image waves-effect waves-block">
                           <img class="activator responsive-image" src="${d.slikaURL}">
                       </div>
