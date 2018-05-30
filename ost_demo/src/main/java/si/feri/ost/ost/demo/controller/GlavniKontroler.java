@@ -39,6 +39,12 @@ public class GlavniKontroler {
         return "Konsola";
     }
 
+    @RequestMapping(value = { "/uporabnik" }, method = RequestMethod.GET)
+    public String profil(Model model) {
+
+        return "uporabnik";
+    }
+
     @RequestMapping(value = { "/registracija" }, method = RequestMethod.GET)
     public String registracija(Model model) {
 
@@ -50,7 +56,7 @@ public class GlavniKontroler {
 
         return "vpis";
     }
-//dodajala
+
     @RequestMapping(value = {"/izpis"}, method=RequestMethod.GET)
     public String izpis(Model model){
 
@@ -59,11 +65,9 @@ public class GlavniKontroler {
 
         session.invalidate();
 
-        model.addAttribute("sejaVzpostavljena",false);
-
         return "index";
     }
-//dodajala
+
     @RequestMapping(value = { "/add" }, method = RequestMethod.GET)
     public String dodajanjeDogodka(Model model) {
 
