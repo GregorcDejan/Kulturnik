@@ -70,7 +70,7 @@ public class KontrolerBaze {
     public static ArrayList<Dogodek> seznamDogodkov = new ArrayList<>();
     @RequestMapping(value = {"/dodajDogodek" }, method = RequestMethod.POST)
     public String dodajDogodek(Model model, @RequestParam(value="naziv",required=true)String naziv,
-<<<<<<< HEAD
+//<<<<<<< HEAD
                                @RequestParam(value="kraj",required=true)String kraj,
                                @RequestParam(value="naslov",required = true)String naslov,
                                @RequestParam(value="tipDogodka",required = true)String tipD,
@@ -82,16 +82,9 @@ public class KontrolerBaze {
 
 
 
-=======
-                                @RequestParam(value="kraj",required=true)String kraj,
-                                @RequestParam(value="naslov",required = true)String naslov,
-                                @RequestParam(value="tipDogodka",required = true)String tipD,
-                                @RequestParam(value="urlDogodka",required = true)String url,
-                                @RequestParam(value="datum",required = true)String datum,
-                                @RequestParam(value="slika",required = false)String slika,
-                                @RequestParam(value="opis",required = false)String opis,
-                                @RequestParam(value="cena",required = false)String cena)
->>>>>>> ccc777fa72e437f9970f6136ee6e831e3f9119f6
+//=======
+
+//>>>>>>> ccc777fa72e437f9970f6136ee6e831e3f9119f6
     {
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
         HttpSession session = request.getSession(true);
@@ -100,7 +93,7 @@ public class KontrolerBaze {
 
 
 
-        dogodki.addDogodek(naziv,url,slika,tipD,kraj,opis,naslov,datum,id,cena);
+        dogodki.addDogodek(naziv,url,slika,tipD,kraj,opis,naslov,datum,cena,id);
 
         boolean jeDodan = true;
         model.addAttribute("dodanDogodek",jeDodan);
@@ -249,7 +242,7 @@ public class KontrolerBaze {
         System.out.println(dogod.get(0).getDatum());
         for (Dogodek d:dogod)
         {
-            dogodki.addDogodek(d.getNaziv(),d.getVir(),d.getSlikaURL(),d.getTip(),d.getKraj(),d.getOpis(),d.getNaslov(),d.getDatum(),d.getIdUporabnika(),d.getCena());
+            dogodki.addDogodek(d.getNaziv(),d.getVir(),d.getSlikaURL(),d.getTip(),d.getKraj(),d.getOpis(),d.getNaslov(),d.getDatum(),d.getCena(),d.getIdUporabnika());
 
 
         }
