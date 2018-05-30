@@ -234,13 +234,8 @@
                               <a href=""></a>
                           </p>
                           <button class="btn valign-wrapper right blue lighten-1 waves-effect">
-<<<<<<< HEAD
                               <div class="valign-wrapper"> Več
                                   <i class="material-icons right">add_circle</i>
-=======
-                              <div class="valign-wrapper"> Več &nbsp
-                                  <i class="material-icons">add_circle</i>
->>>>>>> 815038beee19c569dedf4a775c95c7e2845618f3
                               </div>
                           </button>
                           </p>
