@@ -182,30 +182,10 @@
                 <div id="naprednoRow" class="row center-align">
                     <h5 class="offset-s1 left-align">Dodatno
                         <button class="btn btn-flat btn-floating"><i id="naprednoShow" onclick="showNapredno()"
-                                                                     class="material-icons black-text">remove</i>
+                                                                     class="material-icons black-text">add</i>
                         </button>
                     </h5>
-                    <div class="offset-s1 col s3">
-                        <input type="text" class="datepicker" placeholder="Datum Pričetka" name="datumDogodka">
-                    </div>
-                    <div class="col s4">
-                        <p class="range-field">
-                            <label for="najCena">Max Cena</label>
-                            <input type="range" id="najCena" min="0" max="1000" name="cenaDogodka"/>
-                        </p>
-                    </div>
-                    <div class="col s3">
-                        <select required name="inputKategorija" id="inputKategorija">
-                            <option value="" disabled selected>Sortiraj po</option>
-                            <option value="Glasba">Najcenejši naprej</option>
-                            <option value="Gledališče">Najdražji naprej</option>
-                            <option value="Razstava">Po imenu A-Z</option>
-                            <option value="Šport">Po imenu Z-A</option>
-                            <option value="Kino">Po organizatorju A-Z</option>
-                            <option value="Kino">Po organizatorju Z-A</option>
-                        </select>
-                    </div>
-                </div>
+
             </form>
         </div>
         <div class="row">
@@ -300,7 +280,7 @@
                 '          <div class="col s4">\n' +
                 '            <p class="range-field">\n' +
                 '              <label for="najCena">Max Cena</label>\n' +
-                '              <input type="range" id="najCena" min="0" max="1000" name="cenaDogodka" />\n' +
+                '              <input type="range" id="najCena" min="0" max="1000" value="1000" name="cenaDogodka" />\n' +
                 '            </p>\n' +
                 '          </div>\n' +
                 '          <div class="col s3">\n' +
