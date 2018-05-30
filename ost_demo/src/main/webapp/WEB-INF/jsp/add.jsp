@@ -52,10 +52,9 @@ String.valueOf(session.getAttribute("imeUporabnika"))%>
                 <i class="material-icons left">person</i>
               </a>
               <ul id='dropdownPerson' class='dropdown-content'>
-                <li>
-                  <a href="add">
-                    <button class="btn-flat teal-text">Dodaj Dogodek</button>
-                  </a>
+                <li class="collection-item avatar valign-wrapper">
+                  <i class="material-icons right teal-text">person </i>
+                  <span class="right ">Janez Novak</span>
                 </li>
                 <li class="divider"></li>
                 <li>
