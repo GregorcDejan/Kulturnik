@@ -170,14 +170,25 @@
         <!-- Zaèetek searcha NAPREDNO-->
         <div class="row center-align">
           <h4>Dodatno </h4>
-          <div class="offset-s3 col s3">
+          <div class="offset-s2 col s2">
             <input type="text" class="datepicker" placeholder="Datum Prièetka" name="datumDogodka">
           </div>
-          <div class="col s3">
+          <div class="col s4">
             <p class="range-field">
               <label for="najCena">Max Cena</label>
               <input type="range" id="najCena" min="0" max="1000" name="cenaDogodka" />
             </p>
+          </div>
+          <div class="col s2">
+            <select required name="inputKategorija" id="inputKategorija">
+            <option value="" disabled selected>Sortiraj po</option>
+            <option value="Glasba">Najcenejši naprej</option>
+            <option value="Gledališče">Najdražji naprej</option>
+            <option value="Razstava">Po imenu AZ</option>
+            <option value="Šport">Po imenu ZA</option>
+            <option value="Kino">Po organizatorju AZ</option>
+            <option value="Kino">Po organizatorju ZA</option>
+          </select>
           </div>
         </div>
       </form>
@@ -310,7 +321,9 @@
 
 
         })
-
+        $(document).ready(function () {
+            $('select').material_select();
+        });
     });
 </script>
 
