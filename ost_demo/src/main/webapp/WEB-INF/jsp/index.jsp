@@ -16,21 +16,7 @@
 </head>
 
 <body>
-<!-- podatki o prijavljenosti -->
-<c:choose>
-    <c:when test="${sejaVzpostavljena==true}">
-        Prijavljeni ste kot ${imeUporabnika} ${priimekUporabnika}
-    </c:when>
-</c:choose>
 
-<% if (Boolean.valueOf(String.valueOf(session.getAttribute("uporabnikPrijavljen"))))
-{
-%>
-Prijavljeni ste kot <%=
-String.valueOf(session.getAttribute("imeUporabnika"))%>
-<%= String.valueOf(session.getAttribute("priimekUporabnika"))
-
-%><%}%>
 
 
 <main class="teal lighten-5">
