@@ -45,6 +45,16 @@
               </a>
               <ul id='dropdownPerson' class='dropdown-content'>
                 <li>
+                  <a href="#!">
+                    <form action="/events" method="get"><button class="btn-flat teal-text" name="event" type="submit" value="Moji dogodki"> <i class="material-icons prefix left">person</i>
+                      <span class="right">Janez Novak</span></button></form>
+                  </a>
+                </li>
+                <li class="collection-item avatar valign-wrapper">
+                  <i class="material-icons right teal-text">person </i>
+                  <span class="right ">Janez Novak</span>
+                </li>
+                <li>
                   <a href="add">
                     <button class="btn-flat teal-text">Dodaj Dogodek</button>
                   </a>
@@ -62,16 +72,13 @@
                   </a>
                 </li>
                 <li class="divider"></li>
-                <li>
-                  <a href="/dodajanjeDogodkov">
-                    <form action="/events" method="get"><button class="btn-flat teal-text" name="event" type="submit" value="Moji dogodki">Moji Dogodki</button></form>
-                  </a>
-                </li>
+
                 <li>
                   <a href="#!">
                     <form action="/izpis" method="get"><button class="btn-flat teal-text">Izpis</button></form>
                   </a>
                 </li>
+
               </ul>
             </li>
           </ul>
@@ -312,7 +319,7 @@
     $('.button-collapse').sideNav();
     $('.dropdown-trigger').dropdown({
       constrainWidth: false,
-      hover: true
+      hover: false
     });
 
     // Page Specific //
