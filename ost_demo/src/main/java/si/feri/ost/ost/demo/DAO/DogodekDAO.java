@@ -7,9 +7,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 import si.feri.ost.ost.demo.Razredi.Dogodek;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 
 @Component
@@ -47,7 +45,25 @@ public class DogodekDAO {
 
     }
 
+<<<<<<< HEAD
     public int addDogodek(String naziv, String vir, String SlikaURL, String Tip_Dogodka, String kraj,String opis, String naslov, String datum,int idUporabnika,String cena)
+=======
+    public List<Dogodek> zadnjihNeki()
+    {
+        List<Dogodek> vsi=getAllDogodki();
+        Collections.reverse(vsi);
+        ArrayList<Dogodek>five = new ArrayList<>();
+        for(int i=0;i<5;i++)
+        {
+            five.add(vsi.get(i));
+        }
+        Collections.reverse(five);
+        return five;
+
+    }
+
+    public int addDogodek(String naziv, String vir, String SlikaURL, String Tip_Dogodka, String kraj,String opis, String naslov, String datum,String cena)
+>>>>>>> ccc777fa72e437f9970f6136ee6e831e3f9119f6
     {
      String sql = "INSERT INTO DOGODEK(naziv,vir,SlikaURL,Tip_Dogodka,kraj,opis,naslov,datum,cena,id_uporabnika) VALUES(?,?,?,?,?,?,?,?,?,?)";
 

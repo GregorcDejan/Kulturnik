@@ -76,7 +76,7 @@ String.valueOf(session.getAttribute("imeUporabnika"))%>
                 </li>
                 <li>
                   <a href="#!">
-                    <form action="/izpis" method="get"><button class="btn-flat teal-text">Izpis <i class="material-icons">eject</i></button></form>
+                    <form action="/izpis" method="get"><button class="btn-flat teal-text">Izpis</button></form>
                   </a>
                 </li>
               </ul>
