@@ -255,32 +255,41 @@ public class DogodekDAO {
 
     public List<Dogodek> getByCena(String cenaMax){
 
-        String sql = "SELECT * FROM dogodek WHERE cena BETWEEN ? AND ?";
+        String sql = "SELECT * FROM dogodek";
 
-        List<Dogodek> rez = new ArrayList<>();
+        List<Dogodek> seznamVsehDogodkov = new ArrayList<>();
+        List<Dogodek> seznamUjemajocih = new ArrayList<>();
 
-        List<Map<String,Object>> vrstice = jdbcTemplate.queryForList(sql,new Object[]{cenaMax});
+
+        List<Map<String,Object>> vrstice = jdbcTemplate.queryForList(sql);
 
         for(Map vrstica:vrstice){
-
             int id=(Integer)(vrstica.get("ID"));
             String naziv=(String)vrstica.get("Naziv");
             String vir=(String)vrstica.get("Vir");
             String slikaURL=(String)vrstica.get("slikaURL");
-
             String opis=(String)vrstica.get("opis");
             String tip=(String)vrstica.get("tip");
             String naslov=(String)vrstica.get("naslov");
             String datum=(String)vrstica.get("datum");
             int idUporabnik=(Integer)vrstica.get("id_Uporabnika");
             String kraj=(String)vrstica.get("kraj");
+            String cena=(String)vrstica.get("cena");
 
-            Dogodek d= new Dogodek(id,naziv,vir,slikaURL,tip,opis,kraj,naslov,datum,idUporabnik,cenaMax);
-            rez.add(d);
-
+            Dogodek d= new Dogodek(id,naziv,vir,slikaURL,tip,opis,kraj,naslov,datum,idUporabnik,cena);
+            seznamVsehDogodkov.add(d);
         }
 
-        return rez;
+        for (int i=0; i<seznamVsehDogodkov.size(); i++)
+        {
+            if (Integer.parseInt(seznamVsehDogodkov.get(i).getCena())<=Integer.parseInt(cenaMax))
+            {
+                seznamUjemajocih.add(seznamVsehDogodkov.get(i));
+            }
+        }
+
+
+        return seznamUjemajocih;
 
     }
 

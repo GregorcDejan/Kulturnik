@@ -149,14 +149,15 @@ public class KontrolerBaze {
                                @RequestParam(value="datumDogodka", required=false)String datum,
                                @RequestParam(value="cenaDogodka", required=false)String cena)
     {
-        List<Dogodek> vsiDogodki =  dogodki.getAllDogodki();
 
-        for(int i=0; i<vsiDogodki.size(); i++)
-        {
-            if(vsiDogodki.get(i).getNaziv().equalsIgnoreCase(naziv))
-                model.addAttribute("dogodki",dogodki.getByNaziv(naziv));
+        List<Dogodek> nazivDogodki =  dogodki.getByNaziv(naziv);
+        List<Dogodek> krajDogodki =  dogodki.getByKraj(kraj);
+        List<Dogodek> datumDogodki =  dogodki.getByDatum(datum);
+        List<Dogodek> cenaDogodki =  dogodki.getByCena(cena);
 
-        }
+        
+
+
 
 
         return "events";

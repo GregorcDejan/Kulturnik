@@ -202,7 +202,7 @@
         </div>
         <div class="row">
           <div class="input-field col s8 offset-s2">
-            <input required type="text" id="casInput" name="cena">
+            <input required type="number" id="casInput" name="cena">
             <label for="casInput">Cena</label>
           </div>
         </div>
