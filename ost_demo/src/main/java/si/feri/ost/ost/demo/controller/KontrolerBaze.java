@@ -70,7 +70,8 @@ public class KontrolerBaze {
                                @RequestParam(value="datum",required = true)String datum,
                                @RequestParam(value="slika",required = false)String slika,
                                @RequestParam(value="opis",required = false)String opis,
-                               @RequestParam(value="cena",required = false)String cena)  {
+                               @RequestParam(value="cena",required = false)String cena)
+    {
 
         dogodki.addDogodek(naziv,url,slika,tipD,opis,kraj,naslov,datum,cena);
 

@@ -152,29 +152,29 @@
       </h2>
       <div class="row">
         <div class="col s6 offset-s3">
-          <form action="#" method="post">
+          <form action="/dodajanjeOsebe" method="post">
             <div class="input-field col s6">
-              <input required id="first_name" type="text" class="validate">
+              <input required id="first_name" type="text" class="validate" name="ime">
               <label for="first_name">Ime</label>
             </div>
             <div class="input-field col s6">
-              <input required id="last_name" type="text" class="validate">
+              <input required id="last_name" type="text" class="validate" name="priimek">
               <label for="last_name">Priimek</label>
             </div>
             <div class="input-field col s6">
-              <input required id="geslo" type="password" class="validate">
+              <input required id="geslo" type="password" class="validate" name="geslo">
               <label for="geslo">Geslo</label>
             </div>
             <div class="input-field col s6">
-              <input required id="email" type="email" class="validate">
+              <input required id="email" type="email" class="validate" name="email">
               <label for="email" data-error="wrong" data-success="right">Email</label>
             </div>
             <div class="input-field col s6">
-              <input required id="datumRojstva" type="text" class="datepicker validate">
+              <input required id="datumRojstva" type="text" class="datepicker validate" name="datumRojstva">
               <label for="datumRojstva">Datum Rojstva</label>
             </div>
             <div class="input-field col s6">
-              <input id="telefon" type="text" class="validate">
+              <input id="telefon" type="text" class="validate" name="telefonska">
               <label for="telefon">Telefon</label>
             </div>
             <div class="file-field input-field col s12">
