@@ -154,7 +154,7 @@ public class KontrolerBaze {
         }
 
 
-        return "events";
+        return "uporabnik";
     }
 
 //<<<<<<< HEAD
