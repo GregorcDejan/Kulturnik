@@ -142,7 +142,7 @@ public class KontrolerBaze {
                 model.addAttribute("dogodki", dogodki.getAllDogodki());
 
             else if (tip.equals("Moji dogodki"))
-                return "uporabnik";
+                return "vpis";
 
 
             else {
