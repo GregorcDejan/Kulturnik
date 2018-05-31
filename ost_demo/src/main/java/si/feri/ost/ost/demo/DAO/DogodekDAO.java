@@ -25,18 +25,30 @@ public class DogodekDAO {
 
         for(Map<String,Object> vrstica: vrstice){
 
+            /*String naziv =
+            String vir =
+            String urlSlike
+            String tipDogodka =
+            String kraj =
+            String opis =
+            String naslov
+            String datum
+            String cena */
+
             String naziv = (String)vrstica.get("Naziv");
-            String vir = (String)vrstica.get("Vir");
-            String urlSlike = (String)vrstica.get("SlikaURL");
-            String tipDogodka = (String)vrstica.get("Tip_Dogodka");
             String kraj = (String)vrstica.get("Kraj");
-            String opis = (String)vrstica.get("Opis");
-            String naslov= (String)vrstica.get("Naslov");
-            String datum = (String)vrstica.get("Datum");
+            String ura = (String)vrstica.get("Ura");//STRING?? ura minuta sekunda
+            String izvajalec = (String)vrstica.get("Izvajalec");
+            String lokacija = (String)vrstica.get("Lokacija");
             String cena = (String)vrstica.get("Cena");
+            String opis = (String)vrstica.get("Opis");
+            String slikaURL = (String)vrstica.get("Slika");
+            String tip =(String)vrstica.get("Tip");
+            String datum = (String)vrstica.get("Datum");//leto mesec dan
+            String vir = (String)vrstica.get("Vir");
 
 
-            seznam.add(new Dogodek(naziv,vir,urlSlike,tipDogodka,kraj,opis,naslov,datum,cena));
+            seznam.add(new Dogodek(naziv,kraj,ura,izvajalec,lokacija,cena,opis,slikaURL,tip,datum,vir));
 
 
         }
@@ -58,20 +70,20 @@ public class DogodekDAO {
         return five;
 
     }
-
-    public int addDogodek(String naziv, String vir, String SlikaURL, String Tip_Dogodka, String kraj,String opis, String naslov, String datum,String cena,int idUporabnika)
+//String naziv, String kraj, String ura, String izvajalec, String lokacija, String cena, String opis, String slikaURL, int idUporabnika, String tip, String datum, String vir
+    public int addDogodek(String naziv, String kraj, String ura, String izvajalec, String lokacija, String cena, String opis, String slikaURL, int idUporabnika, String tip, String datum, String vir)
     {
-     String sql = "INSERT INTO DOGODEK(naziv,vir,SlikaURL,Tip_Dogodka,kraj,opis,naslov,datum,cena,id_uporabnika) VALUES(?,?,?,?,?,?,?,?,?,?)";
+     String sql = "INSERT INTO DOGODEK(naziv,kraj,ura,izvajalec,lokacija,cena,opis,slika,idUporabnika,tip,datum,vir) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
 
-     return jdbcTemplate.update(sql,new Object[]{naziv,vir,SlikaURL,Tip_Dogodka,kraj,opis,naslov,datum,cena,idUporabnika});
+     return jdbcTemplate.update(sql,new Object[]{naziv,kraj,ura,izvajalec,lokacija,cena,opis,slikaURL,idUporabnika,tip,datum,vir});
 
 
     }
 
-    public int updateDogodek(int id,String naziv, String vir, String SlikaURL, String Tip_Dogodka, String kraj, String opis, String naslov, String datum,String cena){
-        String sql = "UPDATE DOGODEK SET naziv=?,vir=?,SlikaURL=?,Tip_Dogodka=?,Kraj=?,Opis=?,Naslov=?,Datum=?,Cena=? WHERE id=?";
+    public int updateDogodek(int id,String naziv, String kraj, String ura, String izvajalec, String lokacija, String cena, String opis, String slikaURL, String tip, String datum, String vir){
+        String sql = "UPDATE DOGODEK SET naziv=?, kraj=?, ura=?,izvajalec=?,lokacija=?,cena=?,opis=?,slika=?, tip=?,datum=?,vir=? WHERE id=?";
 
-        return jdbcTemplate.update(sql,new Object[]{naziv,vir,SlikaURL,Tip_Dogodka,kraj,opis,naslov,datum,cena,id});
+        return jdbcTemplate.update(sql,new Object[]{naziv,kraj,ura,izvajalec,lokacija,cena,opis,slikaURL,tip,datum,vir,id});
 
 
     }
@@ -94,18 +106,20 @@ public class DogodekDAO {
         for(Map<String,Object> vrstica: vrstice){
 
             int id=(Integer)(vrstica.get("ID"));
-            String datum=(String)vrstica.get("datum");
-            String vir=(String)vrstica.get("Vir");
-            String slikaURL=(String)vrstica.get("slikaURL");
 
-            String opis=(String)vrstica.get("opis");
-            String kraj=(String)vrstica.get("kraj");
-            String naslov=(String)vrstica.get("naslov");
-            String tip=(String)vrstica.get("tip");
-            int idUporabnik=(Integer)vrstica.get("id_Uporabnika");
-            String cena=(String)vrstica.get("cena");
+            String kraj = (String)vrstica.get("Kraj");
+            String ura = (String)vrstica.get("Ura");//STRING?? ura minuta sekunda
+            String izvajalec = (String)vrstica.get("Izvajalec");
+            String lokacija = (String)vrstica.get("Lokacija");
+            String cena = (String)vrstica.get("Cena");;
+            String opis = (String)vrstica.get("Opis");
+            String slikaURL = (String)vrstica.get("Slika");
+            String tip =(String)vrstica.get("Tip");
+            String datum = (String)vrstica.get("Datum");//leto mesec dan
+            String vir = (String)vrstica.get("Vir");
 
-            Dogodek d= new Dogodek(id,naziv,vir,slikaURL,tip,opis,kraj,naslov,datum,idUporabnik,cena);
+
+            Dogodek d= new Dogodek(id,naziv,kraj,ura,izvajalec,lokacija,cena,opis,slikaURL,tip,datum,vir);
 
             rez.add(d);
 
@@ -132,28 +146,31 @@ public class DogodekDAO {
 
     }
 
-    public List<Dogodek> getByIdUporabnika(int id){
+    public List<Dogodek> getByIdUporabnika(int idUporabnika){
         String sql = "SELECT * FROM dogodek WHERE ID_UPORABNIKA=?";
 
         List<Dogodek> rez = new ArrayList<>();
 
-        List<Map<String,Object>> vrstice  = jdbcTemplate.queryForList(sql,new Object[]{id});
+        List<Map<String,Object>> vrstice  = jdbcTemplate.queryForList(sql,new Object[]{idUporabnika});
 
         for(Map vrstica: vrstice){
 
             int ID=(Integer)(vrstica.get("ID"));
-            String naziv=(String)vrstica.get("Naziv");
-            String vir=(String)vrstica.get("Vir");
-            String slikaURL=(String)vrstica.get("slikaURL");
+            String naziv = (String)vrstica.get("Naziv");
+            String kraj = (String)vrstica.get("Kraj");
+            String ura = (String)vrstica.get("Ura");//STRING?? ura minuta sekunda
+            String izvajalec = (String)vrstica.get("Izvajalec");
+            String lokacija = (String)vrstica.get("Lokacija");
+            String cena = (String)vrstica.get("Cena");;
+            String opis = (String)vrstica.get("Opis");
+            String slikaURL = (String)vrstica.get("Slika");
+            String tip =(String)vrstica.get("Tip");
+            String datum = (String)vrstica.get("Datum");//leto mesec dan
+            String vir = (String)vrstica.get("Vir");
 
-            String opis=(String)vrstica.get("opis");
-            String kraj=(String)vrstica.get("kraj");
-            String naslov=(String)vrstica.get("naslov");
-            String tip=(String)vrstica.get("tip");
-            String datum=(String)vrstica.get("datum");
-            String cena=(String)vrstica.get("cena");
 
-            Dogodek d= new Dogodek(ID,naziv,vir,slikaURL,tip,opis,kraj,naslov,datum,id,cena);
+            Dogodek d= new Dogodek(ID,naziv,kraj,ura,izvajalec,lokacija,cena,opis,slikaURL,idUporabnika,tip,datum,vir);
+
             rez.add(d);
 
         }
@@ -173,19 +190,20 @@ public class DogodekDAO {
 
         for(Map vrstica: vrstice){
 
-            int id=(Integer)(vrstica.get("ID"));
-            String naziv=(String)vrstica.get("Naziv");
-            String vir=(String)vrstica.get("Vir");
-            String slikaURL=(String)vrstica.get("slikaURL");
+            int ID=(Integer)(vrstica.get("ID"));
+            String naziv = (String)vrstica.get("Naziv");
+            String kraj = (String)vrstica.get("Kraj");
+            String ura = (String)vrstica.get("Ura");//STRING?? ura minuta sekunda
+            String izvajalec = (String)vrstica.get("Izvajalec");
+            String lokacija = (String)vrstica.get("Lokacija");
+            String cena = (String)vrstica.get("Cena");
+            String opis = (String)vrstica.get("Opis");
+            String slikaURL = (String)vrstica.get("Slika");
+            String tip =(String)vrstica.get("Tip");
+            String vir = (String)vrstica.get("Vir");
 
-            String opis=(String)vrstica.get("opis");
-            String kraj=(String)vrstica.get("kraj");
-            String naslov=(String)vrstica.get("naslov");
-            String tip=(String)vrstica.get("tip");
-            int idUporabnik=(Integer)vrstica.get("id_Uporabnika");
-            String cena=(String)vrstica.get("cena");
 
-            Dogodek d= new Dogodek(id,naziv,vir,slikaURL,tip,opis,kraj,naslov,datum,idUporabnik,cena);
+            Dogodek d= new Dogodek(ID,naziv,kraj,ura,izvajalec,lokacija,cena,opis,slikaURL,tip,datum,vir);
             rez.add(d);
 
         }
@@ -206,21 +224,25 @@ public class DogodekDAO {
         for(Map vrstica: vrstice){
 
 
-                    int id=(Integer)(vrstica.get("ID"));
-                    String naziv=(String)vrstica.get("Naziv");
-                    String vir=(String)vrstica.get("Vir");
-                    String slikaURL=(String)vrstica.get("slikaURL");
+            int ID=(Integer)(vrstica.get("ID"));
+            String naziv = (String)vrstica.get("Naziv");
+            String kraj = (String)vrstica.get("Kraj");
+            String ura = (String)vrstica.get("Ura");//STRING?? ura minuta sekunda
+            String izvajalec = (String)vrstica.get("Izvajalec");
+            String lokacija = (String)vrstica.get("Lokacija");
 
-                    String opis=(String)vrstica.get("opis");
-                    String kraj=(String)vrstica.get("kraj");
-                    String naslov=(String)vrstica.get("naslov");
-                    String datum=(String)vrstica.get("datum");
-            int idUporabnik=0;
-            if((Integer)vrstica.get("id_Uporabnika")!=null) {
-                        idUporabnik= (Integer) vrstica.get("id_Uporabnika");
-                    }
+            String opis = (String)vrstica.get("Opis");
+            String slikaURL = (String)vrstica.get("Slika");
+            String datum = (String)vrstica.get("Datum");//leto mesec dan
+            String vir = (String)vrstica.get("Vir");
+
+            int idUporabnika=1;
+            if((Integer)vrstica.get("Uporabnik_ID")!=null)
+            {
+                        idUporabnika= (Integer) vrstica.get("Uporabnik_ID");
+            }
                     String cena=(String)vrstica.get("cena");
-            Dogodek d= new Dogodek(id,naziv,vir,slikaURL,tip,opis,kraj,naslov,datum,idUporabnik,cena);
+            Dogodek d= new Dogodek(ID,naziv,kraj,ura,izvajalec,lokacija,cena,opis,slikaURL,idUporabnika,tip,datum,vir);
 
             rez.add(d);
 
@@ -241,20 +263,20 @@ public class DogodekDAO {
 
         for(Map vrstica: vrstice){
 
+            int ID=(Integer)(vrstica.get("ID"));
+            String naziv = (String)vrstica.get("Naziv");
+            String ura = (String)vrstica.get("Ura");//STRING?? ura minuta sekunda
+            String izvajalec = (String)vrstica.get("Izvajalec");
+            String lokacija = (String)vrstica.get("Lokacija");
+            String cena = (String)vrstica.get("Cena");
+            String opis = (String)vrstica.get("Opis");
+            String slikaURL = (String)vrstica.get("Slika");
+            int idUporabnik= (Integer) vrstica.get("Uporabnik_ID");
+            String tip =(String)vrstica.get("Tip");
+            String datum = (String)vrstica.get("Datum");//leto mesec dan
+            String vir = (String)vrstica.get("Vir");
 
-            int id=(Integer)(vrstica.get("ID"));
-            String naziv=(String)vrstica.get("Naziv");
-            String vir=(String)vrstica.get("Vir");
-            String slikaURL=(String)vrstica.get("slikaURL");
-
-            String opis=(String)vrstica.get("opis");
-            String tip=(String)vrstica.get("tip");
-            String naslov=(String)vrstica.get("naslov");
-            String datum=(String)vrstica.get("datum");
-            int idUporabnik=(Integer)vrstica.get("id_Uporabnika");
-            String cena=(String)vrstica.get("cena");
-
-            Dogodek d= new Dogodek(id,naziv,vir,slikaURL,tip,opis,kraj,naslov,datum,idUporabnik,cena);
+            Dogodek d= new Dogodek(ID,naziv,kraj,ura,izvajalec,lokacija,cena,opis,slikaURL,idUporabnik,tip,datum,vir);
 
             rez.add(d);
 
@@ -274,19 +296,25 @@ public class DogodekDAO {
         List<Map<String,Object>> vrstice = jdbcTemplate.queryForList(sql);
 
         for(Map vrstica:vrstice){
-            int id=(Integer)(vrstica.get("ID"));
-            String naziv=(String)vrstica.get("Naziv");
-            String vir=(String)vrstica.get("Vir");
-            String slikaURL=(String)vrstica.get("slikaURL");
-            String opis=(String)vrstica.get("opis");
-            String tip=(String)vrstica.get("tip");
-            String naslov=(String)vrstica.get("naslov");
-            String datum=(String)vrstica.get("datum");
-            int idUporabnik=(Integer)vrstica.get("id_Uporabnika");
-            String kraj=(String)vrstica.get("kraj");
-            String cena=(String)vrstica.get("cena");
 
-            Dogodek d= new Dogodek(id,naziv,vir,slikaURL,tip,opis,kraj,naslov,datum,idUporabnik,cena);
+            int ID=(Integer)(vrstica.get("ID"));
+            String naziv = (String)vrstica.get("Naziv");
+            String kraj = (String)vrstica.get("Kraj");
+            String ura = (String)vrstica.get("Ura");//STRING?? ura minuta sekunda
+            String izvajalec = (String)vrstica.get("Izvajalec");
+            String lokacija = (String)vrstica.get("Lokacija");
+            String cena = (String)vrstica.get("Cena");
+            String opis = (String)vrstica.get("Opis");
+            String slikaURL = (String)vrstica.get("Slika");
+            int idUporabnik= (Integer) vrstica.get("Uporabnik_ID");
+            String tip =(String)vrstica.get("Tip");
+            String datum = (String)vrstica.get("Datum");//leto mesec dan
+            String vir = (String)vrstica.get("Vir");
+
+            Dogodek d= new Dogodek(ID,naziv,kraj,ura,izvajalec,lokacija,cena,opis,slikaURL,idUporabnik,tip,datum,vir);
+
+
+
             seznamVsehDogodkov.add(d);
         }
 

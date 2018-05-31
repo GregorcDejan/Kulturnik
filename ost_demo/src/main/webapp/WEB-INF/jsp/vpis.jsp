@@ -188,19 +188,19 @@ String.valueOf(session.getAttribute("imeUporabnika"))%>
 
       <form action="/prijava" method="post">
         <div class="row">
-          <div class="input-field col s10 offset-s1 col l8 offset-l2">
+          <div class="input-field col s10 offset-s1 col l6 offset-l3">
             <input id="user" type="text" class="validate" name="username">
-            <label for="user">Uporabniško Ime</label>
+            <label for="user" data-error="Narobe" data-success="Vredu">Email</label>
           </div>
         </div>
         <div class="row">
-          <div class="input-field col s10 offset-s1 col l8 offset-l2">
+          <div class="input-field col s10 offset-s1 col l6 offset-l3">
             <input id="password" type="password" class="validate" name="password">
             <label for="password">Password</label>
           </div>
         </div>
         <div class="row">
-          <div class="radio col s10 offset-s1 col l8 offset-l2">
+          <div class="radio col s10 offset-s1 col l6 offset-l4">
             <p>
               <input type="checkbox" id="remember" />
               <label for="remember">Zapomni si me</label>
@@ -209,7 +209,7 @@ String.valueOf(session.getAttribute("imeUporabnika"))%>
         </div>
         <div class="row">
           <div class="input-field center-align">
-           <button id="signIn" class="btn btn-submit large" type="submit">Vpis</button>
+           <button id="signIn" class="btn btn-submit large teal darken-1 z-depth-3" type="submit">Vpis</button>
             <div class="input-field center-align">
               <a href="registracija">Še nimate računa?</a>
             </div>

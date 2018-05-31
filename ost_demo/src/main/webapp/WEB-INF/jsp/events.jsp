@@ -195,7 +195,7 @@
         <div class="row">
             <form class="col s12" action="/filter" method="get">
                 <div class="row ">
-                    <div class="input-field col offset-l3 l6 offset-m2 m8 offset-s1 s10 valign-wrapper center-align">
+                    <div class="input-field col offset-xl2 xl8 offset-m1 m10 s12 valign-wrapper center-align">
                         <i class="material-icons prefix">search</i>
                         <input id="eventsSearchNaziv" type="text" class="validate" placeholder="Naziv"
                                name="nazivDogodka">
@@ -236,7 +236,7 @@
                 <i class="material-icons right">expand_less</i>
               </span>
                             <p>
-                <span class="">Lokacija: ${d.naslov}
+                <span class="">Lokacija: ${d.lokacija}
                   <br/>
                 </span>
                                 <a href="${d.vir}">Več...</a>
@@ -245,7 +245,7 @@
                         <div class="card-reveal">
               <span class="card-title grey-text text-darken-4">
                 <i class="material-icons right">expand_more</i>${d.naziv}</span>
-                            <p>Lokacija: ${d.naslov}
+                            <p>Lokacija: ${d.lokacija}
                                 <br/> Cena: ${d.cena}
                             <p class="">${d.opis}
                                 <a href=""></a>
@@ -300,22 +300,21 @@
 <script type="text/javascript" src="/lib/javascript/materialize.min.js"></script>
 
 <script>
-
     function showNapredno() {
         if (document.getElementById('naprednoShow').innerHTML === 'add') {
             document.getElementById('naprednoRow').innerHTML = '' +
                 '<h5 class="offset-s1 left-align">Dodatno <button class="btn btn-flat btn-floating"> ' +
                 '<i id="naprednoShow" onclick="showNapredno()" class="material-icons black-text">remove</i></button></h5>\n' +
-                '          <div class="offset-s1 col s3">\n' +
+                '          <div class="offset-s2 offset-l1 col l3 s8">\n' +
                 '            <input type="text" class="datepicker" placeholder="Datum Pričetka" name="datumDogodka">\n' +
                 '          </div>\n' +
-                '          <div class="col s4">\n' +
+                '          <div class="col l4 offset-s1 s5">\n' +
                 '            <p class="range-field">\n' +
-                '              <label for="najCena">Max Cena</label>\n' +
-                '              <input type="range" id="najCena" min="0" max="1000" value="1000" name="cenaDogodka" />\n' +
+                '              <label id="najCenaLabel" for="najCena">Max Cena: 1000</label>\n' +
+                '              <input type="range" id="najCena" min="0" max="1000" value="1000" name="cenaDogodka" oninput="displayContent()" />\n' +
                 '            </p>\n' +
                 '          </div>\n' +
-                '          <div class="col s3">\n' +
+                '          <div class="col l3 s5">\n' +
                 '            <select name="inputKategorija" id="inputKategorija">\n' +
                 '            <option value="" disabled selected>Sortiraj po</option>\n' +
                 '            <option value="Glasba">Najcenejši naprej</option>\n' +
@@ -351,16 +350,16 @@
                 });
             });
 
-            /*
 
-
-
-             */
 
         }
         else if (document.getElementById('naprednoShow').innerHTML === 'remove') {
             document.getElementById('naprednoRow').innerHTML = '<h5 class="offset-s1 left-align">Dodatno <button class="btn btn-flat btn-floating"> <i id="naprednoShow" onclick="showNapredno()" class="material-icons black-text">add</i></button></h5>';
         }
+    }
+    function displayContent()
+    {
+        document.getElementById('najCenaLabel') .innerHTML = 'Max Cena: ' + document.getElementById("najCena").value;
     }
 </script>
 <script>
@@ -397,6 +396,10 @@
         $(document).ready(function () {
             $('select').material_select();
         });
+
+
+
+
     });
 </script>
 

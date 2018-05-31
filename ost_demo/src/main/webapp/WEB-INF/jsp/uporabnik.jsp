@@ -198,7 +198,7 @@
                 <i class="material-icons right">expand_less</i>
               </span>
                                     <p>
-                <span class="">Lokacija: ${d.naslov}
+                <span class="">Lokacija: ${d.lokacija}
                   <br/>
                 </span>
                                         <a href="${d.vir}">Več...</a>
@@ -207,7 +207,7 @@
                                 <div class="card-reveal">
               <span class="card-title grey-text text-darken-4">
                 <i class="material-icons right">expand_more</i>${d.naziv}</span>
-                                    <p>Lokacija: ${d.naslov}
+                                    <p>Lokacija: ${d.lokacija}
                                         <br/> Cena: ${d.cena}
                                     <p class="">${d.opis}
                                         <a href=""></a>

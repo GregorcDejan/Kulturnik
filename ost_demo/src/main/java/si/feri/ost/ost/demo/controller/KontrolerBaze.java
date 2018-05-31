@@ -1,15 +1,11 @@
 package si.feri.ost.ost.demo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.w3c.dom.Document;
@@ -22,7 +18,6 @@ import si.feri.ost.ost.demo.DAO.OsebaDAO;
 import si.feri.ost.ost.demo.Razredi.Dogodek;
 import si.feri.ost.ost.demo.Razredi.Oseba;
 
-import javax.servlet.ServletRequestAttributeEvent;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.xml.parsers.DocumentBuilder;
@@ -260,7 +255,7 @@ public class KontrolerBaze {
         System.out.println(dogod.get(0).getDatum());
         for (Dogodek d:dogod)
         {
-            dogodki.addDogodek(d.getNaziv(),d.getVir(),d.getSlikaURL(),d.getTip(),d.getKraj(),d.getOpis(),d.getNaslov(),d.getDatum(),d.getCena(),d.getIdUporabnika());
+            dogodki.addDogodek(d.getNaziv(),d.getVir(),d.getSlikaURL(),d.getTip(),d.getKraj(),d.getOpis(),d.getLokacija(),d.getDatum(),d.getCena(),d.getIdUporabnika());
 
 
         }
