@@ -21,9 +21,13 @@ CREATE TABLE IF NOT EXISTS Dogodek (
   `Opis` VARCHAR(2000) NULL,
   `Slika` VARCHAR(2000) NULL DEFAULT 'https://www.mearto.com/assets/no-image-83a2b680abc7af87cfff7777d0756fadb9f9aecd5ebda5d34f8139668e0fc842.png',
   `Uporabnik_ID` INT NOT NULL,
+  `Tip` VARCHAR(45) NOT NULL,
+  `Datum` DATE NOT NULL,
+  `Vir` VARCHAR(2000) NULL,
   PRIMARY KEY (`ID`),
   INDEX `fk_Dogodek_Uporabnik_idx` (`Uporabnik_ID` ASC),
   CONSTRAINT `fk_Dogodek_Uporabnik`
     FOREIGN KEY (`Uporabnik_ID`)
     REFERENCES `mydb`.`Uporabnik` (`ID`)
     );
+
