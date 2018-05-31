@@ -221,7 +221,7 @@
         </div>
           <div class="row">
               <div class="input-field col s8 offset-s2">
-                  <input required type="text" id="casInput" name="cas" class="timepicker">
+                  <input required type="text" id="casInput" name="ura" class="timepicker">
                   <label for="datumInput">Čas dogodka</label>
               </div>
           </div>
