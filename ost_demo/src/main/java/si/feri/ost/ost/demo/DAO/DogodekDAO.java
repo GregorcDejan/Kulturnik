@@ -7,6 +7,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 import si.feri.ost.ost.demo.Razredi.Dogodek;
 
+import java.sql.Time;
 import java.util.*;
 
 
@@ -37,14 +38,17 @@ public class DogodekDAO {
 
             String naziv = (String)vrstica.get("Naziv");
             String kraj = (String)vrstica.get("Kraj");
-            String ura = (String)vrstica.get("Ura");//STRING?? ura minuta sekunda
+            Time cas = (Time) vrstica.get("Ura");
+            String ura = cas.toString();//STRING?? ura minuta sekunda
             String izvajalec = (String)vrstica.get("Izvajalec");
             String lokacija = (String)vrstica.get("Lokacija");
             String cena = (String)vrstica.get("Cena");
             String opis = (String)vrstica.get("Opis");
             String slikaURL = (String)vrstica.get("Slika");
             String tip =(String)vrstica.get("Tip");
-            String datum = (String)vrstica.get("Datum");//leto mesec dan
+
+            Date datumcek = (Date) vrstica.get("Datum");
+            String datum=datumcek.toString();
             String vir = (String)vrstica.get("Vir");
 
 
@@ -57,7 +61,7 @@ public class DogodekDAO {
 
     }
 
-    public List<Dogodek> zadnjihNeki()
+    /*public List<Dogodek> zadnjihNeki()
     {
         List<Dogodek> vsi=getAllDogodki();
         Collections.reverse(vsi);
@@ -69,7 +73,7 @@ public class DogodekDAO {
         Collections.reverse(five);
         return five;
 
-    }
+    }*/
 //String naziv, String kraj, String ura, String izvajalec, String lokacija, String cena, String opis, String slikaURL, int idUporabnika, String tip, String datum, String vir
     public int addDogodek(String naziv, String kraj, String ura, String izvajalec, String lokacija, String cena, String opis, String slikaURL, int idUporabnika, String tip, String datum, String vir)
     {
@@ -215,7 +219,7 @@ public class DogodekDAO {
 
     public List<Dogodek> getByTip(String tip)
     {
-        String sql = "SELECT * FROM dogodek WHERE tip_dogodka=?";
+        String sql = "SELECT * FROM dogodek WHERE tip=?";
 
         List<Dogodek> rez = new ArrayList<>();
 
@@ -227,21 +231,28 @@ public class DogodekDAO {
             int ID=(Integer)(vrstica.get("ID"));
             String naziv = (String)vrstica.get("Naziv");
             String kraj = (String)vrstica.get("Kraj");
-            String ura = (String)vrstica.get("Ura");//STRING?? ura minuta sekunda
+            Time cas = (Time) vrstica.get("Ura");
+            String ura = cas.toString();//STRING?? ura minuta sekunda
             String izvajalec = (String)vrstica.get("Izvajalec");
             String lokacija = (String)vrstica.get("Lokacija");
-
+            String cena = (String)vrstica.get("Cena");
             String opis = (String)vrstica.get("Opis");
             String slikaURL = (String)vrstica.get("Slika");
-            String datum = (String)vrstica.get("Datum");//leto mesec dan
+
+
+            Date datumcek = (Date) vrstica.get("Datum");
+            String datum=datumcek.toString();
             String vir = (String)vrstica.get("Vir");
+
+
+
 
             int idUporabnika=1;
             if((Integer)vrstica.get("Uporabnik_ID")!=null)
             {
                         idUporabnika= (Integer) vrstica.get("Uporabnik_ID");
             }
-                    String cena=(String)vrstica.get("cena");
+                    
             Dogodek d= new Dogodek(ID,naziv,kraj,ura,izvajalec,lokacija,cena,opis,slikaURL,idUporabnika,tip,datum,vir);
 
             rez.add(d);

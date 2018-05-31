@@ -58,7 +58,7 @@ public class KontrolerBaze {
     @RequestMapping(value={"/","/index",},method=RequestMethod.GET)
     public String zadnjih5(Model model)
     {
-        model.addAttribute("dogodki",dogodki.zadnjihNeki());
+        //model.addAttribute("dogodki",dogodki.zadnjihNeki());
         return "index";
     }
 
