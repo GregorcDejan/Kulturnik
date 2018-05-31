@@ -70,7 +70,7 @@ public class KontrolerBaze {
     public static ArrayList<Dogodek> seznamDogodkov = new ArrayList<>();
     @RequestMapping(value = {"/dodajDogodek" }, method = RequestMethod.POST)
     public String dodajDogodek(Model model, @RequestParam(value="naziv",required=true)String naziv,
-//<<<<<<< HEAD
+
                                @RequestParam(value="kraj",required=true)String kraj,
                                @RequestParam(value="naslov",required = true)String naslov,
                                @RequestParam(value="tipDogodka",required = true)String tipD,
@@ -81,19 +81,13 @@ public class KontrolerBaze {
                                @RequestParam(value="cena",required = false)String cena)
 
 
-
-//=======
-
-//>>>>>>> ccc777fa72e437f9970f6136ee6e831e3f9119f6
     {
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
         HttpSession session = request.getSession(true);
 
         int id =Integer.parseInt(String.valueOf(session.getAttribute("idUporabnika")));
 
-
-
-        dogodki.addDogodek(naziv,url,slika,tipD,kraj,opis,naslov,datum,cena,id);
+        dogodki.addDogodek(naziv,url,slika,tipD,opis,kraj,naslov,datum,cena,id);
 
         boolean jeDodan = true;
         model.addAttribute("dodanDogodek",jeDodan);
@@ -164,22 +158,35 @@ public class KontrolerBaze {
                                @RequestParam(value="nazivDogodka", required=false)String naziv,
                                @RequestParam(value="krajDogodka", required=false)String kraj,
                                @RequestParam(value="datumDogodka", required=false)String datum,
-                               @RequestParam(value="cenaDogodka", required=false)String cena)
-    {
-
-        List<Dogodek> nazivDogodki =  dogodki.getByNaziv(naziv);
-        List<Dogodek> krajDogodki =  dogodki.getByKraj(kraj);
-        List<Dogodek> datumDogodki =  dogodki.getByDatum(datum);
-        List<Dogodek> cenaDogodki =  dogodki.getByCena(cena);
+                               @RequestParam(value="cenaDogodka", required=false)String cena) {
 
 
-        
+        List<Dogodek> seznam = dogodki.getAllDogodki();
+
+        List<Dogodek> rez = new ArrayList<>();
+        if (!naziv.equals("") && kraj.equals("") && datum == null && cena == null) {
+
+            model.addAttribute("dogodki",dogodki.getByNaziv(naziv));
+        }
+
+        else if (naziv.equals("") && !kraj.equals("") && datum == null && cena == null) {
+            model.addAttribute("dogodki",dogodki.getByKraj(kraj));
+        }
 
 
-
+        else if(!naziv.equals("") && !kraj.equals("") && datum==null && cena==null){
+            for(int i=0; i<seznam.size(); i++) {
+                if (seznam.get(i).getNaziv().equals(naziv) && seznam.get(i).getKraj().equals(kraj))
+                    rez.add(seznam.get(i));
+            }
+            model.addAttribute("dogodki",rez);
+        }
 
         return "events";
     }
+
+
+
 
     @RequestMapping(value={"/parseXML"},method=RequestMethod.GET)
     public String xmlpars(Model model)
@@ -243,11 +250,6 @@ public class KontrolerBaze {
         return "Konsola";
     }
 
-
-//<<<<<<< HEAD
-//>>>>>>> 51e530601f2f20dde7d402f96c22bf8fb5abcdd9
-//=======
-        //>>>>>>> 699923fb904f7dd1786fe13ac7d0d4fc3e5841a3
     @RequestMapping(value={"/prijava"},method=RequestMethod.POST)
     public String prijava(Model model,
                           @RequestParam(value="username")String email,

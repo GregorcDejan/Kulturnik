@@ -36,7 +36,7 @@ public class DogodekDAO {
             String cena = (String)vrstica.get("Cena");
 
 
-            seznam.add(new Dogodek(naziv,vir,urlSlike,tipDogodka,opis,kraj,naslov,datum,cena));
+            seznam.add(new Dogodek(naziv,vir,urlSlike,tipDogodka,kraj,opis,naslov,datum,cena));
 
 
         }
@@ -89,7 +89,7 @@ public class DogodekDAO {
 
         List<Dogodek> rez = new ArrayList<>();
 
-        List<Map<String,Object>> vrstice  = jdbcTemplate.queryForList(sql);
+        List<Map<String,Object>> vrstice  = jdbcTemplate.queryForList(sql,new Object[]{naziv});
 
         for(Map<String,Object> vrstica: vrstice){
 

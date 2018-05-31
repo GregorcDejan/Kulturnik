@@ -141,7 +141,7 @@
                                 <li class="divider"></li>
                                 <li>
                                     <a href="#">
-                                        <button class="btn-flat teal-text" type="submit" name="event" value="Kino">
+                                        <button class="btn-flat teal-text" type="submit" name="event" value="Film">
                                             Kino
                                         </button>
                                     </a>
@@ -168,7 +168,7 @@
                             <button class="btn-flat" type="submit" name="event" value="Šport">Šport</button>
                         </li>
                         <li>
-                            <button class="btn-flat" type="submit" name="event" value="Kino">Kino</button>
+                            <button class="btn-flat" type="submit" name="event" value="Film">Kino</button>
                         </li>
 
                     </form>

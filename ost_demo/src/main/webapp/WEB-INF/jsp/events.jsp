@@ -165,7 +165,7 @@
                             <button class="btn-flat" type="submit" name="event" value="Šport">Šport</button>
                         </li>
                         <li>
-                            <button class="btn-flat" type="submit" name="event" value="Kino">Kino</button>
+                            <button class="btn-flat" type="submit" name="event" value="Film">Kino</button>
                         </li>
                     </form>
                 </ul>
@@ -184,8 +184,8 @@
                     <div class="input-field col offset-l3 l6 offset-m2 m8 offset-s1 s10 valign-wrapper center-align">
                         <i class="material-icons prefix">search</i>
                         <input id="eventsSearchNaziv" type="text" class="validate" placeholder="Naziv"
-                               name="nazivDOgodka">
-                        <input id="eventsSearchKraj" type="text" class="validate" placeholder="Kraj" name="krajDOgodka">
+                               name="nazivDogodka">
+                        <input id="eventsSearchKraj" type="text" class="validate" placeholder="Kraj" name="krajDogodka">
                         <button class="btn-flat" type="submit" name="search">
                             <i class="material-icons suffix">keyboard_return</i>
                         </button>
@@ -201,7 +201,10 @@
                         </button>
                     </h5>
 
+                </div>
+
             </form>
+
         </div>
         <div class="row">
             <c:forEach items="${dogodki}" var="d">
@@ -308,6 +311,7 @@
                 '            <option value="Kino">Po organizatorju A-Z</option>\n' +
                 '            <option value="Kino">Po organizatorju Z-A</option>\n' +
                 '          </select>\n' +
+
                 '          </div>';
             $(document).ready(function () {
                 $('.dropdown-button').dropdown({
