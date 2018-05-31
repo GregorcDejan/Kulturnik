@@ -207,8 +207,13 @@
               <span class="card-title activator grey-text text-darken-4">${d.naziv}
                 <i class="material-icons right">expand_less</i>
               </span>
+<<<<<<< HEAD
                                         <p>
                 <span class="">Lokacija: ${d.naslov}
+=======
+                                    <p>
+                <span class="">Lokacija: ${d.lokacija}
+>>>>>>> a4aaf5f6ce23b19d7b91ac5977186b3d172f830f
                   <br/>
                 </span>
                                             <a href="${d.vir}">Več...</a>
@@ -217,6 +222,7 @@
                                     <div class="card-reveal">
               <span class="card-title grey-text text-darken-4">
                 <i class="material-icons right">expand_more</i>${d.naziv}</span>
+<<<<<<< HEAD
                                         <p>Lokacija: ${d.naslov}
                                             <br/> Cena: ${d.cena}
                                         <p class="">${d.opis}
@@ -231,6 +237,19 @@
                                         </form>
                                         </p>
                                     </div>
+=======
+                                    <p>Lokacija: ${d.lokacija}
+                                        <br/> Cena: ${d.cena}
+                                    <p class="">${d.opis}
+                                        <a href=""></a>
+                                    </p>
+                                    <button class="btn valign-wrapper right blue lighten-1 waves-effect">
+                                        <div class="valign-wrapper"> Več
+                                            <i class="material-icons right">add_circle</i>
+                                        </div>
+                                    </button>
+                                    </p>
+>>>>>>> a4aaf5f6ce23b19d7b91ac5977186b3d172f830f
                                 </div>
                             </div>
 
