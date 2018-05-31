@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS Dogodek (
   `Ura` TIME NOT NULL,
   `Izvajalec` VARCHAR(45) NOT NULL,
   `Lokacija` VARCHAR(45) NOT NULL,
-  `Cena` INT NULL ,
+  `Cena` VARCHAR(20) NULL ,
   `Opis` VARCHAR(2000) NULL,
   `Slika` VARCHAR(2000) NULL DEFAULT 'https://www.mearto.com/assets/no-image-83a2b680abc7af87cfff7777d0756fadb9f9aecd5ebda5d34f8139668e0fc842.png',
   `Uporabnik_ID` INT NULL DEFAULT 1, 
