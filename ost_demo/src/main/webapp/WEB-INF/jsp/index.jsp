@@ -263,7 +263,7 @@
                             </a>
                         </li>
                         <li class="collection-item avatar grey lighten-3">
-                            <img src="${pageContext.request.contextPath}/lib/slike/lepotec.jpg" alt="" class="circle">
+                            <img src="${pageContext.request.contextPath}/lib/slike/rusha.jpg" alt="" class="circle">
                             <span class="title">Maruša Konečnik</span>
                             <p>
                                 Back-End
