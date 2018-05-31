@@ -47,8 +47,7 @@
               <ul id='dropdownPerson' class='dropdown-content'>
                 <li class="collection-item avatar valign-wrapper">
                   <i class="material-icons right teal-text">person </i>
-
-                  <span class="right ">Janez Novak</span>
+                  
 
                   <form action="/events" method="get"><button class="btn-flat teal-text" name="event" value="Moji dogodki">
                   <span class="right ">
