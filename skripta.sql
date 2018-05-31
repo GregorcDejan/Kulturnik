@@ -37,7 +37,7 @@ select * from uporabnik;
 
 
 
-INSERT INTO UPORABNIK(ID,ime,priimek,email,telefon,geslo,datum_rojstva) VALUES(0,'Dejan','Gregorc','dejan.gregorc@student.um.si','041451061','password','18.03.1998');
+INSERT INTO UPORABNIK(ID,ime,priimek,email,telefon,geslo,datum_rojstva) VALUES(1,'Dejan','Gregorc','dejan.gregorc@student.um.si','041451061','password','18.03.1998');
 INSERT INTO UPORABNIK(ime,priimek,email,telefon,geslo,datum_rojstva)VALUES('Janez','Novak','janez.novak@gmail.com','041569347','pass','03.09.1997');
 INSERT INTO UPORABNIK(ime,priimek,email,telefon,geslo,datum_rojstva)VALUES('Maja','Kotnik','maja.kotnik@gmail.com','041563212','pass','05.08.1997');
 INSERT INTO UPORABNIK(ime,priimek,email,telefon,geslo,datum_rojstva) VALUES('Domen','Delas','domen.delas@student.um.si','041546325','password','20.03.2000');
