@@ -191,7 +191,7 @@
         </div>
         <div class="row">
           <div class="input-field col s8 offset-s2">
-            <input required type="text" name="naslov" id="lokacijaInput" class="validate">
+            <input required type="text" name="lokacija" id="lokacijaInput" class="validate">
             <label for="lokacijaInput">Naslov (prostor)</label>
           </div>
         </div>
