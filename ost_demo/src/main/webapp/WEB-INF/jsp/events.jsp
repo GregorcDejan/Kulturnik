@@ -14,16 +14,7 @@
     <link rel="stylesheet" type="text/css" media="screen" href="/lib/css/style.css"/>
 </head>
 <body>
-<<<<<<< HEAD
-<% if(Boolean.valueOf(String.valueOf(session.getAttribute("uporabnikPrijavljen")))){
-%>
-Prijavljeni ste kot <%=
-String.valueOf(session.getAttribute("imeUporabnika"))%>
-<%= String.valueOf(session.getAttribute("priimekUporabnika"))
 
-%><%}%>
-=======
->>>>>>> ccc777fa72e437f9970f6136ee6e831e3f9119f6
 <main class="teal lighten-5">
     <div class="navbar-fixed">
         <nav class=" teal darken-2 z-depth-3">
@@ -48,6 +39,28 @@ String.valueOf(session.getAttribute("imeUporabnika"))%>
                             <i class="material-icons left">person</i>
                         </a>
                         <ul id='dropdownPerson' class='dropdown-content'>
+                          <li class="collection-item avatar valign-wrapper">
+                            <i class="material-icons right teal-text">person </i>
+                            <form action="/events" method="get">
+                              <button class="btn-flat teal-text" name="event" value="Moji dogodki">
+                                <span class="right ">
+                                  <% if(Boolean.valueOf(String.valueOf(session.getAttribute("uporabnikPrijavljen")))){%>
+                                  <%=
+                                  String.valueOf(session.getAttribute("imeUporabnika"))
+                                  %>
+                                  <%=
+                                  String.valueOf(session.getAttribute("priimekUporabnika"))
+                                  %>
+                                 <% }
+                                 else
+                                 {%>
+                                     <%="Neprijavljen uporabnik "%>
+                                  <%}%>
+                                </span>
+                              </button>
+                            </form>
+                            </li>
+                            <li class="divider"></li>
                             <li>
                                 <a href="add">
                                     <button class="btn-flat teal-text">Dodaj Dogodek</button>
@@ -66,15 +79,7 @@ String.valueOf(session.getAttribute("imeUporabnika"))%>
                                 </a>
                             </li>
                             <li class="divider"></li>
-                            <li>
-                                <a href="#!">
-                                    <form action="/events" method="get">
-                                        <button class="btn-flat teal-text" name="event" type="submit"
-                                                value="Moji dogodki">Moji Dogodki
-                                        </button>
-                                    </form>
-                                </a>
-                            </li>
+
                             <li>
                                 <a href="#!">
                                     <form action="/izpis" method="get">
@@ -160,7 +165,7 @@ String.valueOf(session.getAttribute("imeUporabnika"))%>
                             <button class="btn-flat" type="submit" name="event" value="Šport">Šport</button>
                         </li>
                         <li>
-                            <button class="btn-flat" type="submit" name="event" value="Kino">Kino</button>
+                            <button class="btn-flat" type="submit" name="event" value="Film">Kino</button>
                         </li>
                     </form>
                 </ul>
@@ -174,13 +179,13 @@ String.valueOf(session.getAttribute("imeUporabnika"))%>
         <hr/>
         <!-- Zaèetek searcha OSNOVNO-->
         <div class="row">
-            <form class="col s12">
+            <form class="col s12" action="/filter" method="get">
                 <div class="row ">
                     <div class="input-field col offset-l3 l6 offset-m2 m8 offset-s1 s10 valign-wrapper center-align">
                         <i class="material-icons prefix">search</i>
                         <input id="eventsSearchNaziv" type="text" class="validate" placeholder="Naziv"
-                               name="nazivDOgodka">
-                        <input id="eventsSearchKraj" type="text" class="validate" placeholder="Kraj" name="krajDOgodka">
+                               name="nazivDogodka">
+                        <input id="eventsSearchKraj" type="text" class="validate" placeholder="Kraj" name="krajDogodka">
                         <button class="btn-flat" type="submit" name="search">
                             <i class="material-icons suffix">keyboard_return</i>
                         </button>
@@ -196,7 +201,10 @@ String.valueOf(session.getAttribute("imeUporabnika"))%>
                         </button>
                     </h5>
 
+                </div>
+
             </form>
+
         </div>
         <div class="row">
             <c:forEach items="${dogodki}" var="d">
@@ -303,6 +311,7 @@ String.valueOf(session.getAttribute("imeUporabnika"))%>
                 '            <option value="Kino">Po organizatorju A-Z</option>\n' +
                 '            <option value="Kino">Po organizatorju Z-A</option>\n' +
                 '          </select>\n' +
+
                 '          </div>';
             $(document).ready(function () {
                 $('.dropdown-button').dropdown({

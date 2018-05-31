@@ -18,13 +18,7 @@
 </head>
 
 <body>
-<% if(Boolean.valueOf(String.valueOf(session.getAttribute("uporabnikPrijavljen")))){
-%>
-Prijavljeni ste kot <%=
-String.valueOf(session.getAttribute("imeUporabnika"))%>
-<%= String.valueOf(session.getAttribute("priimekUporabnika"))
 
-%><%}%>
 
   <main class="teal lighten-5">
     <div class="navbar-fixed">
@@ -50,6 +44,28 @@ String.valueOf(session.getAttribute("imeUporabnika"))%>
                 <i class="material-icons left">person</i>
               </a>
               <ul id='dropdownPerson' class='dropdown-content'>
+                <li class="collection-item avatar valign-wrapper">
+                  <i class="material-icons right teal-text">person </i>
+                  <form action="/events" method="get">
+                    <button class="btn-flat teal-text" name="event" value="Moji dogodki">
+                        <span class="right ">
+                          <% if(Boolean.valueOf(String.valueOf(session.getAttribute("uporabnikPrijavljen")))){%>
+                          <%=
+                          String.valueOf(session.getAttribute("imeUporabnika"))
+                          %>
+                          <%=
+                          String.valueOf(session.getAttribute("priimekUporabnika"))
+                          %>
+                         <% }
+                         else
+                         {%>
+                             <%="Neprijavljen uporabnik "%>
+                          <%}%>
+                        </span>
+                    </button>
+                  </form>
+                </li>
+                <li class="divider"></li>
                 <li>
                   <a href="add">
                     <button class="btn-flat teal-text">Dodaj Dogodek</button>
@@ -68,11 +84,6 @@ String.valueOf(session.getAttribute("imeUporabnika"))%>
                   </a>
                 </li>
                 <li class="divider"></li>
-                <li>
-                  <a href="/dodajanjeDogodkov">
-                    <form action="/events" method="get"><button class="btn-flat teal-text" name="event" type="submit" value="Moji dogodki">Moji Dogodki</button></form>
-                  </a>
-                </li>
                 <li>
                   <a href="#!">
                     <form action="/izpis" method="get"><button class="btn-flat teal-text">Izpis</button></form>
@@ -228,7 +239,7 @@ String.valueOf(session.getAttribute("imeUporabnika"))%>
     // Pickdate //
     $('.datepicker').pickadate({
       selectMonths: true, // Creates a dropdown to control month
-      selectYears: 15, // Creates a dropdown of 15 years to control year,
+      selectYears: 200, // Creates a dropdown of 15 years to control year,
       today: 'Today',
       clear: 'Clear',
       close: 'Ok',
