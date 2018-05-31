@@ -173,7 +173,7 @@
     <div class="row">
         <div class="col offset-s1 s10">
             <div class="row">
-                <div class="col m4">
+                <div class="col m3">
                     <div class="card-panel teal lighten-4 z-depth-1 medium center-align">
                         <div class="row">
                             <img class="responsive-img z-depth-0 circle col offset-s1 s10 offset-l3 l6"
@@ -188,7 +188,7 @@
                     </span>
                     </div>
                 </div>
-                <div class="col m8">
+                <div class="col offset-m1 m8">
                     <h2 class="center-align">
                         ${Kategorija}
                     </h2>
@@ -198,7 +198,7 @@
 
 
                             <!-- Zaèetek ENE Karte-->
-                            <div class="col s12 m6 xl4">
+                            <div class="col offset-s1 s12 m6 xl4">
                                 <div class="card hoverable small">
                                     <div class="card-image waves-effect waves-block">
                                         <img class="activator responsive-image" src="${d.slikaURL}">
@@ -222,11 +222,13 @@
                                         <p class="">${d.opis}
                                             <a href=""></a>
                                         </p>
-                                        <button class="btn valign-wrapper right blue lighten-1 waves-effect">
-                                            <div class="valign-wrapper"> Več
-                                                <i class="material-icons right">add_circle</i>
-                                            </div>
-                                        </button>
+                                        <form action="add" method="post">
+                                            <button class="btn valign-wrapper right blue lighten-1 waves-effect">
+                                                <div class="valign-wrapper"> Uredi
+                                                    <i class="material-icons right">edit</i>
+                                                </div>
+                                            </button>
+                                        </form>
                                         </p>
                                     </div>
                                 </div>
