@@ -179,6 +179,12 @@
         </div>
         <div class="row">
           <div class="input-field col s8 offset-s2">
+            <input required type="text" name="izvajalec" id="izvajalecInput" class="validate">
+            <label for="izvajalecInput">Izvajalec</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s8 offset-s2">
             <input required type="text" name="kraj" id="krajInput" class="validate">
             <label for="krajInput">Kraj</label>
           </div>
@@ -186,7 +192,7 @@
         <div class="row">
           <div class="input-field col s8 offset-s2">
             <input required type="text" name="naslov" id="lokacijaInput" class="validate">
-            <label for="lokacijaInput">Lokacija</label>
+            <label for="lokacijaInput">Naslov (prostor)</label>
           </div>
         </div>
         <div class="row">
@@ -213,10 +219,16 @@
             <label for="datumInput">Datum dogodka</label>
           </div>
         </div>
+          <div class="row">
+              <div class="input-field col s8 offset-s2">
+                  <input required type="text" id="casInput" name="cas" class="timepicker">
+                  <label for="datumInput">Čas dogodka</label>
+              </div>
+          </div>
         <div class="row">
           <div class="input-field col s8 offset-s2">
-            <input required type="number" id="casInput" name="cena">
-            <label for="casInput">Cena</label>
+            <input required type="number" id="cenaInput" name="cena">
+            <label for="cenaInput">Cena</label>
           </div>
         </div>
         <div class="row">
