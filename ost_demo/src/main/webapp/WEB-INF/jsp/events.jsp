@@ -302,7 +302,7 @@
                 '            </p>\n' +
                 '          </div>\n' +
                 '          <div class="col s3">\n' +
-                '            <select required name="inputKategorija" id="inputKategorija">\n' +
+                '            <select name="inputKategorija" id="inputKategorija">\n' +
                 '            <option value="" disabled selected>Sortiraj po</option>\n' +
                 '            <option value="Glasba">Najcenejši naprej</option>\n' +
                 '            <option value="Gledališče">Najdražji naprej</option>\n' +
