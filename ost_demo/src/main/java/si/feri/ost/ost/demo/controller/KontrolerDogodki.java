@@ -14,7 +14,7 @@ import java.util.Iterator;
 @Controller
 public class KontrolerDogodki {
     public static ArrayList<Dogodek> seznamDogodkov = new ArrayList<>();
-    @RequestMapping(value = {"/dodajanjeDogodka" }, method = RequestMethod.POST)
+    /*@RequestMapping(value = {"/dodajanjeDogodka" }, method = RequestMethod.POST)
     public String dodajDogodek(Model model, @RequestParam(value="naziv",required=true)String naziv,
                                @RequestParam(value="kraj",required=true)String kraj,
                                @RequestParam(value="naslov",required = true)String naslov,
@@ -25,12 +25,12 @@ public class KontrolerDogodki {
                                @RequestParam(value="opis",required = false)String opis,
                                @RequestParam(value="cena",required = false)String cena)  {
 
-        seznamDogodkov.add(new Dogodek(naziv,url,slika,tipD,opis,kraj,naslov,datum,cena));
+        seznamDogodkov.add(new Dogodek(naziv,kraj,ura,izvajalec,lokacija,cena,opis,slikaURL, Integer.parseInt(idUporabnika),tip,datum,vir));
 
         boolean jeDodan = true;
         model.addAttribute("dodanDogodek",jeDodan);
         return "add";
-    }
+    }*/
 
     @RequestMapping(value={"/brisanjeDogodka"},method=RequestMethod.POST)
     public void izbrisiDogodek(@RequestParam(value="idBrisanjaDogodka",required = true)String idBrisanja)

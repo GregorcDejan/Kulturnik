@@ -67,13 +67,16 @@ public class KontrolerBaze {
     public String dodajDogodek(Model model, @RequestParam(value="naziv",required=true)String naziv,
 
                                @RequestParam(value="kraj",required=true)String kraj,
-                               @RequestParam(value="naslov",required = true)String naslov,
-                               @RequestParam(value="tipDogodka",required = true)String tipD,
-                               @RequestParam(value="urlDogodka",required = true)String url,
-                               @RequestParam(value="datum",required = true)String datum,
-                               @RequestParam(value="slika",required = false)String slika,
+                               @RequestParam(value="ura",required = true)String ura,
+                               @RequestParam(value="izvajalec",required = true)String izvajalec,
+                               @RequestParam(value="lokacija",required = true)String lokacija,
+                               @RequestParam(value="cena",required = true)String cena,
                                @RequestParam(value="opis",required = false)String opis,
-                               @RequestParam(value="cena",required = false)String cena)
+                               @RequestParam(value="slika",required = false)String slikaURL,
+                               @RequestParam(value="idUporabnika",required = false)String idUporabnika,
+                               @RequestParam(value="tipDogodka",required = false)String tip,
+                               @RequestParam(value="datum",required = false)String datum,
+                               @RequestParam(value="urlDogodka",required = false)String vir)
 
 
     {
@@ -82,7 +85,7 @@ public class KontrolerBaze {
 
         int id =Integer.parseInt(String.valueOf(session.getAttribute("idUporabnika")));
 
-        dogodki.addDogodek(naziv,url,slika,tipD,opis,kraj,naslov,datum,cena,id);
+        dogodki.addDogodek(naziv,kraj,ura,izvajalec,lokacija,cena,opis,slikaURL, Integer.parseInt(idUporabnika),tip,datum,vir);
 
         boolean jeDodan = true;
         model.addAttribute("dodanDogodek",jeDodan);
@@ -215,8 +218,11 @@ public class KontrolerBaze {
 
                     String opis=eElement.getElementsByTagName("plot_outline").item(0).getTextContent();
                     String datum=eElement.getElementsByTagName("date").item(0).getTextContent();
-
-                    dogod.add(new Dogodek(naziv,vir,virURL,"Kino",opis,"Maribor","Loška ulica 13",datum,"3"));
+                    String ura =eElement.getElementsByTagName("time").item(0).getTextContent();
+                    String lokacija = eElement.getElementsByTagName("center").item(0).getTextContent();
+                    String kraj = eElement.getElementsByTagName("city").item(0).getTextContent();
+                    String izvajalec=eElement.getElementsByTagName("distributor").item(0).getTextContent();
+                    //dogod.add(new Dogodek(naziv,kraj,ura,"Kolosej",lokacija,6,opis,virURL,"Kino",datum,vir));
 
 
                 }
@@ -232,13 +238,6 @@ public class KontrolerBaze {
 
         for (Dogodek dogodek : dogod) {
             System.out.println(dogodek);
-
-        }
-        System.out.println(dogod.get(0).getDatum());
-        for (Dogodek d:dogod)
-        {
-            dogodki.addDogodek(d.getNaziv(),d.getVir(),d.getSlikaURL(),d.getTip(),d.getKraj(),d.getOpis(),d.getLokacija(),d.getDatum(),d.getCena(),d.getIdUporabnika());
-
 
         }
 
