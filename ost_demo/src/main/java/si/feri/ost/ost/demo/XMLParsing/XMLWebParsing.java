@@ -56,8 +56,11 @@ public class XMLWebParsing
 
                     String opis=eElement.getElementsByTagName("plot_outline").item(0).getTextContent();
                     String datum=eElement.getElementsByTagName("date").item(0).getTextContent();
-
-                    dogod.add(new Dogodek(naziv,vir,virURL,"Film",opis,"Maribor","Loška ulica 13",datum,"3"));
+                    String ura =eElement.getElementsByTagName("time").item(0).getTextContent();
+                    String lokacija = eElement.getElementsByTagName("center").item(0).getTextContent();
+                    String kraj = eElement.getElementsByTagName("city").item(0).getTextContent();
+                    String izvajalec=eElement.getElementsByTagName("distributor").item(0).getTextContent();
+                    //dogod.add(new Dogodek(naziv,kraj,ura,"Kolosej",lokacija,6,opis,virURL,"Kino",datum,vir));
 
 
                 }
@@ -75,7 +78,7 @@ public class XMLWebParsing
             System.out.println(dogodek);
 
         }
-        System.out.println(dogod.get(0).getDatum());
+        
 
     }
 }
