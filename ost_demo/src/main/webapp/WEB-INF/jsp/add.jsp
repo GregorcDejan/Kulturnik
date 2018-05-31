@@ -249,14 +249,9 @@
           </div>
         </div>
         <div class="row">
-          <div class="col offset-s4">
-            <button class="btn teal darken-1 z-depth-3" type="submit">
-              <div class="valign-wrapper">Dodaj dogodek>
-                <i class="material-icons right">send</i>
-              </div>
+            <button class="btn teal darken-1 z-depth-3 col offset-l4 l4 offset-s3 s6 btn-large" type="submit">
+              Dodaj Dogodek
             </button>
-          </div>
-          </button>
         </div>
       </form>
     </div>

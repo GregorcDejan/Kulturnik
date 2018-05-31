@@ -168,33 +168,33 @@
         Registracija
       </h2>
       <div class="row">
-        <div class="col s6 offset-s3">
+        <div class="col s10 offset-s1 l8 offset-l2">
           <form action="/dodajanjeOsebe" method="post">
-            <div class="input-field col s6">
+            <div class="input-field col s12 l6">
               <input required id="first_name" type="text" class="validate" name="ime">
               <label for="first_name">Ime</label>
             </div>
-            <div class="input-field col s6">
+            <div class="input-field col s12 l6">
               <input required id="last_name" type="text" class="validate" name="priimek">
               <label for="last_name">Priimek</label>
             </div>
-            <div class="input-field col s6">
+            <div class="input-field col s12 l6">
               <input required id="geslo" type="password" class="validate" name="geslo">
               <label for="geslo">Geslo</label>
             </div>
-            <div class="input-field col s6">
+            <div class="input-field col s12 l6">
               <input required id="email" type="email" class="validate" name="email">
-              <label for="email" data-error="wrong" data-success="right">Email</label>
+              <label for="email" data-error="Narobe" data-success="Vredu">E-mail</label>
             </div>
-            <div class="input-field col s6">
+            <div class="input-field col s12 l6">
               <input required id="datumRojstva" type="text" class="datepicker validate" name="datumRojstva">
               <label for="datumRojstva">Datum Rojstva</label>
             </div>
-            <div class="input-field col s6">
+            <div class="input-field col s12 l6">
               <input id="telefon" type="text" class="validate" name="telefonska">
               <label for="telefon">Telefon</label>
             </div>
-            <div class="file-field input-field col s12">
+            <div class="file-field input-field col s12 l12">
               <div class="btn">
                 <span class="left">Naloži
                   <i class="material-icons right">file_upload</i>
@@ -202,10 +202,10 @@
                 <input type="file">
               </div>
               <div class="file-path-wrapper">
-                <input class="file-path validate" type="text" placeholder="Prenesite osebno identifikacijo">
+                <input class="file-path validate" type="text" placeholder="Profilna fotografija">
               </div>
             </div>
-            <button class="btn col offset-s4 s4" type="submit">Registriraj se
+            <button class="btn col teal darken-1 z-depth-3 offset-l3 l6 s10 offset-s1 btn-large" type="submit">Registriraj se
             </button>
           </form>
         </div>
