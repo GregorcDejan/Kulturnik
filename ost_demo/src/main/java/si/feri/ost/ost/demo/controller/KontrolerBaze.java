@@ -1,15 +1,11 @@
 package si.feri.ost.ost.demo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.w3c.dom.Document;
@@ -22,7 +18,6 @@ import si.feri.ost.ost.demo.DAO.OsebaDAO;
 import si.feri.ost.ost.demo.Razredi.Dogodek;
 import si.feri.ost.ost.demo.Razredi.Oseba;
 
-import javax.servlet.ServletRequestAttributeEvent;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.xml.parsers.DocumentBuilder;
@@ -63,7 +58,7 @@ public class KontrolerBaze {
     @RequestMapping(value={"/","/index",},method=RequestMethod.GET)
     public String zadnjih5(Model model)
     {
-        model.addAttribute("dogodki",dogodki.zadnjihNeki());
+        //model.addAttribute("dogodki",dogodki.zadnjihNeki());
         return "index";
     }
 
@@ -72,13 +67,16 @@ public class KontrolerBaze {
     public String dodajDogodek(Model model, @RequestParam(value="naziv",required=true)String naziv,
 
                                @RequestParam(value="kraj",required=true)String kraj,
-                               @RequestParam(value="naslov",required = true)String naslov,
-                               @RequestParam(value="tipDogodka",required = true)String tipD,
-                               @RequestParam(value="urlDogodka",required = true)String url,
-                               @RequestParam(value="datum",required = true)String datum,
-                               @RequestParam(value="slika",required = false)String slika,
+                               @RequestParam(value="ura",required = true)String ura,
+                               @RequestParam(value="izvajalec",required = true)String izvajalec,
+                               @RequestParam(value="lokacija",required = true)String lokacija,
+                               @RequestParam(value="cena",required = true)String cena,
                                @RequestParam(value="opis",required = false)String opis,
-                               @RequestParam(value="cena",required = false)String cena)
+                               @RequestParam(value="slika",required = false)String slikaURL,
+                               @RequestParam(value="idUporabnika",required = false)String idUporabnika,
+                               @RequestParam(value="tipDogodka",required = false)String tip,
+                               @RequestParam(value="datum",required = false)String datum,
+                               @RequestParam(value="urlDogodka",required = false)String vir)
 
 
     {
@@ -87,7 +85,7 @@ public class KontrolerBaze {
 
         int id =Integer.parseInt(String.valueOf(session.getAttribute("idUporabnika")));
 
-        dogodki.addDogodek(naziv,url,slika,tipD,opis,kraj,naslov,datum,cena,id);
+        dogodki.addDogodek(naziv,kraj,ura,izvajalec,lokacija,cena,opis,slikaURL, Integer.parseInt(idUporabnika),tip,datum,vir);
 
         boolean jeDodan = true;
         model.addAttribute("dodanDogodek",jeDodan);
@@ -115,12 +113,17 @@ public class KontrolerBaze {
 //dodajala
     @RequestMapping(value={"/events",}, method=RequestMethod.GET)
     public String events(Model model,@RequestParam(value="event", required=false)String tip)
+
     {
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
         HttpSession session = request.getSession(false);//true will create if necessary
 
+
+
         int idUporabnika;
         Oseba prijavljenUporabnik;
+
+        model.addAttribute("Iskanje",false);
 
         if(tip.equals("Moji dogodki") && Boolean.valueOf(String.valueOf(session.getAttribute("uporabnikPrijavljen"))))
         {
@@ -146,6 +149,7 @@ public class KontrolerBaze {
                 model.addAttribute("dogodki", dogodki.getByTip(tip));
                 model.addAttribute("Kategorija", tip);
 
+
             }
         }
 
@@ -158,19 +162,30 @@ public class KontrolerBaze {
                                @RequestParam(value="nazivDogodka", required=false)String naziv,
                                @RequestParam(value="krajDogodka", required=false)String kraj,
                                @RequestParam(value="datumDogodka", required=false)String datum,
+                               @RequestParam(value="event", required=false)String kateg,
                                @RequestParam(value="cenaDogodka", required=false)String cena) {
 
 
-        List<Dogodek> seznam = dogodki.getAllDogodki();
+        List<Dogodek> seznam = dogodki.getByTip(kateg);
 
         List<Dogodek> rez = new ArrayList<>();
         if (!naziv.equals("") && kraj.equals("") && datum == null && cena == null) {
 
-            model.addAttribute("dogodki",dogodki.getByNaziv(naziv));
+            for(int i=0; i<seznam.size(); i++){
+                if (seznam.get(i).getNaziv().equals(naziv))
+                    rez.add(seznam.get(i));
+
+            }
+            model.addAttribute("dogodki",rez);
         }
 
         else if (naziv.equals("") && !kraj.equals("") && datum == null && cena == null) {
-            model.addAttribute("dogodki",dogodki.getByKraj(kraj));
+            for(int i=0; i<seznam.size(); i++){
+                if (seznam.get(i).getKraj().equals(kraj))
+                    rez.add(seznam.get(i));
+
+            }
+            model.addAttribute("dogodki",rez);
         }
 
 
@@ -182,6 +197,7 @@ public class KontrolerBaze {
             model.addAttribute("dogodki",rez);
         }
 
+        model.addAttribute("Iskanje",true);
         return "events";
     }
 
@@ -220,8 +236,11 @@ public class KontrolerBaze {
 
                     String opis=eElement.getElementsByTagName("plot_outline").item(0).getTextContent();
                     String datum=eElement.getElementsByTagName("date").item(0).getTextContent();
-
-                    dogod.add(new Dogodek(naziv,vir,virURL,"Kino",opis,"Maribor","Loška ulica 13",datum,"3"));
+                    String ura =eElement.getElementsByTagName("time").item(0).getTextContent();
+                    String lokacija = eElement.getElementsByTagName("center").item(0).getTextContent();
+                    String kraj = eElement.getElementsByTagName("city").item(0).getTextContent();
+                    String izvajalec=eElement.getElementsByTagName("distributor").item(0).getTextContent();
+                    //dogod.add(new Dogodek(naziv,kraj,ura,"Kolosej",lokacija,6,opis,virURL,"Kino",datum,vir));
 
 
                 }
@@ -237,13 +256,6 @@ public class KontrolerBaze {
 
         for (Dogodek dogodek : dogod) {
             System.out.println(dogodek);
-
-        }
-        System.out.println(dogod.get(0).getDatum());
-        for (Dogodek d:dogod)
-        {
-            dogodki.addDogodek(d.getNaziv(),d.getVir(),d.getSlikaURL(),d.getTip(),d.getKraj(),d.getOpis(),d.getNaslov(),d.getDatum(),d.getCena(),d.getIdUporabnika());
-
 
         }
 

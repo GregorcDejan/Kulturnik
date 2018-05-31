@@ -78,7 +78,7 @@ public class XMLWebParsing
             System.out.println(dogodek);
 
         }
-        
+
 
     }
 }

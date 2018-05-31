@@ -47,8 +47,7 @@
               <ul id='dropdownPerson' class='dropdown-content'>
                 <li class="collection-item avatar valign-wrapper">
                   <i class="material-icons right teal-text">person </i>
-
-                  <span class="right ">Janez Novak</span>
+                  
 
                   <form action="/events" method="get"><button class="btn-flat teal-text" name="event" value="Moji dogodki">
                   <span class="right ">
@@ -191,7 +190,7 @@
         </div>
         <div class="row">
           <div class="input-field col s8 offset-s2">
-            <input required type="text" name="naslov" id="lokacijaInput" class="validate">
+            <input required type="text" name="lokacija" id="lokacijaInput" class="validate">
             <label for="lokacijaInput">Naslov (prostor)</label>
           </div>
         </div>
@@ -221,7 +220,7 @@
         </div>
           <div class="row">
               <div class="input-field col s8 offset-s2">
-                  <input required type="text" id="casInput" name="cas" class="timepicker">
+                  <input required type="text" id="casInput" name="ura" class="timepicker">
                   <label for="datumInput">Čas dogodka</label>
               </div>
           </div>

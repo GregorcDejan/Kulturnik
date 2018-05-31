@@ -15,6 +15,7 @@
 </head>
 <body>
 
+
 <main class="teal lighten-5">
     <div class="navbar-fixed">
         <nav class=" teal darken-2 z-depth-3">
@@ -173,8 +174,21 @@
         </nav>
     </div>
     <div class="container">
+
+
         <h2 class="center-align">
-            ${Kategorija}
+            <c:choose>
+                <c:when test="${Iskanje==true}">
+                    Rezultati iskanja
+                </c:when>
+
+                <c:when test="${Iskanje==false}">
+                    ${Kategorija}
+                </c:when>
+
+
+            </c:choose>
+
         </h2>
         <hr/>
         <!-- Zaèetek searcha OSNOVNO-->
@@ -186,7 +200,7 @@
                         <input id="eventsSearchNaziv" type="text" class="validate" placeholder="Naziv"
                                name="nazivDogodka">
                         <input id="eventsSearchKraj" type="text" class="validate" placeholder="Kraj" name="krajDogodka">
-                        <button class="btn-flat" type="submit" name="search">
+                        <button class="btn-flat" type="submit" name="event" value="${Kategorija}">
                             <i class="material-icons suffix">keyboard_return</i>
                         </button>
 
@@ -222,7 +236,7 @@
                 <i class="material-icons right">expand_less</i>
               </span>
                             <p>
-                <span class="">Lokacija: ${d.naslov}
+                <span class="">Lokacija: ${d.lokacija}
                   <br/>
                 </span>
                                 <a href="${d.vir}">Več...</a>
@@ -231,7 +245,7 @@
                         <div class="card-reveal">
               <span class="card-title grey-text text-darken-4">
                 <i class="material-icons right">expand_more</i>${d.naziv}</span>
-                            <p>Lokacija: ${d.naslov}
+                            <p>Lokacija: ${d.lokacija}
                                 <br/> Cena: ${d.cena}
                             <p class="">${d.opis}
                                 <a href=""></a>
