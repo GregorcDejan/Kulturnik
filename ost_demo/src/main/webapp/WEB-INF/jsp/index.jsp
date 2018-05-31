@@ -45,7 +45,7 @@
                         <ul id='dropdownPerson' class='dropdown-content'>
                             <li class="collection-item avatar valign-wrapper">
                                 <i class="material-icons right teal-text">person </i>
-                                <form action="uporabnik" method="get">
+                                <form action="/events" method="get">
                                     <button class="btn-flat teal-text" name="event" value="Moji dogodki">
                                 <span class="right ">
                                   <% if (Boolean.valueOf(String.valueOf(session.getAttribute("uporabnikPrijavljen"))))
