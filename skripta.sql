@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS Dogodek (
   `Datum` DATE NOT NULL,
   `Vir` VARCHAR(2000) NULL,
   PRIMARY KEY (`ID`),
-  INDEX `fk_Dogodek_Uporabnik_idx` (`Uporabnik_ID` ASC),
+  
   CONSTRAINT `fk_Dogodek_Uporabnik`
     FOREIGN KEY (`Uporabnik_ID`)
     REFERENCES `Uporabnik` (`ID`) ON DELETE CASCADE
