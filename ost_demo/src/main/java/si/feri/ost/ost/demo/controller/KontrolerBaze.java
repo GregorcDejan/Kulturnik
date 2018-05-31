@@ -135,6 +135,8 @@ public class KontrolerBaze {
             model.addAttribute("dogodki",temp);
             model.addAttribute("Kategorija", tip);
 
+            return "uporabnik";
+
         }
 
         else {
@@ -154,14 +156,9 @@ public class KontrolerBaze {
         }
 
 
-        return "uporabnik";
+        return "events";
     }
 
-//<<<<<<< HEAD
-//<<<<<<< HEAD
-//=======
-
-//>>>>>>> 699923fb904f7dd1786fe13ac7d0d4fc3e5841a3
     @RequestMapping(value={"/filter",}, method=RequestMethod.GET)
     public String eventsFilter(Model model,
                                @RequestParam(value="nazivDogodka", required=false)String naziv,
@@ -184,11 +181,6 @@ public class KontrolerBaze {
         return "events";
     }
 
-//<<<<<<< HEAD
-//=======
-//=======
-
-//>>>>>>> 699923fb904f7dd1786fe13ac7d0d4fc3e5841a3
     @RequestMapping(value={"/parseXML"},method=RequestMethod.GET)
     public String xmlpars(Model model)
     {
