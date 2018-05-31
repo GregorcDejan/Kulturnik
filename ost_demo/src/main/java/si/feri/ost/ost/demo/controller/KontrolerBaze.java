@@ -113,12 +113,17 @@ public class KontrolerBaze {
 //dodajala
     @RequestMapping(value={"/events",}, method=RequestMethod.GET)
     public String events(Model model,@RequestParam(value="event", required=false)String tip)
+
     {
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
         HttpSession session = request.getSession(false);//true will create if necessary
 
+
+
         int idUporabnika;
         Oseba prijavljenUporabnik;
+
+        model.addAttribute("Iskanje",false);
 
         if(tip.equals("Moji dogodki") && Boolean.valueOf(String.valueOf(session.getAttribute("uporabnikPrijavljen"))))
         {
@@ -144,6 +149,7 @@ public class KontrolerBaze {
                 model.addAttribute("dogodki", dogodki.getByTip(tip));
                 model.addAttribute("Kategorija", tip);
 
+
             }
         }
 
@@ -156,19 +162,30 @@ public class KontrolerBaze {
                                @RequestParam(value="nazivDogodka", required=false)String naziv,
                                @RequestParam(value="krajDogodka", required=false)String kraj,
                                @RequestParam(value="datumDogodka", required=false)String datum,
+                               @RequestParam(value="event", required=false)String kateg,
                                @RequestParam(value="cenaDogodka", required=false)String cena) {
 
 
-        List<Dogodek> seznam = dogodki.getAllDogodki();
+        List<Dogodek> seznam = dogodki.getByTip(kateg);
 
         List<Dogodek> rez = new ArrayList<>();
         if (!naziv.equals("") && kraj.equals("") && datum == null && cena == null) {
 
-            model.addAttribute("dogodki",dogodki.getByNaziv(naziv));
+            for(int i=0; i<seznam.size(); i++){
+                if (seznam.get(i).getNaziv().equals(naziv))
+                    rez.add(seznam.get(i));
+
+            }
+            model.addAttribute("dogodki",rez);
         }
 
         else if (naziv.equals("") && !kraj.equals("") && datum == null && cena == null) {
-            model.addAttribute("dogodki",dogodki.getByKraj(kraj));
+            for(int i=0; i<seznam.size(); i++){
+                if (seznam.get(i).getKraj().equals(kraj))
+                    rez.add(seznam.get(i));
+
+            }
+            model.addAttribute("dogodki",rez);
         }
 
 
@@ -180,6 +197,7 @@ public class KontrolerBaze {
             model.addAttribute("dogodki",rez);
         }
 
+        model.addAttribute("Iskanje",true);
         return "events";
     }
 
