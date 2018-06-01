@@ -92,7 +92,7 @@ public class KontrolerBaze {
 
                 int id = Integer.parseInt(String.valueOf(session.getAttribute("idUporabnika")));
 
-                dogodki.addDogodek(naziv, kraj, ura, izvajalec, lokacija, cena, opis, slikaURL, Integer.parseInt(idUporabnika), tip, datum, vir);
+                dogodki.addDogodek(naziv, kraj, ura, izvajalec, lokacija, cena, opis, slikaURL,id, tip, datum, vir);
 
                 boolean jeDodan = true;
                 model.addAttribute("dodanDogodek", jeDodan);

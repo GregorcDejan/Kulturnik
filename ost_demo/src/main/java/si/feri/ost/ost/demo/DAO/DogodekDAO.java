@@ -77,7 +77,7 @@ public class DogodekDAO {
 //String naziv, String kraj, String ura, String izvajalec, String lokacija, String cena, String opis, String slikaURL, int idUporabnika, String tip, String datum, String vir
     public int addDogodek(String naziv, String kraj, String ura, String izvajalec, String lokacija, String cena, String opis, String slikaURL, int idUporabnika, String tip, String datum, String vir)
     {
-     String sql = "INSERT INTO DOGODEK(naziv,kraj,ura,izvajalec,lokacija,cena,opis,slika,idUporabnika,tip,datum,vir) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
+     String sql = "INSERT INTO DOGODEK(naziv,kraj,ura,izvajalec,lokacija,cena,opis,slika,idUporab   nika,tip,datum,vir) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
 
      return jdbcTemplate.update(sql,new Object[]{naziv,kraj,ura,izvajalec,lokacija,cena,opis,slikaURL,idUporabnika,tip,datum,vir});
 
