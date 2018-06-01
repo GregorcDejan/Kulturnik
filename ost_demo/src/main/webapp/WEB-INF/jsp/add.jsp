@@ -69,7 +69,7 @@
                 <li class="divider"></li>
                 <li>
                   <a href="add">
-                    <button class="btn-flat teal-text">Dodaj Dogodek</button>
+                    <form action="/uredi" method="get"> <button class="btn-flat teal-text" name="ime" value="dodajanje">Dodaj Dogodek</button></form>
                   </a>
 
                 </li>
@@ -167,36 +167,45 @@
     </div>
     <div class="container">
       <h2 class="center-align">
-        Dodaj dogodek
+        <c:choose>
+          <c:when test="${urejanjeDogodka==true}">
+            Urejanje dogodka
+          </c:when>
+
+          <c:when test="${urejanjeDogodka==false}">
+            Dodajanje dogodka
+          </c:when>
+
+        </c:choose>
       </h2>
       <form action="/dodajDogodek" method="post">
         <div class="row">
           <div class="input-field col s8 offset-s2">
-            <input required type="text" name="naziv" id="nazivInput" class="validate">
+            <input required type="text" name="naziv" id="nazivInput" class="validate" value="${urejanDogodek.naziv}">
             <label for="nazivInput">Naziv</label>
           </div>
         </div>
         <div class="row">
           <div class="input-field col s8 offset-s2">
-            <input required type="text" name="izvajalec" id="izvajalecInput" class="validate">
-            <label for="izvajalecInput">Izvajalec</label>
+            <input required type="text" name="izvajalec" id="izvajalecInput" class="validate" value="${urejanDogodek.izvajalec}">
+            <label for="izvajalecInput"></label>
           </div>
         </div>
         <div class="row">
           <div class="input-field col s8 offset-s2">
-            <input required type="text" name="kraj" id="krajInput" class="validate">
+            <input required type="text" name="kraj" id="krajInput" class="validate" value="${urejanDogodek.kraj}">
             <label for="krajInput">Kraj</label>
           </div>
         </div>
         <div class="row">
           <div class="input-field col s8 offset-s2">
-            <input required type="text" name="lokacija" id="lokacijaInput" class="validate">
+            <input required type="text" name="lokacija" id="lokacijaInput" class="validate" value="${urejanDogodek.lokacija}">
             <label for="lokacijaInput">Naslov (prostor)</label>
           </div>
         </div>
         <div class="row">
           <div class="input-field col s8 offset-s2 ">
-            <select required name="tipDogodka" id="inputKategorija">
+            <select required name="tipDogodka" id="inputKategorija" value="${urejanDogodek.tip}" selected="selected">
               <option value="" disabled selected>Izberite tip dogodka</option>
               <option value="Glasba">Glasba</option>
               <option value="Gledališče">Gledališče</option>
@@ -208,31 +217,31 @@
         </div>
         <div class="row">
           <div class="input-field col s8 offset-s2">
-            <input required type="text" name="urlDogodka" id="linkInput" class="validate">
+            <input required type="text" name="urlDogodka" id="linkInput" class="validate" value="${urejanDogodek.vir}">
             <label for="linkInput">Povezava do dogodka</label>
           </div>
         </div>
         <div class="row">
           <div class="input-field col s8 offset-s2">
-            <input required type="text" id="datumInput" name="datum" class="datepicker">
+            <input required type="text" id="datumInput" name="datum" class="datepicker" value="${urejanDogodek.datum}">
             <label for="datumInput">Datum dogodka</label>
           </div>
         </div>
           <div class="row">
               <div class="input-field col s8 offset-s2">
-                  <input required type="text" id="casInput" name="ura" class="timepicker">
+                  <input required type="text" id="casInput" name="ura" class="timepicker" value="${urejanDogodek.ura}">
                   <label for="datumInput">Čas dogodka</label>
               </div>
           </div>
         <div class="row">
           <div class="input-field col s8 offset-s2">
-            <input required type="number" id="cenaInput" name="cena">
+            <input required type="number" id="cenaInput" name="cena" value="${urejanDogodek.cena}">
             <label for="cenaInput">Cena</label>
           </div>
         </div>
         <div class="row">
           <div class="input-field col s8 offset-s2">
-            <textarea required id="opisDogodkaInput" name="opis" class="materialize-textarea"></textarea>
+            <textarea required id="opisDogodkaInput" name="opis" class="materialize-textarea">${urejanDogodek.opis}</textarea>
             <label for="opisDogodkaInput">Opis dogodka</label>
           </div>
         </div>
@@ -248,9 +257,18 @@
           </div>
         </div>
         <div class="row">
-            <button class="btn teal darken-1 z-depth-3 col offset-l4 l4 offset-s3 s6 btn-large" type="submit">
-              Dodaj Dogodek
+            <form action="/dodajDogodek" method="post"><button class="btn teal darken-1 z-depth-3 col offset-l4 l4 offset-s3 s6 btn-large" type="submit" name="idDogodka" value="${idD}">
+              <c:choose>
+                <c:when test="${urejanjeDogodka==true}">
+                  Uredi dogodek
+                </c:when>
+
+                <c:when test="${urejanjeDogodka==false}">
+                  Dodaj dogodek
+                </c:when>
+              </c:choose>
             </button>
+            </form>
         </div>
       </form>
     </div>
@@ -260,6 +278,7 @@
 <script type="text/javascript" src="/lib/javascript/materialize.min.js"></script>
 
 <script>
+
   $(document).ready(function () {
     $('.dropdown-button').dropdown({
       constrainWidth: false,

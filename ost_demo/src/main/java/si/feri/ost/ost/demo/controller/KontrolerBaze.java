@@ -64,33 +64,82 @@ public class KontrolerBaze {
 
     public static ArrayList<Dogodek> seznamDogodkov = new ArrayList<>();
     @RequestMapping(value = {"/dodajDogodek" }, method = RequestMethod.POST)
-    public String dodajDogodek(Model model, @RequestParam(value="naziv",required=true)String naziv,
-
-                               @RequestParam(value="kraj",required=true)String kraj,
-                               @RequestParam(value="ura",required = true)String ura,
-                               @RequestParam(value="izvajalec",required = true)String izvajalec,
-                               @RequestParam(value="lokacija",required = true)String lokacija,
-                               @RequestParam(value="cena",required = true)String cena,
+    public String dodajDogodek(Model model, @RequestParam(value="naziv",required=false)String naziv,
+                               @RequestParam(value="idDogodka",required = false)String idDogodka,
+                               @RequestParam(value="kraj",required=false)String kraj,
+                               @RequestParam(value="ura",required = false)String ura,
+                               @RequestParam(value="izvajalec",required = false)String izvajalec,
+                               @RequestParam(value="lokacija",required = false)String lokacija,
+                               @RequestParam(value="cena",required = false)String cena,
                                @RequestParam(value="opis",required = false)String opis,
                                @RequestParam(value="slika",required = false)String slikaURL,
                                @RequestParam(value="idUporabnika",required = false)String idUporabnika,
                                @RequestParam(value="tipDogodka",required = false)String tip,
                                @RequestParam(value="datum",required = false)String datum,
-                               @RequestParam(value="urlDogodka",required = false)String vir)
+                               @RequestParam(value="urlDogodka",required = false)String vir) {
 
 
-    {
+            HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+            HttpSession session = request.getSession(true);
+
+          //  if(Boolean.valueOf(String.valueOf(session.getAttribute("urejanjeDogodka"))) && (Boolean.valueOf(String.valueOf(session.getAttribute("uporabnikPrijavljen"))))){
+            if(idDogodka!=""){
+
+                dogodki.updateDogodek(Integer.parseInt(idDogodka),naziv,kraj,ura,izvajalec,lokacija,cena,opis,slikaURL,tip,datum,vir);
+            }
+
+            else {
+
+                int id = Integer.parseInt(String.valueOf(session.getAttribute("idUporabnika")));
+
+                dogodki.addDogodek(naziv, kraj, ura, izvajalec, lokacija, cena, opis, slikaURL, Integer.parseInt(idUporabnika), tip, datum, vir);
+
+                boolean jeDodan = true;
+                model.addAttribute("dodanDogodek", jeDodan);
+            }
+
+        return "add";
+    }
+
+    @RequestMapping(value={"/uredi"}, method=RequestMethod.GET)
+    public String prikaziStran(Model model,
+                               @RequestParam(value="ime",required = false)String ime){
+
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
         HttpSession session = request.getSession(true);
 
-        int id =Integer.parseInt(String.valueOf(session.getAttribute("idUporabnika")));
+        boolean uporabnikPrijavljen =(Boolean.valueOf(String.valueOf(session.getAttribute("uporabnikPrijavljen"))));
+        if(ime.equals("dodajanje")){
+            model.addAttribute("urejanjeDogodka",false);
 
-        dogodki.addDogodek(naziv,kraj,ura,izvajalec,lokacija,cena,opis,slikaURL, Integer.parseInt(idUporabnika),tip,datum,vir);
+            if(uporabnikPrijavljen)
+            {
 
-        boolean jeDodan = true;
-        model.addAttribute("dodanDogodek",jeDodan);
-        return "add";
+                return "add";
+            }
+
+            else
+                return "vpis";
+
+        }
+        else {
+            model.addAttribute("urejanjeDogodka",true);
+
+            if(uporabnikPrijavljen)
+            {
+                Dogodek urejan = dogodki.getByID(Integer.parseInt(ime));
+                int p=4;
+                model.addAttribute("urejanDogodek",urejan);
+                model.addAttribute("idD",ime);
+                return "add";
+            }
+
+            else
+                return "vpis";
+        }
+
     }
+
 
 
     @RequestMapping(value={"/Konzola",}, method=RequestMethod.GET)

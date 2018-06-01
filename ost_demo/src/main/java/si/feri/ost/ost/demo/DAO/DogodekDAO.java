@@ -133,15 +133,15 @@ public class DogodekDAO {
         return rez;
 
     }
-    public Dogodek getByID(String id)
+    public Dogodek getByID(int id)
     {
         String sql = "SELECT * FROM dogodek WHERE id=? ";
 
-        List<Map<String,Object>> vrstice = jdbcTemplate.queryForList(sql);
+        List<Map<String,Object>> vrstice = jdbcTemplate.queryForList(sql,new Object[]{id});
 
         List<Dogodek> rez = new ArrayList<>();
 
-            Dogodek d = (Dogodek) jdbcTemplate.queryForObject(sql,
+        Dogodek d = (Dogodek) jdbcTemplate.queryForObject(sql,
                     new Object[]{id},
                     new BeanPropertyRowMapper(Dogodek.class));
 

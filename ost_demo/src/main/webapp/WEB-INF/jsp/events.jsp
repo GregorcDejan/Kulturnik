@@ -64,7 +64,7 @@
                             <li class="divider"></li>
                             <li>
                                 <a href="add">
-                                    <button class="btn-flat teal-text">Dodaj Dogodek</button>
+                                    <form action="/uredi" method="get"> <button class="btn-flat teal-text" name="ime" value="dodajanje">Dodaj Dogodek</button></form>
                                 </a>
                             </li>
                             <li class="divider"></li>
@@ -240,16 +240,17 @@
                             <p class="">${d.opis}
                                 <a href=""></a>
                             </p>
-                            <button class="btn valign-wrapper right blue lighten-1 waves-effect">
-                                <div class="valign-wrapper"> Več
+                            <form action="/uredi" method="get">
+                                <button class="btn valign-wrapper right blue lighten-1 waves-effect" name="ime" value="${d.id}">
+                                <div class="valign-wrapper"> Uredi
                                     <i class="material-icons right">add_circle</i>
                                 </div>
-                            </button>
+                                </button>
+                            </form>
                             </p>
                         </div>
                     </div>
                 </div>
-
 
                 <!-- Konec ENE Karte-->
             </c:forEach>
