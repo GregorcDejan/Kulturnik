@@ -144,8 +144,8 @@
                                     </a>
                                 </li>
                             </ul>
+                        </form>
                     </li>
-                    </form>
                 </ul>
                 <ul class="side-nav" id="mobile-sidenav">
                     <form action="events" method="get">
@@ -173,114 +173,119 @@
             </div>
         </nav>
     </div>
-
-    <div class="col offset-m1 m8">
-        <h2 class="center-align">
-            ${Kategorija}
-        </h2>
-    </div>
     <div class="row">
-        <div class="col offset-s1 s10">
-            <div class="row">
-                <div class="col m3">
-                    <div class="card-panel teal lighten-4 z-depth-1 medium center-align">
-                        <div class="row">
-                            <img class="responsive-img z-depth-0 circle col offset-s1 s10 offset-l3 l6"
-                                 src="lib/slike/lepotec.jpg" alt="">
-                            <hr class="col offset-s1 s10">
-                        </div>
-                        <c:forEach items="${uporabnik}" var="u">
+        <div class="col offset-m2 m8">
+            <h1 class="center-align">
+                <c:forEach items="${uporabnik}" var="u">
+                    ${u.ime} ${u.priimek}
+                </c:forEach>
+            </h1>
+            <hr>
+        </div>
+        <div class="row">
+            <div class="col offset-s1 s10">
+                <div class="row">
+                    <div class="col m3">
+                        <div class="card-panel teal lighten-4 z-depth-1 medium center-align">
+                            <div class="row">
+                                <img class="responsive-img z-depth-0 circle col offset-s1 s10 offset-l3 l6"
+                                     src="lib/slike/lepotec.jpg" alt=""> <a href="" class="black-text"><i
+                                    class="material-icons right small">settings</i></a>
+                                <hr class="col offset-s1 s10">
+                            </div>
+                            <c:forEach items="${uporabnik}" var="u">
                             <span class="flow-text">
-                                    ${u.ime} ${u.priimek} <br>
+                                    ${u.ime} ${u.priimek}  <br>
                                     ${u.email} <br>
                                     ${u.telefonska} <br>
                                     ${u.datumRojstva} <br>
                                     Dodani dogodki: ${stDogodkovUporabnika}
-
                             </span>
-                        </c:forEach>
+                            </c:forEach>
 
+                        </div>
                     </div>
-                </div>
-                <div class="col m9">
-                    <div class="row">
-                        <c:forEach items="${dogodki}" var="d">
-                            <!-- Zaèetek Vrstice-->
+                    <div class="col m9">
+                        <div class="row">
+                            <h2 class="center-align">
+                                Dodani dogodki:
+                            </h2>
+                            <c:forEach items="${dogodki}" var="d">
+                                <!-- Začetek Vrstice-->
 
 
-                            <!-- Zaèetek ENE Karte-->
-                            <div class="col s12 m6 l4">
-                                <div class="card hoverable medium">
-                                    <div class="card-image waves-effect waves-block">
-                                        <img class="activator responsive-image" src="${d.slikaURL}">
-                                    </div>
-                                    <div class="card-content">
+                                <!-- Začetek ENE Karte-->
+                                <div class="col s12 m6 l4">
+                                    <div class="card hoverable medium">
+                                        <div class="card-image waves-effect waves-block">
+                                            <img class="activator responsive-image" src="${d.slikaURL}">
+                                        </div>
+                                        <div class="card-content">
                                     <span class="card-title activator grey-text text-darken-4">${d.naziv}
-                                <i class="material-icons right">expand_less</i>
+                                        <i class="material-icons right">expand_less</i>
                                     </span>
-                                        <p>
-                                    <span class="">Lokacija: ${d.lokacija} <a class="btn-floating btn right waves-effect waves-light teal"><i
+                                            <p>
+                                    <span class="">Lokacija: ${d.lokacija} <a
+                                            class="btn-floating btn right waves-effect waves-light teal"><i
                                             class="material-icons">edit</i></a>
                                       <br/>
                                     </span>
-                                            <a href="${d.vir}">Več...</a>
-                                        </p>
-
-                                    </div>
-                                    <div class="card-reveal">
-              <span class="card-title grey-text text-darken-4">
-                <i class="material-icons right">expand_more</i>${d.naziv}</span>
-                                        <p>Lokacija: ${d.lokacija}
-                                            <br/> Cena: ${d.cena}
-                                        <p class="">${d.opis}
-                                            <a href=""></a>
-                                        </p>
-                                        <button class="btn valign-wrapper right teal lighten-3 lighten-1 waves-effect">
-                                            <div class="valign-wrapper"> Več
-                                                <i class="material-icons right">add_circle</i>
-                                            </div>
-                                        </button>
-                                        </p>
+                                                <a href="${d.vir}">Več...</a>
+                                            </p>
+                                        </div>
+                                        <div class="card-reveal">
+                                            <span class="card-title grey-text text-darken-4">
+                                                <i class="material-icons right">expand_more</i>${d.naziv}</span>
+                                            <p>Lokacija: ${d.lokacija}
+                                                <br/> Cena: ${d.cena}
+                                                    ${d.opis}
+                                                <a href=""></a>
+                                                <button class="btn valign-wrapper right teal lighten-3 lighten-1 waves-effect">
+                                                    <div class="valign-wrapper"> Več
+                                                        <i class="material-icons right">add_circle</i>
+                                                    </div>
+                                                </button>
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
 
 
-                            <!-- Konec ENE Karte-->
-                        </c:forEach>
+                                <!-- Konec ENE Karte-->
+                            </c:forEach>
+                        </div>
                     </div>
+                    <ul class="pagination right">
+                        <li class="disabled">
+                            <a href="#!">
+                                <i class="material-icons">chevron_left</i>
+                            </a>
+                        </li>
+                        <li class="active teal darken-2">
+                            <a href="#!">1</a>
+                        </li>
+                        <li class="waves-effect">
+                            <a href="#!">2</a>
+                        </li>
+                        <li class="waves-effect">
+                            <a href="#!">3</a>
+                        </li>
+                        <li class="waves-effect">
+                            <a href="#!">4</a>
+                        </li>
+                        <li class="waves-effect">
+                            <a href="#!">5</a>
+                        </li>
+                        <li class="waves-effect">
+                            <a href="#!">
+                                <i class="material-icons">chevron_right</i>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
-                <ul class="pagination right">
-                    <li class="disabled">
-                        <a href="#!">
-                            <i class="material-icons">chevron_left</i>
-                        </a>
-                    </li>
-                    <li class="active teal darken-2">
-                        <a href="#!">1</a>
-                    </li>
-                    <li class="waves-effect">
-                        <a href="#!">2</a>
-                    </li>
-                    <li class="waves-effect">
-                        <a href="#!">3</a>
-                    </li>
-                    <li class="waves-effect">
-                        <a href="#!">4</a>
-                    </li>
-                    <li class="waves-effect">
-                        <a href="#!">5</a>
-                    </li>
-                    <li class="waves-effect">
-                        <a href="#!">
-                            <i class="material-icons">chevron_right</i>
-                        </a>
-                    </li>
-                </ul>
+
             </div>
-
         </div>
-
     </div>
 </main>
 </body>
