@@ -177,17 +177,7 @@
 
 
         <h2 class="center-align">
-            <c:choose>
-                <c:when test="${Iskanje==true}">
-                    Rezultati iskanja
-                </c:when>
-
-                <c:when test="${Iskanje==false}">
-                    ${Kategorija}
-                </c:when>
-
-
-            </c:choose>
+            ${Kategorija}
 
         </h2>
         <hr/>

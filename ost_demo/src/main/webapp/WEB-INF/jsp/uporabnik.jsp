@@ -170,6 +170,12 @@
             </div>
         </nav>
     </div>
+
+    <div class="col offset-m1 m8">
+        <h2 class="center-align">
+            ${Kategorija}
+        </h2>
+    </div>
     <div class="row">
         <div class="col offset-s1 s10">
             <div class="row">
@@ -180,64 +186,46 @@
                                  src="lib/slike/lepotec.jpg" alt="">
                             <hr class="col offset-s1 s10">
                         </div>
+                        <c:forEach items="${uporabnik}" var="u">
+                            <span class="flow-text">
+                                    ${u.ime} ${u.priimek} <br>
+                                    ${u.email} <br>
+                                    ${u.telefonska} <br>
+                                    ${u.datumRojstva} <br>
+                                    Dodani dogodki: ${stDogodkovUporabnika}
 
-                        <span class="flow-text">Marko Gluhak <br>
-                    marko.mx.gluhak@gmail.com <br>
-                    041/235-001 <br>
-                    Dodani dogodki: <br>
-                    </span>
+                            </span>
+                        </c:forEach>
+
                     </div>
                 </div>
-                <div class="col offset-m1 m8">
-                    <h2 class="center-align">
-                        ${Kategorija}
-                    </h2>
-                    <div class="row">
-                        <c:forEach items="${dogodki}" var="d">
-                            <!-- Zaèetek Vrstice-->
 
 
-                            <!-- Zaèetek ENE Karte-->
-                            <div class="col offset-s1 s12 m6 xl4">
-                                <div class="card hoverable small">
-                                    <div class="card-image waves-effect waves-block">
-                                        <img class="activator responsive-image" src="${d.slikaURL}">
-                                    </div>
-                                    <div class="card-content">
-              <span class="card-title activator grey-text text-darken-4">${d.naziv}
-                <i class="material-icons right">expand_less</i>
-              </span>
-<<<<<<< HEAD
-                                        <p>
-                <span class="">Lokacija: ${d.naslov}
-=======
-                                    <p>
-                <span class="">Lokacija: ${d.lokacija}
->>>>>>> a4aaf5f6ce23b19d7b91ac5977186b3d172f830f
-                  <br/>
-                </span>
-                                            <a href="${d.vir}">Več...</a>
-                                        </p>
-                                    </div>
-                                    <div class="card-reveal">
+                <div class="row">
+                    <c:forEach items="${dogodki}" var="d">
+                        <!-- Zaèetek Vrstice-->
+
+
+                        <!-- Zaèetek ENE Karte-->
+                        <div class="col s12 m6 l4">
+                            <div class="card hoverable medium">
+                                <div class="card-image waves-effect waves-block">
+                                    <img class="activator responsive-image" src="${d.slikaURL}">
+                                </div>
+                                <div class="card-content">
+                                    <span class="card-title activator grey-text text-darken-4">${d.naziv}
+                                <i class="material-icons right">expand_less</i>
+                                    </span>
+                                <p>
+                                    <span class="">Lokacija: ${d.lokacija}
+                                      <br/>
+                                    </span>
+                                        <a href="${d.vir}">Več...</a>
+                                </p>
+                                </div>
+                                <div class="card-reveal">
               <span class="card-title grey-text text-darken-4">
                 <i class="material-icons right">expand_more</i>${d.naziv}</span>
-<<<<<<< HEAD
-                                        <p>Lokacija: ${d.naslov}
-                                            <br/> Cena: ${d.cena}
-                                        <p class="">${d.opis}
-                                            <a href=""></a>
-                                        </p>
-                                        <form action="add" method="post">
-                                            <button class="btn valign-wrapper right blue lighten-1 waves-effect">
-                                                <div class="valign-wrapper"> Uredi
-                                                    <i class="material-icons right">edit</i>
-                                                </div>
-                                            </button>
-                                        </form>
-                                        </p>
-                                    </div>
-=======
                                     <p>Lokacija: ${d.lokacija}
                                         <br/> Cena: ${d.cena}
                                     <p class="">${d.opis}
@@ -249,14 +237,14 @@
                                         </div>
                                     </button>
                                     </p>
->>>>>>> a4aaf5f6ce23b19d7b91ac5977186b3d172f830f
                                 </div>
                             </div>
+                        </div>
 
 
-                            <!-- Konec ENE Karte-->
-                        </c:forEach>
-                    </div>
+                        <!-- Konec ENE Karte-->
+                    </c:forEach>
+                </div>
                     <!-- Začetek ENE Karte--><!--
                     <div class="col s12 m6 xl4">
                         <div class="card hoverable medium">

@@ -151,7 +151,7 @@ public class DogodekDAO {
     }
 
     public List<Dogodek> getByIdUporabnika(int idUporabnika){
-        String sql = "SELECT * FROM dogodek WHERE ID_UPORABNIKA=?";
+        String sql = "SELECT * FROM dogodek WHERE UPORABNIK_ID=?";
 
         List<Dogodek> rez = new ArrayList<>();
 
@@ -162,14 +162,16 @@ public class DogodekDAO {
             int ID=(Integer)(vrstica.get("ID"));
             String naziv = (String)vrstica.get("Naziv");
             String kraj = (String)vrstica.get("Kraj");
-            String ura = (String)vrstica.get("Ura");//STRING?? ura minuta sekunda
+            Time cas = (Time) vrstica.get("Ura");
+            String ura = cas.toString();//STRING?? ura minuta sekunda
             String izvajalec = (String)vrstica.get("Izvajalec");
             String lokacija = (String)vrstica.get("Lokacija");
             String cena = (String)vrstica.get("Cena");;
             String opis = (String)vrstica.get("Opis");
             String slikaURL = (String)vrstica.get("Slika");
             String tip =(String)vrstica.get("Tip");
-            String datum = (String)vrstica.get("Datum");//leto mesec dan
+            Date datumcek = (Date) vrstica.get("Datum");
+            String datum=datumcek.toString();
             String vir = (String)vrstica.get("Vir");
 
 

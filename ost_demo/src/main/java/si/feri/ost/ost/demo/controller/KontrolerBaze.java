@@ -122,15 +122,20 @@ public class KontrolerBaze {
 
         int idUporabnika;
         Oseba prijavljenUporabnik;
+        List<Oseba> rez = new ArrayList<>();
 
-        model.addAttribute("Iskanje",false);
+       // model.addAttribute("Iskanje",false);
 
         if(tip.equals("Moji dogodki") && Boolean.valueOf(String.valueOf(session.getAttribute("uporabnikPrijavljen"))))
         {
             idUporabnika=Integer.parseInt(String.valueOf(session.getAttribute("idUporabnika")) );
+            prijavljenUporabnik = osebe.getByID(idUporabnika);
+            rez.add(prijavljenUporabnik);
             List<Dogodek> temp =dogodki.getByIdUporabnika(idUporabnika);
             model.addAttribute("dogodki",temp);
             model.addAttribute("Kategorija", tip);
+            model.addAttribute("uporabnik",rez);
+            model.addAttribute("stDogodkovUporabnika",temp.size());
 
             return "uporabnik";
 
@@ -167,37 +172,21 @@ public class KontrolerBaze {
 
 
         List<Dogodek> seznam = dogodki.getByTip(kateg);
-
         List<Dogodek> rez = new ArrayList<>();
-        if (!naziv.equals("") && kraj.equals("") && datum == null && cena == null) {
 
-            for(int i=0; i<seznam.size(); i++){
-                if (seznam.get(i).getNaziv().equals(naziv))
-                    rez.add(seznam.get(i));
-
-            }
-            model.addAttribute("dogodki",rez);
-        }
-
-        else if (naziv.equals("") && !kraj.equals("") && datum == null && cena == null) {
-            for(int i=0; i<seznam.size(); i++){
-                if (seznam.get(i).getKraj().equals(kraj))
-                    rez.add(seznam.get(i));
-
-            }
-            model.addAttribute("dogodki",rez);
-        }
+      for(int i=0; i<seznam.size(); i++) { //tole je bolša rešitev, datum je še edino treba ugotovit
+          if ((naziv.equals("") || seznam.get(i).getNaziv().equals(naziv))&&
+                  (kraj.equals("") || seznam.get(i).getKraj().equals(kraj))&&
+                  (cena==null || Double.parseDouble(seznam.get(i).getCena())<=Double.parseDouble(cena)))
+          {
+              rez.add(seznam.get(i));
+          }
 
 
-        else if(!naziv.equals("") && !kraj.equals("") && datum==null && cena==null){
-            for(int i=0; i<seznam.size(); i++) {
-                if (seznam.get(i).getNaziv().equals(naziv) && seznam.get(i).getKraj().equals(kraj))
-                    rez.add(seznam.get(i));
-            }
-            model.addAttribute("dogodki",rez);
-        }
+      }
+      model.addAttribute("dogodki",rez);
 
-        model.addAttribute("Iskanje",true);
+      model.addAttribute("Kategorija",kateg);
         return "events";
     }
 

@@ -8,6 +8,7 @@ import si.feri.ost.ost.demo.Razredi.Dogodek;
 import si.feri.ost.ost.demo.Razredi.Oseba;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -112,16 +113,30 @@ public class OsebaDAO {
 
     public Oseba getByID(int id)
     {
-        String sql = "SELECT * FROM dogodek WHERE id=? ";
+        String sql = "SELECT * FROM UPORABNIK WHERE id = ?";
 
-        List<Map<String,Object>> vrstice = jdbcTemplate.queryForList(sql);
+       /* Oseba o = (Oseba)jdbcTemplate.queryForObject(sql,
+                new Object[] { id },
+                new BeanPropertyRowMapper(Oseba.class)); */
+        Oseba o = new Oseba();
+        List<Map<String,Object>>vrstice= jdbcTemplate.queryForList(sql,new Object[]{id});
+
+        for(Map vrstica: vrstice){
+            String ime = (String)vrstica.get("Ime");
+            String priimek = (String)vrstica.get("Priimek");
+            String email = (String)vrstica.get("Email");
+            String geslo = (String)vrstica.get("Geslo");
+            String datumRojstva = (String)vrstica.get("Datum_rojstva");
+            String telefonska = (String)vrstica.get("Telefon");
 
 
-        Oseba o = (Oseba) jdbcTemplate.queryForObject(sql,
-                new Object[]{id},
-                new BeanPropertyRowMapper(Oseba.class));
+            Oseba os =new Oseba(id,ime,priimek,email, geslo, datumRojstva, telefonska);
 
+            o = os;
+        }
 
         return o;
+
+
     }
 }
