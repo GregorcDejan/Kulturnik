@@ -181,7 +181,6 @@ public class KontrolerBaze {
             rez.add(prijavljenUporabnik);
             List<Dogodek> temp =dogodki.getByIdUporabnika(idUporabnika);
             model.addAttribute("dogodki",temp);
-            model.addAttribute("Kategorija", tip);
             model.addAttribute("uporabnik",rez);
             model.addAttribute("stDogodkovUporabnika",temp.size());
 
@@ -302,8 +301,8 @@ public class KontrolerBaze {
     @RequestMapping(value={"/prijava"},method=RequestMethod.POST)
     public String prijava(Model model,
                           @RequestParam(value="username")String email,
-                          @RequestParam(value="password")String geslo){
-
+                          @RequestParam(value="password")String geslo,
+                          @RequestParam(value="event")String tip){
         List<Oseba> vseOsebe = osebe.getAllOsebe();
 
         boolean prijavaUspesna = false;
@@ -325,8 +324,22 @@ public class KontrolerBaze {
                 session.setAttribute("imeUporabnika",uporabnik.getIme());
                 session.setAttribute("priimekUporabnika",uporabnik.getPriimek());
 
+                Oseba prijavljenUporabnik = new Oseba();
+                int idUporabnika;
+                List<Oseba> rez = new ArrayList<>();
+                if(tip.equals("Moji dogodki"))
+                {
+                    idUporabnika=Integer.parseInt(String.valueOf(session.getAttribute("idUporabnika")) );
+                    prijavljenUporabnik = osebe.getByID(idUporabnika);
+                    rez.add(prijavljenUporabnik);
+                    List<Dogodek> temp =dogodki.getByIdUporabnika(idUporabnika);
+                    model.addAttribute("dogodki",temp);
+                    model.addAttribute("uporabnik",rez);
+                    model.addAttribute("stDogodkovUporabnika",temp.size());
 
-                return "index";
+
+                }
+
 
             }
 
@@ -338,8 +351,9 @@ public class KontrolerBaze {
 
         }
 
+        return "uporabnik";
 
-        return "vpis";
+
 
 
     }
