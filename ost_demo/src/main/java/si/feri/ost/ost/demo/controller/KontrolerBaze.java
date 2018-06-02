@@ -25,6 +25,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 import java.net.URL;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -76,7 +77,7 @@ public class KontrolerBaze {
                                @RequestParam(value="idUporabnika",required = false)String idUporabnika,
                                @RequestParam(value="tipDogodka",required = false)String tip,
                                @RequestParam(value="datum",required = false)String datum,
-                               @RequestParam(value="urlDogodka",required = false)String vir) {
+                               @RequestParam(value="urlDogodka",required = false)String vir) throws ParseException {
 
 
             HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
@@ -172,8 +173,6 @@ public class KontrolerBaze {
         int idUporabnika;
         Oseba prijavljenUporabnik;
         List<Oseba> rez = new ArrayList<>();
-
-       // model.addAttribute("Iskanje",false);
 
         if(tip.equals("Moji dogodki") && Boolean.valueOf(String.valueOf(session.getAttribute("uporabnikPrijavljen"))))
         {

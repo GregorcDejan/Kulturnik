@@ -188,7 +188,7 @@
         <div class="row">
           <div class="input-field col s8 offset-s2">
             <input required type="text" name="izvajalec" id="izvajalecInput" class="validate" value="${urejanDogodek.izvajalec}">
-            <label for="izvajalecInput"></label>
+            <label for="izvajalecInput">Izvajalec</label>
           </div>
         </div>
         <div class="row">

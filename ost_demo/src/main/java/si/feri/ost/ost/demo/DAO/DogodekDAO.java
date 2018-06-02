@@ -8,6 +8,9 @@ import org.springframework.stereotype.Component;
 import si.feri.ost.ost.demo.Razredi.Dogodek;
 
 import java.sql.Time;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 
@@ -75,11 +78,19 @@ public class DogodekDAO {
 
     }*/
 //String naziv, String kraj, String ura, String izvajalec, String lokacija, String cena, String opis, String slikaURL, int idUporabnika, String tip, String datum, String vir
-    public int addDogodek(String naziv, String kraj, String ura, String izvajalec, String lokacija, String cena, String opis, String slikaURL, int idUporabnika, String tip, String datum, String vir)
-    {
-     String sql = "INSERT INTO DOGODEK(naziv,kraj,ura,izvajalec,lokacija,cena,opis,slika,idUporab   nika,tip,datum,vir) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
+    public int addDogodek(String naziv, String kraj, String ura, String izvajalec, String lokacija, String cena, String opis, String slikaURL, int idUporabnika, String tip, String datum, String vir) throws ParseException {
+     String sql = "INSERT INTO DOGODEK(naziv,kraj,ura,izvajalec,lokacija,cena,opis,slika,uporabnik_id,tip,datum,vir) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
 
-     return jdbcTemplate.update(sql,new Object[]{naziv,kraj,ura,izvajalec,lokacija,cena,opis,slikaURL,idUporabnika,tip,datum,vir});
+        DateFormat cas = new SimpleDateFormat("hh:mm");
+
+        DateFormat dateFormat = new SimpleDateFormat("dd MMMM, yyyy");
+
+        Time time = new Time(cas.parse(ura).getTime());
+
+        Date date = dateFormat.parse(datum);
+
+
+     return jdbcTemplate.update(sql,new Object[]{naziv,kraj,time,izvajalec,lokacija,cena,opis,slikaURL,idUporabnika,tip,date,vir});
 
 
     }
