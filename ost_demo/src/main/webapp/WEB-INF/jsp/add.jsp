@@ -209,10 +209,12 @@
 
             </script>
             <select required name="tipDogodka" id="inputKategorija">
-              <option value="${urejanDogodek.tip}">${urejanDogodek.tip}</option>
-              <option value="Glasba">Glasba</option>
-              <option value="Gledališče">Gledališče</option>
-              <option value="Razstava">Razstava</option>
+              <option value="" disabled selected>
+                Izberite kategorijo
+              </option>
+              <option   value="Glasba">Glasba</option>
+              <option  value="Gledališče">Gledališče</option>
+              <option  value="Razstava">Razstava</option>
               <option value="Šport">Šport</option>
               <option value="Film">Kino</option>
             </select>
@@ -323,6 +325,9 @@
       ampmclickable: true, // make AM PM clickable
       aftershow: function () { } //Function for after opening timepicker
     });
+
+
+    $('#inputKategorija').val("${urejanDogodek.tip}");
 
   });
 </script>
