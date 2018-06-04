@@ -46,5 +46,5 @@ INSERT INTO UPORABNIK(ime,priimek,email,telefon,geslo,datum_rojstva) VALUES('Jan
 INSERT INTO UPORABNIK (ime,priimek,email,telefon,geslo,datum_rojstva) VALUES ('Tina','Bezjak','tina.bezjak@gmail.com','041422334','geslo1','21.5.1998');
 INSERT INTO UPORABNIK (ime,priimek,email,telefon,geslo,datum_rojstva) VALUES ('Boris','Vasiljev','boris.vasiljev@gmail.com','041555009','geslo2','21.6.1990');
 INSERT INTO UPORABNIK (ime,priimek,email,telefon,geslo,datum_rojstva) VALUES ('Martina','Kos','martina.kos@gmail.com','041000234','geslo3','21.7.1988');
-
+INSERT INTO UPORABNIK(id,ime,priimek,email,telefon,geslo,datum_rojstva) VALUES (666,'Admin','Glavni','admin@kulturnik.gg','666555444','admin','2012-12-12');
 INSERT INTO DOGODEK(naziv,kraj,ura,izvajalec,lokacija,cena,opis,slika,tip,datum,vir) VALUES('Koncert Marko Škugor','Celje','18:00:00','Marko Škugor','Celjski grad',20,'Koncert prvega glasu Dalmacije','http://content.eventim.com/static/uploaded/at/orch_960_360.jpg','Glasba','2018-2-5','www.eventim.si/si/vstopnice/dalmatinski-kulinaricni-dogodek-jakobski-dol-gostilna-zmavc-1042488/performance.html');
