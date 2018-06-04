@@ -112,7 +112,7 @@
                                 <li>
                                     <a href="#">
                                         <button class="btn-flat teal-text" type="submit" name="event"
-                                                value="Gledališče">Gledališèe
+                                                value="Gledališče">Gledališče
                                         </button>
                                     </a>
                                 </li>
@@ -155,7 +155,7 @@
                             <button class="btn-flat" type="submit" name="event" value="Glasba">Glasba</button>
                         </li>
                         <li>
-                            <button class="btn-flat" type="submit" name="event" value="Gledališče">Gledališèe</button>
+                            <button class="btn-flat" type="submit" name="event" value="Gledališče">Gledališče</button>
                         </li>
                         <li>
                             <button class="btn-flat" type="submit" name="event" value="Razstava">Razstave</button>
