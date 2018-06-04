@@ -26,11 +26,6 @@
                 </a>
                 <ul class="right show-on-med-and-down">
                     <li>
-                        <a href="search">
-                            <i class="material-icons">search</i>
-                        </a>
-                    </li>
-                    <li>
                         <a href="#">
                             <i class="material-icons">place</i>
                         </a>
@@ -189,8 +184,12 @@
                         <div class="card-panel teal lighten-4 z-depth-1 medium center-align">
                             <div class="row">
                                 <img class="responsive-img z-depth-0 circle col offset-s1 s10 offset-l3 l6"
-                                     src="lib/slike/lepotec.jpg" alt=""> <form action="registracija"> <button class="btn-floating btn btn-flat black-text" name="urejanjeProfila" value="true"><i
-                                    class="material-icons right small black-text">settings</i></button> </form>
+                                     src="lib/slike/lepotec.jpg" alt="">
+                                <form action="registracija">
+                                    <button class="btn-floating btn btn-flat black-text" name="urejanjeProfila"
+                                            value="true"><i
+                                            class="material-icons right small black-text">settings</i></button>
+                                </form>
                                 <hr class="col offset-s1 s10">
                             </div>
                             <c:forEach items="${uporabnik}" var="u">
@@ -228,13 +227,14 @@
                                                 <span class="">Lokacija: ${d.lokacija} </span>
 
                                             <form action="/uredi" method="get">
-                                                <button class="btn-floating btn right waves-effect waves-light teal" name="ime" value="${d.id}">
+                                                <button class="btn-floating btn right waves-effect waves-light teal"
+                                                        name="ime" value="${d.id}">
 
-                                                        <i class="material-icons ">edit</i>
+                                                    <i class="material-icons ">edit</i>
 
                                                 </button>
                                             </form>
-                                                <a href="${d.vir}">Več...</a>
+                                            <a href="${d.vir}">Več...</a>
                                             </p>
                                         </div>
                                         <div class="card-reveal">
@@ -245,7 +245,8 @@
                                                     ${d.opis}
                                                 <a href=""></a>
                                             <form action="/uredi" method="get">
-                                                <button class="btn valign-wrapper right blue lighten-1 waves-effect" name="ime" value="${d.id}">
+                                                <button class="btn valign-wrapper right blue lighten-1 waves-effect"
+                                                        name="ime" value="${d.id}">
                                                     <div class="valign-wrapper"> Uredi
                                                         <i class="material-icons right">add_circle</i>
                                                     </div>
