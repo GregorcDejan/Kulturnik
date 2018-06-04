@@ -302,7 +302,7 @@
                 '          <div class="col l4 offset-s1 s5">\n' +
                 '            <p class="range-field">\n' +
                 '              <label id="najCenaLabel" for="najCena">Max Cena: 1000</label>\n' +
-                '              <input type="range" id="najCena" min="0" max="1000" value="1000" name="cenaDogodka" oninput="displayContent()" />\n' +
+                '              <input type="range" id="najCena" min="0" max="100" value="100" name="cenaDogodka" oninput="displayContent()" />\n' +
                 '            </p>\n' +
                 '          </div>\n' +
                 '          <div class="col l3 s5">\n' +

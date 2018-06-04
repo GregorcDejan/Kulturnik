@@ -205,13 +205,16 @@
         </div>
         <div class="row">
           <div class="input-field col s8 offset-s2 ">
-            <select required name="tipDogodka" id="inputKategorija" value="${urejanDogodek.tip}" selected="selected">
-              <option value="" disabled selected>Izberite tip dogodka</option>
+            <script>
+
+            </script>
+            <select required name="tipDogodka" id="inputKategorija">
+              <option value="${urejanDogodek.tip}">${urejanDogodek.tip}</option>
               <option value="Glasba">Glasba</option>
               <option value="Gledališče">Gledališče</option>
               <option value="Razstava">Razstava</option>
               <option value="Šport">Šport</option>
-              <option value="Kino">Kino</option>
+              <option value="Film">Kino</option>
             </select>
           </div>
         </div>
@@ -278,6 +281,8 @@
 <script type="text/javascript" src="/lib/javascript/materialize.min.js"></script>
 
 <script>
+
+
 
   $(document).ready(function () {
     $('.dropdown-button').dropdown({

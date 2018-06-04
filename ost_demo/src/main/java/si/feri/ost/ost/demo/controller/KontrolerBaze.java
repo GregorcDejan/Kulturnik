@@ -25,8 +25,11 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 import java.net.URL;
+import java.text.DateFormat;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -53,7 +56,7 @@ public class KontrolerBaze {
         osebe.addOseba(ime, priimek, email, geslo, datumRojstva, telefonska);
         boolean jeDodan = true;
         model.addAttribute("dodanaOseba", jeDodan);
-        return "/registracija";
+        return "/vpis";
     }
 
     @RequestMapping(value={"/","/index",},method=RequestMethod.GET)
@@ -98,8 +101,7 @@ public class KontrolerBaze {
                 boolean jeDodan = true;
                 model.addAttribute("dodanDogodek", jeDodan);
             }
-
-        return "add";
+        return "index";
     }
 
     @RequestMapping(value={"/uredi"}, method=RequestMethod.GET)
@@ -215,16 +217,26 @@ public class KontrolerBaze {
                                @RequestParam(value="krajDogodka", required=false)String kraj,
                                @RequestParam(value="datumDogodka", required=false)String datum,
                                @RequestParam(value="event", required=false)String kateg,
-                               @RequestParam(value="cenaDogodka", required=false)String cena) {
+                               @RequestParam(value="cenaDogodka", required=false)String cena) throws ParseException {
 
 
         List<Dogodek> seznam = dogodki.getByTip(kateg);
         List<Dogodek> rez = new ArrayList<>();
 
+        if(!datum.equals("")) {
+            DateFormat dateFormat = new SimpleDateFormat("dd MMMM, yyyy");
+            Date date = dateFormat.parse(datum);
+
+            DateFormat noviFormat = new SimpleDateFormat("yyyy-MM-dd");
+
+            datum = noviFormat.format(date);
+        }
+
       for(int i=0; i<seznam.size(); i++) { //tole je bolša rešitev, datum je še edino treba ugotovit
           if ((naziv.equals("") || seznam.get(i).getNaziv().equals(naziv))&&
                   (kraj.equals("") || seznam.get(i).getKraj().equals(kraj))&&
-                  (cena==null || Double.parseDouble(seznam.get(i).getCena())<=Double.parseDouble(cena)))
+                  (cena.equals("") || Double.parseDouble(seznam.get(i).getCena())<=Double.parseDouble(cena))&&
+                  (datum.equals("")|| seznam.get(i).getDatum().equals(datum)))
           {
               rez.add(seznam.get(i));
           }

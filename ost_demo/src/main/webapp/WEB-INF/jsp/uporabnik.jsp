@@ -225,11 +225,15 @@
                                         <i class="material-icons right">expand_less</i>
                                     </span>
                                             <p>
-                                    <span class="">Lokacija: ${d.lokacija} <a
-                                            class="btn-floating btn right waves-effect waves-light teal"><i
-                                            class="material-icons">edit</i></a>
-                                      <br/>
-                                    </span>
+                                                <span class="">Lokacija: ${d.lokacija} </span>
+
+                                            <form action="/uredi" method="get">
+                                                <button class="btn-floating btn right waves-effect waves-light teal" name="ime" value="${d.id}">
+
+                                                        <i class="material-icons ">edit</i>
+
+                                                </button>
+                                            </form>
                                                 <a href="${d.vir}">Več...</a>
                                             </p>
                                         </div>
@@ -240,11 +244,13 @@
                                                 <br/> Cena: ${d.cena}
                                                     ${d.opis}
                                                 <a href=""></a>
-                                                <button class="btn valign-wrapper right teal lighten-3 lighten-1 waves-effect">
-                                                    <div class="valign-wrapper"> Več
+                                            <form action="/uredi" method="get">
+                                                <button class="btn valign-wrapper right blue lighten-1 waves-effect" name="ime" value="${d.id}">
+                                                    <div class="valign-wrapper"> Uredi
                                                         <i class="material-icons right">add_circle</i>
                                                     </div>
                                                 </button>
+                                            </form>
                                             </p>
                                         </div>
                                     </div>
