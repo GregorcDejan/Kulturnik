@@ -222,8 +222,9 @@ public class KontrolerBaze {
 
         List<Dogodek> seznam = dogodki.getByTip(kateg);
         List<Dogodek> rez = new ArrayList<>();
+        
 
-        if(!datum.equals("")) {
+        if(datum!=null && !datum.equals("")) {
             DateFormat dateFormat = new SimpleDateFormat("dd MMMM, yyyy");
             Date date = dateFormat.parse(datum);
 
@@ -235,8 +236,8 @@ public class KontrolerBaze {
       for(int i=0; i<seznam.size(); i++) { //tole je bolša rešitev, datum je še edino treba ugotovit
           if ((naziv.equals("") || seznam.get(i).getNaziv().equals(naziv))&&
                   (kraj.equals("") || seznam.get(i).getKraj().equals(kraj))&&
-                  (cena.equals("") || Double.parseDouble(seznam.get(i).getCena())<=Double.parseDouble(cena))&&
-                  (datum.equals("")|| seznam.get(i).getDatum().equals(datum)))
+                  (cena==null || cena.equals("") || Double.parseDouble(seznam.get(i).getCena())<=Double.parseDouble(cena))&&
+                  (datum==null|| datum.equals("") || seznam.get(i).getDatum().equals(datum)))
           {
               rez.add(seznam.get(i));
           }
