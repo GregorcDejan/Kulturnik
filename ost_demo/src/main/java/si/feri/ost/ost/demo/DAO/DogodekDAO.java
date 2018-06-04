@@ -252,7 +252,7 @@ public class DogodekDAO {
             {
                         idUporabnika= (Integer) vrstica.get("Uporabnik_ID");
             }
-                    
+
             Dogodek d= new Dogodek(ID,naziv,kraj,ura,izvajalec,lokacija,cena,opis,slikaURL,idUporabnika,tip,datum,vir);
 
             rez.add(d);
