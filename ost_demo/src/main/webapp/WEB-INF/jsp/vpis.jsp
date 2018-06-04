@@ -74,7 +74,7 @@ String.valueOf(session.getAttribute("imeUporabnika"))%>
                 <li class="divider"></li>
                 <li>
                   <a href="add">
-                    <button class="btn-flat teal-text">Dodaj Dogodek</button>
+                    <form action="/uredi" method="get"> <button class="btn-flat teal-text" name="ime" value="dodajanje">Dodaj Dogodek</button></form>
                   </a>
                 </li>
                 <li class="divider"></li>
@@ -209,7 +209,7 @@ String.valueOf(session.getAttribute("imeUporabnika"))%>
         </div>
         <div class="row">
           <div class="input-field center-align">
-           <button id="signIn" class="btn btn-submit large teal darken-1 z-depth-3" type="submit">Vpis</button>
+           <button id="signIn" class="btn btn-submit large teal darken-1 z-depth-3" type="submit" name="event" value="Moji dogodki">Vpis</button>
             <div class="input-field center-align">
               <a href="registracija">Še nimate računa?</a>
             </div>

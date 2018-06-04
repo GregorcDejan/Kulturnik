@@ -25,7 +25,11 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 import java.net.URL;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -52,7 +56,7 @@ public class KontrolerBaze {
         osebe.addOseba(ime, priimek, email, geslo, datumRojstva, telefonska);
         boolean jeDodan = true;
         model.addAttribute("dodanaOseba", jeDodan);
-        return "/registracija";
+        return "/vpis";
     }
 
     @RequestMapping(value={"/","/index",},method=RequestMethod.GET)
@@ -64,33 +68,81 @@ public class KontrolerBaze {
 
     public static ArrayList<Dogodek> seznamDogodkov = new ArrayList<>();
     @RequestMapping(value = {"/dodajDogodek" }, method = RequestMethod.POST)
-    public String dodajDogodek(Model model, @RequestParam(value="naziv",required=true)String naziv,
-
-                               @RequestParam(value="kraj",required=true)String kraj,
-                               @RequestParam(value="ura",required = true)String ura,
-                               @RequestParam(value="izvajalec",required = true)String izvajalec,
-                               @RequestParam(value="lokacija",required = true)String lokacija,
-                               @RequestParam(value="cena",required = true)String cena,
+    public String dodajDogodek(Model model, @RequestParam(value="naziv",required=false)String naziv,
+                               @RequestParam(value="idDogodka",required = false)String idDogodka,
+                               @RequestParam(value="kraj",required=false)String kraj,
+                               @RequestParam(value="ura",required = false)String ura,
+                               @RequestParam(value="izvajalec",required = false)String izvajalec,
+                               @RequestParam(value="lokacija",required = false)String lokacija,
+                               @RequestParam(value="cena",required = false)String cena,
                                @RequestParam(value="opis",required = false)String opis,
                                @RequestParam(value="slika",required = false)String slikaURL,
                                @RequestParam(value="idUporabnika",required = false)String idUporabnika,
                                @RequestParam(value="tipDogodka",required = false)String tip,
                                @RequestParam(value="datum",required = false)String datum,
-                               @RequestParam(value="urlDogodka",required = false)String vir)
+                               @RequestParam(value="urlDogodka",required = false)String vir) throws ParseException {
 
 
-    {
+            HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+            HttpSession session = request.getSession(true);
+
+          //  if(Boolean.valueOf(String.valueOf(session.getAttribute("urejanjeDogodka"))) && (Boolean.valueOf(String.valueOf(session.getAttribute("uporabnikPrijavljen"))))){
+            if(idDogodka!=""){
+
+                dogodki.updateDogodek(Integer.parseInt(idDogodka),naziv,kraj,ura,izvajalec,lokacija,cena,opis,slikaURL,tip,datum,vir);
+            }
+
+            else {
+
+                int id = Integer.parseInt(String.valueOf(session.getAttribute("idUporabnika")));
+
+                dogodki.addDogodek(naziv, kraj, ura, izvajalec, lokacija, cena, opis, slikaURL,id, tip, datum, vir);
+
+                boolean jeDodan = true;
+                model.addAttribute("dodanDogodek", jeDodan);
+            }
+        return "index";
+    }
+
+    @RequestMapping(value={"/uredi"}, method=RequestMethod.GET)
+    public String prikaziStran(Model model,
+                               @RequestParam(value="ime",required = false)String ime){
+
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
         HttpSession session = request.getSession(true);
 
-        int id =Integer.parseInt(String.valueOf(session.getAttribute("idUporabnika")));
+        boolean uporabnikPrijavljen =(Boolean.valueOf(String.valueOf(session.getAttribute("uporabnikPrijavljen"))));
+        if(ime.equals("dodajanje")){
+            model.addAttribute("urejanjeDogodka",false);
 
-        dogodki.addDogodek(naziv,kraj,ura,izvajalec,lokacija,cena,opis,slikaURL, Integer.parseInt(idUporabnika),tip,datum,vir);
+            if(uporabnikPrijavljen)
+            {
 
-        boolean jeDodan = true;
-        model.addAttribute("dodanDogodek",jeDodan);
-        return "add";
+                return "add";
+            }
+
+            else
+                return "vpis";
+
+        }
+        else {
+            model.addAttribute("urejanjeDogodka",true);
+
+            if(uporabnikPrijavljen)
+            {
+                Dogodek urejan = dogodki.getByID(Integer.parseInt(ime));
+                int p=4;
+                model.addAttribute("urejanDogodek",urejan);
+                model.addAttribute("idD",ime);
+                return "add";
+            }
+
+            else
+                return "vpis";
+        }
+
     }
+
 
 
     @RequestMapping(value={"/Konzola",}, method=RequestMethod.GET)
@@ -122,15 +174,17 @@ public class KontrolerBaze {
 
         int idUporabnika;
         Oseba prijavljenUporabnik;
-
-        model.addAttribute("Iskanje",false);
+        List<Oseba> rez = new ArrayList<>();
 
         if(tip.equals("Moji dogodki") && Boolean.valueOf(String.valueOf(session.getAttribute("uporabnikPrijavljen"))))
         {
             idUporabnika=Integer.parseInt(String.valueOf(session.getAttribute("idUporabnika")) );
+            prijavljenUporabnik = osebe.getByID(idUporabnika);
+            rez.add(prijavljenUporabnik);
             List<Dogodek> temp =dogodki.getByIdUporabnika(idUporabnika);
             model.addAttribute("dogodki",temp);
-            model.addAttribute("Kategorija", tip);
+            model.addAttribute("uporabnik",rez);
+            model.addAttribute("stDogodkovUporabnika",temp.size());
 
             return "uporabnik";
 
@@ -163,41 +217,35 @@ public class KontrolerBaze {
                                @RequestParam(value="krajDogodka", required=false)String kraj,
                                @RequestParam(value="datumDogodka", required=false)String datum,
                                @RequestParam(value="event", required=false)String kateg,
-                               @RequestParam(value="cenaDogodka", required=false)String cena) {
+                               @RequestParam(value="cenaDogodka", required=false)String cena) throws ParseException {
 
 
         List<Dogodek> seznam = dogodki.getByTip(kateg);
-
         List<Dogodek> rez = new ArrayList<>();
-        if (!naziv.equals("") && kraj.equals("") && datum == null && cena == null) {
 
-            for(int i=0; i<seznam.size(); i++){
-                if (seznam.get(i).getNaziv().equals(naziv))
-                    rez.add(seznam.get(i));
+        if(!datum.equals("")) {
+            DateFormat dateFormat = new SimpleDateFormat("dd MMMM, yyyy");
+            Date date = dateFormat.parse(datum);
 
-            }
-            model.addAttribute("dogodki",rez);
+            DateFormat noviFormat = new SimpleDateFormat("yyyy-MM-dd");
+
+            datum = noviFormat.format(date);
         }
 
-        else if (naziv.equals("") && !kraj.equals("") && datum == null && cena == null) {
-            for(int i=0; i<seznam.size(); i++){
-                if (seznam.get(i).getKraj().equals(kraj))
-                    rez.add(seznam.get(i));
+      for(int i=0; i<seznam.size(); i++) { //tole je bolša rešitev, datum je še edino treba ugotovit
+          if ((naziv.equals("") || seznam.get(i).getNaziv().equals(naziv))&&
+                  (kraj.equals("") || seznam.get(i).getKraj().equals(kraj))&&
+                  (cena.equals("") || Double.parseDouble(seznam.get(i).getCena())<=Double.parseDouble(cena))&&
+                  (datum.equals("")|| seznam.get(i).getDatum().equals(datum)))
+          {
+              rez.add(seznam.get(i));
+          }
 
-            }
-            model.addAttribute("dogodki",rez);
-        }
 
+      }
+      model.addAttribute("dogodki",rez);
 
-        else if(!naziv.equals("") && !kraj.equals("") && datum==null && cena==null){
-            for(int i=0; i<seznam.size(); i++) {
-                if (seznam.get(i).getNaziv().equals(naziv) && seznam.get(i).getKraj().equals(kraj))
-                    rez.add(seznam.get(i));
-            }
-            model.addAttribute("dogodki",rez);
-        }
-
-        model.addAttribute("Iskanje",true);
+      model.addAttribute("Kategorija",kateg);
         return "events";
     }
 
@@ -265,8 +313,8 @@ public class KontrolerBaze {
     @RequestMapping(value={"/prijava"},method=RequestMethod.POST)
     public String prijava(Model model,
                           @RequestParam(value="username")String email,
-                          @RequestParam(value="password")String geslo){
-
+                          @RequestParam(value="password")String geslo,
+                          @RequestParam(value="event")String tip){
         List<Oseba> vseOsebe = osebe.getAllOsebe();
 
         boolean prijavaUspesna = false;
@@ -288,8 +336,22 @@ public class KontrolerBaze {
                 session.setAttribute("imeUporabnika",uporabnik.getIme());
                 session.setAttribute("priimekUporabnika",uporabnik.getPriimek());
 
+                Oseba prijavljenUporabnik = new Oseba();
+                int idUporabnika;
+                List<Oseba> rez = new ArrayList<>();
+                if(tip.equals("Moji dogodki"))
+                {
+                    idUporabnika=Integer.parseInt(String.valueOf(session.getAttribute("idUporabnika")) );
+                    prijavljenUporabnik = osebe.getByID(idUporabnika);
+                    rez.add(prijavljenUporabnik);
+                    List<Dogodek> temp =dogodki.getByIdUporabnika(idUporabnika);
+                    model.addAttribute("dogodki",temp);
+                    model.addAttribute("uporabnik",rez);
+                    model.addAttribute("stDogodkovUporabnika",temp.size());
 
-                return "index";
+
+                }
+
 
             }
 
@@ -301,8 +363,9 @@ public class KontrolerBaze {
 
         }
 
+        return "uporabnik";
 
-        return "vpis";
+
 
 
     }

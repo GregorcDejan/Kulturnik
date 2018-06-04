@@ -64,7 +64,7 @@
                             <li class="divider"></li>
                             <li>
                                 <a href="add">
-                                    <button class="btn-flat teal-text">Dodaj Dogodek</button>
+                                    <form action="/uredi" method="get"> <button class="btn-flat teal-text" name="ime" value="dodajanje">Dodaj Dogodek</button></form>
                                 </a>
                             </li>
                             <li class="divider"></li>
@@ -177,17 +177,7 @@
 
 
         <h2 class="center-align">
-            <c:choose>
-                <c:when test="${Iskanje==true}">
-                    Rezultati iskanja
-                </c:when>
-
-                <c:when test="${Iskanje==false}">
-                    ${Kategorija}
-                </c:when>
-
-
-            </c:choose>
+            ${Kategorija}
 
         </h2>
         <hr/>
@@ -250,16 +240,17 @@
                             <p class="">${d.opis}
                                 <a href=""></a>
                             </p>
-                            <button class="btn valign-wrapper right blue lighten-1 waves-effect">
-                                <div class="valign-wrapper"> Več
+                            <form action="/uredi" method="get">
+                                <button class="btn valign-wrapper right blue lighten-1 waves-effect" name="ime" value="${d.id}">
+                                <div class="valign-wrapper"> Uredi
                                     <i class="material-icons right">add_circle</i>
                                 </div>
-                            </button>
+                                </button>
+                            </form>
                             </p>
                         </div>
                     </div>
                 </div>
-
 
                 <!-- Konec ENE Karte-->
             </c:forEach>
@@ -311,7 +302,7 @@
                 '          <div class="col l4 offset-s1 s5">\n' +
                 '            <p class="range-field">\n' +
                 '              <label id="najCenaLabel" for="najCena">Max Cena: 1000</label>\n' +
-                '              <input type="range" id="najCena" min="0" max="1000" value="1000" name="cenaDogodka" oninput="displayContent()" />\n' +
+                '              <input type="range" id="najCena" min="0" max="100" value="100" name="cenaDogodka" oninput="displayContent()" />\n' +
                 '            </p>\n' +
                 '          </div>\n' +
                 '          <div class="col l3 s5">\n' +
@@ -385,9 +376,9 @@
         $('.datepicker').pickadate({
             selectMonths: true, // Creates a dropdown to control month
             selectYears: 15, // Creates a dropdown of 15 years to control year,
-            today: 'Today',
-            clear: 'Clear',
-            close: 'Ok',
+            today: 'Danes',
+            clear: 'Počisti',
+            close: 'Vredu',
             closeOnSelect: false, // Close upon selecting a date,
             container: undefined // ex. 'body' will append picker to body
 
