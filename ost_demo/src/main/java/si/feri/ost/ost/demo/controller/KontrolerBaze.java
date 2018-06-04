@@ -284,12 +284,14 @@ public class KontrolerBaze {
 
                     String opis=eElement.getElementsByTagName("plot_outline").item(0).getTextContent();
                     String datum=eElement.getElementsByTagName("date").item(0).getTextContent();
+                    System.out.println(datum);
+
                     String ura =eElement.getElementsByTagName("time").item(0).getTextContent();
                     String lokacija = eElement.getElementsByTagName("center").item(0).getTextContent();
                     String kraj = eElement.getElementsByTagName("city").item(0).getTextContent();
                     String izvajalec=eElement.getElementsByTagName("distributor").item(0).getTextContent();
                     //dogod.add(new Dogodek(naziv,kraj,ura,"Kolosej",lokacija,6,opis,virURL,"Kino",datum,vir));
-
+                    dogodki.addXML(naziv, kraj, ura, izvajalec, lokacija, "6", opis, virURL,1, "Film", datum, vir);
 
                 }
 
@@ -299,6 +301,8 @@ public class KontrolerBaze {
         } catch (IOException e) {
             e.printStackTrace();
         } catch (SAXException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
             e.printStackTrace();
         }
 

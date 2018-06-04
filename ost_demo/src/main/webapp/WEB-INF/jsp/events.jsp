@@ -26,11 +26,6 @@
                 </a>
                 <ul class="right show-on-med-and-down">
                     <li>
-                        <a href="search">
-                            <i class="material-icons">search</i>
-                        </a>
-                    </li>
-                    <li>
                         <a href="#">
                             <i class="material-icons">place</i>
                         </a>
@@ -40,31 +35,34 @@
                             <i class="material-icons left">person</i>
                         </a>
                         <ul id='dropdownPerson' class='dropdown-content'>
-                          <li class="collection-item avatar valign-wrapper">
-                            <i class="material-icons right teal-text">person </i>
-                            <form action="/events" method="get">
-                              <button class="btn-flat teal-text" name="event" value="Moji dogodki">
+                            <li class="collection-item avatar valign-wrapper">
+                                <i class="material-icons right teal-text">person </i>
+                                <form action="/events" method="get">
+                                    <button class="btn-flat teal-text" name="event" value="Moji dogodki">
                                 <span class="right ">
-                                  <% if(Boolean.valueOf(String.valueOf(session.getAttribute("uporabnikPrijavljen")))){%>
+                                  <% if (Boolean.valueOf(String.valueOf(session.getAttribute("uporabnikPrijavljen"))))
+                                  {%>
                                   <%=
                                   String.valueOf(session.getAttribute("imeUporabnika"))
                                   %>
                                   <%=
                                   String.valueOf(session.getAttribute("priimekUporabnika"))
                                   %>
-                                 <% }
-                                 else
+                                 <% } else
                                  {%>
                                      <%="Neprijavljen uporabnik "%>
                                   <%}%>
                                 </span>
-                              </button>
-                            </form>
+                                    </button>
+                                </form>
                             </li>
                             <li class="divider"></li>
                             <li>
                                 <a href="add">
-                                    <form action="/uredi" method="get"> <button class="btn-flat teal-text" name="ime" value="dodajanje">Dodaj Dogodek</button></form>
+                                    <form action="/uredi" method="get">
+                                        <button class="btn-flat teal-text" name="ime" value="dodajanje">Dodaj Dogodek
+                                        </button>
+                                    </form>
                                 </a>
                             </li>
                             <li class="divider"></li>
@@ -241,10 +239,11 @@
                                 <a href=""></a>
                             </p>
                             <form action="/uredi" method="get">
-                                <button class="btn valign-wrapper right blue lighten-1 waves-effect" name="ime" value="${d.id}">
-                                <div class="valign-wrapper"> Uredi
-                                    <i class="material-icons right">add_circle</i>
-                                </div>
+                                <button class="btn valign-wrapper right blue lighten-1 waves-effect" name="ime"
+                                        value="${d.id}">
+                                    <div class="valign-wrapper"> Uredi
+                                        <i class="material-icons right">add_circle</i>
+                                    </div>
                                 </button>
                             </form>
                             </p>
@@ -342,15 +341,14 @@
             });
 
 
-
         }
         else if (document.getElementById('naprednoShow').innerHTML === 'remove') {
             document.getElementById('naprednoRow').innerHTML = '<h5 class="offset-s1 left-align">Dodatno <button class="btn btn-flat btn-floating"> <i id="naprednoShow" onclick="showNapredno()" class="material-icons black-text">add</i></button></h5>';
         }
     }
-    function displayContent()
-    {
-        document.getElementById('najCenaLabel') .innerHTML = 'Max Cena: ' + document.getElementById("najCena").value;
+
+    function displayContent() {
+        document.getElementById('najCenaLabel').innerHTML = 'Max Cena: ' + document.getElementById("najCena").value;
     }
 </script>
 <script>
@@ -387,8 +385,6 @@
         $(document).ready(function () {
             $('select').material_select();
         });
-
-
 
 
     });

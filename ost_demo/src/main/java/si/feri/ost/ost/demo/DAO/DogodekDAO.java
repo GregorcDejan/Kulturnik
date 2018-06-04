@@ -94,6 +94,22 @@ public class DogodekDAO {
 
 
     }
+    public int addXML(String naziv, String kraj, String ura, String izvajalec, String lokacija, String cena, String opis, String slikaURL, int idUporabnika, String tip, String datum, String vir) throws ParseException {
+        String sql = "INSERT INTO DOGODEK(naziv,kraj,ura,izvajalec,lokacija,cena,opis,slika,uporabnik_id,tip,datum,vir) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
+
+        DateFormat cas = new SimpleDateFormat("hh:mm");
+
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+
+        Time time = new Time(cas.parse(ura).getTime());
+
+        Date date = dateFormat.parse(datum);
+
+
+        return jdbcTemplate.update(sql,new Object[]{naziv,kraj,time,izvajalec,lokacija,cena,opis,slikaURL,idUporabnika,tip,date,vir});
+
+
+    }
 
     public int updateDogodek(int id,String naziv, String kraj, String ura, String izvajalec, String lokacija, String cena, String opis, String slikaURL, String tip, String datum, String vir){
         String sql = "UPDATE DOGODEK SET naziv=?, kraj=?, ura=?,izvajalec=?,lokacija=?,cena=?,opis=?,slika=?, tip=?,datum=?,vir=? WHERE id=?";
@@ -265,7 +281,7 @@ public class DogodekDAO {
             {
                         idUporabnika= (Integer) vrstica.get("Uporabnik_ID");
             }
-                    
+
             Dogodek d= new Dogodek(ID,naziv,kraj,ura,izvajalec,lokacija,cena,opis,slikaURL,idUporabnika,tip,datum,vir);
 
             rez.add(d);

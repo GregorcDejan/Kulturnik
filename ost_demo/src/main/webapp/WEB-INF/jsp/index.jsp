@@ -29,11 +29,6 @@
                 </a>
                 <ul class="right show-on-med-and-down">
                     <li>
-                        <a href="search">
-                            <i class="material-icons">search</i>
-                        </a>
-                    </li>
-                    <li>
                         <a href="#">
                             <i class="material-icons">place</i>
                         </a>
@@ -67,7 +62,10 @@
                             <li class="divider"></li>
                             <li>
                                 <a href="add">
-                                 <form action="/uredi" method="get"> <button class="btn-flat teal-text" name="ime" value="dodajanje">Dodaj Dogodek</button></form>
+                                    <form action="/uredi" method="get">
+                                        <button class="btn-flat teal-text" name="ime" value="dodajanje">Dodaj Dogodek
+                                        </button>
+                                    </form>
                                 </a>
                             </li>
                             <li class="divider"></li>
