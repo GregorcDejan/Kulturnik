@@ -221,6 +221,8 @@ public class Dogodek
     public void setIzvajalec(String izvajalec) {
         this.izvajalec = izvajalec;
     }
+
+
 }
 
 

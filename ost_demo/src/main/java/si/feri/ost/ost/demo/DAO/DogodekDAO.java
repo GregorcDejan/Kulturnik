@@ -129,6 +129,15 @@ public class DogodekDAO {
         return cena;
     }
 
+    public int vrniNajvisjoCeno(){
+
+        String sql = "Select Max(cast(cena as double)) from dogodek";
+
+        int cena = jdbcTemplate.queryForObject(sql,Integer.class);
+
+        return cena;
+    }
+
     public Object deleteDogodek(int id)
     {
         String sql = "DELETE FROM DOGODEK WHERE id=?";

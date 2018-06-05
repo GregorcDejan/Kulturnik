@@ -63,7 +63,7 @@ public class KontrolerBaze {
     public String zadnjih5(Model model)
     {
         //model.addAttribute("dogodki",dogodki.zadnjihNeki());
-        model.addAttribute("najnizjaCena",dogodki.vrniNajnizjoCeno());
+
 
         return "index";
     }
@@ -172,7 +172,8 @@ public class KontrolerBaze {
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
         HttpSession session = request.getSession(false);//true will create if necessary
 
-
+        model.addAttribute("najnizjaCena",dogodki.vrniNajnizjoCeno());
+        model.addAttribute("najvisjaCena",dogodki.vrniNajvisjoCeno());
 
         int idUporabnika;
         Oseba prijavljenUporabnik;
@@ -249,6 +250,8 @@ public class KontrolerBaze {
       model.addAttribute("dogodki",rez);
 
       model.addAttribute("Kategorija",kateg);
+
+
         return "events";
     }
 

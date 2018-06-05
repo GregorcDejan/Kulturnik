@@ -208,8 +208,8 @@
                         </div>
                         <div class="col l4 offset-s1 s5">
                             <p class="range-field">
-                                <label id="najCenaLabel" for="najCena">Max Cena: 1000</label>
-                                <input type="range" id="najCena" min="0" max="100" value="100" name="cenaDogodka"
+                                <label id="najCenaLabel" for="najCena">Max Cena: ${najvisjaCena}</label>
+                                <input type="range" id="najCena" min=${najnizjaCena} max=${najvisjaCena} value="100" name="cenaDogodka"
                                        oninput="displayContent()"/>
                             </p>
                         </div>
