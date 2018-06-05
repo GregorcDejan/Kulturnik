@@ -1,5 +1,8 @@
 package si.feri.ost.ost.demo.Razredi;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class Dogodek
 {
     private int id;
@@ -221,6 +224,8 @@ public class Dogodek
     public void setIzvajalec(String izvajalec) {
         this.izvajalec = izvajalec;
     }
+
+
 }
 
 

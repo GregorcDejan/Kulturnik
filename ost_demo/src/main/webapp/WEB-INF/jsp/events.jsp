@@ -199,7 +199,7 @@
                 <div id="naprednoRow" class="row center-align">
                     <h5 class="offset-s1 left-align">Dodatno
                         <button class="btn btn-flat btn-floating" type="button">
-                            <i id="naprednoShow" onclick="showNapredno()" class="material-icons black-text">remove</i>
+                            <i id="naprednoShow" onclick="showNapredno()" class="material-icons black-text">add</i>
                         </button>
                     </h5>
                     <span id="naprednoShowHide">
@@ -208,8 +208,8 @@
                         </div>
                         <div class="col l4 offset-s1 s5">
                             <p class="range-field">
-                                <label id="najCenaLabel" for="najCena">Max Cena: 1000</label>
-                                <input type="range" id="najCena" min="0" max="100" value="100" name="cenaDogodka"
+                                <label id="najCenaLabel" for="najCena">Max Cena: ${najvisjaCena}</label>
+                                <input type="range" id="najCena" min=${najnizjaCena} max=${najvisjaCena} value="100" name="cenaDogodka"
                                        oninput="displayContent()"/>
                             </p>
                         </div>
@@ -320,7 +320,7 @@
 
 <script>
     function showNapredno() {
-        $('#naprednoShowHide').toggle();
+        $('#naprednoShowHide').toggle(500, 'linear');
         if(document.getElementById('naprednoShow').innerText === 'remove')
         {
             document.getElementById('naprednoShow').innerText = 'add';
@@ -329,29 +329,6 @@
         {
             document.getElementById('naprednoShow').innerText = 'remove';
         }
-        /*$(document).ready(function () {
-            $('.dropdown-button').dropdown({
-                constrainWidth: false,
-                hover: true,
-                belowOrigin: true,
-                alignment: 'left'
-            });
-
-            $('.datepicker').pickadate({
-                selectMonths: true, // Creates a dropdown to control month
-                selectYears: 15, // Creates a dropdown of 15 years to control year,
-                today: 'Today',
-                clear: 'Clear',
-                close: 'Ok',
-                closeOnSelect: false, // Close upon selecting a date,
-                container: undefined // ex. 'body' will append picker to body
-
-
-            })
-            $(document).ready(function () {
-                $('select').material_select();
-            });
-        });*/
     }
 
 
