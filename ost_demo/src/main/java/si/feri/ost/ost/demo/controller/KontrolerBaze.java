@@ -360,7 +360,11 @@ public class KontrolerBaze {
             if (vseOsebe.get(i).getEmail().equals(email) && vseOsebe.get(i).getGeslo().equals(geslo)) {
                 prijavaUspesna = true;
 
+<<<<<<< HEAD
+                model.addAttribute("uspesnost",true);
+=======
                 model.addAttribute("uspesnost", prijavaUspesna);
+>>>>>>> 1eb75ddf7d45e3adaad300d00d5d198d33a76418
                 HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
                 HttpSession session = request.getSession(true);
 
