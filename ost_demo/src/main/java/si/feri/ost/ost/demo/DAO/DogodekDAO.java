@@ -120,6 +120,15 @@ public class DogodekDAO {
 
     }
 
+    public int vrniNajnizjoCeno(){
+
+        String sql = "Select Min(cast(cena as double)) from dogodek";
+
+        int cena = jdbcTemplate.queryForObject(sql,Integer.class);
+
+        return cena;
+    }
+
     public Object deleteDogodek(int id)
     {
         String sql = "DELETE FROM DOGODEK WHERE id=?";

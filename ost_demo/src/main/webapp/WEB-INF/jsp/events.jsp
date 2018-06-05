@@ -198,11 +198,33 @@
                 <!-- Zaèetek searcha NAPREDNO-->
                 <div id="naprednoRow" class="row center-align">
                     <h5 class="offset-s1 left-align">Dodatno
-                        <button class="btn btn-flat btn-floating"><i id="naprednoShow" onclick="showNapredno()"
-                                                                     class="material-icons black-text">add</i>
+                        <button class="btn btn-flat btn-floating" type="button">
+                            <i id="naprednoShow" onclick="showNapredno()" class="material-icons black-text">add</i>
                         </button>
                     </h5>
-
+                    <span id="naprednoShowHide">
+                        <div class="offset-s2 offset-l1 col l3 s8">
+                            <input type="text" class="datepicker" placeholder="Datum Pričetka" name="datumDogodka">
+                        </div>
+                        <div class="col l4 offset-s1 s5">
+                            <p class="range-field">
+                                <label id="najCenaLabel" for="najCena">Max Cena: 1000</label>
+                                <input type="range" id="najCena" min="0" max="100" value="100" name="cenaDogodka"
+                                       oninput="displayContent()"/>
+                            </p>
+                        </div>
+                        <div class="col l3 s5">
+                            <select name="inputKategorija" id="inputKategorija">
+                                <option value="" disabled selected>Sortiraj po</option>
+                                <option value="Glasba">Najcenejši naprej</option>
+                                <option value="Gledališče">Najdražji naprej</option>
+                                <option value="Razstava">Po imenu A-Z</option>
+                                <option value="Šport">Po imenu Z-A</option>
+                                <option value="Kino">Po organizatorju A-Z</option>
+                                <option value="Kino">Po organizatorju Z-A</option>
+                            </select>
+                        </div>
+                    </span>
                 </div>
 
             </form>
@@ -233,15 +255,22 @@
                         <div class="card-reveal">
               <span class="card-title grey-text text-darken-4">
                 <i class="material-icons right">expand_more</i>${d.naziv}</span>
-                            <p>Lokacija: ${d.lokacija}
-                                <br/> Cena: ${d.cena}
+                            <p>Kraj: ${d.kraj}<br/>
+                                Ura: ${d.ura}<br/>
+                                Izvajalec: ${d.izvajalec}<br/>
+                                Lokacija: ${d.lokacija}<br/>
+                                Cena: ${d.cena} €<br/>
+                                Datum: ${d.datum}<br/>
+
+
+                            </p>
                             <p class="">${d.opis}
                                 <a href=""></a>
                             </p>
                             <form action="/uredi" method="get">
                                 <button class="btn valign-wrapper right blue lighten-1 waves-effect" name="ime"
                                         value="${d.id}">
-                                    <div class="valign-wrapper"> Uredi
+                                    <div class="valign-wrapper"> Več
                                         <i class="material-icons right">add_circle</i>
                                     </div>
                                 </button>
@@ -291,61 +320,19 @@
 
 <script>
     function showNapredno() {
-        if (document.getElementById('naprednoShow').innerHTML === 'add') {
-            document.getElementById('naprednoRow').innerHTML = '' +
-                '<h5 class="offset-s1 left-align">Dodatno <button class="btn btn-flat btn-floating"> ' +
-                '<i id="naprednoShow" onclick="showNapredno()" class="material-icons black-text">remove</i></button></h5>\n' +
-                '          <div class="offset-s2 offset-l1 col l3 s8">\n' +
-                '            <input type="text" class="datepicker" placeholder="Datum Pričetka" name="datumDogodka">\n' +
-                '          </div>\n' +
-                '          <div class="col l4 offset-s1 s5">\n' +
-                '            <p class="range-field">\n' +
-                '              <label id="najCenaLabel" for="najCena">Max Cena: 1000</label>\n' +
-                '              <input type="range" id="najCena" min="0" max="100" value="100" name="cenaDogodka" oninput="displayContent()" />\n' +
-                '            </p>\n' +
-                '          </div>\n' +
-                '          <div class="col l3 s5">\n' +
-                '            <select name="inputKategorija" id="inputKategorija">\n' +
-                '            <option value="" disabled selected>Sortiraj po</option>\n' +
-                '            <option value="Glasba">Najcenejši naprej</option>\n' +
-                '            <option value="Gledališče">Najdražji naprej</option>\n' +
-                '            <option value="Razstava">Po imenu A-Z</option>\n' +
-                '            <option value="Šport">Po imenu Z-A</option>\n' +
-                '            <option value="Kino">Po organizatorju A-Z</option>\n' +
-                '            <option value="Kino">Po organizatorju Z-A</option>\n' +
-                '          </select>\n' +
-
-                '          </div>';
-            $(document).ready(function () {
-                $('.dropdown-button').dropdown({
-                    constrainWidth: false,
-                    hover: true,
-                    belowOrigin: true,
-                    alignment: 'left'
-                });
-
-                $('.datepicker').pickadate({
-                    selectMonths: true, // Creates a dropdown to control month
-                    selectYears: 15, // Creates a dropdown of 15 years to control year,
-                    today: 'Today',
-                    clear: 'Clear',
-                    close: 'Ok',
-                    closeOnSelect: false, // Close upon selecting a date,
-                    container: undefined // ex. 'body' will append picker to body
-
-
-                })
-                $(document).ready(function () {
-                    $('select').material_select();
-                });
-            });
-
-
+        $('#naprednoShowHide').toggle(500, 'linear');
+        if(document.getElementById('naprednoShow').innerText === 'remove')
+        {
+            document.getElementById('naprednoShow').innerText = 'add';
         }
-        else if (document.getElementById('naprednoShow').innerHTML === 'remove') {
-            document.getElementById('naprednoRow').innerHTML = '<h5 class="offset-s1 left-align">Dodatno <button class="btn btn-flat btn-floating"> <i id="naprednoShow" onclick="showNapredno()" class="material-icons black-text">add</i></button></h5>';
+        else if(document.getElementById('naprednoShow').innerText === 'add')
+        {
+            document.getElementById('naprednoShow').innerText = 'remove';
         }
     }
+
+
+
 
     function displayContent() {
         document.getElementById('najCenaLabel').innerHTML = 'Max Cena: ' + document.getElementById("najCena").value;
@@ -386,6 +373,7 @@
             $('select').material_select();
         });
 
+        $('#naprednoShowHide').hide();
 
     });
 </script>

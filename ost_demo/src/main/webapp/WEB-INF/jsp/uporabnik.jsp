@@ -60,8 +60,7 @@
                             <li>
                                 <a href="add">
                                     <form action="/uredi" method="get">
-                                        <button class="btn-flat teal-text" name="ime" value="dodajanje">Dodaj Dogodek
-                                        </button>
+                                        <button class="btn-flat teal-text" name="ime" value="dodajanje">Dodaj Dogodek</button>
                                     </form>
                                 </a>
                             </li>
@@ -79,8 +78,10 @@
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <a href="#!">
+                                <a href="#">
+                                    <form action="/izpis" method="get">
                                     <button class="btn-flat teal-text">Izpis</button>
+                                    </form>
                                 </a>
                             </li>
                         </ul>
@@ -247,7 +248,7 @@
                                             <form action="/uredi" method="get">
                                                 <button class="btn valign-wrapper right blue lighten-1 waves-effect"
                                                         name="ime" value="${d.id}">
-                                                    <div class="valign-wrapper"> Uredi
+                                                    <div class="valign-wrapper"> Več...
                                                         <i class="material-icons right">add_circle</i>
                                                     </div>
                                                 </button>
