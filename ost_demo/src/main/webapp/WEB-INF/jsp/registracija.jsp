@@ -189,12 +189,20 @@
                         <label for="last_name">Priimek</label>
                     </div>
                     <div class="input-field col s12 l6">
-                        <input required id="geslo" type="password" class="validate" name="geslo">
+                        <input required id="geslo" type="password" class="validate" name="geslo" onkeyup="preveriGesli()">
                         <label for="geslo">Geslo</label>
+                    </div>
+                    <div class="input-field col s12 l6">
+                        <input required id="gesloPotrdi" type="password" class="validate" onkeyup="preveriGesli()">
+                        <label for="gesloPotrdi">Potrdite Geslo</label>
                     </div>
                     <div class="input-field col s12 l6">
                         <input required id="email" type="email" class="validate" name="email">
                         <label for="email" data-error="Narobe" data-success="Vredu">E-mail</label>
+                    </div>
+                    <div class="input-field col s12 l6">
+                        <input required id="emailPotrdi" type="email" class="validate">
+                        <label for="emailPotrdi" data-error="Narobe" data-success="Vredu">Potrdite E-mail</label>
                     </div>
                     <div class="input-field col s12 l6">
                         <input required id="datumRojstva" type="text" class="datepicker validate" name="datumRojstva">
@@ -215,7 +223,8 @@
                             <input class="file-path validate" type="text" placeholder="Profilna fotografija">
                         </div>
                     </div>
-                    <button class="btn col teal darken-1 z-depth-3 offset-l3 l6 s10 offset-s1 btn-large" type="submit">
+                    <div id="warningDiv" class="col s10"></div>
+                    <button id="registrirajSe" class="btn col teal darken-1 z-depth-3 offset-l3 l6 s10 offset-s1 btn-large" type="submit">
                         Registriraj se
                     </button>
                 </form>
@@ -226,6 +235,21 @@
 </body>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="/lib/javascript/materialize.min.js"></script>
+
+<script>
+
+    function preveriGesli() {
+        if(document.getElementById('geslo').innerText === document.getElementById('gesloPotrdi').innerText)
+        {
+            $('#warningDiv').html("Gesli se ujemata");
+        }
+        else
+        {
+            $('#warningDiv').html("Gesli se ne ujemata");
+        }
+    }
+</script>
+
 
 
 <script>
@@ -259,7 +283,6 @@
 
 
         })
-
     });
 </script>
 
