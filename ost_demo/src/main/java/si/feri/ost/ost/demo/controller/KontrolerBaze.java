@@ -197,11 +197,10 @@ public class KontrolerBaze {
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
         HttpSession session = request.getSession(false);//true will create if necessary
 
-<<<<<<< HEAD
+
         model.addAttribute("najnizjaCena",dogodki.vrniNajnizjoCeno());
         model.addAttribute("najvisjaCena",dogodki.vrniNajvisjoCeno());
-=======
->>>>>>> 1f6740673e77e7300896b11ce0f6f76586be9a4c
+
 
         int idUporabnika;
         Oseba prijavljenUporabnik;
@@ -273,13 +272,12 @@ public class KontrolerBaze {
         }
         model.addAttribute("dogodki", rez);
 
-<<<<<<< HEAD
+
       model.addAttribute("Kategorija",kateg);
 
 
-=======
         model.addAttribute("Kategorija", kateg);
->>>>>>> 1f6740673e77e7300896b11ce0f6f76586be9a4c
+
         return "events";
     }
 
@@ -487,8 +485,8 @@ public class KontrolerBaze {
             System.out.println(dogodek);
 
         }
-        File file = new File("C:\\Users\\Dejan Gregorc\\Desktop\\text.xml");
-        try {
+        File file = new File("C:\\Users\\Uporabnik\\Desktop\\text.xml");
+            try {
 
             for(int i=0;i<dogodki.size();i++)
             {
@@ -520,12 +518,12 @@ public class KontrolerBaze {
         System.out.println(zaZapisat);
         try {
             FileWriter fw = new FileWriter(file);
-            //fw.write(zaZapisat);
+            fw.write(zaZapisat);
         } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        return "events";
+        return zaZapisat;
     }
 
 
