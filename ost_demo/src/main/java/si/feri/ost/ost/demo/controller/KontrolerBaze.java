@@ -17,8 +17,8 @@ import org.xml.sax.SAXException;
 import si.feri.ost.ost.demo.DAO.DogodekDAO;
 import si.feri.ost.ost.demo.DAO.OsebaDAO;
 import si.feri.ost.ost.demo.Razredi.Dogodek;
+import si.feri.ost.ost.demo.Razredi.DogodekComparator;
 import si.feri.ost.ost.demo.Razredi.Oseba;
-import si.feri.ost.ost.demo.XMLParsing.exportXML;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -36,39 +36,11 @@ import java.net.URL;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 //
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.StringWriter;
-import java.net.URL;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.text.ParseException;
 import java.util.ArrayList;
 
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Marshaller;
-import javax.xml.parsers.DocumentBuilder;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.w3c.dom.Document;
-import org.w3c.dom.NodeList;
-import org.xml.sax.SAXException;
-import org.w3c.dom.Node;
-import org.w3c.dom.Element;
-import si.feri.ost.ost.demo.DAO.DogodekDAO;
-import si.feri.ost.ost.demo.Razredi.Dogodek;
-
-import java.io.File;
 import java.util.List;
 @Controller
 public class KontrolerBaze {
@@ -237,6 +209,24 @@ public class KontrolerBaze {
 
         return "events";
     }
+    public List<Dogodek> sortiraj(List<Dogodek> rezultat, String sort) {
+
+        if(sort.equals("najcenejsi"))
+            Collections.sort(rezultat,new DogodekComparator(true,true));
+
+        else if(sort.equals("najdrazji"))
+            Collections.sort(rezultat,new DogodekComparator(true,false));
+
+        else if(sort.equals("poImenu1"))
+            Collections.sort(rezultat, new DogodekComparator(false,false));
+
+        else if(sort.equals("poImenu2"))
+            Collections.sort(rezultat,new DogodekComparator(false,false).reversed());
+
+
+
+        return rezultat;
+    }
 
     @RequestMapping(value = {"/filter",}, method = RequestMethod.GET)
     public String eventsFilter(Model model,
@@ -244,7 +234,9 @@ public class KontrolerBaze {
                                @RequestParam(value = "krajDogodka", required = false) String kraj,
                                @RequestParam(value = "datumDogodka", required = false) String datum,
                                @RequestParam(value = "event", required = false) String kateg,
-                               @RequestParam(value = "cenaDogodka", required = false) String cena) throws ParseException {
+                               @RequestParam(value="inputKategorija",required=false) String sort,
+                               @RequestParam(value = "cenaDogodka", required = false) String cena)throws ParseException {
+
 
 
         List<Dogodek> seznam = dogodki.getByTip(kateg);
@@ -260,21 +252,21 @@ public class KontrolerBaze {
             datum = noviFormat.format(date);
         }
 
-        for (int i = 0; i < seznam.size(); i++) { //tole je bolša rešitev, datum je še edino treba ugotovit
-            if ((naziv.equals("") || seznam.get(i).getNaziv().equals(naziv)) &&
+        for (int i = 0; i < seznam.size(); i++) {
+            if ((naziv.equals("") || seznam.get(i).getNaziv().toLowerCase().contains(naziv.toLowerCase())) &&
                     (kraj.equals("") || seznam.get(i).getKraj().equals(kraj)) &&
                     (cena == null || cena.equals("") || Double.parseDouble(seznam.get(i).getCena()) <= Double.parseDouble(cena)) &&
-                    (datum == null || datum.equals("") || seznam.get(i).getDatum().equals(datum))) {
+                    (datum == null || datum.equals("") || seznam.get(i).getDatum().equals(datum))){
                 rez.add(seznam.get(i));
             }
 
-
         }
+
+        if(sort!= null && !sort.equals(""))
+            rez = sortiraj(rez,sort);
+
+
         model.addAttribute("dogodki", rez);
-
-
-      model.addAttribute("Kategorija",kateg);
-
 
         model.addAttribute("Kategorija", kateg);
 

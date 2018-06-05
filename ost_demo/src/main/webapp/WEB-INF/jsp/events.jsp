@@ -215,13 +215,11 @@
                         </div>
                         <div class="col l3 s5">
                             <select name="inputKategorija" id="inputKategorija">
-                                <option value="" disabled selected>Sortiraj po</option>
-                                <option value="Glasba">Najcenejši naprej</option>
-                                <option value="Gledališče">Najdražji naprej</option>
-                                <option value="Razstava">Po imenu A-Z</option>
-                                <option value="Šport">Po imenu Z-A</option>
-                                <option value="Kino">Po organizatorju A-Z</option>
-                                <option value="Kino">Po organizatorju Z-A</option>
+                                <option name="sort" value="" disabled selected>Sortiraj po</option>
+                                <option name="sort" value="najcenejsi">Najcenejši naprej</option>
+                                <option name="sort" value="najdrazji">Najdražji naprej</option>
+                                <option name="sort" value="poImenu1">Po imenu A-Z</option>
+                                <option name="sort" value="poImenu2">Po imenu Z-A</option>
                             </select>
                         </div>
                     </span>

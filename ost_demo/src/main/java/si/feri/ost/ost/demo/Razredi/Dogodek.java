@@ -3,7 +3,7 @@ package si.feri.ost.ost.demo.Razredi;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
-public class Dogodek
+public class Dogodek implements Comparable<Dogodek>
 {
     private int id;
     private String naziv;
@@ -226,6 +226,10 @@ public class Dogodek
     }
 
 
+    @Override
+    public int compareTo(Dogodek o) {
+        return this.naziv.compareTo(o.naziv);
+    }
 }
 
 
