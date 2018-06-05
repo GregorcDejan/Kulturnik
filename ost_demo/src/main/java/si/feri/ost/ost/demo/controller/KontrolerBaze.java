@@ -332,7 +332,7 @@ public class KontrolerBaze {
             {
                 prijavaUspesna = true;
 
-                model.addAttribute("uspesnost",prijavaUspesna);
+                model.addAttribute("uspesnost",true);
                 HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
                 HttpSession session = request.getSession(true);
 
