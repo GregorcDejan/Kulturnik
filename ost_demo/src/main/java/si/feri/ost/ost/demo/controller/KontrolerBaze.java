@@ -63,6 +63,8 @@ public class KontrolerBaze {
     public String zadnjih5(Model model)
     {
         //model.addAttribute("dogodki",dogodki.zadnjihNeki());
+        model.addAttribute("najnizjaCena",dogodki.vrniNajnizjoCeno());
+
         return "index";
     }
 

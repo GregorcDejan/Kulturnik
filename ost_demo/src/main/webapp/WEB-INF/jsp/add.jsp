@@ -47,16 +47,14 @@
                                 <form action="/events" method="get">
                                     <button class="btn-flat teal-text" name="event" value="Moji dogodki">
                   <span class="right ">
-                    <% if (Boolean.valueOf(String.valueOf(session.getAttribute("uporabnikPrijavljen"))))
-                    {%>
+                    <% if (Boolean.valueOf(String.valueOf(session.getAttribute("uporabnikPrijavljen")))) {%>
                     <%=
                     String.valueOf(session.getAttribute("imeUporabnika"))
                     %>
                     <%=
                     String.valueOf(session.getAttribute("priimekUporabnika"))
                     %>
-                   <% } else
-                   {%>
+                   <% } else {%>
                        <%="Neprijavljen uporabnik "%>
                     <%}%>
                   </span>
@@ -219,63 +217,13 @@
                     <label for="lokacijaInput">Naslov (prostor)</label>
                 </div>
             </div>
+
             <div class="row">
                 <div class="input-field col s8 offset-s2 ">
-                    <script>
 
-<<<<<<< HEAD
-            </script>
-            <select required name="tipDogodka" id="inputKategorija">
-              <option value="" disabled selected>
-                Izberite kategorijo
-              </option>
-              <option   value="Glasba">Glasba</option>
-              <option  value="Gledališče">Gledališče</option>
-              <option  value="Razstava">Razstava</option>
-              <option value="Šport">Šport</option>
-              <option value="Film">Kino</option>
-            </select>
-          </div>
-        </div>
-        <div class="row">
-          <div class="input-field col s8 offset-s2">
-            <input required type="text" name="urlDogodka" id="linkInput" class="validate" value="${urejanDogodek.vir}">
-            <label for="linkInput">Povezava do dogodka</label>
-          </div>
-        </div>
-        <div class="row">
-          <div class="input-field col s8 offset-s2">
-            <input required type="text" id="datumInput" name="datum" class="datepicker" value="${urejanDogodek.datum}">
-            <label for="datumInput">Datum dogodka</label>
-          </div>
-        </div>
-          <div class="row">
-              <div class="input-field col s8 offset-s2">
-                  <input required type="text" id="casInput" name="ura" class="timepicker" value="${urejanDogodek.ura}">
-                  <label for="datumInput">Čas dogodka</label>
-              </div>
-          </div>
-        <div class="row">
-          <div class="input-field col s8 offset-s2">
-            <input required type="number" id="cenaInput" name="cena" value="${urejanDogodek.cena}">
-            <label for="cenaInput">Cena</label>
-          </div>
-        </div>
-        <div class="row">
-          <div class="input-field col s8 offset-s2">
-            <textarea required id="opisDogodkaInput" name="opis" class="materialize-textarea">${urejanDogodek.opis}</textarea>
-            <label for="opisDogodkaInput">Opis dogodka</label>
-          </div>
-        </div>
-        <div class="row">
-          <div class="file-field input-field col s8 offset-s2">
-            <div class="btn teal darken-1">
-              <span>Naloži</span>
-              <input type="file" multiple>
-=======
-                    </script>
                     <select required name="tipDogodka" id="inputKategorija">
-                        <option value="${urejanDogodek.tip}">${urejanDogodek.tip}</option>
+                        <option value="" disabled selected>Izberite kategorijo
+                        </option>
                         <option value="Glasba">Glasba</option>
                         <option value="Gledališče">Gledališče</option>
                         <option value="Razstava">Razstava</option>
@@ -283,8 +231,8 @@
                         <option value="Film">Kino</option>
                     </select>
                 </div>
->>>>>>> 703d4cab1141a1a3ffbdc7ef6c4db1173c7d7ac6
             </div>
+
             <div class="row">
                 <div class="input-field col s8 offset-s2">
                     <input required type="text" name="urlDogodka" id="linkInput" class="validate"
@@ -398,35 +346,9 @@
         });
 
     });
-<<<<<<< HEAD
-    $('.datepicker').pickadate({
-      selectMonths: true, // Creates a dropdown to control month
-      selectYears: 15, // Creates a dropdown of 15 years to control year,
-      today: 'Danes',
-      clear: 'Zbriši',
-      close: 'Potrdi',
-      closeOnSelect: false, // Close upon selecting a date,
-      container: undefined // ex. 'body' will append picker to body
-    });
-    $('.timepicker').pickatime({
-      default: 'now', // Set default time: 'now', '1:30AM', '16:30'
-      fromnow: 0,       // set default time to * milliseconds from now (using with default = 'now')
-      twelvehour: false, // Use AM/PM or 24-hour format
-      donetext: 'Potrdi', // text for done-button
-      cleartext: 'Počisti', // text for clear-button
-      canceltext: 'Prekliči', // Text for cancel-button,
-      container: undefined, // ex. 'body' will append picker to body
-      autoclose: false, // automatic close timepicker
-      ampmclickable: true, // make AM PM clickable
-      aftershow: function () { } //Function for after opening timepicker
-    });
-
 
     $('#inputKategorija').val("${urejanDogodek.tip}");
 
-  });
-=======
->>>>>>> 703d4cab1141a1a3ffbdc7ef6c4db1173c7d7ac6
 </script>
 
 </html>
