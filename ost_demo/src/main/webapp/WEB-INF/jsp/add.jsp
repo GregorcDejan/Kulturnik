@@ -167,7 +167,7 @@
                             <button class="btn-flat" type="submit" name="event" value="Šport">Šport</button>
                         </li>
                         <li>
-                            <button class="btn-flat" type="submit" name="event" value="Kino">Kino</button>
+                            <button class="btn-flat" type="submit" name="event" value="Film">Kino</button>
                         </li>
 
                     </form>
