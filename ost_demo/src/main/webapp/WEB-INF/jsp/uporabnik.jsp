@@ -60,8 +60,7 @@
                             <li>
                                 <a href="add">
                                     <form action="/uredi" method="get">
-                                        <button class="btn-flat teal-text" name="ime" value="dodajanje">Dodaj Dogodek
-                                        </button>
+                                        <button class="btn-flat teal-text" name="ime" value="dodajanje">Dodaj Dogodek</button>
                                     </form>
                                 </a>
                             </li>
@@ -79,8 +78,10 @@
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <a href="#!">
+                                <a href="#">
+                                    <form action="/izpis" method="get">
                                     <button class="btn-flat teal-text">Izpis</button>
+                                    </form>
                                 </a>
                             </li>
                         </ul>

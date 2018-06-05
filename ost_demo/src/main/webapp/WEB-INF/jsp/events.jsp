@@ -233,8 +233,15 @@
                         <div class="card-reveal">
               <span class="card-title grey-text text-darken-4">
                 <i class="material-icons right">expand_more</i>${d.naziv}</span>
-                            <p>Lokacija: ${d.lokacija}
-                                <br/> Cena: ${d.cena}
+                            <p>Kraj: ${d.kraj}<br/>
+                                Ura: ${d.ura}<br/>
+                                Izvajalec: ${d.izvajalec}<br/>
+                                Lokacija: ${d.lokacija}<br/>
+                                Cena: ${d.cena} €<br/>
+                                Datum: ${d.datum}<br/>
+
+
+                            </p>
                             <p class="">${d.opis}
                                 <a href=""></a>
                             </p>
