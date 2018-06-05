@@ -64,7 +64,7 @@ public class DogodekDAO {
 
     }
 
-    /*public List<Dogodek> zadnjihNeki()
+    public List<Dogodek> zadnjihNeki()
     {
         List<Dogodek> vsi=getAllDogodki();
         Collections.reverse(vsi);
@@ -76,8 +76,8 @@ public class DogodekDAO {
         Collections.reverse(five);
         return five;
 
-    }*/
-//String naziv, String kraj, String ura, String izvajalec, String lokacija, String cena, String opis, String slikaURL, int idUporabnika, String tip, String datum, String vir
+    }
+
     public int addDogodek(String naziv, String kraj, String ura, String izvajalec, String lokacija, String cena, String opis, String slikaURL, int idUporabnika, String tip, String datum, String vir) throws ParseException {
      String sql = "INSERT INTO DOGODEK(naziv,kraj,ura,izvajalec,lokacija,cena,opis,slika,uporabnik_id,tip,datum,vir) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
 
