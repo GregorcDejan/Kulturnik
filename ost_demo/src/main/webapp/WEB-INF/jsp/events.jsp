@@ -182,7 +182,7 @@
 
 
         <h2 class="center-align">
-            ${Kategorija} <span class="right"><form action=""><button class="btn waves-effect waves-light btn-flat btn-floating "><i class="material-icons black-text">refresh</i></button></form></span>
+            ${Kategorija} <span class="right"><form action="/parseXML"><button class="btn waves-effect waves-light btn-flat btn-floating " name="event" value="${Kategorija}"  ><i class="material-icons black-text">refresh</i></button></form></span>
 
         </h2>
         <hr/>
