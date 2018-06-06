@@ -25,6 +25,7 @@
     <div class="navbar-fixed">
         <nav class=" teal darken-2 z-depth-3">
             <div class="nav-wrapper">
+
                 <a href="index" class="brand-logo">Kulturnik</a>
                 <a href="#" class="button-collapse" data-activates="mobile-sidenav">
                     <i class="material-icons">menu</i>
@@ -40,24 +41,20 @@
                             <i class="material-icons left">person</i>
                         </a>
                         <ul id='dropdownPerson' class='dropdown-content'>
+                            <% if (Boolean.valueOf(String.valueOf(session.getAttribute("uporabnikPrijavljen"))))
+                            { %>
                             <li class="collection-item avatar valign-wrapper">
                                 <i class="material-icons right teal-text">person </i>
-
-
                                 <form action="/events" method="get">
                                     <button class="btn-flat teal-text" name="event" value="Moji dogodki">
-                  <span class="right ">
-                    <% if (Boolean.valueOf(String.valueOf(session.getAttribute("uporabnikPrijavljen")))) {%>
-                    <%=
-                    String.valueOf(session.getAttribute("imeUporabnika"))
-                    %>
-                    <%=
-                    String.valueOf(session.getAttribute("priimekUporabnika"))
-                    %>
-                   <% } else {%>
-                       <%="Neprijavljen uporabnik "%>
-                    <%}%>
-                  </span>
+                                <span class="right ">
+                                    <%=
+                                    String.valueOf(session.getAttribute("imeUporabnika"))
+                                    %>
+                                  <%=
+                                  String.valueOf(session.getAttribute("priimekUporabnika"))
+                                  %>
+                                </span>
                                     </button>
                                 </form>
                             </li>
@@ -69,6 +66,24 @@
                                         </button>
                                     </form>
                                 </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="#!">
+                                    <form action="/izpis" method="get">
+                                        <button class="btn-flat teal-text">Izpis</button>
+                                    </form>
+                                </a>
+                            </li>
+
+                            <%  }  else { %>
+                            <li class="collection-item avatar valign-wrapper">
+                                <i class="material-icons right teal-text">person </i>
+                                <span class="right ">
+
+                                     <%="Neprijavljen uporabnik"%>
+
+                                </span>
 
                             </li>
                             <li class="divider"></li>
@@ -83,14 +98,7 @@
                                     <button class="btn-flat teal-text">Registracija</button>
                                 </a>
                             </li>
-                            <li class="divider"></li>
-                            <li>
-                                <a href="#!">
-                                    <form action="/izpis" method="get">
-                                        <button class="btn-flat teal-text">Izpis</button>
-                                    </form>
-                                </a>
-                            </li>
+                            <%}%>
                         </ul>
                     </li>
                 </ul>
@@ -140,7 +148,7 @@
                                 <li class="divider"></li>
                                 <li>
                                     <a href="#">
-                                        <button class="btn-flat teal-text" type="submit" name="event" value="Kino">
+                                        <button class="btn-flat teal-text" type="submit" name="event" value="Film">
                                             Kino
                                         </button>
                                     </a>
@@ -323,32 +331,32 @@
             $('select').material_select();
         });
         $('.datepicker').pickadate({
-            selectMonths: true, // Creates a dropdown to control month
-            selectYears: 15, // Creates a dropdown of 15 years to control year,
+            selectMonths: true,
+            selectYears: 15,
             today: 'Danes',
             clear: 'Zbriši',
             close: 'Potrdi',
-            closeOnSelect: false, // Close upon selecting a date,
-            container: undefined // ex. 'body' will append picker to body
+            closeOnSelect: false,
+            container: undefined
         });
         $('.timepicker').pickatime({
-            default: 'now', // Set default time: 'now', '1:30AM', '16:30'
-            fromnow: 0,       // set default time to * milliseconds from now (using with default = 'now')
-            twelvehour: false, // Use AM/PM or 24-hour format
-            donetext: 'Potrdi', // text for done-button
-            cleartext: 'Počisti', // text for clear-button
-            canceltext: 'Prekliči', // Text for cancel-button,
-            container: undefined, // ex. 'body' will append picker to body
-            autoclose: false, // automatic close timepicker
-            ampmclickable: true, // make AM PM clickable
+            default: 'now',
+            fromnow: 0,
+            twelvehour: false,
+            donetext: 'Potrdi',
+            cleartext: 'Počisti',
+            canceltext: 'Prekliči',
+            container: undefined,
+            autoclose: false,
+            ampmclickable: true,
             aftershow: function () {
-            } //Function for after opening timepicker
+            }
         });
 
     });
 
     $('#inputKategorija').val("${urejanDogodek.tip}");
-
+    Materialize.updateTextFields();
 </script>
 
 </html>

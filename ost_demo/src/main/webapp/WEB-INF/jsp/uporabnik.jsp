@@ -36,83 +36,64 @@
                             <i class="material-icons left">person</i>
                         </a>
                         <ul id='dropdownPerson' class='dropdown-content'>
-                            <c:choose>
-                                <c:when test="${uspesnost==true}">
-                                    <li class="collection-item avatar valign-wrapper">
-                                        <i class="material-icons right teal-text">person </i>
-                                        <form action="/events" method="get">
-                                            <button class="btn-flat teal-text" name="event" value="Moji dogodki">
+                            <% if (Boolean.valueOf(String.valueOf(session.getAttribute("uporabnikPrijavljen"))))
+                            { %>
+                            <li class="collection-item avatar valign-wrapper">
+                                <i class="material-icons right teal-text">person </i>
+                                <form action="/events" method="get">
+                                    <button class="btn-flat teal-text" name="event" value="Moji dogodki">
                                 <span class="right ">
-                                  <% if (Boolean.valueOf(String.valueOf(session.getAttribute("uporabnikPrijavljen"))))
-                                  {%>
-                                  <%=
-                                  String.valueOf(session.getAttribute("imeUporabnika"))
-                                  %>
+                                    <%=
+                                    String.valueOf(session.getAttribute("imeUporabnika"))
+                                    %>
                                   <%=
                                   String.valueOf(session.getAttribute("priimekUporabnika"))
                                   %>
-                                 <% } else
-                                 {%>
-                                     <%="Neprijavljen uporabnik"%>
-                                  <%}%>
                                 </span>
-                                            </button>
-                                        </form>
-                                    </li>
-                                    <li class="divider"></li>
-                                    <li>
-                                        <a href="add">
-                                            <form action="/uredi" method="get">
-                                                <button class="btn-flat teal-text" name="ime" value="dodajanje">Dodaj Dogodek
-                                                </button>
-                                            </form>
-                                        </a>
-                                    </li>
-                                    <li class="divider"></li>
-                                    <li>
-                                        <a href="#!">
-                                            <form action="/izpis" method="get">
-                                                <button class="btn-flat teal-text">Izpis</button>
-                                            </form>
-                                        </a>
-                                    </li>
-                                </c:when>
-                                <c:otherwise>
-                                    <li class="collection-item avatar valign-wrapper">
-                                        <i class="material-icons right teal-text">person </i>
-                                        <form action="/events" method="get">
-                                            <button class="btn-flat teal-text" name="event" value="Moji dogodki">
+                                    </button>
+                                </form>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="add">
+                                    <form action="/uredi" method="get">
+                                        <button class="btn-flat teal-text" name="ime" value="dodajanje">Dodaj Dogodek
+                                        </button>
+                                    </form>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="#!">
+                                    <form action="/izpis" method="get">
+                                        <button class="btn-flat teal-text">Izpis</button>
+                                    </form>
+                                </a>
+                            </li>
+
+                            <%  }  else { %>
+                            <li class="collection-item avatar valign-wrapper">
+                                <i class="material-icons right teal-text">person </i>
                                 <span class="right ">
-                                  <% if (Boolean.valueOf(String.valueOf(session.getAttribute("uporabnikPrijavljen"))))
-                                  {%>
-                                  <%=
-                                  String.valueOf(session.getAttribute("imeUporabnika"))
-                                  %>
-                                  <%=
-                                  String.valueOf(session.getAttribute("priimekUporabnika"))
-                                  %>
-                                 <% } else
-                                 {%>
+
                                      <%="Neprijavljen uporabnik"%>
-                                  <%}%>
+
                                 </span>
-                                            </button>
-                                        </form>
-                                    </li>
-                                    <li class="divider"></li>
-                                    <li>
-                                        <a href="vpis">
-                                            <button class="btn-flat teal-text">Vpis</button>
-                                        </a>
-                                    </li>
-                                    <li class="divider"></li>
-                                    <li>
-                                        <a href="registracija">
-                                            <button class="btn-flat teal-text">Registracija</button>
-                                        </a>
-                                    </li>
-                                </c:otherwise>
-                            </c:choose>
+
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="vpis">
+                                    <button class="btn-flat teal-text">Vpis</button>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="registracija">
+                                    <button class="btn-flat teal-text">Registracija</button>
+                                </a>
+                            </li>
+                            <%}%>
                         </ul>
                     </li>
                 </ul>
@@ -347,7 +328,7 @@
 
         // Page Specific //
 
-
+        Materialize.updateTextFields();
     });
 </script>
 

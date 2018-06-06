@@ -24,6 +24,7 @@
     <div class="navbar-fixed">
         <nav class=" teal darken-2 z-depth-3">
             <div class="nav-wrapper">
+
                 <a href="index" class="brand-logo">Kulturnik</a>
                 <a href="#" class="button-collapse" data-activates="mobile-sidenav">
                     <i class="material-icons">menu</i>
@@ -39,24 +40,20 @@
                             <i class="material-icons left">person</i>
                         </a>
                         <ul id='dropdownPerson' class='dropdown-content'>
+                            <% if (Boolean.valueOf(String.valueOf(session.getAttribute("uporabnikPrijavljen"))))
+                            { %>
                             <li class="collection-item avatar valign-wrapper">
                                 <i class="material-icons right teal-text">person </i>
                                 <form action="/events" method="get">
                                     <button class="btn-flat teal-text" name="event" value="Moji dogodki">
-                        <span class="right ">
-                          <% if (Boolean.valueOf(String.valueOf(session.getAttribute("uporabnikPrijavljen"))))
-                          {%>
-                          <%=
-                          String.valueOf(session.getAttribute("imeUporabnika"))
-                          %>
-                          <%=
-                          String.valueOf(session.getAttribute("priimekUporabnika"))
-                          %>
-                         <% } else
-                         {%>
-                             <%="Neprijavljen uporabnik "%>
-                          <%}%>
-                        </span>
+                                <span class="right ">
+                                    <%=
+                                    String.valueOf(session.getAttribute("imeUporabnika"))
+                                    %>
+                                  <%=
+                                  String.valueOf(session.getAttribute("priimekUporabnika"))
+                                  %>
+                                </span>
                                     </button>
                                 </form>
                             </li>
@@ -71,6 +68,25 @@
                             </li>
                             <li class="divider"></li>
                             <li>
+                                <a href="#!">
+                                    <form action="/izpis" method="get">
+                                        <button class="btn-flat teal-text">Izpis</button>
+                                    </form>
+                                </a>
+                            </li>
+
+                            <%  }  else { %>
+                            <li class="collection-item avatar valign-wrapper">
+                                <i class="material-icons right teal-text">person </i>
+                                <span class="right ">
+
+                                     <%="Neprijavljen uporabnik"%>
+
+                                </span>
+
+                            </li>
+                            <li class="divider"></li>
+                            <li>
                                 <a href="vpis">
                                     <button class="btn-flat teal-text">Vpis</button>
                                 </a>
@@ -81,14 +97,7 @@
                                     <button class="btn-flat teal-text">Registracija</button>
                                 </a>
                             </li>
-                            <li class="divider"></li>
-                            <li>
-                                <a href="#!">
-                                    <form action="/izpis" method="get">
-                                        <button class="btn-flat teal-text">Izpis</button>
-                                    </form>
-                                </a>
-                            </li>
+                            <%}%>
                         </ul>
                     </li>
                 </ul>
@@ -138,7 +147,7 @@
                                 <li class="divider"></li>
                                 <li>
                                     <a href="#">
-                                        <button class="btn-flat teal-text" type="submit" name="event" value="Kino">
+                                        <button class="btn-flat teal-text" type="submit" name="event" value="Film">
                                             Kino
                                         </button>
                                     </a>
@@ -165,7 +174,7 @@
                             <button class="btn-flat" type="submit" name="event" value="Šport">Šport</button>
                         </li>
                         <li>
-                            <button class="btn-flat" type="submit" name="event" value="Kino">Kino</button>
+                            <button class="btn-flat" type="submit" name="event" value="Film">Kino</button>
                         </li>
 
                     </form>
@@ -197,19 +206,19 @@
                         <label for="gesloPotrdi">Potrdite Geslo</label>
                     </div>
                     <div class="input-field col s12 l6">
-                        <input required id="email" type="email" class="validate" name="email">
-                        <label for="email" data-error="Narobe" data-success="Vredu">E-mail</label>
+                        <input required id="email" type="email" class="validate" name="email" onkeyup="preveriPosti()">
+                        <label for="email" data-error="" data-success="">E-mail</label>
                     </div>
                     <div class="input-field col s12 l6">
-                        <input required id="emailPotrdi" type="email" class="validate">
-                        <label for="emailPotrdi" data-error="Narobe" data-success="Vredu">Potrdite E-mail</label>
+                        <input required id="emailPotrdi" type="email" class="validate" onkeyup="preveriPosti()">
+                        <label for="emailPotrdi" data-error="" data-success="">Potrdite E-mail</label>
                     </div>
                     <div class="input-field col s12 l6">
                         <input required id="datumRojstva" type="text" class="datepicker validate" name="datumRojstva">
                         <label for="datumRojstva">Datum Rojstva</label>
                     </div>
                     <div class="input-field col s12 l6">
-                        <input id="telefon" type="text" class="validate" name="telefonska">
+                        <input id="telefon" type="text" class="" name="telefonska">
                         <label for="telefon">Telefon</label>
                     </div>
                     <div class="file-field input-field col s12 l12">
@@ -239,13 +248,27 @@
 <script>
 
     function preveriGesli() {
-        if(document.getElementById('geslo').innerText === document.getElementById('gesloPotrdi').innerText)
+        if($('#geslo').val() == $('#gesloPotrdi').val())
         {
             $('#warningDiv').html("Gesli se ujemata");
+            $('#registrirajSe').attr("disabled", false);
         }
         else
         {
             $('#warningDiv').html("Gesli se ne ujemata");
+            $('#registrirajSe').attr("disabled", true);
+        }
+    }
+    function preveriPosti() {
+        if($('#email').val() == $('#emailPotrdi').val())
+        {
+            $('#warningDiv').html("E-pošti se ujemata");
+            $('#registrirajSe').attr("disabled", false);
+        }
+        else
+        {
+            $('#warningDiv').html("E-pošti se ne ujemata");
+            $('#registrirajSe').attr("disabled", true);
         }
     }
 </script>
@@ -283,6 +306,7 @@
 
 
         })
+        Materialize.updateTextFields();
     });
 </script>
 

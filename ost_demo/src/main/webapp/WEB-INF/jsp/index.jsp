@@ -38,25 +38,19 @@
                             <i class="material-icons left">person</i>
                         </a>
                         <ul id='dropdownPerson' class='dropdown-content'>
-                            <c:choose>
-                                <c:when test="${uspesnost==true}">
-                                <li class="collection-item avatar valign-wrapper">
+                            <% if (Boolean.valueOf(String.valueOf(session.getAttribute("uporabnikPrijavljen"))))
+                            { %>
+                            <li class="collection-item avatar valign-wrapper">
                                 <i class="material-icons right teal-text">person </i>
                                 <form action="/events" method="get">
                                 <button class="btn-flat teal-text" name="event" value="Moji dogodki">
                                 <span class="right ">
-                                  <% if (Boolean.valueOf(String.valueOf(session.getAttribute("uporabnikPrijavljen"))))
-                                  {%>
-                                  <%=
+                                    <%=
                                   String.valueOf(session.getAttribute("imeUporabnika"))
                                   %>
                                   <%=
                                   String.valueOf(session.getAttribute("priimekUporabnika"))
                                   %>
-                                 <% } else
-                                 {%>
-                                     <%="Neprijavljen uporabnik"%>
-                                  <%}%>
                                 </span>
                                  </button>
                                 </form>
@@ -78,28 +72,16 @@
                                             </form>
                                         </a>
                                     </li>
-                                </c:when>
-                                <c:otherwise>
+
+                            <%  }  else { %>
                                     <li class="collection-item avatar valign-wrapper">
                                         <i class="material-icons right teal-text">person </i>
-                                        <form action="/events" method="get">
-                                            <button class="btn-flat teal-text" name="event" value="Moji dogodki">
-                                <span class="right ">
-                                  <% if (Boolean.valueOf(String.valueOf(session.getAttribute("uporabnikPrijavljen"))))
-                                  {%>
-                                  <%=
-                                  String.valueOf(session.getAttribute("imeUporabnika"))
-                                  %>
-                                  <%=
-                                  String.valueOf(session.getAttribute("priimekUporabnika"))
-                                  %>
-                                 <% } else
-                                 {%>
+                                        <span class="right ">
+
                                      <%="Neprijavljen uporabnik"%>
-                                  <%}%>
+
                                 </span>
-                                            </button>
-                                        </form>
+
                                     </li>
                             <li class="divider"></li>
                             <li>
@@ -113,8 +95,7 @@
                                     <button class="btn-flat teal-text">Registracija</button>
                                 </a>
                             </li>
-                                </c:otherwise>
-                            </c:choose>
+                            <%}%>
                         </ul>
                     </li>
                 </ul>

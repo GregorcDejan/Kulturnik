@@ -30,6 +30,7 @@ String.valueOf(session.getAttribute("imeUporabnika"))%>
     <div class="navbar-fixed">
         <nav class=" teal darken-2 z-depth-3">
             <div class="nav-wrapper">
+
                 <a href="index" class="brand-logo">Kulturnik</a>
                 <a href="#" class="button-collapse" data-activates="mobile-sidenav">
                     <i class="material-icons">menu</i>
@@ -45,25 +46,20 @@ String.valueOf(session.getAttribute("imeUporabnika"))%>
                             <i class="material-icons left">person</i>
                         </a>
                         <ul id='dropdownPerson' class='dropdown-content'>
-
+                            <% if (Boolean.valueOf(String.valueOf(session.getAttribute("uporabnikPrijavljen"))))
+                            { %>
                             <li class="collection-item avatar valign-wrapper">
                                 <i class="material-icons right teal-text">person </i>
                                 <form action="/events" method="get">
                                     <button class="btn-flat teal-text" name="event" value="Moji dogodki">
-                        <span class="right ">
-                          <% if (Boolean.valueOf(String.valueOf(session.getAttribute("uporabnikPrijavljen"))))
-                          {%>
-                          <%=
-                          String.valueOf(session.getAttribute("imeUporabnika"))
-                          %>
-                          <%=
-                          String.valueOf(session.getAttribute("priimekUporabnika"))
-                          %>
-                         <% } else
-                         {%>
-                             <%="Neprijavljen uporabnik "%>
-                          <%}%>
-                        </span>
+                                <span class="right ">
+                                    <%=
+                                    String.valueOf(session.getAttribute("imeUporabnika"))
+                                    %>
+                                  <%=
+                                  String.valueOf(session.getAttribute("priimekUporabnika"))
+                                  %>
+                                </span>
                                     </button>
                                 </form>
                             </li>
@@ -78,6 +74,25 @@ String.valueOf(session.getAttribute("imeUporabnika"))%>
                             </li>
                             <li class="divider"></li>
                             <li>
+                                <a href="#!">
+                                    <form action="/izpis" method="get">
+                                        <button class="btn-flat teal-text">Izpis</button>
+                                    </form>
+                                </a>
+                            </li>
+
+                            <%  }  else { %>
+                            <li class="collection-item avatar valign-wrapper">
+                                <i class="material-icons right teal-text">person </i>
+                                <span class="right ">
+
+                                     <%="Neprijavljen uporabnik"%>
+
+                                </span>
+
+                            </li>
+                            <li class="divider"></li>
+                            <li>
                                 <a href="vpis">
                                     <button class="btn-flat teal-text">Vpis</button>
                                 </a>
@@ -88,14 +103,7 @@ String.valueOf(session.getAttribute("imeUporabnika"))%>
                                     <button class="btn-flat teal-text">Registracija</button>
                                 </a>
                             </li>
-                            <li class="divider"></li>
-                            <li>
-                                <a href="#!">
-                                    <form action="/izpis" method="get">
-                                        <button class="btn-flat teal-text">Izpis</button>
-                                    </form>
-                                </a>
-                            </li>
+                            <%}%>
                         </ul>
                     </li>
                 </ul>
@@ -145,7 +153,7 @@ String.valueOf(session.getAttribute("imeUporabnika"))%>
                                 <li class="divider"></li>
                                 <li>
                                     <a href="#">
-                                        <button class="btn-flat teal-text" type="submit" name="event" value="Kino">
+                                        <button class="btn-flat teal-text" type="submit" name="event" value="Film">
                                             Kino
                                         </button>
                                     </a>
@@ -172,7 +180,7 @@ String.valueOf(session.getAttribute("imeUporabnika"))%>
                             <button class="btn-flat" type="submit" name="event" value="Šport">Šport</button>
                         </li>
                         <li>
-                            <button class="btn-flat" type="submit" name="event" value="Kino">Kino</button>
+                            <button class="btn-flat" type="submit" name="event" value="Film">Kino</button>
                         </li>
 
                     </form>
@@ -203,14 +211,14 @@ String.valueOf(session.getAttribute("imeUporabnika"))%>
         <form action="/prijava" method="post">
             <div class="row">
                 <div class="input-field col s10 offset-s1 col l6 offset-l3">
-                    <input id="user" type="text" class="validate" name="username">
-                    <label for="user" data-error="Narobe" data-success="Vredu">Email</label>
+                    <input id="user" type="text" class="validate" name="username" autocomplete="new-password">
+                    <label for="user" data-error="Narobe" data-success="Vredu" class="active">Email</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s10 offset-s1 col l6 offset-l3">
-                    <input id="password" type="password" class="validate" name="password">
-                    <label for="password">Password</label>
+                    <input id="password" type="password" class="validate" name="password" autocomplete="new-password">
+                    <label for="password" class="active">Password</label>
                 </div>
             </div>
             <div class="row">
@@ -224,7 +232,7 @@ String.valueOf(session.getAttribute("imeUporabnika"))%>
             <div class="row">
                 <div class="input-field center-align">
                     <button id="signIn" class="btn btn-submit large teal darken-1 z-depth-3" type="submit" name="event"
-                            value="Moji dogodki">Vpis
+                            value="Moji dogodki" onclick="rememberCheck()">Vpis
                     </button>
                     <div class="input-field center-align">
                         <a href="registracija">Še nimate računa?</a>
@@ -255,9 +263,37 @@ String.valueOf(session.getAttribute("imeUporabnika"))%>
         });
 
         // Page Specific //
+        loadUser();
+
 
 
     });
+    function rememberCheck()
+    {
+        if($('#remember').prop('checked'))
+        {
+            saveUser();
+        }
+        else
+        {
+            forgetUser();
+        }
+    }
+
+    function saveUser() {
+        localStorage.userName =  $('#user').val();
+        localStorage.passWord = $('#password').val();
+    }
+
+    function forgetUser() {
+        localStorage.userName =  '';
+        localStorage.passWord = '';
+    }
+
+    function loadUser() {
+        $('#user').val(localStorage.userName);
+        $('#password').val(localStorage.passWord);
+    }
 </script>
 
 </html>
