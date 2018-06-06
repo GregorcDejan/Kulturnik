@@ -1,4 +1,9 @@
+< xmlns:h="http://xmlns.jcp.org/jsf/html" />
+< xmlns:h="http://java.sun.com/jsf/html"/>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="h" uri="http://www.springframework.org/tags/form" %>
+
+
 
 <html>
 
@@ -9,22 +14,28 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </head>
-String ime,String priimek,String geslo, String email, String telefonska,String datum_rojstva
+
 <body>
 
-<table border=1>
-    <tr><th>ID</th><th>vir</th><th>slika</th></tr>
-    <c:forEach  items="${dogodki}" var ="d">
-        <tr>
-            <td>${d.getNaziv()}</td>
-            <td><a href="${d.vir}" />${d.vir}</td>
-            <td><img src="${d.slikaURL}" /></td>
-        </tr>
-    </c:forEach>
-</table>
 
 
 
+
+<h:form>
+    <p:commandButton id="downloadLink" value="Download" ajax="false">
+        <p:fileDownload value="#{filemanagement.prepDownload}" />
+    </p:commandButton>
+</h:form>
+
+<script type="text/javascript">
+    function start() {
+        PF('statusDialog').show();
+    }
+
+    function stop() {
+        PF('statusDialog').hide();
+    }
+</script>
 
 </body>
 

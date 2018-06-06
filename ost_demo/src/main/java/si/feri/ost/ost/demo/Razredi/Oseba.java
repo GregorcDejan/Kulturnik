@@ -8,6 +8,7 @@ public class Oseba {
     private String geslo;
     private String datumRojstva;
     private String telefonska;
+    private String avatar;
 
 
     public Oseba() {
@@ -30,6 +31,27 @@ public class Oseba {
         this.geslo = geslo;
         this.datumRojstva = datumRojstva;
         this.telefonska = telefonska;
+    }
+
+    public Oseba(int id, String ime, String priimek, String email, String geslo, String datumRojstva, String telefonska, String avatar) {
+        this.id = id;
+        this.ime = ime;
+        this.priimek = priimek;
+        this.email = email;
+        this.geslo = geslo;
+        this.datumRojstva = datumRojstva;
+        this.telefonska = telefonska;
+        this.avatar = avatar;
+    }
+
+    public Oseba(String ime, String priimek, String email, String geslo, String datumRojstva, String telefonska, String avatar) {
+        this.ime = ime;
+        this.priimek = priimek;
+        this.email = email;
+        this.geslo = geslo;
+        this.datumRojstva = datumRojstva;
+        this.telefonska = telefonska;
+        this.avatar = avatar;
     }
 
     public int getId() {
@@ -82,6 +104,14 @@ public class Oseba {
 
     public void setTelefonska(String telefonska) {
         this.telefonska = telefonska;
+    }
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
     }
 
     @Override
