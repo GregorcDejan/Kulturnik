@@ -182,7 +182,7 @@
 
 
         <h2 class="center-align">
-            ${Kategorija}
+            ${Kategorija} <span class="right"><form action="/parseXML"><button class="btn waves-effect waves-light btn-flat btn-floating " name="event" value="${Kategorija}"  ><i class="material-icons black-text">refresh</i></button></form></span>
 
         </h2>
         <hr/>
@@ -272,10 +272,11 @@
                             <p class="">${d.opis}
                                 <a href=""></a>
                             </p>
-                            <form action="/uredi" method="get">
+                            <form action="/<map name=" 
+                            "></map>" method="get">
                                 <button class="btn valign-wrapper right blue lighten-1 waves-effect" name="ime"
                                         value="${d.id}">
-                                    <div class="valign-wrapper"> Več
+                                    <div class="valign-wrapper"> Prikaži na zemljevidu
                                         <i class="material-icons right">add_circle</i>
                                     </div>
                                 </button>
@@ -364,13 +365,13 @@
 
         // Pickdate //
         $('.datepicker').pickadate({
-            selectMonths: true, // Creates a dropdown to control month
-            selectYears: 15, // Creates a dropdown of 15 years to control year,
+            selectMonths: true,
+            selectYears: 15,
             today: 'Danes',
             clear: 'Počisti',
             close: 'Vredu',
-            closeOnSelect: false, // Close upon selecting a date,
-            container: undefined // ex. 'body' will append picker to body
+            closeOnSelect: false,
+            container: undefined
 
 
         })
@@ -379,7 +380,7 @@
         });
 
         $('#naprednoShowHide').hide();
-
+        Materialize.updateTextFields();
     });
 </script>
 

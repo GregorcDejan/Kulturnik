@@ -206,19 +206,19 @@
                         <label for="gesloPotrdi">Potrdite Geslo</label>
                     </div>
                     <div class="input-field col s12 l6">
-                        <input required id="email" type="email" class="validate" name="email">
-                        <label for="email" data-error="Narobe" data-success="Vredu">E-mail</label>
+                        <input required id="email" type="email" class="validate" name="email" onkeyup="preveriPosti()">
+                        <label for="email" data-error="" data-success="">E-mail</label>
                     </div>
                     <div class="input-field col s12 l6">
-                        <input required id="emailPotrdi" type="email" class="validate">
-                        <label for="emailPotrdi" data-error="Narobe" data-success="Vredu">Potrdite E-mail</label>
+                        <input required id="emailPotrdi" type="email" class="validate" onkeyup="preveriPosti()">
+                        <label for="emailPotrdi" data-error="" data-success="">Potrdite E-mail</label>
                     </div>
                     <div class="input-field col s12 l6">
                         <input required id="datumRojstva" type="text" class="datepicker validate" name="datumRojstva">
                         <label for="datumRojstva">Datum Rojstva</label>
                     </div>
                     <div class="input-field col s12 l6">
-                        <input id="telefon" type="text" class="validate" name="telefonska">
+                        <input id="telefon" type="text" class="" name="telefonska">
                         <label for="telefon">Telefon</label>
                     </div>
                     <div class="file-field input-field col s12 l12">
@@ -248,13 +248,27 @@
 <script>
 
     function preveriGesli() {
-        if(document.getElementById('geslo').innerText === document.getElementById('gesloPotrdi').innerText)
+        if($('#geslo').val() == $('#gesloPotrdi').val())
         {
             $('#warningDiv').html("Gesli se ujemata");
+            $('#registrirajSe').attr("disabled", false);
         }
         else
         {
             $('#warningDiv').html("Gesli se ne ujemata");
+            $('#registrirajSe').attr("disabled", true);
+        }
+    }
+    function preveriPosti() {
+        if($('#email').val() == $('#emailPotrdi').val())
+        {
+            $('#warningDiv').html("E-pošti se ujemata");
+            $('#registrirajSe').attr("disabled", false);
+        }
+        else
+        {
+            $('#warningDiv').html("E-pošti se ne ujemata");
+            $('#registrirajSe').attr("disabled", true);
         }
     }
 </script>
@@ -292,6 +306,7 @@
 
 
         })
+        Materialize.updateTextFields();
     });
 </script>
 
