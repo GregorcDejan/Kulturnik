@@ -203,14 +203,14 @@ String.valueOf(session.getAttribute("imeUporabnika"))%>
         <form action="/prijava" method="post">
             <div class="row">
                 <div class="input-field col s10 offset-s1 col l6 offset-l3">
-                    <input id="user" type="text" class="validate" name="username">
-                    <label for="user" data-error="Narobe" data-success="Vredu">Email</label>
+                    <input id="user" type="text" class="validate" name="username" autocomplete="new-password">
+                    <label for="user" data-error="Narobe" data-success="Vredu" class="active">Email</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s10 offset-s1 col l6 offset-l3">
-                    <input id="password" type="password" class="validate" name="password">
-                    <label for="password">Password</label>
+                    <input id="password" type="password" class="validate" name="password" autocomplete="new-password">
+                    <label for="password" class="active">Password</label>
                 </div>
             </div>
             <div class="row">
@@ -224,7 +224,7 @@ String.valueOf(session.getAttribute("imeUporabnika"))%>
             <div class="row">
                 <div class="input-field center-align">
                     <button id="signIn" class="btn btn-submit large teal darken-1 z-depth-3" type="submit" name="event"
-                            value="Moji dogodki">Vpis
+                            value="Moji dogodki" onclick="rememberCheck()">Vpis
                     </button>
                     <div class="input-field center-align">
                         <a href="registracija">Še nimate računa?</a>
@@ -255,9 +255,37 @@ String.valueOf(session.getAttribute("imeUporabnika"))%>
         });
 
         // Page Specific //
+        loadUser();
+
 
 
     });
+    function rememberCheck()
+    {
+        if($('#remember').prop('checked'))
+        {
+            saveUser();
+        }
+        else
+        {
+            forgetUser();
+        }
+    }
+
+    function saveUser() {
+        localStorage.userName =  $('#user').val();
+        localStorage.passWord = $('#password').val();
+    }
+
+    function forgetUser() {
+        localStorage.userName =  '';
+        localStorage.passWord = '';
+    }
+
+    function loadUser() {
+        $('#user').val(localStorage.userName);
+        $('#password').val(localStorage.passWord);
+    }
 </script>
 
 </html>

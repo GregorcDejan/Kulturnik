@@ -175,7 +175,7 @@
 
 
         <h2 class="center-align">
-            ${Kategorija}
+            ${Kategorija} <span class="right"><form action=""><button class="btn waves-effect waves-light btn-flat btn-floating "><i class="material-icons black-text">refresh</i></button></form></span>
 
         </h2>
         <hr/>
@@ -372,7 +372,7 @@
         });
 
         $('#naprednoShowHide').hide();
-
+        Materialize.updateTextFields();
     });
 </script>
 

@@ -347,7 +347,7 @@
 
         // Page Specific //
 
-
+        Materialize.updateTextFields();
     });
 </script>
 

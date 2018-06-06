@@ -348,7 +348,7 @@
     });
 
     $('#inputKategorija').val("${urejanDogodek.tip}");
-
+    Materialize.updateTextFields();
 </script>
 
 </html>

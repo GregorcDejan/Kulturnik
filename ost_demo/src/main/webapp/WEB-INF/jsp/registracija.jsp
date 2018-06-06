@@ -283,6 +283,7 @@
 
 
         })
+        Materialize.updateTextFields();
     });
 </script>
 
