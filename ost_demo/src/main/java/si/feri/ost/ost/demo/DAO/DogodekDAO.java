@@ -126,6 +126,7 @@ public class DogodekDAO {
 
 
         }
+        return 1;
     }
 
 
