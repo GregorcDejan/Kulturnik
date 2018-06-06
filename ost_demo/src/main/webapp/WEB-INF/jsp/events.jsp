@@ -99,10 +99,10 @@
                 </ul>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
 
-                    <li class="active">
+                    <li>
                         <a href="index">Domov</a>
                     </li>
-                    <li>
+                    <li class="active">
                         <form action="/events" method="get">
                             <a class="dropdown-trigger" data-activates="dropdownEvents" href="#">
                                 Dogodki
