@@ -10,6 +10,7 @@ CREATE TABLE IF NOT EXISTS Uporabnik (
   `telefon` VARCHAR(45) NOT NULL,
   `geslo` VARCHAR(45) NOT NULL,
   `datum_rojstva` VARCHAR(45) NOT NULL,
+  `avatar` VARCHAR(200) NOT NULL,
   PRIMARY KEY (`ID`));
 
 
