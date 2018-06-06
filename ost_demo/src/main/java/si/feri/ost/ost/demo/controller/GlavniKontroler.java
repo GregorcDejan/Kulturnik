@@ -40,6 +40,8 @@ public class GlavniKontroler {
     public String test(Model model) {
 
         return "Konsola";
+
+        
     }
 
     @RequestMapping(value = { "/uporabnik" }, method = RequestMethod.GET)
