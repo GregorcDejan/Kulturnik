@@ -221,18 +221,7 @@
                         <input id="telefon" type="text" class="" name="telefonska">
                         <label for="telefon">Telefon</label>
                     </div>
-                    <div class="file-field input-field col s12 l12">
-                        <div class="btn">
-                <span class="left">Naloži
-                  <i class="material-icons right">file_upload</i>
-                </span>
-                            <input type="file">
-                        </div>
-                        <div class="file-path-wrapper">
-                            <input class="file-path validate" type="text" placeholder="Profilna fotografija">
-                        </div>
-                    </div>
-                    <div id="warningDiv" class="col s10"></div>
+                    <div id="warningDiv" class="col s12 center-align red-text text-lighten-2"></div>
                     <button id="registrirajSe" class="btn col teal darken-1 z-depth-3 offset-l3 l6 s10 offset-s1 btn-large" type="submit">
                         Registriraj se
                     </button>
@@ -250,7 +239,7 @@
     function preveriGesli() {
         if($('#geslo').val() == $('#gesloPotrdi').val())
         {
-            $('#warningDiv').html("Gesli se ujemata");
+            $('#warningDiv').html("");
             $('#registrirajSe').attr("disabled", false);
         }
         else
@@ -262,7 +251,7 @@
     function preveriPosti() {
         if($('#email').val() == $('#emailPotrdi').val())
         {
-            $('#warningDiv').html("E-pošti se ujemata");
+            $('#warningDiv').html("");
             $('#registrirajSe').attr("disabled", false);
         }
         else
