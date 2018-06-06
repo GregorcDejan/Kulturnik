@@ -15,6 +15,13 @@
     <link rel="stylesheet" type="text/css" href="materialize.min.css"/>
     <link rel="stylesheet" type="text/css" href="style.css"/>
     <script src="main.js"></script>
+
+    <style>
+        #map {
+            height: 400px;
+            width: 100%;
+        }
+    </style>
 </head>
 
 <body>
@@ -32,14 +39,13 @@ String.valueOf(session.getAttribute("imeUporabnika"))%>
     <div class="navbar-fixed">
         <nav class=" teal darken-2 z-depth-3">
             <div class="nav-wrapper">
-
                 <a href="index" class="brand-logo">Kulturnik</a>
                 <a href="#" class="button-collapse" data-activates="mobile-sidenav">
                     <i class="material-icons">menu</i>
                 </a>
                 <ul class="right show-on-med-and-down">
-                    <li>
-                        <a href="#">
+                    <li class="active">
+                        <a href="map" >
                             <i class="material-icons">place</i>
                         </a>
                     </li>
@@ -48,89 +54,46 @@ String.valueOf(session.getAttribute("imeUporabnika"))%>
                             <i class="material-icons left">person</i>
                         </a>
                         <ul id='dropdownPerson' class='dropdown-content'>
-                            <c:choose>
-                                <c:when test="${uspesnost==true}">
-                                    <li class="collection-item avatar valign-wrapper">
-                                        <i class="material-icons right teal-text">person </i>
-                                        <form action="/events" method="get">
-                                            <button class="btn-flat teal-text" name="event" value="Moji dogodki">
-                                <span class="right ">
-                                  <% if (Boolean.valueOf(String.valueOf(session.getAttribute("uporabnikPrijavljen"))))
-                                  {%>
-                                  <%=
-                                  String.valueOf(session.getAttribute("imeUporabnika"))
-                                  %>
-                                  <%=
-                                  String.valueOf(session.getAttribute("priimekUporabnika"))
-                                  %>
-                                 <% } else
-                                 {%>
-                                     <%="Neprijavljen uporabnik"%>
-                                  <%}%>
-                                </span>
-                                            </button>
-                                        </form>
-                                    </li>
-                                    <li class="divider"></li>
-                                    <li>
-                                        <a href="add">
-                                            <form action="/uredi" method="get">
-                                                <button class="btn-flat teal-text" name="ime" value="dodajanje">Dodaj Dogodek
-                                                </button>
-                                            </form>
-                                        </a>
-                                    </li>
-                                    <li class="divider"></li>
-                                    <li>
-                                        <a href="#!">
-                                            <form action="/izpis" method="get">
-                                                <button class="btn-flat teal-text">Izpis</button>
-                                            </form>
-                                        </a>
-                                    </li>
-                                </c:when>
-                                <c:otherwise>
-                                    <li class="collection-item avatar valign-wrapper">
-                                        <i class="material-icons right teal-text">person </i>
-                                        <form action="/events" method="get">
-                                            <button class="btn-flat teal-text" name="event" value="Moji dogodki">
-                                <span class="right ">
-                                  <% if (Boolean.valueOf(String.valueOf(session.getAttribute("uporabnikPrijavljen"))))
-                                  {%>
-                                  <%=
-                                  String.valueOf(session.getAttribute("imeUporabnika"))
-                                  %>
-                                  <%=
-                                  String.valueOf(session.getAttribute("priimekUporabnika"))
-                                  %>
-                                 <% } else
-                                 {%>
-                                     <%="Neprijavljen uporabnik"%>
-                                  <%}%>
-                                </span>
-                                            </button>
-                                        </form>
-                                    </li>
-                                    <li class="divider"></li>
-                                    <li>
-                                        <a href="vpis">
-                                            <button class="btn-flat teal-text">Vpis</button>
-                                        </a>
-                                    </li>
-                                    <li class="divider"></li>
-                                    <li>
-                                        <a href="registracija">
-                                            <button class="btn-flat teal-text">Registracija</button>
-                                        </a>
-                                    </li>
-                                </c:otherwise>
-                            </c:choose>
+                            <li>
+                                <a href="add">
+                                    <button class="btn-flat teal-text">Dodaj Dogodek</button>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="vpis">
+                                    <button class="btn-flat teal-text">Vpis</button>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="registracija">
+                                    <button class="btn-flat teal-text">Registracija</button>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="/dodajanjeDogodkov">
+                                    <form action="/events" method="get">
+                                        <button class="btn-flat teal-text" name="event" type="submit"
+                                                value="Moji dogodki">Moji Dogodki
+                                        </button>
+                                    </form>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#!">
+                                    <form action="/izpis" method="get">
+                                        <button class="btn-flat teal-text">Izpis</button>
+                                    </form>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                 </ul>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
 
-                    <li class="active">
+                    <li >
                         <a href="index">Domov</a>
                     </li>
                     <li>
@@ -174,7 +137,7 @@ String.valueOf(session.getAttribute("imeUporabnika"))%>
                                 <li class="divider"></li>
                                 <li>
                                     <a href="#">
-                                        <button class="btn-flat teal-text" type="submit" name="event" value="Film">
+                                        <button class="btn-flat teal-text" type="submit" name="event" value="Kino">
                                             Kino
                                         </button>
                                     </a>
@@ -209,40 +172,32 @@ String.valueOf(session.getAttribute("imeUporabnika"))%>
             </div>
         </nav>
     </div>
+
     <div class="container">
-        <h2 class="center-align">
-            Vpis
-        </h2>
-        <form action="#" method="post">
-            <div class="row">
-                <div class="input-field col s10 offset-s1 col l8 offset-l2">
-                    <input id="user" type="text" class="validate">
-                    <label for="user">Uporabniško Ime</label>
-                </div>
+        <div class="row">
+            <h2 class="center-align">Dogodki na mapi</h2>
+            <div class="col s10 offset-s1 center-align">
+                <div id="map"></div>
+                <script>
+                    function initMap() {
+                        var uluru = { lat: -34.0, lng: 151.2 };
+                        var map = new google.maps.Map(document.getElementById('map'), {
+                            zoom: 4,
+                            center: uluru
+                        });
+                        var marker = new google.maps.Marker({
+                            position: uluru,
+                            map: map
+                        });
+                    }
+                </script>
+                <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAqDzfA85d4SVOfcH-NKKeRrWY5OMP480Y&callback=initMap">
+                </script>
             </div>
-            <div class="row">
-                <div class="input-field col s10 offset-s1 col l8 offset-l2">
-                    <input id="password" type="password" class="validate">
-                    <label for="password">Password</label>
-                </div>
-            </div>
-            <div class="row">
-                <div class="radio col s10 offset-s1 col l8 offset-l2">
-                    <p>
-                        <input type="checkbox" id="remember"/>
-                        <label for="remember">Zapomni si me</label>
-                    </p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="input-field center-align">
-                    <button id="signIn" class="btn btn-submit large" type="submit">Vpis</button>
-                    <div class="input-field center-align">
-                        <a href="registracija">Še nimate računa?</a>
-                    </div>
-                </div>
-        </form>
+        </div>
     </div>
+
+
 </main>
 </body>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>

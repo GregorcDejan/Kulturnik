@@ -396,6 +396,7 @@ public class KontrolerBaze {
         }
         if (prijavaUspesna == false) {
             model.addAttribute("uspesnost", prijavaUspesna);
+            return "vpis";
 
         }
 

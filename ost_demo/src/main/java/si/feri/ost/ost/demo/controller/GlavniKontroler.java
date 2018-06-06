@@ -1,5 +1,6 @@
 package si.feri.ost.ost.demo.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
+import si.feri.ost.ost.demo.DAO.DogodekDAO;
 import si.feri.ost.ost.demo.DAO.OsebaDAO;
 import si.feri.ost.ost.demo.Razredi.Oseba;
 
@@ -31,7 +33,8 @@ public class GlavniKontroler {
 
         return "dodajanjeDogodkov";
     }*/
-
+  @Autowired
+    DogodekDAO dogodki ;
     //testni jsp za izpise ipd.
     @RequestMapping(value = { "/Test" }, method = RequestMethod.GET)
     public String test(Model model) {
@@ -43,6 +46,12 @@ public class GlavniKontroler {
     public String profil(Model model) {
 
         return "uporabnik";
+    }
+
+    @RequestMapping(value = { "/map" }, method = RequestMethod.GET)
+    public String map(Model model) {
+
+        return "map";
     }
 
     @RequestMapping(value = { "/registracija" }, method = RequestMethod.GET)
@@ -62,7 +71,7 @@ public class GlavniKontroler {
 
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
         HttpSession session = request.getSession(true);
-
+        model.addAttribute("dogodki",dogodki.zadnjihNeki());
         session.invalidate();
 
         return "index";
