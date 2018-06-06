@@ -62,7 +62,8 @@ public class KontrolerBaze {
                              @RequestParam(value = "telefonska", required = true) String telefonska) {
 
 
-        osebe.addOseba(ime, priimek, email, geslo, datumRojstva, telefonska);
+        String avatar = "https://api.adorable.io/avatars/111/"+email;
+        osebe.addOseba(ime, priimek, email, geslo, datumRojstva, telefonska,avatar);
         boolean jeDodan = true;
         model.addAttribute("dodanaOseba", jeDodan);
         return "/vpis";

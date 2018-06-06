@@ -193,8 +193,10 @@
                     <div class="col m3">
                         <div class="card-panel teal lighten-4 z-depth-1 medium center-align">
                             <div class="row">
+                                <c:forEach items="${uporabnik}" var="u">
                                 <img class="responsive-img z-depth-0 circle col offset-s1 s10 offset-l3 l6"
-                                     src="lib/slike/lepotec.jpg" alt="">
+                                     src="${u.avatar}" >
+                                </c:forEach>
                                 <form action="registracija">
                                     <button class="btn-floating btn btn-flat black-text" name="urejanjeProfila"
                                             value="true"><i
