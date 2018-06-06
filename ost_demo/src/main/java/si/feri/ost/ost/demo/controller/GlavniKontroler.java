@@ -48,6 +48,12 @@ public class GlavniKontroler {
         return "uporabnik";
     }
 
+    @RequestMapping(value = { "/map" }, method = RequestMethod.GET)
+    public String map(Model model) {
+
+        return "map";
+    }
+
     @RequestMapping(value = { "/registracija" }, method = RequestMethod.GET)
     public String registracija(Model model) {
 
