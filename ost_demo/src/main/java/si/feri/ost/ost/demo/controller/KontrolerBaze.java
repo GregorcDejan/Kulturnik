@@ -77,6 +77,15 @@ public class KontrolerBaze {
         return "index";
     }
 
+    @RequestMapping(value = {"/blob"}, method = RequestMethod.GET)
+    @ResponseBody
+    public String blobtest(Model model) {
+        model.addAttribute("dogodki",dogodki.zadnjihNeki());
+        dogodki.insertBlob();
+
+        return "index";
+    }
+
     public static ArrayList<Dogodek> seznamDogodkov = new ArrayList<>();
 
     @RequestMapping(value = {"/dodajDogodek"}, method = RequestMethod.POST)

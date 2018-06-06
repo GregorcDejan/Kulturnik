@@ -1,5 +1,6 @@
 package si.feri.ost.ost.demo.DAO;
 
+import org.h2.store.fs.FilePath;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -7,6 +8,10 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 import si.feri.ost.ost.demo.Razredi.Dogodek;
 
+import java.io.*;
+import java.nio.file.Path;
+import java.sql.Blob;
+import java.sql.SQLException;
 import java.sql.Time;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -94,6 +99,40 @@ public class DogodekDAO {
 
 
     }
+
+    public int insertBlob()
+    {
+        String sql = "INSERT INTO BLOBTEST(blobek) VALUES(?)";
+        File file=new File("C:\\Users\\Dejan Gregorc\\Desktop\\porter-ja-lasi.jpg");
+        Blob blob =null;
+        FileInputStream inputStream = null;
+
+        try {
+
+            inputStream = new FileInputStream(file);
+
+            jdbcTemplate.update(sql,new Object[]{});
+
+
+
+
+
+
+
+        } catch (FileNotFoundException e) {
+            System.out.println("FileNotFoundException: - " + e);
+        } finally {
+
+
+
+        }
+        return 1;
+    }
+
+
+
+
+
 
     public int addXML(String naziv, String kraj, String ura, String izvajalec, String lokacija, String cena, String opis, String slikaURL, int idUporabnika, String tip, String datum, String vir) throws ParseException {
         String sql = "INSERT INTO DOGODEK(naziv,kraj,ura,izvajalec,lokacija,cena,opis,slika,uporabnik_id,tip,datum,vir) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
