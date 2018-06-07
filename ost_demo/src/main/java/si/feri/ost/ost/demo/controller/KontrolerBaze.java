@@ -290,10 +290,11 @@ public class KontrolerBaze {
         dogod=dogodki.getAllDogodki();
         model.addAttribute("Kategorija","Film");
 
-        DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-        DocumentBuilder db = null;
+
 
         try {
+            DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+            DocumentBuilder db = null;
             URL url = new URL("https://www.kolosej.si/spored/xml/2.0/");
             db = dbf.newDocumentBuilder();
             Document doc = db.parse(url.openStream());
@@ -431,17 +432,17 @@ public class KontrolerBaze {
     }
 
 
-    @RequestMapping(value = {"/testing123"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"/downXML"}, method = RequestMethod.GET)
     @ResponseBody
     public String testing123(Model model) {
-        ArrayList<Dogodek> dogodki=new ArrayList<Dogodek>();
+        List<Dogodek> dogodk=dogodki.getAllDogodki();
 
 
         String zaZapisat="";
 
 
 
-        DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+        /*DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         DocumentBuilder db = null;
 
         try {
@@ -474,7 +475,7 @@ public class KontrolerBaze {
                     String kraj = eElement.getElementsByTagName("city").item(0).getTextContent();
                     String izvajalec=eElement.getElementsByTagName("distributor").item(0).getTextContent();
                     //dogod.add(new Dogodek(naziv,kraj,ura,"Kolosej",lokacija,6,opis,virURL,"Kino",datum,vir));
-                    dogodki.add(new Dogodek(naziv, kraj, ura, izvajalec, lokacija, "6", opis, virURL,1, "Film", datum, vir));
+                    //dogodki.add(new Dogodek(naziv, kraj, ura, izvajalec, lokacija, "6", opis, virURL,1, "Film", datum, vir));
 
                 }
 
@@ -486,25 +487,25 @@ public class KontrolerBaze {
         } catch (SAXException e) {
             e.printStackTrace();
         }
-
-        for (Dogodek dogodek : dogodki) {
+        */
+        for (Dogodek dogodek : dogodk) {
             System.out.println(dogodek);
 
         }
         File file = new File("C:\\Users\\Uporabnik\\Desktop\\text.xml");
             try {
 
-            for(int i=0;i<dogodki.size();i++)
+            for(int i=0;i<dogodk.size();i++)
             {
 
                 JAXBContext jaxbContext = JAXBContext.newInstance(Dogodek.class);
                 Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
                 jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 
-                jaxbMarshaller.marshal(dogodki.get(i), file);// this line create customer.xml file in specified path.
+                jaxbMarshaller.marshal(dogodk.get(i), file);// this line create customer.xml file in specified path.
 
                 StringWriter sw = new StringWriter();
-                jaxbMarshaller.marshal(dogodki.get(i), sw);
+                jaxbMarshaller.marshal(dogodk.get(i), sw);
                 String xmlString = sw.toString();
                 zaZapisat+=xmlString;
 
@@ -513,7 +514,7 @@ public class KontrolerBaze {
                 System.out.println(xmlString);
             }
         }
-        catch(JAXBException e){
+        catch(Exception e){
             e.printStackTrace();
 
         }
@@ -522,13 +523,13 @@ public class KontrolerBaze {
 
         System.out.println("_____________________________________________________________________________");
         System.out.println(zaZapisat);
-        try {
-            FileWriter fw = new FileWriter(file);
-            fw.write(zaZapisat);
+        /*try {
+            //FileWriter fw = new FileWriter(file);
+            //fw.write(zaZapisat);
         } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
-        }
+        }*/
         return zaZapisat;
     }
 
