@@ -1,5 +1,6 @@
 
-
+<%@taglib prefix="h" uri="http://java.sun.com/jsf/html" %>
+<%@taglib prefix="p" uri="http://primefaces.org/ui" %>
 
 
 <html>
