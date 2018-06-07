@@ -131,7 +131,14 @@ public class Dogodek implements Comparable<Dogodek>
         this.idUporabnika=idUporabnika;
     }
 
+    public Dogodek(String naziv, String vir,String tip, int uporabnik, String datum)
+    {
+        this.naziv=naziv;
 
+        this.vir=vir;
+        this.idUporabnika=uporabnik;
+        this.datum=datum;
+    }
 
     public String getNaziv() {
         return naziv;
