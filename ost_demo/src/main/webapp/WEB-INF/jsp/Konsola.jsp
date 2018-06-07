@@ -1,5 +1,6 @@
 
-
+<%@taglib prefix="h" uri="http://java.sun.com/jsf/html" %>
+<%@taglib prefix="p" uri="http://primefaces.org/ui" %>
 
 
 <html>
@@ -13,15 +14,26 @@
 </head>
 
 <body>
-<form action="/downXML" type="post">
-<button type="submit" value="gumbek"> gumbek</button>
-</form>
+
+<a href="file.doc"><button>Download!</button></a>
 
 
 
+<h:form>
+    <p:commandButton id="downloadLink" value="Download" ajax="false">
+        <p:fileDownload value="#{filemanagement.prepDownload}" />
+    </p:commandButton>
+</h:form>
 
+<script type="text/javascript">
+    function start() {
+        PF('statusDialog').show();
+    }
 
-
+    function stop() {
+        PF('statusDialog').hide();
+    }
+</script>
 
 </body>
 

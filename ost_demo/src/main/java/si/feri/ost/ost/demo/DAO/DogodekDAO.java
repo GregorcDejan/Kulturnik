@@ -150,6 +150,22 @@ public class DogodekDAO {
 
 
     }
+    public int addXML(String naziv,String opis,String vir,String tip,int idUporabnika,String datum) throws ParseException {
+        String sql = "INSERT INTO DOGODEK(naziv,opis,vir,tip,uporabnik_id,datum) VALUES(?,?,?,?,?,?)";
+
+
+
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+
+
+
+        Date date = dateFormat.parse(datum);
+
+
+        return jdbcTemplate.update(sql,new Object[]{naziv,opis,vir,tip,idUporabnika,date});
+
+
+    }
 
     public int updateDogodek(int id,String naziv, String kraj, String ura, String izvajalec, String lokacija, String cena, String opis, String slikaURL, String tip, String datum, String vir){
         String sql = "UPDATE DOGODEK SET naziv=?, kraj=?, ura=?,izvajalec=?,lokacija=?,cena=?,opis=?,slika=?, tip=?,datum=?,vir=? WHERE id=?";

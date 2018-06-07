@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
+import org.w3c.dom.CharacterData;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -285,13 +286,13 @@ public class KontrolerBaze {
 
 
     @RequestMapping(value = {"/parseXML"}, method = RequestMethod.GET)
-    public String xmlpars(Model model) {
+    public String xmlpars(Model model,@RequestParam(value="event" ,required=false)String kategorija) {
         List<Dogodek> dogod;
         dogod=dogodki.getAllDogodki();
-        model.addAttribute("Kategorija","Film");
+        model.addAttribute("Kategorija",kategorija);
 
 
-
+        //<------------------------------------Kolosej---------------------------------------------------->
         try {
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
             DocumentBuilder db = null;
@@ -299,9 +300,9 @@ public class KontrolerBaze {
             db = dbf.newDocumentBuilder();
             Document doc = db.parse(url.openStream());
             doc.getDocumentElement().normalize();
-            System.out.println("Root element: " + doc.getDocumentElement().getNodeName());
+            //System.out.println("Root element: " + doc.getDocumentElement().getNodeName());
             NodeList nList = doc.getElementsByTagName("movie");
-            System.out.println("--------------------------------------------------------------------------------------------------------------------------");
+            //System.out.println("--------------------------------------------------------------------------------------------------------------------------");
             for (int temp = 0; temp < nList.getLength(); temp++) {
 
                 Node nNode = nList.item(temp);
@@ -317,7 +318,7 @@ public class KontrolerBaze {
 
                     String opis = eElement.getElementsByTagName("plot_outline").item(0).getTextContent();
                     String datum = eElement.getElementsByTagName("date").item(0).getTextContent();
-                    System.out.println(datum);
+                    //System.out.println(datum);
 
                     String ura = eElement.getElementsByTagName("time").item(0).getTextContent();
                     String lokacija = eElement.getElementsByTagName("center").item(0).getTextContent();
@@ -325,6 +326,7 @@ public class KontrolerBaze {
                     String izvajalec = eElement.getElementsByTagName("distributor").item(0).getTextContent();
 
                     Dogodek dog=new Dogodek(naziv, kraj, ura, izvajalec, lokacija, "6", opis, virURL, 1, "Film", datum, vir);
+                    System.out.println(dog);
                     boolean obstaja=false;
                     for(int i=0;i<dogod.size();i++) {
                         if (dogod.get(i).getNaziv().equals(dog.getNaziv()))
@@ -350,7 +352,71 @@ public class KontrolerBaze {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        model.addAttribute("dogodki", dogodki.getByTip("Film"));
+
+        //<!------------------------------RSS-gledališče--------------------------------->
+        try {
+            DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+            DocumentBuilder db = null;
+            URL url = new URL("http://www.eventim.si/si/rss/latest.xml");
+            db = dbf.newDocumentBuilder();
+            Document doc = db.parse(url.openStream());
+            doc.getDocumentElement().normalize();
+            System.out.println("Root element: " + doc.getDocumentElement().getNodeName());
+            NodeList nList = doc.getElementsByTagName("item");
+            //System.out.println("--------------------------------------------------------------------------------------------------------------------------");
+            for (int temp = 0; temp < nList.getLength(); temp++) {
+
+                Node nNode = nList.item(temp);
+
+                if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+
+                    Element eElement = (Element) nNode;
+                    String naziv = eElement.getElementsByTagName("title").item(0).getTextContent();
+                    System.out.println(naziv);
+                    String vir = eElement.getElementsByTagName("link").item(0).getTextContent();
+                    System.out.println(vir);
+
+
+                    String opis = eElement.getElementsByTagName("description").item(0).getTextContent();
+                    String datum = eElement.getElementsByTagName("pubDate").item(0).getTextContent();
+                    System.out.println(datum);
+
+
+
+                    Dogodek dog=new Dogodek(naziv, opis, vir, "Gledališče", 666, datum);
+                    System.out.println(dog);
+                    boolean obstaja=false;
+                    for(int i=0;i<dogod.size();i++) {
+                        if (dogod.get(i).getNaziv().equals(dog.getNaziv()))
+                        {
+                            obstaja = true;
+                            break;
+                        }
+                    }
+                    if(obstaja){}
+                    else {
+                        dogodki.addXML(naziv,opis,vir,"Gledališče",666,datum);
+                    }
+
+                }
+
+            }
+        } catch (ParserConfigurationException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (SAXException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+
+
+
+
+
+        model.addAttribute("dogodki", dogodki.getByTip(kategorija));
 
 
         return "events";
