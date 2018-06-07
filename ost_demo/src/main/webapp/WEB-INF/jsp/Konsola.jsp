@@ -1,7 +1,4 @@
-< xmlns:h="http://xmlns.jcp.org/jsf/html" />
-< xmlns:h="http://java.sun.com/jsf/html"/>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@taglib prefix="h" uri="http://www.springframework.org/tags/form" %>
+
 
 
 
@@ -16,26 +13,15 @@
 </head>
 
 <body>
+<form action="/downXML" type="post">
+<button type="submit" value="gumbek"> gumbek</button>
+</form>
 
 
 
 
 
-<h:form>
-    <p:commandButton id="downloadLink" value="Download" ajax="false">
-        <p:fileDownload value="#{filemanagement.prepDownload}" />
-    </p:commandButton>
-</h:form>
 
-<script type="text/javascript">
-    function start() {
-        PF('statusDialog').show();
-    }
-
-    function stop() {
-        PF('statusDialog').hide();
-    }
-</script>
 
 </body>
 
