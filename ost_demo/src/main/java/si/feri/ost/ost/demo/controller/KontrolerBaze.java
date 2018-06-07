@@ -385,7 +385,7 @@ public class KontrolerBaze {
                 session.setAttribute("imeUporabnika", uporabnik.getIme());
                 session.setAttribute("priimekUporabnika", uporabnik.getPriimek());
 
-                Oseba prijavljenUporabnik = new Oseba();
+                Oseba prijavljenUporabnik ;
                 int idUporabnika;
                 List<Oseba> rez = new ArrayList<>();
                 if (tip.equals("Moji dogodki")) {
@@ -393,6 +393,7 @@ public class KontrolerBaze {
                     prijavljenUporabnik = osebe.getByID(idUporabnika);
                     rez.add(prijavljenUporabnik);
                     List<Dogodek> temp = dogodki.getByIdUporabnika(idUporabnika);
+                    List<Dogodek> vsiDogodki = dogodki.getAllDogodki();
                     model.addAttribute("dogodki", temp);
                     model.addAttribute("uporabnik", rez);
                     model.addAttribute("stDogodkovUporabnika", temp.size());
