@@ -146,7 +146,6 @@ public class KontrolerBaze {
 
             if (uporabnikPrijavljen) {
                 Dogodek urejan = dogodki.getByID(Integer.parseInt(ime));
-                int p = 4;
                 model.addAttribute("urejanDogodek", urejan);
                 model.addAttribute("idD", ime);
                 return "add";
@@ -439,8 +438,6 @@ public class KontrolerBaze {
 
                 model.addAttribute("uspesnost",true);
 
-                model.addAttribute("uspesnost", prijavaUspesna);
-
                 HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
                 HttpSession session = request.getSession(true);
 
@@ -454,15 +451,23 @@ public class KontrolerBaze {
                 Oseba prijavljenUporabnik ;
                 int idUporabnika;
                 List<Oseba> rez = new ArrayList<>();
+
                 if (tip.equals("Moji dogodki")) {
                     idUporabnika = Integer.parseInt(String.valueOf(session.getAttribute("idUporabnika")));
+                    List<Dogodek> dogodkiUporabnikaByID ;/*= dogodki.getByIdUporabnika(idUporabnika);
+                    List<Dogodek> vsiDogodki = dogodki.getAllDogodki();*/
+                    if(idUporabnika==666){
+                        dogodkiUporabnikaByID= dogodki.getAllDogodki();
+
+                    }else{
+                         dogodkiUporabnikaByID= dogodki.getByIdUporabnika(idUporabnika);
+                    }
                     prijavljenUporabnik = osebe.getByID(idUporabnika);
                     rez.add(prijavljenUporabnik);
-                    List<Dogodek> temp = dogodki.getByIdUporabnika(idUporabnika);
-                    List<Dogodek> vsiDogodki = dogodki.getAllDogodki();
-                    model.addAttribute("dogodki", temp);
+
+                    model.addAttribute("dogodki", dogodkiUporabnikaByID);
                     model.addAttribute("uporabnik", rez);
-                    model.addAttribute("stDogodkovUporabnika", temp.size());
+                    model.addAttribute("stDogodkovUporabnika", dogodkiUporabnikaByID.size());
 
 
                 }
