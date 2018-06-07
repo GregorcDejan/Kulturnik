@@ -182,8 +182,14 @@
 
 
         <h2 class="center-align">
-            ${Kategorija} <span class="right"><form action="/parseXML"><button class="btn waves-effect waves-light btn-flat btn-floating " name="event" value="${Kategorija}"  ><i class="material-icons black-text">refresh</i></button></form></span>
-
+            ${Kategorija}
+            <span class="right">
+                <form action="/parseXML">
+                    <button class="btn waves-effect waves-light btn-flat btn-floating " name="event" value="${Kategorija}" >
+                         <i class="material-icons black-text">refresh</i>
+                    </button>
+                </form>
+            </span>
         </h2>
         <hr/>
         <!-- Zaèetek searcha OSNOVNO-->
@@ -272,8 +278,8 @@
                             <p class="">${d.opis}
                                 <a href=""></a>
                             </p>
-                            <form action="/<map name=" 
-                            "></map>" method="get">
+                            <form action="/map " method="get">
+
                                 <button class="btn valign-wrapper right blue lighten-1 waves-effect" name="ime"
                                         value="${d.id}">
                                     <div class="valign-wrapper"> Prikaži na zemljevidu
@@ -281,7 +287,7 @@
                                     </div>
                                 </button>
                             </form>
-                            </p>
+
                         </div>
                     </div>
                 </div>
