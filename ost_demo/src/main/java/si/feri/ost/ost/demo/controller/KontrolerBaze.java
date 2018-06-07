@@ -285,7 +285,7 @@ public class KontrolerBaze {
 
 
     @RequestMapping(value = {"/parseXML"}, method = RequestMethod.GET)
-    public String xmlpars(Model model) {
+    public String xmlpars(Model model,@RequestParam(value="event" ,required=false)String kategorija) {
         List<Dogodek> dogod;
         dogod=dogodki.getAllDogodki();
         model.addAttribute("Kategorija","Film");
@@ -350,7 +350,7 @@ public class KontrolerBaze {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        model.addAttribute("dogodki", dogodki.getByTip("Film"));
+        model.addAttribute("dogodki", dogodki.getByTip(kategorija));
 
 
         return "events";
