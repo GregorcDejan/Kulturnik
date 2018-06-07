@@ -196,14 +196,15 @@
                                 <c:forEach items="${uporabnik}" var="u">
                                 <img class="responsive-img z-depth-0 circle col offset-s1 s10 offset-l3 l6"
                                      src="${u.avatar}" >
-                                </c:forEach>
-                                <form action="registracija">
-                                    <button class="btn-floating btn btn-flat black-text" name="urejanjeProfila"
-                                            value="true"><i
+
+                                <form action="/urediUporabnika">
+                                    <button class="btn-floating btn btn-flat black-text" name="urejanUporabnik"
+                                            value="${u.id}"><i
                                             class="material-icons right small black-text">settings</i></button>
                                 </form>
                                 <hr class="col offset-s1 s10">
                             </div>
+                            </c:forEach>
                             <c:forEach items="${uporabnik}" var="u">
                             <span class="flow-text">
                                     ${u.ime} ${u.priimek}  <br>
