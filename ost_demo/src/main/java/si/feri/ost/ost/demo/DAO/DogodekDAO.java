@@ -47,7 +47,10 @@ public class DogodekDAO {
             String naziv = (String)vrstica.get("Naziv");
             String kraj = (String)vrstica.get("Kraj");
             Time cas = (Time) vrstica.get("Ura");
-            String ura = cas.toString();//STRING?? ura minuta sekunda
+            String ura=null;
+            if(cas!=null) {
+                ura = cas.toString();//STRING?? ura minuta sekunda
+            }
             String izvajalec = (String)vrstica.get("Izvajalec");
             String lokacija = (String)vrstica.get("Lokacija");
             String cena = (String)vrstica.get("Cena");
@@ -150,9 +153,9 @@ public class DogodekDAO {
 
 
     }
-    public int addXML(String naziv,String opis,String vir,String tip,int idUporabnika,String datum) throws ParseException {
-        String sql = "INSERT INTO DOGODEK(naziv,opis,vir,tip,uporabnik_id,datum) VALUES(?,?,?,?,?,?)";
-
+    public int addXML(String naziv,String vir,String tip,int idUporabnika,String datum) throws ParseException {
+        String sql = "INSERT INTO DOGODEK(naziv,vir,tip,uporabnik_id,datum) VALUES(?,?,?,?,?)";
+        datum = datum.replace(".","-");
 
 
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -162,7 +165,7 @@ public class DogodekDAO {
         Date date = dateFormat.parse(datum);
 
 
-        return jdbcTemplate.update(sql,new Object[]{naziv,opis,vir,tip,idUporabnika,date});
+        return jdbcTemplate.update(sql,new Object[]{naziv,vir,tip,idUporabnika,date});
 
 
     }
@@ -258,13 +261,16 @@ public class DogodekDAO {
 
         List<Map<String,Object>> vrstice  = jdbcTemplate.queryForList(sql,new Object[]{idUporabnika});
 
-        for(Map vrstica: vrstice){
+        for(Map vrstica: vrstice) {
 
-            int ID=(Integer)(vrstica.get("ID"));
-            String naziv = (String)vrstica.get("Naziv");
-            String kraj = (String)vrstica.get("Kraj");
+            int ID = (Integer) (vrstica.get("ID"));
+            String naziv = (String) vrstica.get("Naziv");
+            String kraj = (String) vrstica.get("Kraj");
             Time cas = (Time) vrstica.get("Ura");
-            String ura = cas.toString();//STRING?? ura minuta sekunda
+            String ura = null;
+            if (ura != null) {
+                ura = cas.toString();//STRING?? ura minuta sekunda
+            }
             String izvajalec = (String)vrstica.get("Izvajalec");
             String lokacija = (String)vrstica.get("Lokacija");
             String cena = (String)vrstica.get("Cena");;
@@ -335,7 +341,11 @@ public class DogodekDAO {
             String naziv = (String)vrstica.get("Naziv");
             String kraj = (String)vrstica.get("Kraj");
             Time cas = (Time) vrstica.get("Ura");
-            String ura = cas.toString();//STRING?? ura minuta sekunda
+            String ura=null;
+            if(cas!=null) {
+                 ura= cas.toString();//STRING?? ura minuta sekunda
+            }
+
             String izvajalec = (String)vrstica.get("Izvajalec");
             String lokacija = (String)vrstica.get("Lokacija");
             String cena = (String)vrstica.get("Cena");

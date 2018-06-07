@@ -1,5 +1,6 @@
 package si.feri.ost.ost.demo.controller;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -377,13 +378,14 @@ public class KontrolerBaze {
                     System.out.println(vir);
 
 
-                    String opis = eElement.getElementsByTagName("description").item(0).getTextContent();
+
+
                     String datum = eElement.getElementsByTagName("pubDate").item(0).getTextContent();
                     System.out.println(datum);
 
 
 
-                    Dogodek dog=new Dogodek(naziv, opis, vir, "Gledališče", 666, datum);
+                    Dogodek dog=new Dogodek(naziv, vir, "Gledališče", 666, datum);
                     System.out.println(dog);
                     boolean obstaja=false;
                     for(int i=0;i<dogod.size();i++) {
@@ -395,7 +397,7 @@ public class KontrolerBaze {
                     }
                     if(obstaja){}
                     else {
-                        dogodki.addXML(naziv,opis,vir,"Gledališče",666,datum);
+                        dogodki.addXML(naziv,vir,"Gledališče",666,datum);
                     }
 
                 }
