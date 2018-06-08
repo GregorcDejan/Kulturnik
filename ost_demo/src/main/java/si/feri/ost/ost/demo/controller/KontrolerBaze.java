@@ -99,6 +99,18 @@ public class KontrolerBaze {
         return "index";
     }
 
+    @RequestMapping(value={"/naslov"},method=RequestMethod.GET)
+    public String vrniNaslov(Model model,
+                             @RequestParam(value="ID") String id){
+
+        Dogodek d = dogodki.getByID(Integer.parseInt(id));
+        String naslov = d.getLokacija();
+        model.addAttribute("naslovLokacije",naslov);
+
+        model.addAttribute("naslovDogodka",d.getNaziv());
+        return "map";
+    }
+
     public static ArrayList<Dogodek> seznamDogodkov = new ArrayList<>();
 
     @RequestMapping(value = {"/dodajDogodek"}, method = RequestMethod.POST)

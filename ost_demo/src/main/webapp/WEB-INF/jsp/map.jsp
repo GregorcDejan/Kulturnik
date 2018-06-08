@@ -18,7 +18,7 @@
 
     <style>
         #map {
-            height: 400px;
+            height: 800px;
             width: 100%;
         }
     </style>
@@ -199,26 +199,40 @@ String.valueOf(session.getAttribute("imeUporabnika"))%>
     </div>
 
     <div class="container">
+
         <div class="row">
-            <h2 class="center-align">Dogodki na mapi</h2>
-            <div class="col s10 offset-s1 center-align">
-                <div id="map"></div>
-                <script>
-                    function initMap() {
-                        var uluru = { lat: -34.0, lng: 151.2 };
-                        var map = new google.maps.Map(document.getElementById('map'), {
-                            zoom: 4,
-                            center: uluru
-                        });
-                        var marker = new google.maps.Marker({
-                            position: uluru,
-                            map: map
-                        });
-                    }
-                </script>
-                <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAqDzfA85d4SVOfcH-NKKeRrWY5OMP480Y&callback=initMap">
-                </script>
-            </div>
+            <h2 class="center-align">Lokacija dogodka ${naslovDogodka} </h2>
+            <div id="map"></div>
+            <script>
+                var geocoder;
+                var map;
+                var address = "${naslovLokacije}";
+                function initMap() {
+                    var map = new google.maps.Map(document.getElementById('map'), {
+                        zoom: 15,
+                        center: {lat: 46.554007, lng: 15.648498}
+                    });
+                    geocoder = new google.maps.Geocoder();
+                    codeAddress(geocoder, map);
+                }
+
+                function codeAddress(geocoder, map) {
+                    geocoder.geocode({'address': address}, function(results, status) {
+                        if (status === 'OK') {
+                            map.setCenter(results[0].geometry.location);
+                            var marker = new google.maps.Marker({
+                                map: map,
+                                position: results[0].geometry.location
+                            });
+                        } else {
+                            alert('Prikaz na zemljevidu neuspešen zaradi: ' + status);
+                        }
+                    });
+                }
+            </script>
+            <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAqDzfA85d4SVOfcH-NKKeRrWY5OMP480Y&callback=initMap">
+            </script>
+
         </div>
     </div>
 
