@@ -276,17 +276,6 @@
                 </div>
             </div>
             <div class="row">
-                <div class="file-field input-field col s8 offset-s2">
-                    <div class="btn teal darken-1">
-                        <span>Naloži</span>
-                        <input type="file" multiple>
-                    </div>
-                    <div class="file-path-wrapper">
-                        <input class="file-path validate" name="slika" type="text" placeholder="Naložite slike dogodka">
-                    </div>
-                </div>
-            </div>
-            <div class="row">
                 <form action="/dodajDogodek" method="post">
                     <button class="btn teal darken-1 z-depth-3 col offset-l4 l4 offset-s3 s6 btn-large" type="submit"
                             name="idDogodka" value="${idD}">
