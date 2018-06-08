@@ -278,9 +278,9 @@
                             <p class="">${d.opis}
                                 <a href=""></a>
                             </p>
-                            <form action="/map " method="get">
+                            <form action="/naslov " method="get">
 
-                                <button class="btn valign-wrapper right blue lighten-1 waves-effect" name="ime"
+                                <button class="btn valign-wrapper right blue lighten-1 waves-effect" name="ID"
                                         value="${d.id}">
                                     <div class="valign-wrapper"> Prikaži na zemljevidu
                                         <i class="material-icons right">add_circle</i>

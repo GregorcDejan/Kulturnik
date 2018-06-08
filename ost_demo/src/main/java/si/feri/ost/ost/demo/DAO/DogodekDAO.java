@@ -409,6 +409,8 @@ public class DogodekDAO {
 
     }
 
+
+
     public List<Dogodek> getByCena(String cenaMax){
 
         String sql = "SELECT * FROM dogodek";

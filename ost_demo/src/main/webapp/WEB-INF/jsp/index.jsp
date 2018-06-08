@@ -29,7 +29,7 @@
                 </a>
                 <ul class="right show-on-med-and-down">
                     <li>
-                        <a href="#">
+                        <a href="map">
                             <i class="material-icons">place</i>
                         </a>
                     </li>
