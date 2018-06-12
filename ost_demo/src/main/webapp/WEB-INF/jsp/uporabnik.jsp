@@ -247,6 +247,14 @@
 
                                                 </button>
                                             </form>
+                                            <form action="/odstrani" method="post">
+                                                <button class="btn-floating btn right waves-effect waves-light teal"
+                                                        name="ime" value="${d.id}">
+
+                                                    <i class="material-icons ">delete_forever</i>
+
+                                                </button>
+                                            </form>
                                             <a href="${d.vir}">Več...</a>
                                             </p>
                                         </div>

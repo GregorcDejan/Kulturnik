@@ -61,18 +61,16 @@ public class KontrolerBaze {
                              @RequestParam(value = "email", required = false) String email,
                              @RequestParam(value = "geslo", required = false) String geslo,
                              @RequestParam(value = "idUporabnika", required = false) String id,
-                             @RequestParam(value = "datumRojstva", required =false) String datumRojstva,
-                             @RequestParam(value = "telefonska", required =false
+                             @RequestParam(value = "datumRojstva", required = false) String datumRojstva,
+                             @RequestParam(value = "telefonska", required = false
                              ) String telefonska) {
-        String avatar = "https://api.adorable.io/avatars/111/"+email;
+        String avatar = "https://api.adorable.io/avatars/111/" + email;
 
-        if(!id.equals("")){
+        if (!id.equals("")) {
 
-            osebe.updateDogodek(Integer.parseInt(id),ime,priimek,email,telefonska,geslo,datumRojstva,avatar);
+            osebe.updateDogodek(Integer.parseInt(id), ime, priimek, email, telefonska, geslo, datumRojstva, avatar);
 
-        }
-
-        else {
+        } else {
             osebe.addOseba(ime, priimek, email, geslo, datumRojstva, telefonska, avatar);
             boolean jeDodan = true;
             model.addAttribute("dodanaOseba", jeDodan);
@@ -84,7 +82,7 @@ public class KontrolerBaze {
 
     @RequestMapping(value = {"/", "/index",}, method = RequestMethod.GET)
     public String zadnjih5(Model model) {
-        model.addAttribute("dogodki",dogodki.zadnjihNeki());
+        model.addAttribute("dogodki", dogodki.zadnjihNeki());
 
 
         return "index";
@@ -93,21 +91,21 @@ public class KontrolerBaze {
     @RequestMapping(value = {"/blob"}, method = RequestMethod.GET)
     @ResponseBody
     public String blobtest(Model model) {
-        model.addAttribute("dogodki",dogodki.zadnjihNeki());
+        model.addAttribute("dogodki", dogodki.zadnjihNeki());
         dogodki.insertBlob();
 
         return "index";
     }
 
-    @RequestMapping(value={"/naslov"},method=RequestMethod.GET)
+    @RequestMapping(value = {"/naslov"}, method = RequestMethod.GET)
     public String vrniNaslov(Model model,
-                             @RequestParam(value="ID") String id){
+                             @RequestParam(value = "ID") String id) {
 
         Dogodek d = dogodki.getByID(Integer.parseInt(id));
         String naslov = d.getLokacija();
-        model.addAttribute("naslovLokacije",naslov);
+        model.addAttribute("naslovLokacije", naslov);
 
-        model.addAttribute("naslovDogodka",d.getNaziv());
+        model.addAttribute("naslovDogodka", d.getNaziv());
         return "map";
     }
 
@@ -163,10 +161,10 @@ public class KontrolerBaze {
         } else {
             model.addAttribute("urejanjeDogodka", true);
 
-                Dogodek urejan = dogodki.getByID(Integer.parseInt(ime));
-                model.addAttribute("urejanDogodek", urejan);
-                model.addAttribute("idD", ime);
-                return "add";
+            Dogodek urejan = dogodki.getByID(Integer.parseInt(ime));
+            model.addAttribute("urejanDogodek", urejan);
+            model.addAttribute("idD", ime);
+            return "add";
 
         }
 
@@ -174,17 +172,16 @@ public class KontrolerBaze {
 
     @RequestMapping(value = {"/urediUporabnika"}, method = RequestMethod.GET)
     public String prikaziNastavitve(Model model,
-                               @RequestParam(value = "urejanUporabnik", required = false) String id) {
+                                    @RequestParam(value = "urejanUporabnik", required = false) String id) {
 
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
         HttpSession session = request.getSession(true);
 
-        model.addAttribute("urejanjeUporabnika",true);
+        model.addAttribute("urejanjeUporabnika", true);
 
         Oseba urejanUporabnik = osebe.getByID(Integer.parseInt(id));
 
-        model.addAttribute("urejanU",urejanUporabnik);
-
+        model.addAttribute("urejanU", urejanUporabnik);
 
 
         return "registracija";
@@ -199,6 +196,13 @@ public class KontrolerBaze {
         else
             model.addAttribute("dogodki", dogodki.getByTip(tip));
         return "Konsola";
+    }
+
+    @RequestMapping(value = {"/odstrani",}, method = RequestMethod.POST)
+    public String odstranjevanjeD(Model model, @RequestParam(value = "ime", required = false) String id) {
+        int x=Integer.parseInt(id);
+        dogodki.deleteDogodek(x);
+        return "uporabnik";
     }
 
     @RequestMapping(value = {"/Osebice",}, method = RequestMethod.GET)
@@ -216,8 +220,8 @@ public class KontrolerBaze {
         HttpSession session = request.getSession(false);//true will create if necessary
 
 
-        model.addAttribute("najnizjaCena",dogodki.vrniNajnizjoCeno());
-        model.addAttribute("najvisjaCena",dogodki.vrniNajvisjoCeno());
+        model.addAttribute("najnizjaCena", dogodki.vrniNajnizjoCeno());
+        model.addAttribute("najvisjaCena", dogodki.vrniNajvisjoCeno());
 
 
         int idUporabnika;
@@ -255,20 +259,20 @@ public class KontrolerBaze {
 
         return "events";
     }
+
     public List<Dogodek> sortiraj(List<Dogodek> rezultat, String sort) {
 
-        if(sort.equals("najcenejsi"))
-            Collections.sort(rezultat,new DogodekComparator(true,true));
+        if (sort.equals("najcenejsi"))
+            Collections.sort(rezultat, new DogodekComparator(true, true));
 
-        else if(sort.equals("najdrazji"))
-            Collections.sort(rezultat,new DogodekComparator(true,false));
+        else if (sort.equals("najdrazji"))
+            Collections.sort(rezultat, new DogodekComparator(true, false));
 
-        else if(sort.equals("poImenu1"))
-            Collections.sort(rezultat, new DogodekComparator(false,false));
+        else if (sort.equals("poImenu1"))
+            Collections.sort(rezultat, new DogodekComparator(false, false));
 
-        else if(sort.equals("poImenu2"))
-            Collections.sort(rezultat,new DogodekComparator(false,false).reversed());
-
+        else if (sort.equals("poImenu2"))
+            Collections.sort(rezultat, new DogodekComparator(false, false).reversed());
 
 
         return rezultat;
@@ -280,9 +284,8 @@ public class KontrolerBaze {
                                @RequestParam(value = "krajDogodka", required = false) String kraj,
                                @RequestParam(value = "datumDogodka", required = false) String datum,
                                @RequestParam(value = "event", required = false) String kateg,
-                               @RequestParam(value="inputKategorija",required=false) String sort,
-                               @RequestParam(value = "cenaDogodka", required = false) String cena)throws ParseException {
-
+                               @RequestParam(value = "inputKategorija", required = false) String sort,
+                               @RequestParam(value = "cenaDogodka", required = false) String cena) throws ParseException {
 
 
         List<Dogodek> seznam = dogodki.getByTip(kateg);
@@ -302,14 +305,14 @@ public class KontrolerBaze {
             if ((naziv.equals("") || seznam.get(i).getNaziv().toLowerCase().contains(naziv.toLowerCase())) &&
                     (kraj.equals("") || seznam.get(i).getKraj().equals(kraj)) &&
                     (cena == null || cena.equals("") || Double.parseDouble(seznam.get(i).getCena()) <= Double.parseDouble(cena)) &&
-                    (datum == null || datum.equals("") || seznam.get(i).getDatum().equals(datum))){
+                    (datum == null || datum.equals("") || seznam.get(i).getDatum().equals(datum))) {
                 rez.add(seznam.get(i));
             }
 
         }
 
-        if(sort!= null && !sort.equals(""))
-            rez = sortiraj(rez,sort);
+        if (sort != null && !sort.equals(""))
+            rez = sortiraj(rez, sort);
 
 
         model.addAttribute("dogodki", rez);
@@ -321,10 +324,10 @@ public class KontrolerBaze {
 
 
     @RequestMapping(value = {"/parseXML"}, method = RequestMethod.GET)
-    public String xmlpars(Model model,@RequestParam(value="event" ,required=false)String kategorija) {
+    public String xmlpars(Model model, @RequestParam(value = "event", required = false) String kategorija) {
         List<Dogodek> dogod;
-        dogod=dogodki.getAllDogodki();
-        model.addAttribute("Kategorija",kategorija);
+        dogod = dogodki.getAllDogodki();
+        model.addAttribute("Kategorija", kategorija);
 
 
         //<------------------------------------Kolosej---------------------------------------------------->
@@ -360,18 +363,17 @@ public class KontrolerBaze {
                     String kraj = eElement.getElementsByTagName("city").item(0).getTextContent();
                     String izvajalec = eElement.getElementsByTagName("distributor").item(0).getTextContent();
 
-                    Dogodek dog=new Dogodek(naziv, kraj, ura, izvajalec, lokacija, "6", opis, virURL, 1, "Film", datum, vir);
-                    System.out.println(dog);
-                    boolean obstaja=false;
-                    for(int i=0;i<dogod.size();i++) {
-                        if (dogod.get(i).getNaziv().equals(dog.getNaziv()))
-                        {
+                    Dogodek dog = new Dogodek(naziv, kraj, ura, izvajalec, lokacija, "6", opis, virURL, 1, "Film", datum, vir);
+
+                    boolean obstaja = false;
+                    for (int i = 0; i < dogod.size(); i++) {
+                        if (dogod.get(i).getNaziv().equals(dog.getNaziv())) {
                             obstaja = true;
-                        break;
+                            break;
                         }
                     }
-                    if(obstaja){}
-                        else {
+                    if (obstaja) {
+                    } else {
                         dogodki.addXML(naziv, kraj, ura, izvajalec, lokacija, "6", opis, virURL, 1, "Film", datum, vir);
                     }
 
@@ -388,7 +390,7 @@ public class KontrolerBaze {
             e.printStackTrace();
         }
 
-        //<!------------------------------RSS-gledališče--------------------------------->
+        //<!------------------------------RSS-kulturni--------------------------------->
         try {
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
             DocumentBuilder db = null;
@@ -407,31 +409,86 @@ public class KontrolerBaze {
 
                     Element eElement = (Element) nNode;
                     String naziv = eElement.getElementsByTagName("title").item(0).getTextContent();
-                    System.out.println(naziv);
+
                     String vir = eElement.getElementsByTagName("link").item(0).getTextContent();
-                    System.out.println(vir);
-
-
 
 
                     String datum = eElement.getElementsByTagName("pubDate").item(0).getTextContent();
-                    System.out.println(datum);
 
+                    String tip;
 
+                    if (naziv.contains("MGL")) {
+                        tip = "Gledališče";
+                    } else {
+                        tip = "Glasba";
+                    }
+                    Dogodek dog = new Dogodek(naziv, vir, tip, 666, datum);
 
-                    Dogodek dog=new Dogodek(naziv, vir, "Gledališče", 666, datum);
-                    System.out.println(dog);
-                    boolean obstaja=false;
-                    for(int i=0;i<dogod.size();i++) {
-                        if (dogod.get(i).getNaziv().equals(dog.getNaziv()))
-                        {
+                    boolean obstaja = false;
+                    for (int i = 0; i < dogod.size(); i++) {
+                        if (dogod.get(i).getNaziv().equals(dog.getNaziv())) {
                             obstaja = true;
                             break;
                         }
                     }
-                    if(obstaja){}
-                    else {
-                        dogodki.addXML(naziv,vir,"Gledališče",666,datum);
+                    if (obstaja) {
+                    } else {
+                        dogodki.addXML(naziv, vir, tip, 666, datum);
+                    }
+
+                }
+
+            }
+        } catch (ParserConfigurationException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (SAXException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        //<!------------------------------RSS-družinski in zabavni--------------------------------->
+        try {
+            DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+            DocumentBuilder db = null;
+            URL url = new URL("http://www.eventim.si/si/rss/latest_family.xml");
+            db = dbf.newDocumentBuilder();
+            Document doc = db.parse(url.openStream());
+            doc.getDocumentElement().normalize();
+            System.out.println("Root element: " + doc.getDocumentElement().getNodeName());
+            NodeList nList = doc.getElementsByTagName("item");
+            //System.out.println("--------------------------------------------------------------------------------------------------------------------------");
+            for (int temp = 0; temp < nList.getLength(); temp++) {
+
+                Node nNode = nList.item(temp);
+
+                if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+
+                    Element eElement = (Element) nNode;
+                    String naziv = eElement.getElementsByTagName("title").item(0).getTextContent();
+
+                    String vir = eElement.getElementsByTagName("link").item(0).getTextContent();
+
+
+                    String datum = eElement.getElementsByTagName("pubDate").item(0).getTextContent();
+
+                    String tip = "Gledališče";
+
+
+                    Dogodek dog = new Dogodek(naziv, vir, tip, 666, datum);
+
+                    boolean obstaja = false;
+                    for (int i = 0; i < dogod.size(); i++) {
+                        if (dogod.get(i).getNaziv().equals(dog.getNaziv())) {
+                            obstaja = true;
+                            break;
+                        }
+                    }
+                    if (obstaja) {
+                    } else {
+                        dogodki.addXML(naziv, vir, tip, 666, datum);
                     }
 
                 }
@@ -448,8 +505,115 @@ public class KontrolerBaze {
         }
 
 
+//<!------------------------------RSS-glasba--------------------------------->
+        try {
+            DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+            DocumentBuilder db = null;
+            URL url = new URL("http://www.eventim.si/si/rss/latest_music.xml");
+            db = dbf.newDocumentBuilder();
+            Document doc = db.parse(url.openStream());
+            doc.getDocumentElement().normalize();
+            System.out.println("Root element: " + doc.getDocumentElement().getNodeName());
+            NodeList nList = doc.getElementsByTagName("item");
+            //System.out.println("--------------------------------------------------------------------------------------------------------------------------");
+            for (int temp = 0; temp < nList.getLength(); temp++) {
+
+                Node nNode = nList.item(temp);
+
+                if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+
+                    Element eElement = (Element) nNode;
+                    String naziv = eElement.getElementsByTagName("title").item(0).getTextContent();
+
+                    String vir = eElement.getElementsByTagName("link").item(0).getTextContent();
 
 
+                    String datum = eElement.getElementsByTagName("pubDate").item(0).getTextContent();
+
+                    String tip = "Glasba";
+
+
+                    Dogodek dog = new Dogodek(naziv, vir, tip, 666, datum);
+
+                    boolean obstaja = false;
+                    for (int i = 0; i < dogod.size(); i++) {
+                        if (dogod.get(i).getNaziv().equals(dog.getNaziv())) {
+                            obstaja = true;
+                            break;
+                        }
+                    }
+                    if (obstaja) {
+                    } else {
+                        dogodki.addXML(naziv, vir, tip, 666, datum);
+                    }
+
+                }
+
+            }
+        } catch (ParserConfigurationException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (SAXException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        //<!------------------------------RSS-šport--------------------------------->
+        try {
+            DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+            DocumentBuilder db = null;
+            URL url = new URL("http://www.eventim.si/si/rss/latest_sport.xml");
+            db = dbf.newDocumentBuilder();
+            Document doc = db.parse(url.openStream());
+            doc.getDocumentElement().normalize();
+            System.out.println("Root element: " + doc.getDocumentElement().getNodeName());
+            NodeList nList = doc.getElementsByTagName("item");
+            //System.out.println("--------------------------------------------------------------------------------------------------------------------------");
+            for (int temp = 0; temp < nList.getLength(); temp++) {
+
+                Node nNode = nList.item(temp);
+
+                if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+
+                    Element eElement = (Element) nNode;
+                    String naziv = eElement.getElementsByTagName("title").item(0).getTextContent();
+
+                    String vir = eElement.getElementsByTagName("link").item(0).getTextContent();
+
+
+                    String datum = eElement.getElementsByTagName("pubDate").item(0).getTextContent();
+
+                    String tip = "Šport";
+
+
+                    Dogodek dog = new Dogodek(naziv, vir, tip, 666, datum);
+
+                    boolean obstaja = false;
+                    for (int i = 0; i < dogod.size(); i++) {
+                        if (dogod.get(i).getNaziv().equals(dog.getNaziv())) {
+                            obstaja = true;
+                            break;
+                        }
+                    }
+                    if (obstaja) {
+                    } else {
+                        dogodki.addXML(naziv, vir, tip, 666, datum);
+                    }
+
+                }
+
+            }
+        } catch (ParserConfigurationException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (SAXException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
 
 
         model.addAttribute("dogodki", dogodki.getByTip(kategorija));
@@ -457,6 +621,7 @@ public class KontrolerBaze {
 
         return "events";
     }
+
 
 
     @RequestMapping(value = {"/prijava"}, method = RequestMethod.POST)
