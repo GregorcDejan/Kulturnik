@@ -91,7 +91,9 @@ Glavne funkcionalnosti naše spletne strani so:
 
 ## Podatkovna baza
 
-[Skripta za vspostavitev localhost/h2 podatkovne baze](skripta.sql)
+[Skripta za vspostavitev localhost/h2 podatkovne baze](Podatkovna-baza/skripta.sql)
+[Skripta za vspostavitev localhost/h2 podatkovne baze](Kulturnik/skripta.sql)
+[Skripta za vspostavitev localhost/h2 podatkovne baze](Kulturnik/Podatkovna-baza/skripta.sql)
 
 
 
