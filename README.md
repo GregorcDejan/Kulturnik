@@ -30,6 +30,7 @@ Drugi način pa je dodajanje dogodkov prijavljenih uporabnikov. Obvezni podatki 
 * cena 
 * opis
 * dogodek ima lahko tudi sliko. 
+
 Vse dogodke, ki jih prikazuje stran Kulturnik.si, lahko tudi urejamo. Vse dogodke lahko spreminja zgolj administrator, ki ima za to dodeljene pravice, ostali uporabniki lahko spreminjano zgolj njihove dodane dogodke. Razlog za to je morebitna naknadna sprememba datuma dogodka, sprememba ure, dodajanje razširjenega opisa dogodka, slik ipd. Neregistrirani uporabnik lahko na spletni strani prosto brska med dogodki, ponujeno pa mu je tudi napredno iskanje s filtri. Na dnu strani pa je omogočen tudi izvoz dogodkov za naslednjih 14 dni v obliki XML. 
 
 
@@ -90,9 +91,8 @@ Glavne funkcionalnosti naše spletne strani so:
 
 
 ## Podatkovna baza
+[E-R model](ER-D.pdf) oblikovane podatkovne baze, ter [Skripta](skripta.sql) za vzpostavitev podatkovne baze na localhost:8080/h2 
 
-[Skripta za vspostavitev localhost/h2 podatkovne baze](skripta.sql)
-[Skripta za vspostavitev localhost/h2 podatkovne baze](/skripta.sql)
 
 
 
