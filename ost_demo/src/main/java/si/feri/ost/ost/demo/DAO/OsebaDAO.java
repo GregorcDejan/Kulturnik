@@ -141,4 +141,12 @@ public class OsebaDAO {
 
 
     }
+
+    public int updateDogodek(int id,String ime, String priimek, String email, String telefon, String geslo, String datum_rojstva, String avatar){
+        String sql = "UPDATE UPORABNIK SET ime=?, priimek=?, email=?,telefon=?,geslo=?,datum_rojstva=?,avatar=? WHERE id=?";
+
+        return jdbcTemplate.update(sql,new Object[]{ime,priimek,email,telefon,geslo,datum_rojstva,avatar,id});
+
+
+    }
 }

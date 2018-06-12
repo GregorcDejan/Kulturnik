@@ -184,21 +184,32 @@
     </div>
     <div class="container">
         <h2 class="center-align">
-            Registracija
+            <c:choose>
+            <c:when test="${urejanjeUporabnika==true}">
+                Urejanje uporabnika
+
+            </c:when>
+
+            <c:when test="${urejanjeUporabnika==false}">
+                Registracija
+            </c:when>
+            </c:choose>
         </h2>
+
+
         <div class="row">
             <div class="col s10 offset-s1 l8 offset-l2">
                 <form action="/dodajanjeOsebe" method="post">
                     <div class="input-field col s12 l6">
-                        <input required id="first_name" type="text" class="validate" name="ime">
+                        <input required id="first_name" type="text" class="validate" name="ime" value="${urejanU.ime}">
                         <label for="first_name">Ime</label>
                     </div>
                     <div class="input-field col s12 l6">
-                        <input required id="last_name" type="text" class="validate" name="priimek">
+                        <input required id="last_name" type="text" class="validate" name="priimek" value="${urejanU.priimek}">
                         <label for="last_name">Priimek</label>
                     </div>
                     <div class="input-field col s12 l6">
-                        <input required id="geslo" type="password" class="validate" name="geslo" onkeyup="preveriGesli()">
+                        <input required id="geslo" type="password" class="validate" name="geslo" value="${urejanU.geslo}" onkeyup="preveriGesli()">
                         <label for="geslo">Geslo</label>
                     </div>
                     <div class="input-field col s12 l6">
@@ -206,24 +217,33 @@
                         <label for="gesloPotrdi">Potrdite Geslo</label>
                     </div>
                     <div class="input-field col s12 l6">
-                        <input required id="email" type="email" class="validate" name="email" onkeyup="preveriPosti()">
+                        <input required id="email" type="email" class="validate" name="email" value="${urejanU.email}"onkeyup="preveriPosti()">
                         <label for="email" data-error="" data-success="">E-mail</label>
                     </div>
                     <div class="input-field col s12 l6">
-                        <input required id="emailPotrdi" type="email" class="validate" onkeyup="preveriPosti()">
+                        <input required id="emailPotrdi" type="email" class="validate" value="${urejanU.email}" onkeyup="preveriPosti()">
                         <label for="emailPotrdi" data-error="" data-success="">Potrdite E-mail</label>
                     </div>
                     <div class="input-field col s12 l6">
-                        <input required id="datumRojstva" type="text" class="datepicker validate" name="datumRojstva">
+                        <input required id="datumRojstva" type="text" value="${urejanU.datumRojstva}"class="datepicker validate" name="datumRojstva">
                         <label for="datumRojstva">Datum Rojstva</label>
                     </div>
                     <div class="input-field col s12 l6">
-                        <input id="telefon" type="text" class="" name="telefonska">
+                        <input id="telefon" type="text" class="" name="telefonska" value="${urejanU.telefonska}">
                         <label for="telefon">Telefon</label>
                     </div>
                     <div id="warningDiv" class="col s12 center-align red-text text-lighten-2"></div>
-                    <button id="registrirajSe" class="btn col teal darken-1 z-depth-3 offset-l3 l6 s10 offset-s1 btn-large" type="submit">
-                        Registriraj se
+                    <button id="registrirajSe" class="btn col teal darken-1 z-depth-3 offset-l3 l6 s10 offset-s1 btn-large" type="submit" name="idUporabnika" value="${urejanU.id}">
+                        <c:choose>
+                            <c:when test="${urejanjeUporabnika==true}">
+                                Shrani spremembe
+                            </c:when>
+
+                            <c:when test="${urejanjeUporabnika==false}">
+                                Registriraj se
+                            </c:when>
+                        </c:choose>
+
                     </button>
                 </form>
             </div>

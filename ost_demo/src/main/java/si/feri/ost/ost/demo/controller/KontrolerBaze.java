@@ -56,19 +56,30 @@ public class KontrolerBaze {
 
 
     @RequestMapping(value = {"/dodajanjeOsebe"}, method = RequestMethod.POST)
-    public String dodajOsebo(Model model, @RequestParam(value = "ime", required = true) String ime,
-                             @RequestParam(value = "priimek", required = true) String priimek,
-                             @RequestParam(value = "email", required = true) String email,
-                             @RequestParam(value = "geslo", required = true) String geslo,
-                             @RequestParam(value = "datumRojstva", required = true) String datumRojstva,
-                             @RequestParam(value = "telefonska", required = true) String telefonska) {
-
-
+    public String dodajOsebo(Model model, @RequestParam(value = "ime", required = false) String ime,
+                             @RequestParam(value = "priimek", required = false) String priimek,
+                             @RequestParam(value = "email", required = false) String email,
+                             @RequestParam(value = "geslo", required = false) String geslo,
+                             @RequestParam(value = "idUporabnika", required = false) String id,
+                             @RequestParam(value = "datumRojstva", required =false) String datumRojstva,
+                             @RequestParam(value = "telefonska", required =false
+                             ) String telefonska) {
         String avatar = "https://api.adorable.io/avatars/111/"+email;
-        osebe.addOseba(ime, priimek, email, geslo, datumRojstva, telefonska,avatar);
-        boolean jeDodan = true;
-        model.addAttribute("dodanaOseba", jeDodan);
-        return "/vpis";
+
+        if(!id.equals("")){
+
+            osebe.updateDogodek(Integer.parseInt(id),ime,priimek,email,telefonska,geslo,datumRojstva,avatar);
+
+        }
+
+        else {
+            osebe.addOseba(ime, priimek, email, geslo, datumRojstva, telefonska, avatar);
+            boolean jeDodan = true;
+            model.addAttribute("dodanaOseba", jeDodan);
+
+        }
+
+        return "index";
     }
 
     @RequestMapping(value = {"/", "/index",}, method = RequestMethod.GET)
@@ -86,6 +97,18 @@ public class KontrolerBaze {
         dogodki.insertBlob();
 
         return "index";
+    }
+
+    @RequestMapping(value={"/naslov"},method=RequestMethod.GET)
+    public String vrniNaslov(Model model,
+                             @RequestParam(value="ID") String id){
+
+        Dogodek d = dogodki.getByID(Integer.parseInt(id));
+        String naslov = d.getLokacija();
+        model.addAttribute("naslovLokacije",naslov);
+
+        model.addAttribute("naslovDogodka",d.getNaziv());
+        return "map";
     }
 
     public static ArrayList<Dogodek> seznamDogodkov = new ArrayList<>();
@@ -132,30 +155,42 @@ public class KontrolerBaze {
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
         HttpSession session = request.getSession(true);
 
-        boolean uporabnikPrijavljen = (Boolean.valueOf(String.valueOf(session.getAttribute("uporabnikPrijavljen"))));
         if (ime.equals("dodajanje")) {
             model.addAttribute("urejanjeDogodka", false);
 
-            if (uporabnikPrijavljen) {
-
-                return "add";
-            } else
-                return "vpis";
+            return "add";
 
         } else {
             model.addAttribute("urejanjeDogodka", true);
 
-            if (uporabnikPrijavljen) {
                 Dogodek urejan = dogodki.getByID(Integer.parseInt(ime));
                 model.addAttribute("urejanDogodek", urejan);
                 model.addAttribute("idD", ime);
                 return "add";
-            } else
-                return "vpis";
+
         }
 
     }
 
+    @RequestMapping(value = {"/urediUporabnika"}, method = RequestMethod.GET)
+    public String prikaziNastavitve(Model model,
+                               @RequestParam(value = "urejanUporabnik", required = false) String id) {
+
+        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+        HttpSession session = request.getSession(true);
+
+        model.addAttribute("urejanjeUporabnika",true);
+
+        Oseba urejanUporabnik = osebe.getByID(Integer.parseInt(id));
+
+        model.addAttribute("urejanU",urejanUporabnik);
+
+
+
+        return "registracija";
+
+
+    }
 
     @RequestMapping(value = {"/Konzola",}, method = RequestMethod.GET)
     public String konzola(Model model, @RequestParam(value = "event", required = false) String tip) {

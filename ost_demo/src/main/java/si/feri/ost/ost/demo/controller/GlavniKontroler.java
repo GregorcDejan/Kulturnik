@@ -41,7 +41,7 @@ public class GlavniKontroler {
 
         return "Konsola";
 
-        
+
     }
 
     @RequestMapping(value = { "/uporabnik" }, method = RequestMethod.GET)
@@ -59,6 +59,7 @@ public class GlavniKontroler {
     @RequestMapping(value = { "/registracija" }, method = RequestMethod.GET)
     public String registracija(Model model) {
 
+        model.addAttribute("urejanjeUporabnika",false);
         return "registracija";
     }
 
