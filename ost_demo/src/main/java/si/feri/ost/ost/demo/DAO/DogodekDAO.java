@@ -408,7 +408,50 @@ public class DogodekDAO {
         return rez;
 
     }
+    public List<Dogodek> getByLokacija(String lokacija) {
+        lokacija = lokacija.substring(1);
+        String sql = "SELECT * FROM dogodek WHERE lokacija=?";
 
+        List<Dogodek> rez = new ArrayList<>();
+
+        List<Map<String,Object>> vrstice  = jdbcTemplate.queryForList(sql,new Object[]{lokacija});
+        int p=4;
+        for(Map vrstica: vrstice){
+
+
+            int ID=(Integer)(vrstica.get("ID"));
+            String naziv = (String)vrstica.get("Naziv");
+            String kraj = (String)vrstica.get("Kraj");
+            Time cas = (Time) vrstica.get("Ura");
+            String ura=null;
+            if(cas!=null) {
+                ura= cas.toString();//STRING?? ura minuta sekunda
+            }
+
+            String izvajalec = (String)vrstica.get("Izvajalec");
+            String tip = (String)vrstica.get("Tip");
+            String cena = (String)vrstica.get("Cena");
+            String opis = (String)vrstica.get("Opis");
+            String slikaURL = (String)vrstica.get("Slika");
+
+            int idUporabnik= (Integer) vrstica.get("Uporabnik_ID");
+
+
+            Date datumcek = (Date) vrstica.get("Datum");
+            String datum=datumcek.toString();
+            String vir = (String)vrstica.get("Vir");
+
+
+
+
+            Dogodek d= new Dogodek(ID,naziv,kraj,ura,izvajalec,lokacija,cena,opis,slikaURL,idUporabnik,tip,datum,vir);
+
+            rez.add(d);
+
+        }
+        return rez;
+
+    }
 
 
     public List<Dogodek> getByCena(String cenaMax){

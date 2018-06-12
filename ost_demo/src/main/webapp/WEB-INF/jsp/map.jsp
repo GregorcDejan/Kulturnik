@@ -204,6 +204,38 @@ String.valueOf(session.getAttribute("imeUporabnika"))%>
             <h2 class="center-align">Lokacija dogodka ${naslovDogodka} </h2>
             <div id="map"></div>
             <script>
+
+
+
+
+                var izbira = "${celZemljevid}";
+                var lokacije = "${lokacijeDogodkov}";
+
+                var locations=new Array();
+
+                var x="";
+
+
+                    for (var i = 0; i < lokacije.length; i++) {
+
+
+                        if (lokacije[i] != ',')
+                            x += lokacije[i];
+
+                        else if (lokacije[i] === ',') {
+                            locations.push(x);
+
+                            x = "";
+
+                        }
+
+                        if (i === lokacije.length - 2)
+                            locations.push(x);
+
+
+                    }
+
+
                 var geocoder;
                 var map;
                 var address = "${naslovLokacije}";
@@ -213,22 +245,85 @@ String.valueOf(session.getAttribute("imeUporabnika"))%>
                         center: {lat: 46.554007, lng: 15.648498}
                     });
                     geocoder = new google.maps.Geocoder();
-                    codeAddress(geocoder, map);
+
+
+                    if(izbira==='true') {
+                        for (var i = 0; i < locations.length; i++) {
+
+                            setInfoWindow(i);
+                        }
+
+                        function setInfoWindow(i) {
+                            geocoder.geocode({'address': locations[i]}, function (results, status) {
+                                if (status === 'OK') {
+
+                                    map.setCenter(46.0569465, 14.5057515);
+                                    map.setZoom(8.5);
+                                    var marker = new google.maps.Marker({
+                                        map: map,
+                                        position: results[0].geometry.location
+                                    });
+
+                                    marker.addListener('click', function() {
+
+
+                                        var infowindow = new google.maps.InfoWindow({
+                                            content: '<div id="content" style="font-family:\'Times New Roman\';padding:16px; ;border-radius:5px;max-width:260px;box-shadow:none;">'
+                                            +locations[i]+'<br> ' +
+                                            '<form action="/dogodkiPoLokaciji" method="get"><button type="submit"class="btn valign-wrapper right blue lighten-1 waves-effect" id="button" value="'+locations[i]+'" name="lokacija">Prikaži dogodke</button></form> ' +
+                                            '</div>'
+
+
+
+
+                                        });
+                                        infowindow.open(map, marker);
+
+
+
+
+                                    });
+
+
+
+
+                                } else {
+                                    alert('Prikaz na zemljevidu neuspešen zaradi: ' + status);
+                                }
+
+
+                            });
+
+
+                        }
+                    }
+
+                   else{
+                      codeAddress(geocoder, map);
+                    }
+
+
                 }
+
 
                 function codeAddress(geocoder, map) {
                     geocoder.geocode({'address': address}, function(results, status) {
+
                         if (status === 'OK') {
+
                             map.setCenter(results[0].geometry.location);
                             var marker = new google.maps.Marker({
                                 map: map,
                                 position: results[0].geometry.location
                             });
+
                         } else {
                             alert('Prikaz na zemljevidu neuspešen zaradi: ' + status);
                         }
                     });
                 }
+
+
             </script>
             <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAqDzfA85d4SVOfcH-NKKeRrWY5OMP480Y&callback=initMap">
             </script>
@@ -241,9 +336,15 @@ String.valueOf(session.getAttribute("imeUporabnika"))%>
 </body>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="/lib/javascript/materialize.min.js"></script>
-
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 
 <script>
+
+
+
+
+    Materialize.updateTextFields();
     // Every page needs this dingy //
     $(document).ready(function () {
         $('.dropdown-button').dropdown({

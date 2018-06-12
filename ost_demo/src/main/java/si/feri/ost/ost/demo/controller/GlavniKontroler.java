@@ -11,11 +11,16 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import si.feri.ost.ost.demo.DAO.DogodekDAO;
 import si.feri.ost.ost.demo.DAO.OsebaDAO;
+import si.feri.ost.ost.demo.Razredi.Dogodek;
 import si.feri.ost.ost.demo.Razredi.Oseba;
 
 import javax.servlet.ServletRequestAttributeEvent;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
 
 @Controller
 public class GlavniKontroler {
@@ -53,6 +58,22 @@ public class GlavniKontroler {
     @RequestMapping(value = { "/map" }, method = RequestMethod.GET)
     public String map(Model model) {
 
+        List<Dogodek> vsiDogodki = dogodki.getAllDogodki();
+
+        HashSet<String> naslovi = new HashSet<>();
+
+        for(int i=0; i<vsiDogodki.size();i++){
+            naslovi.add(vsiDogodki.get(i).getLokacija());
+        }
+
+        String[] poljeNaslovov =naslovi.toArray(new String[naslovi.size()]);
+        int p=4;
+        model.addAttribute("lokacijeDogodkov",naslovi);
+
+        model.addAttribute("celZemljevid",true);
+
+
+
         return "map";
     }
 
@@ -61,6 +82,20 @@ public class GlavniKontroler {
 
         model.addAttribute("urejanjeUporabnika",false);
         return "registracija";
+    }
+
+    @RequestMapping(value = { "/dogodkiPoLokaciji" }, method = RequestMethod.GET)
+    public String vrniEventePoLokaciji(Model model,
+                                       @RequestParam(value="lokacija")String lokacija) {
+
+       List<Dogodek> dogodkiPoLokaciji = dogodki.getByLokacija(lokacija);
+
+       model.addAttribute("dogodki",dogodkiPoLokaciji);
+
+       lokacija = lokacija.substring(1);
+
+       int p=4;
+        return "events";
     }
 
     @RequestMapping(value = { "/vpis" }, method = RequestMethod.GET)

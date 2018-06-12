@@ -108,6 +108,8 @@ public class KontrolerBaze {
         model.addAttribute("naslovLokacije",naslov);
 
         model.addAttribute("naslovDogodka",d.getNaziv());
+
+        model.addAttribute("celZemljevid",false);
         return "map";
     }
 
