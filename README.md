@@ -54,12 +54,22 @@ Vse dogodke, ki jih prikazuje stran Kulturnik.si, lahko tudi urejamo. Vse dogodk
 * [Zunanje knjižnice](#Zunanje-knjižnice)
 
 ## Inštalacija in uporaba
+Če želite tudi sami zagnati spletno stran na localhost:8080, za to potrebujete GitHub Desktop 
+in poljubno integrirano razvojno okolje, ki omogoča inštalacijo maven projekta.
+Nato v GitHub Desktop-u kopirate naš repozitorij
+> `$ git clone https://github.com/WiiTheThird/Kulturnik.git`
 
+Nato izberete
+> `$ git branch Kontroler`
 
+Za tem pa iz oddaljenega (remote) repozitorija 
+> `$ git pull origin` 
 
+da dobite zadnjo posodobljeno verzijo. Nato zaženete poljubno IDE okolje in odprete projekt ost_demo, IDE
+vam bi moral predlagati vnos (import) potrebnih maven knjižnic. Nato zaženete naš projekt
+> `$ git run Zagonski` 
 
-
-
+V poljuben brskalnik vpišete localhost:8080/h2 in si vzpostavite lokalno bazo, skripto najdete [tukaj](skripta.sql).
 
 ## Glavne funkcionalnosti
 Glavne funkcionalnosti naše spletne strani so: 
