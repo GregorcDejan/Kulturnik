@@ -2,9 +2,15 @@ package si.feri.ost.ost.demo.Razredi;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
+/**
+ * Razred Dogodek za ustvarjanje in spreminjanje objektov, ki jih prikazujemo v aplikaciji
+ */
 @XmlRootElement
 public class Dogodek implements Comparable<Dogodek>
 {
+    /**
+     * Atributi razreda
+     */
     private int id;
     private String naziv;
     private String kraj;
@@ -19,8 +25,29 @@ public class Dogodek implements Comparable<Dogodek>
     private String datum;//leto mesec dan
     private String vir;
 
-
+    /**
+     * Privzeti konstruktor
+     */
     public Dogodek() {}
+
+
+    /**
+     * Konstruktor, uporabljen pri izpisu dogodkov
+     @param id
+     * @param naziv
+     * @param kraj
+     * @param ura
+     * @param izvajalec
+     * @param lokacija
+     * @param cena
+     * @param opis
+     * @param slikaURL
+     * @param idUporabnika
+     * @param tip
+     * @param datum
+     * @param vir
+    */
+
 
     public Dogodek(int id, String naziv, String kraj, String ura, String izvajalec, String lokacija, String cena, String opis, String slikaURL, int idUporabnika, String tip, String datum, String vir) {
         this.id = id;
@@ -38,6 +65,21 @@ public class Dogodek implements Comparable<Dogodek>
         this.vir = vir;
     }
 
+    /**
+     *Konstruktor brez idUporabnika
+     * @param id
+     * @param naziv
+     * @param kraj
+     * @param ura
+     * @param izvajalec
+     * @param lokacija
+     * @param cena
+     * @param opis
+     * @param slikaURL
+     * @param tip
+     * @param datum
+     * @param vir
+     */
     public Dogodek(int id, String naziv, String kraj, String ura, String izvajalec, String lokacija, String cena, String opis, String slikaURL, String tip, String datum, String vir) {
         this.id = id;
         this.naziv = naziv;
@@ -53,6 +95,22 @@ public class Dogodek implements Comparable<Dogodek>
         this.vir = vir;
     }
 
+
+    /**
+     * Konstruktor brez id-ja
+     * @param naziv
+     * @param kraj
+     * @param ura
+     * @param izvajalec
+     * @param lokacija
+     * @param cena
+     * @param opis
+     * @param slikaURL
+     * @param idUporabnika
+     * @param tip
+     * @param datum
+     * @param vir
+     */
     public Dogodek(String naziv, String kraj, String ura, String izvajalec, String lokacija, String cena, String opis, String slikaURL, int idUporabnika, String tip, String datum, String vir) {
         this.naziv = naziv;
         this.kraj = kraj;
@@ -68,11 +126,29 @@ public class Dogodek implements Comparable<Dogodek>
         this.vir = vir;
     }
 
+    /**
+     * Konstruktor samo z nazivom
+     * @param naziv
+     */
     public Dogodek(String naziv)
     {
         this.naziv=naziv;
     }
 
+    /**
+     * Konstruktor brez id-jev
+     * @param naziv
+     * @param kraj
+     * @param ura
+     * @param izvajalec
+     * @param lokacija
+     * @param cena
+     * @param opis
+     * @param slikaURL
+     * @param tip
+     * @param datum
+     * @param vir
+     */
     public Dogodek(String naziv, String kraj, String ura, String izvajalec, String lokacija, String cena, String opis, String slikaURL, String tip, String datum, String vir) {
         this.naziv = naziv;
         this.kraj = kraj;
@@ -87,6 +163,19 @@ public class Dogodek implements Comparable<Dogodek>
         this.vir = vir;
     }
 
+    /**
+     * Konstruktor brez idUporabnika, cene, kraja in lokacije
+     * @param id
+     * @param naziv
+     * @param vir
+     * @param slikaURL
+     * @param tip
+     * @param opis
+     * @param kraj
+     * @param lokacija
+     * @param datum
+     * @param cena
+     */
     public Dogodek(int id, String naziv, String vir, String slikaURL, String tip, String opis, String kraj, String lokacija, String datum, String cena)
     {
         this.id=id;
