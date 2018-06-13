@@ -96,16 +96,21 @@ Glavne funkcionalnosti naše spletne strani so:
 
 
 ## Dokumentacija
-
-[Dokumentacija](Kulturnik/Javadoc/)
-
-
-
+1. [Javadoc](./Javadoc)
+	1. [Dogodek](Kulturnik/Javadoc/Dogodek/Dogodek.java)
+	1. [Oseba](Kulturnik/Javadoc/Oseba/Oseba.java)
+	1. [DogodekComparator](Kulturnik/Javadoc/DogodekComparator/DogodekComparator.java)
+	1. [DogodekDAO](Kulturnik/Javadoc/DogodekDAO/DogodekDAO.java)
+	1. [OsebaDAO](Kulturnik/Javadoc/OsebaDAO/OsebaDAO.java)
+	1. [GlavniKontroler](Kulturnik/Javadoc/GlavniKontroler/GlavniKontroler.java)
+	1. [KontrolerBaze](Kulturnik/Javadoc/KontrolerBaze/KontrolerBaze.java)
+	1. [KontrolerDogodki](Kulturnik/Javadoc/KontrolerDogodki/KontrolerDogodki.java)
+	1. [KontrolerOsebe](Kulturnik/Javadoc/KontrolerOsebe/KontrolerOsebe.java)
+	1. [Zagonski](Kulturnik/Javadoc/Zagonski/Zagonski.java)
 
 
 ## Podatkovna baza
-[E-R model](ER-D.pdf) oblikovane podatkovne baze, ter [Skripta](skripta.sql) za vzpostavitev podatkovne baze na localhost:8080/h2 
-
+Vzpostavitev baze smo začeli z oblikovanjem [E-R modela](ER-D.pdf), nato pa smo ustvarili še [skripto](skripta.sql) za vzpostavitev podatkovne baze na localhost:8080/h2.
 
 
 
