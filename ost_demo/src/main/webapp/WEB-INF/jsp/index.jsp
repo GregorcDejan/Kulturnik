@@ -191,11 +191,11 @@
 
             <div class="col offset-s1 offset-l1 s12 l5 section">
                 <h3 class="center-align">Današnji dogodki</h3>
-                <div class="card-panel grey lighten-3">
+                <div class="card-panel grey lighten-3 large">
                     <span class="black-text grey lighten-3">
                         <ul class="collection grey lighten-3">
                             <c:forEach items="${dogodkiDat}" var="d">
-                                <li class="collection-item grey lighten-3"><div>${d.naziv}<a href="${d.vir}" class="secondary-content"><i class="material-icons red-text text-lighten-2">send</i></a></div></li>
+                                <li class="collection-item grey lighten-3"><div class="truncate">${d.naziv}<a href="${d.vir}" class="secondary-content"><i class="material-icons red-text text-lighten-2">send</i></a></div></li>
                             </c:forEach>
 
                         </ul>
@@ -219,11 +219,11 @@
             </div-->
             <div class="col s12 l5">
                 <h3 class="center-align">Zadnjih 5</h3>
-                <div class="card-panel grey lighten-3">
+                <div class="card-panel grey lighten-3 large">
                     <span class="black-text grey lighten-3">
                         <ul class="collection grey lighten-3">
                             <c:forEach items="${dogodki}" var="d">
-                                <li class="collection-item grey lighten-3"><div>${d.naziv}<a href="${d.vir}" class="secondary-content"><i class="material-icons red-text text-lighten-2">send</i></a></div></li>
+                                <li class="collection-item grey lighten-3"><div class="truncate">${d.naziv}<a href="${d.vir}" class="secondary-content"><i class="material-icons red-text text-lighten-2">send</i></a></div></li>
                             </c:forEach>
                         </ul>
                     </span>
