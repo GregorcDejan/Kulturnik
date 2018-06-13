@@ -15,7 +15,7 @@
     <link rel="stylesheet" type="text/css" media="screen" href="/lib/css/style.css">
 </head>
 
-<body>
+<body class="teal lighten-5">
 <main class="teal lighten-5">
     <div class="navbar-fixed">
         <nav class=" teal darken-2 z-depth-3">
@@ -283,39 +283,36 @@
                             </c:forEach>
                         </div>
                     </div>
-                    <ul class="pagination right">
-                        <li class="disabled">
-                            <a href="#!">
-                                <i class="material-icons">chevron_left</i>
-                            </a>
-                        </li>
-                        <li class="active teal darken-2">
-                            <a href="#!">1</a>
-                        </li>
-                        <li class="waves-effect">
-                            <a href="#!">2</a>
-                        </li>
-                        <li class="waves-effect">
-                            <a href="#!">3</a>
-                        </li>
-                        <li class="waves-effect">
-                            <a href="#!">4</a>
-                        </li>
-                        <li class="waves-effect">
-                            <a href="#!">5</a>
-                        </li>
-                        <li class="waves-effect">
-                            <a href="#!">
-                                <i class="material-icons">chevron_right</i>
-                            </a>
-                        </li>
-                    </ul>
                 </div>
-
             </div>
         </div>
     </div>
 </main>
+<footer class="page-footer teal lighten-3">
+    <div class="container">
+        <div class="row">
+            <div class="col l6 s12">
+                <h5 class="white-text">Kulturnik</h5>
+                <p class="grey-text text-lighten-4">Brought to you by a team of enthusiastic students of information technologies</p>
+            </div>
+            <div class="col l6 s12">
+                <ul>
+                    <li class="grey-text text-lighten-3"><h5>Brought to you by</h5></li>
+                    <li class="grey-text text-lighten-3">Fakulteta za Elektrotehniko Računalništvo in Informatiko</li>
+                    <li class="grey-text text-lighten-3">Univerza v Mariboru</li>
+                    <li class="grey-text text-lighten-3">Praktikum I</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container">
+            © 2018 Copyright Praktikum Powerhouse
+            <a class="grey-text text-lighten-4 right" href="index">Kulturnik</a>
+        </div>
+    </div>
+</footer>
 </body>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="/lib/javascript/materialize.min.js"></script>

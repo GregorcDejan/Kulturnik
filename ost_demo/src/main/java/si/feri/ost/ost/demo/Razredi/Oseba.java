@@ -1,5 +1,8 @@
 package si.feri.ost.ost.demo.Razredi;
 
+/**
+ * Konstruktor
+ */
 public class Oseba {
     private int id;
     private String ime;
@@ -10,10 +13,22 @@ public class Oseba {
     private String telefonska;
     private String avatar;
 
-
+    /**
+     * privzeti konstruktor
+     */
     public Oseba() {
     }
 
+    /**
+     * Konstruktor
+     * @param id
+     * @param ime
+     * @param priimek
+     * @param email
+     * @param geslo
+     * @param datumRojstva
+     * @param telefonska
+     */
     public Oseba(int id, String ime, String priimek, String email, String geslo, String datumRojstva, String telefonska) {
         this.id = id;
         this.ime = ime;
@@ -24,6 +39,15 @@ public class Oseba {
         this.telefonska = telefonska;
     }
 
+    /**
+     * Konstruktor
+     * @param ime
+     * @param priimek
+     * @param email
+     * @param geslo
+     * @param datumRojstva
+     * @param telefonska
+     */
     public Oseba(String ime, String priimek, String email, String geslo, String datumRojstva, String telefonska) {
         this.ime = ime;
         this.priimek = priimek;
@@ -33,6 +57,17 @@ public class Oseba {
         this.telefonska = telefonska;
     }
 
+    /**
+     * Konstruktor
+     * @param id
+     * @param ime
+     * @param priimek
+     * @param email
+     * @param geslo
+     * @param datumRojstva
+     * @param telefonska
+     * @param avatar
+     */
     public Oseba(int id, String ime, String priimek, String email, String geslo, String datumRojstva, String telefonska, String avatar) {
         this.id = id;
         this.ime = ime;
@@ -44,6 +79,16 @@ public class Oseba {
         this.avatar = avatar;
     }
 
+    /**
+     * Konstruktor
+     * @param ime
+     * @param priimek
+     * @param email
+     * @param geslo
+     * @param datumRojstva
+     * @param telefonska
+     * @param avatar
+     */
     public Oseba(String ime, String priimek, String email, String geslo, String datumRojstva, String telefonska, String avatar) {
         this.ime = ime;
         this.priimek = priimek;
@@ -114,6 +159,10 @@ public class Oseba {
         this.avatar = avatar;
     }
 
+    /**
+     * preobložena metoda toString
+     * @return String
+     */
     @Override
     public String toString() {
         return "Ime='" + ime + '\'' +

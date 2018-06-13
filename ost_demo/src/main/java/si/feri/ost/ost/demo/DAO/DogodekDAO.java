@@ -25,6 +25,10 @@ public class DogodekDAO {
     @Autowired
     JdbcTemplate jdbcTemplate;
 
+    /**
+     * vračanje vseh dogodkov
+     * @return
+     */
     public List<Dogodek> getAllDogodki()
     {
         String sql = "SELECT * FROM DOGODEK";
@@ -72,6 +76,10 @@ public class DogodekDAO {
 
     }
 
+    /**
+     * vračanje zadnjih 5 dogodkov
+     * @return
+     */
     public List<Dogodek> zadnjihNeki()
     {
         List<Dogodek> vsi=getAllDogodki();
@@ -86,6 +94,23 @@ public class DogodekDAO {
 
     }
 
+    /**
+     * dodajanje dogodka
+     * @param naziv
+     * @param kraj
+     * @param ura
+     * @param izvajalec
+     * @param lokacija
+     * @param cena
+     * @param opis
+     * @param slikaURL
+     * @param idUporabnika
+     * @param tip
+     * @param datum
+     * @param vir
+     * @return
+     * @throws ParseException
+     */
     public int addDogodek(String naziv, String kraj, String ura, String izvajalec, String lokacija, String cena, String opis, String slikaURL, int idUporabnika, String tip, String datum, String vir) throws ParseException {
      String sql = "INSERT INTO DOGODEK(naziv,kraj,ura,izvajalec,lokacija,cena,opis,slika,uporabnik_id,tip,datum,vir) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
 
@@ -103,40 +128,24 @@ public class DogodekDAO {
 
     }
 
-    public int insertBlob()
-    {
-        String sql = "INSERT INTO BLOBTEST(blobek) VALUES(?)";
-        File file=new File("C:\\Users\\Dejan Gregorc\\Desktop\\porter-ja-lasi.jpg");
-        Blob blob =null;
-        FileInputStream inputStream = null;
 
-        try {
-
-            inputStream = new FileInputStream(file);
-
-            jdbcTemplate.update(sql,new Object[]{});
-
-
-
-
-
-
-
-        } catch (FileNotFoundException e) {
-            System.out.println("FileNotFoundException: - " + e);
-        } finally {
-
-
-
-        }
-        return 1;
-    }
-
-
-
-
-
-
+    /**
+     * dodajanje dogodka z parametri iz XML datoteke Koloseja
+     * @param naziv
+     * @param kraj
+     * @param ura
+     * @param izvajalec
+     * @param lokacija
+     * @param cena
+     * @param opis
+     * @param slikaURL
+     * @param idUporabnika
+     * @param tip
+     * @param datum
+     * @param vir
+     * @return
+     * @throws ParseException
+     */
     public int addXML(String naziv, String kraj, String ura, String izvajalec, String lokacija, String cena, String opis, String slikaURL, int idUporabnika, String tip, String datum, String vir) throws ParseException {
         String sql = "INSERT INTO DOGODEK(naziv,kraj,ura,izvajalec,lokacija,cena,opis,slika,uporabnik_id,tip,datum,vir) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
 
@@ -153,6 +162,18 @@ public class DogodekDAO {
 
 
     }
+
+    /**
+     * dodajanje dogodka iz XML datoteke RSS
+     * @param naziv
+     * @param vir
+     * @param tip
+     * @param idUporabnika
+     * @param datum
+     * @return
+     * @throws ParseException
+     */
+
     public int addXML(String naziv,String vir,String tip,int idUporabnika,String datum) throws ParseException {
         String sql = "INSERT INTO DOGODEK(naziv,vir,tip,uporabnik_id,datum) VALUES(?,?,?,?,?)";
         datum = datum.replace(".","-");
@@ -170,6 +191,22 @@ public class DogodekDAO {
 
     }
 
+    /**
+     * posodabljanje dogodka
+     * @param id
+     * @param naziv
+     * @param kraj
+     * @param ura
+     * @param izvajalec
+     * @param lokacija
+     * @param cena
+     * @param opis
+     * @param slikaURL
+     * @param tip
+     * @param datum
+     * @param vir
+     * @return
+     */
     public int updateDogodek(int id,String naziv, String kraj, String ura, String izvajalec, String lokacija, String cena, String opis, String slikaURL, String tip, String datum, String vir){
         String sql = "UPDATE DOGODEK SET naziv=?, kraj=?, ura=?,izvajalec=?,lokacija=?,cena=?,opis=?,slika=?, tip=?,datum=?,vir=? WHERE id=?";
 
@@ -178,6 +215,10 @@ public class DogodekDAO {
 
     }
 
+    /**
+     * iskanje najnižje cene
+     * @return
+     */
     public int vrniNajnizjoCeno(){
 
         String sql = "Select Min(cast(cena as double)) from dogodek";
@@ -187,6 +228,10 @@ public class DogodekDAO {
         return cena;
     }
 
+    /**
+     * iskanje najvišje cene
+     * @return
+     */
     public int vrniNajvisjoCeno(){
 
         String sql = "Select Max(cast(cena as double)) from dogodek";
@@ -196,6 +241,11 @@ public class DogodekDAO {
         return cena;
     }
 
+    /**
+     * brisanje dogodka
+     * @param id
+     * @return
+     */
     public Object deleteDogodek(int id)
     {
         String sql = "DELETE FROM DOGODEK WHERE id=?";
@@ -203,6 +253,11 @@ public class DogodekDAO {
         return jdbcTemplate.update(sql,new Object[]{id});
     }
 
+    /**
+     * filtriranje po nazivu
+     * @param naziv
+     * @return
+     */
     public List<Dogodek> getByNaziv(String naziv)
     {
         String sql = "SELECT * FROM dogodek WHERE naziv=? ";
@@ -237,6 +292,12 @@ public class DogodekDAO {
         return rez;
 
     }
+
+    /**
+     * iskanje dogodka po ID-ju
+     * @param id
+     * @return
+     */
     public Dogodek getByID(int id)
     {
         String sql = "SELECT * FROM dogodek WHERE id=? ";
@@ -254,6 +315,11 @@ public class DogodekDAO {
 
     }
 
+    /**
+     * iskanje dogodkov po ID-ju uporabnika
+     * @param idUporabnika
+     * @return
+     */
     public List<Dogodek> getByIdUporabnika(int idUporabnika){
         String sql = "SELECT * FROM dogodek WHERE UPORABNIK_ID=?";
 
@@ -293,6 +359,11 @@ public class DogodekDAO {
 
     }
 
+    /**
+     * iskanje dogodka po datumu
+     * @param datum
+     * @return
+     */
     public List<Dogodek> getByDatum(String datum)
     {
         String sql = "SELECT * FROM dogodek WHERE datum=?";
@@ -326,6 +397,11 @@ public class DogodekDAO {
 
     }
 
+    /**
+     * iskanje dogodka po tipu
+     * @param tip
+     * @return
+     */
     public List<Dogodek> getByTip(String tip)
     {
         String sql = "SELECT * FROM dogodek WHERE tip=?";
@@ -377,6 +453,11 @@ public class DogodekDAO {
 
     }
 
+    /**
+     * iskanje dogodka po kraju
+     * @param kraj
+     * @return
+     */
     public List<Dogodek> getByKraj(String kraj)
     {
         String sql = "SELECT * FROM dogodek WHERE kraj=?";
@@ -408,6 +489,12 @@ public class DogodekDAO {
         return rez;
 
     }
+
+    /**
+     * iskanje dogodka po lokaciji
+     * @param lokacija
+     * @return
+     */
     public List<Dogodek> getByLokacija(String lokacija) {
         //lokacija = lokacija.substring(1);
         String sql = "SELECT * FROM dogodek WHERE lokacija=?";
@@ -453,7 +540,11 @@ public class DogodekDAO {
 
     }
 
-
+    /**
+     * Iskanje dogodka po ceni
+     * @param cenaMax
+     * @return
+     */
     public List<Dogodek> getByCena(String cenaMax){
 
         String sql = "SELECT * FROM dogodek";

@@ -5,7 +5,22 @@
 #sidenav-overlay {
   z-index: 1;
 }
+<<<<<<< HEAD
 .napovednikbox2 a {
+=======
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+#napovednikbox2 a {
+>>>>>>> c4a30eb479fdabf49415fa7398e33acb08a05f15
   color: #000;
   font-weight: 700;
   text-decoration: none;

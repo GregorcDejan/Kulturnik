@@ -54,7 +54,18 @@ public class KontrolerBaze {
 
     OsebaDAO oseba;
 
-
+    /**
+     * Dodajanje osebe
+     * @param model
+     * @param ime
+     * @param priimek
+     * @param email
+     * @param geslo
+     * @param id
+     * @param datumRojstva
+     * @param telefonska
+     * @return
+     */
     @RequestMapping(value = {"/dodajanjeOsebe"}, method = RequestMethod.POST)
     public String dodajOsebo(Model model, @RequestParam(value = "ime", required = false) String ime,
                              @RequestParam(value = "priimek", required = false) String priimek,
@@ -80,6 +91,11 @@ public class KontrolerBaze {
         return "index";
     }
 
+    /**
+     * Začetna stran
+     * @param model
+     * @return
+     */
     @RequestMapping(value = {"/", "/index",}, method = RequestMethod.GET)
     public String zadnjih5(Model model) {
         model.addAttribute("dogodki", dogodki.zadnjihNeki());
@@ -88,15 +104,13 @@ public class KontrolerBaze {
         return "index";
     }
 
-    @RequestMapping(value = {"/blob"}, method = RequestMethod.GET)
-    @ResponseBody
-    public String blobtest(Model model) {
-        model.addAttribute("dogodki", dogodki.zadnjihNeki());
-        dogodki.insertBlob();
 
-        return "index";
-    }
-
+    /**
+     * dogodek na zemljevidu
+     * @param model
+     * @param id
+     * @return
+     */
     @RequestMapping(value = {"/naslov"}, method = RequestMethod.GET)
     public String vrniNaslov(Model model,
                              @RequestParam(value = "ID") String id) {
@@ -116,6 +130,25 @@ public class KontrolerBaze {
 
     public static ArrayList<Dogodek> seznamDogodkov = new ArrayList<>();
 
+    /**
+     * Dodajanje dogodka
+     * @param model
+     * @param naziv
+     * @param idDogodka
+     * @param kraj
+     * @param ura
+     * @param izvajalec
+     * @param lokacija
+     * @param cena
+     * @param opis
+     * @param slikaURL
+     * @param idUporabnika
+     * @param tip
+     * @param datum
+     * @param vir
+     * @return
+     * @throws ParseException
+     */
     @RequestMapping(value = {"/dodajDogodek"}, method = RequestMethod.POST)
     public String dodajDogodek(Model model, @RequestParam(value = "naziv", required = false) String naziv,
                                @RequestParam(value = "idDogodka", required = false) String idDogodka,
@@ -151,6 +184,12 @@ public class KontrolerBaze {
         return "index";
     }
 
+    /**
+     * Urejanje dogodka
+     * @param model
+     * @param ime
+     * @return
+     */
     @RequestMapping(value = {"/uredi"}, method = RequestMethod.GET)
     public String prikaziStran(Model model,
                                @RequestParam(value = "ime", required = false) String ime) {
@@ -175,6 +214,12 @@ public class KontrolerBaze {
 
     }
 
+    /**
+     * Urejanje uporabnika
+     * @param model
+     * @param id
+     * @return
+     */
     @RequestMapping(value = {"/urediUporabnika"}, method = RequestMethod.GET)
     public String prikaziNastavitve(Model model,
                                     @RequestParam(value = "urejanUporabnik", required = false) String id) {
@@ -194,15 +239,12 @@ public class KontrolerBaze {
 
     }
 
-    @RequestMapping(value = {"/Konzola",}, method = RequestMethod.GET)
-    public String konzola(Model model, @RequestParam(value = "event", required = false) String tip) {
-        if (tip == null)
-            model.addAttribute("dogodki", dogodki.getAllDogodki());
-        else
-            model.addAttribute("dogodki", dogodki.getByTip(tip));
-        return "Konsola";
-    }
-
+    /**
+     * Odstranjevanje dogodka
+     * @param model
+     * @param id
+     * @return
+     */
     @RequestMapping(value = {"/odstrani",}, method = RequestMethod.POST)
     public String odstranjevanjeD(Model model, @RequestParam(value = "ime", required = false) String id) {
         int x=Integer.parseInt(id);
@@ -231,13 +273,13 @@ public class KontrolerBaze {
         return "uporabnik";
     }
 
-    @RequestMapping(value = {"/Osebice",}, method = RequestMethod.GET)
-    public String bazaOseb(Model model, @RequestParam(value = "osebe", required = false) String tip) {
-        model.addAttribute("oseba", oseba.getAllOsebe());
-        return "Konsola";
-    }
 
-    //dodajala
+    /**
+     * Izpis strani z dogodki
+     * @param model
+     * @param tip
+     * @return
+     */
     @RequestMapping(value = {"/events",}, method = RequestMethod.GET)
     public String events(Model model, @RequestParam(value = "event", required = false) String tip)
 
@@ -286,6 +328,12 @@ public class KontrolerBaze {
         return "events";
     }
 
+    /**
+     * Sortiranje dogodkov
+     * @param rezultat
+     * @param sort
+     * @return
+     */
     public List<Dogodek> sortiraj(List<Dogodek> rezultat, String sort) {
 
         if (sort.equals("najcenejsi"))
@@ -304,6 +352,18 @@ public class KontrolerBaze {
         return rezultat;
     }
 
+    /**
+     * Filtriranje dogodkov
+     * @param model
+     * @param naziv
+     * @param kraj
+     * @param datum
+     * @param kateg
+     * @param sort
+     * @param cena
+     * @return
+     * @throws ParseException
+     */
     @RequestMapping(value = {"/filter",}, method = RequestMethod.GET)
     public String eventsFilter(Model model,
                                @RequestParam(value = "nazivDogodka", required = false) String naziv,
@@ -356,7 +416,12 @@ public class KontrolerBaze {
         return "events";
     }
 
-
+    /**
+     * Dodajanje dogodkov iz zunanjih virov
+     * @param model
+     * @param kategorija
+     * @return
+     */
     @RequestMapping(value = {"/parseXML"}, method = RequestMethod.GET)
     public String xmlpars(Model model, @RequestParam(value = "event", required = false) String kategorija) {
         List<Dogodek> dogod;
@@ -657,7 +722,14 @@ public class KontrolerBaze {
     }
 
 
-
+    /**
+     * Prijava v aplikacijo
+     * @param model
+     * @param email
+     * @param geslo
+     * @param tip
+     * @return
+     */
     @RequestMapping(value = {"/prijava"}, method = RequestMethod.POST)
     public String prijava(Model model,
                           @RequestParam(value = "username") String email,
@@ -724,7 +796,19 @@ public class KontrolerBaze {
 
     }
 
-
+    /**
+     * Dodajanje dogodka
+     * @param naziv
+     * @param kraj
+     * @param naslov
+     * @param tipD
+     * @param url
+     * @param datum
+     * @param slika
+     * @param opis
+     * @param cena
+     * @return
+     */
     @RequestMapping(value = {"/addDogodek"}, method = RequestMethod.POST)
     public String dodajArtikli(@RequestParam(value = "naziv", required = true) String naziv,
                                @RequestParam(value = "kraj", required = true) String kraj,
@@ -739,14 +823,18 @@ public class KontrolerBaze {
         return "/seznamDogodkov";
     }
 
-
+    /**
+     * Izvoz dogodkov v XML datoteko
+     * @param model
+     * @return
+     */
     @RequestMapping(value = {"/downXML"}, method = RequestMethod.GET)
     @ResponseBody
     public String testing123(Model model) {
         List<Dogodek> dogodk=dogodki.getAllDogodki();
 
 
-        String zaZapisat="";
+        String zaZapisat="<pre>";
 
 
 
@@ -783,9 +871,9 @@ public class KontrolerBaze {
         }
         finally {}
 
-        zaZapisat+="  ";
-        System.out.println("_____________________________________________________________________________");
-        System.out.println(zaZapisat);
+
+        zaZapisat+="</pre>";
+
         /*try {
             FileWriter fw = new FileWriter(file);
             fw.write(zaZapisat);

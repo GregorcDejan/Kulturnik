@@ -32,6 +32,10 @@ public class KontrolerDogodki {
         return "add";
     }*/
 
+    /**
+     * Brisanje dogodka
+     * @param idBrisanja
+     */
     @RequestMapping(value={"/brisanjeDogodka"},method=RequestMethod.POST)
     public void izbrisiDogodek(@RequestParam(value="idBrisanjaDogodka",required = true)String idBrisanja)
     {
