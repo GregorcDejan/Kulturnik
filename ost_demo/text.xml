@@ -1,18 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <dogodek>
     <cena>6</cena>
-    <datum>2018-06-07</datum>
+    <datum>2018-06-14</datum>
     <idUporabnika>0</idUporabnika>
-    <izvajalec>Fivia</izvajalec>
+    <izvajalec>Blitz Film &amp; Video Distribution</izvajalec>
     <kraj>Ljubljana</kraj>
-    <lokacija>Kino Komuna</lokacija>
-    <naziv>Stalinova smrt</naziv>
-    <opis>Politično življenje v Sovjetski zvezi v 50-ih letih dobi mračno komično obliko v novem filmu Stalinova smrt mojstra politične satire, škotskega režiserja Armanda Iannuccija. Priredba francoskega stripa "La mort de Stalin" ("The Death of Stalin") postavlja v središče politično delovanje in nemire po smrti nekdanjega sovjetskega voditelja Josepha Stalina in jih prikaže na najbolj zabaven način.
-
-Filmsko dogajanje poteka v Moskvi leta 1953. Po smrti sovjetskega diktatorja Stalina sledi popoln kaos v vrhu vlade, hkrati pa se prične boj za prosto delovno mesto. Med političnimi voditelji se začenja tekmovanje za prevlado … Georgij Malenkov (JEFFREY TAMBOR), Nikita Hruščov (STEVE BUSCEMI) in šef policije Lavrentij Pavlovič Berija (SIMON RUSSELL BEALE). Medtem ko delajo veliko zmedo na samem vrhu prepiri le eskalirajo, drug drugemu pa zabadajo nož v hrbet. Ne ve se kdo sploh vodi državo.
-</opis>
-    <slikaURL>http://www.kolosej.si/media/movies/2018/04/17/stalinovasmrt_poster.jpg</slikaURL>
+    <lokacija>Kolosej Ljubljana</lokacija>
+    <naziv>Z ljubeznijo, Simon</naziv>
+    <opis>Simon Spier ima veliko skrivnost, ki jo uspešno skriva pred svojo družino, prijatelji in sošolci: Simon je gej. Ko ta skrivnost postane ogrožena, se mora soočiti z vsemi in se javno ter osebno sprijazniti s svojo identiteto.</opis>
+    <slikaURL>http://www.kolosej.si/media/movies/2018/04/09/lovesimon_poster.jpg</slikaURL>
     <tip>Film</tip>
-    <ura>14:30:00</ura>
-    <vir>http://www.kolosej.si/filmi/film/stalinova-smrt/</vir>
+    <ura>18:45:00</ura>
+    <vir>http://www.kolosej.si/filmi/film/z-ljubeznijo-simon/</vir>
 </dogodek>
