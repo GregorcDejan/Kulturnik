@@ -290,7 +290,15 @@ String.valueOf(session.getAttribute("imeUporabnika"))%>
         });
 
         // Page Specific //
-        loadUser();
+        if(localStorage.getItem('userName')===null &)
+        {
+
+        }
+        else
+        {
+            loadUser();
+        }
+
 
 
 
@@ -313,8 +321,7 @@ String.valueOf(session.getAttribute("imeUporabnika"))%>
     }
 
     function forgetUser() {
-        localStorage.userName =  '';
-        localStorage.passWord = '';
+        localStorage.clear();
     }
 
     function loadUser() {

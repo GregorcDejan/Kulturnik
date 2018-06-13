@@ -5,6 +5,17 @@
 #sidenav-overlay {
   z-index: 1;
 }
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
 #napovednikbox2 a {
   color: #000;
   font-weight: 700;
@@ -33,13 +44,4 @@ nav #dropdownPerson .btn-flat {
 nav li .btn-flat {
   text-transform: capitalize;
   padding-left: 3em;
-}
-body {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
-}
-
-main {
-  flex: 1 0 auto;
 }
