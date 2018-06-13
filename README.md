@@ -97,7 +97,7 @@ Glavne funkcionalnosti naše spletne strani so:
 
 ## Dokumentacija
 
-[Dokumentacija](Kulturnik/Javadoc)
+[Dokumentacija](Kulturnik/Javadoc/)
 
 
 
@@ -143,11 +143,11 @@ Za vsak prihajajoči teden smo si organizirali in porazdelili delo, ter si dolo�
 > * [javax.xml.bind](https://mvnrepository.com/artifact/javax.xml.bind/jaxb-api/2.1) 
 > * [javax.xml.parsers](https://docs.oracle.com/javase/7/docs/api/javax/xml/parsers/package-summary.html) 
 > * [jaxb-api](https://mvnrepository.com/artifact/javax.xml.bind/jaxb-api) 
-> * [JQuery](https://code.jquery.com/jquery-3.2.1.min.js)
+> * [jQuery](https://code.jquery.com/jquery-3.2.1.min.js)
 > * [jstl](https://docs.oracle.com/javaee/5/jstl/1.1/docs/tlddocs/) 
-> * [Material+Icons](http://archives.materializecss.com/0.100.2/icons.html) 
-> * [Material+JS](http://archives.materializecss.com/0.100.2/carousel.html) 
-> * [Materialize](http://archives.materializecss.com/0.100.2/getting-started.html)
+> * [material+Icons](http://archives.materializecss.com/0.100.2/icons.html) 
+> * [material+JS](http://archives.materializecss.com/0.100.2/carousel.html) 
+> * [materialize](http://archives.materializecss.com/0.100.2/getting-started.html)
 > * [org.w3c.dom](https://docs.oracle.com/javase/7/docs/api/org/w3c/dom/package-summary.html) 
 > * [primefaces](https://mvnrepository.com/artifact/org.primefaces/primefaces) 
 > * [spring-boot-maven-plugin](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#build-tool-plugins-maven-plugin)
