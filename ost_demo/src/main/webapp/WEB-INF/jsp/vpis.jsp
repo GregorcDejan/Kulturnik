@@ -290,13 +290,14 @@ String.valueOf(session.getAttribute("imeUporabnika"))%>
         });
 
         // Page Specific //
-        if(localStorage.getItem('userName')===null &)
+        if(localStorage.getItem('userName')===null || localStorage.getItem(''))
         {
 
         }
         else
         {
             loadUser();
+            $('#remember').prop('checked')
         }
 
 
