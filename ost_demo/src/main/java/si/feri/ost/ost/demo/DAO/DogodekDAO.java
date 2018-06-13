@@ -409,7 +409,7 @@ public class DogodekDAO {
 
     }
     public List<Dogodek> getByLokacija(String lokacija) {
-        lokacija = lokacija.substring(1);
+        //lokacija = lokacija.substring(1);
         String sql = "SELECT * FROM dogodek WHERE lokacija=?";
 
         List<Dogodek> rez = new ArrayList<>();

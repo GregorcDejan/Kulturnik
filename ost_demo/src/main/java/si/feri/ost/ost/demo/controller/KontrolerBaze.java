@@ -311,11 +311,19 @@ public class KontrolerBaze {
                                @RequestParam(value = "datumDogodka", required = false) String datum,
                                @RequestParam(value = "event", required = false) String kateg,
                                @RequestParam(value = "inputKategorija", required = false) String sort,
-                               @RequestParam(value = "cenaDogodka", required = false) String cena) throws ParseException {
+                               @RequestParam(value = "cenaDogodka", required = false) String cena,
+                               @RequestParam(value="lokacijaDogodka",required = false) String lokacija) throws ParseException {
 
 
-        List<Dogodek> seznam = dogodki.getByTip(kateg);
-        List<Dogodek> rez = new ArrayList<>();
+        List<Dogodek> seznam = new ArrayList<>();
+
+        if(!lokacija.equals(""))
+            seznam=dogodki.getByLokacija(lokacija);
+
+        else
+            seznam = dogodki.getByTip(kateg);
+
+            List<Dogodek> rez = new ArrayList<>();
 
 
         if (datum != null && !datum.equals("")) {

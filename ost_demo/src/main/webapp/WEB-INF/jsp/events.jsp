@@ -205,6 +205,7 @@
                         <input id="eventsSearchNaziv" type="text" class="validate" placeholder="Naziv"
                                name="nazivDogodka">
                         <input id="eventsSearchKraj" type="text" class="validate" placeholder="Kraj" name="krajDogodka">
+                        <input type="hidden" name="lokacijaDogodka" value="${lokacijaDogodka}">
                         <button class="btn-flat" type="submit" name="event" value="${Kategorija}">
                             <i class="material-icons suffix">keyboard_return</i>
                         </button>

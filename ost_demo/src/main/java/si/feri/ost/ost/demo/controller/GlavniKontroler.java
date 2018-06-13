@@ -95,12 +95,12 @@ public class GlavniKontroler {
     @RequestMapping(value = { "/dogodkiPoLokaciji" }, method = RequestMethod.GET)
     public String vrniEventePoLokaciji(Model model,
                                        @RequestParam(value="lokacija")String lokacija) {
-
+        lokacija = lokacija.substring(1);
        List<Dogodek> dogodkiPoLokaciji = dogodki.getByLokacija(lokacija);
 
        model.addAttribute("dogodki",dogodkiPoLokaciji);
 
-       lokacija = lokacija.substring(1);
+
 
        model.addAttribute("lokacijaDogodka",lokacija);
 
