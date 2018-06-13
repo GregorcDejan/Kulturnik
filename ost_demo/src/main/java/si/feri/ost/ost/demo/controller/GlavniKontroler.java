@@ -51,20 +51,19 @@ public class GlavniKontroler {
         return "uporabnik";
     }
 
-<<<<<<< HEAD
+
     /**
      * Zemljevid
      * @param model
      * @return
      */
-=======
+
     @RequestMapping(value = { "/karta" }, method = RequestMethod.GET)
     public String karta(Model model) {
 
         return "karta";
     }
 
->>>>>>> d3e7cfc6779746a3ef5d234d0b5cfb8f2242f04b
     @RequestMapping(value = { "/map" }, method = RequestMethod.GET)
     public String map(Model model) {
 
