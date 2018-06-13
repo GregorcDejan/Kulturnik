@@ -303,9 +303,7 @@
                 <a href="https://www.napovednik.com" class="grey-text text-lighten-2">Ne spreglejte tudi</a>
             </div>
         </div>
-        </p>
-    </div>
-    </div>
+
     </div>
 </main>
 </body>
@@ -331,12 +329,12 @@
         });
 
         // Page Specific //
-
         // Carousel //
         $('.carousel.carousel-slider').carousel({
             fullWidth: true,
             noWrap: true
         });
+
 
 
     });
