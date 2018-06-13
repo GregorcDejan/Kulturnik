@@ -1,6 +1,7 @@
 package si.feri.ost.ost.demo.controller;
 
 
+import org.apache.tomcat.jni.Local;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -38,6 +39,7 @@ import java.net.URL;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.*;
 
 //
@@ -99,10 +101,13 @@ public class KontrolerBaze {
     @RequestMapping(value = {"/", "/index",}, method = RequestMethod.GET)
     public String zadnjih5(Model model) {
         model.addAttribute("dogodki", dogodki.zadnjihNeki());
-
+        LocalDate date = LocalDate.now();
+        System.out.println(dogodki.zadnjihNeki().size());
+        model.addAttribute("dogodkiDat", dogodki.getByDatum(date.toString()));
 
         return "index";
     }
+
 
 
     /**

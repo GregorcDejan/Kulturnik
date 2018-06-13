@@ -335,7 +335,53 @@
                     </ul>
                 </div>
             </div>
+<<<<<<< HEAD
             <div class="col m8">
+=======
+            <div class="col s12 xl6 section">
+                <h3 class="center-align">Današnji dogodki</h3>
+                <div class="card-panel grey lighten-3">
+                    <span class="black-text grey lighten-3">
+                        <ul class="collection grey lighten-3">
+                            <c:forEach items="${dogodkiDat}" var="d">
+                            <li class="collection-item grey lighten-3"><div>${d.naziv}<a href="${d.vir}" class="secondary-content"><i class="material-icons red-text text-lighten-2">send</i></a></div></li>
+                            </c:forEach>
+
+                        </ul>
+                    </span>
+                </div>
+            </div>
+            <!--div class="col s12 xl3">
+                <h3 class="center-align">Zadnjih 5</h3>
+                <p class="flow-text center-align">
+                    <div class="card grey lighten-3 hoverable">
+                        <div class="card-content white-text">
+                            <c:forEach items="${dogodki}" var="d">
+                <p>
+                <div id="napovednikbox2" class="grey-text text-darken-2 "><a href="${d.vir}">${d.naziv}</a></div>
+                </p>
+                </c:forEach>
+            </--div>
+                <div class="card-action red lighten-2 center-align">
+                    <a href="https://www.napovednik.com" class="grey-text text-lighten-2">Ne spreglejte tudi</a>
+                </div>
+            </div-->
+            <div class="col s12 xl3">
+                <h3 class="center-align">Zadnjih 5</h3>
+                <div class="card-panel grey lighten-3">
+                    <span class="black-text grey lighten-3">
+                        <ul class="collection grey lighten-3">
+                            <c:forEach items="${dogodki}" var="d">
+                            <li class="collection-item grey lighten-3"><div>${d.naziv}<a href="${d.vir}" class="secondary-content"><i class="material-icons red-text text-lighten-2">send</i></a></div></li>
+                            </c:forEach>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12">
+>>>>>>> db610fb1c058d4523d24081f2822e427ba41ab56
                 <h3 class="center-align">O nas</h3>
                 <p class="flow-text center-align">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis
                     enim corrupti excepturi fuga nam assumenda

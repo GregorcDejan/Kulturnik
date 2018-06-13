@@ -94,6 +94,9 @@ public class DogodekDAO {
 
     }
 
+
+
+
     /**
      * dodajanje dogodka
      * @param naziv
@@ -377,7 +380,13 @@ public class DogodekDAO {
             int ID=(Integer)(vrstica.get("ID"));
             String naziv = (String)vrstica.get("Naziv");
             String kraj = (String)vrstica.get("Kraj");
-            String ura = (String)vrstica.get("Ura");//STRING?? ura minuta sekunda
+            Time cas = (Time) vrstica.get("Ura");
+            String ura=null;
+            if(cas!=null) {
+                ura= cas.toString();//STRING?? ura minuta sekunda
+            }
+
+
             String izvajalec = (String)vrstica.get("Izvajalec");
             String lokacija = (String)vrstica.get("Lokacija");
             String cena = (String)vrstica.get("Cena");
