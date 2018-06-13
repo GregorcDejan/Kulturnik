@@ -17,8 +17,10 @@ public class KontrolerOsebe {
     public class KontrolerDogodki {
 
 
-
-
+        /**
+         * Brisanje osebe
+         * @param idBrisanja
+         */
         @RequestMapping(value={"/brisanjeOsebe"},method=RequestMethod.POST)
         public void izbrisiDogodek(@RequestParam(value="idBrisanjaOsebe",required = true)String idBrisanja)
         {

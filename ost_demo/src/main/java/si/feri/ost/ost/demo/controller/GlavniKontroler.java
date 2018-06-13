@@ -27,34 +27,35 @@ public class GlavniKontroler {
 
 
 
-    /*@RequestMapping(value = { "/", "/index" }, method = RequestMethod.GET)
-    public String index(Model model) {
 
-        return "index";
-    }*/
-
-  /*  @RequestMapping(value = {"/dodajanjeDogodkov" }, method = RequestMethod.GET)
-    public String doddog(Model model) {
-
-        return "dodajanjeDogodkov";
-    }*/
   @Autowired
     DogodekDAO dogodki ;
     //testni jsp za izpise ipd.
-    @RequestMapping(value = { "/Test" }, method = RequestMethod.GET)
+
+    /*@RequestMapping(value = { "/Test" }, method = RequestMethod.GET)
     public String test(Model model) {
 
         return "Konsola";
 
 
-    }
+    }*/
 
+    /**
+     * Profil uporabnika
+     * @param model
+     * @return
+     */
     @RequestMapping(value = { "/uporabnik" }, method = RequestMethod.GET)
     public String profil(Model model) {
 
         return "uporabnik";
     }
 
+    /**
+     * Zemljevid
+     * @param model
+     * @return
+     */
     @RequestMapping(value = { "/map" }, method = RequestMethod.GET)
     public String map(Model model) {
 
@@ -79,6 +80,11 @@ public class GlavniKontroler {
         return "map";
     }
 
+    /**
+     * Registracija
+     * @param model
+     * @return
+     */
     @RequestMapping(value = { "/registracija" }, method = RequestMethod.GET)
     public String registracija(Model model) {
 
@@ -86,6 +92,12 @@ public class GlavniKontroler {
         return "registracija";
     }
 
+    /**
+     * Filtriranje po lokaciji
+     * @param model
+     * @param lokacija
+     * @return
+     */
     @RequestMapping(value = { "/dogodkiPoLokaciji" }, method = RequestMethod.GET)
     public String vrniEventePoLokaciji(Model model,
                                        @RequestParam(value="lokacija")String lokacija) {
@@ -103,12 +115,22 @@ public class GlavniKontroler {
         return "events";
     }
 
+    /**
+     * Vpis v aplikacijo
+     * @param model
+     * @return
+     */
     @RequestMapping(value = { "/vpis" }, method = RequestMethod.GET)
     public String vpis(Model model) {
 
         return "vpis";
     }
 
+    /**
+     * Izpis iz aplikacije
+     * @param model
+     * @return
+     */
     @RequestMapping(value = {"/izpis"}, method=RequestMethod.GET)
     public String izpis(Model model){
 
@@ -120,6 +142,11 @@ public class GlavniKontroler {
         return "index";
     }
 
+    /**
+     * Dodajanje dogodka
+     * @param model
+     * @return
+     */
     @RequestMapping(value = { "/add" }, method = RequestMethod.GET)
     public String dodajanjeDogodka(Model model) {
 

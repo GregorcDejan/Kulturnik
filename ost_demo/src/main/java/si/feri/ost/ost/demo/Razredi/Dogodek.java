@@ -191,6 +191,20 @@ public class Dogodek implements Comparable<Dogodek>
 
     }
 
+    /**
+     * Konstruktor
+     * @param id
+     * @param naziv
+     * @param vir
+     * @param slikaURL
+     * @param tip
+     * @param opis
+     * @param kraj
+     * @param lokacija
+     * @param datum
+     * @param idUporabnika
+     * @param cena
+     */
     public Dogodek(int id, String naziv, String vir, String slikaURL, String tip, String opis, String kraj, String lokacija, String datum, int idUporabnika, String cena)
     {
         this.id=id;
@@ -206,6 +220,19 @@ public class Dogodek implements Comparable<Dogodek>
         this.idUporabnika=idUporabnika;
     }
 
+    /**
+     * Konstruktor
+     * @param naziv
+     * @param vir
+     * @param slikaURL
+     * @param tip
+     * @param opis
+     * @param kraj
+     * @param lokacija
+     * @param datum
+     * @param idUporabnika
+     * @param cena
+     */
     public Dogodek(String naziv, String vir, String slikaURL, String tip, String opis, String kraj, String lokacija, String datum, int idUporabnika, String cena)
     {
         this.naziv=naziv;
@@ -220,18 +247,29 @@ public class Dogodek implements Comparable<Dogodek>
         this.idUporabnika=idUporabnika;
     }
 
+    /**
+     * Konstruktor
+     * @param naziv
+     * @param vir
+     * @param tip
+     * @param uporabnik
+     * @param datum
+     */
     public Dogodek(String naziv, String vir,String tip, int uporabnik, String datum)
     {
         this.naziv=naziv;
-
         this.vir=vir;
         this.idUporabnika=uporabnik;
         this.datum=datum;
     }
 
+
     public String getNaziv() {
         return naziv;
     }
+
+
+
     public void setNaziv(String naziv) {
         this.naziv = naziv;
     }
@@ -275,6 +313,10 @@ public class Dogodek implements Comparable<Dogodek>
         return id;
     }
 
+    /**
+     * Preobložena metoda toString()
+     * @return String
+     */
     @Override
     public String toString() {
 
@@ -321,11 +363,19 @@ public class Dogodek implements Comparable<Dogodek>
         this.izvajalec = izvajalec;
     }
 
-
+    /**
+     * Preobložena metoda CompareTo
+     * @param o
+     * @return String
+     */
     @Override
     public int compareTo(Dogodek o) {
         return this.naziv.compareTo(o.naziv);
     }
+
+
+
+
 }
 
 
