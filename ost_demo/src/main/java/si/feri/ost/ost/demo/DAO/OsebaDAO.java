@@ -18,6 +18,10 @@ public class OsebaDAO {
     @Autowired
     JdbcTemplate jdbcTemplate;
 
+    /**
+     * Metoda za vračanje vseh oseb
+     * @return List
+     */
     public List<Oseba> getAllOsebe(){
         String sql = "SELECT * FROM UPORABNIK";
 
@@ -43,7 +47,17 @@ public class OsebaDAO {
     }
 
 
-
+    /**
+     * Dodajanje osebe
+     * @param ime
+     * @param priimek
+     * @param email
+     * @param geslo
+     * @param datum_rojstva
+     * @param telefonska
+     * @param avatar
+     * @return
+     */
     public int addOseba(String ime,String priimek, String email, String geslo,String datum_rojstva, String telefonska, String avatar)
     {
         String sql = "INSERT INTO UPORABNIK(ime,priimek,email,telefon,geslo,datum_rojstva,avatar) VALUES(?,?,?,?,?,?,?)";
@@ -53,6 +67,11 @@ public class OsebaDAO {
 
     }
 
+    /**
+     * Brisanje osebe
+     * @param id
+     * @return
+     */
     public Object deleteOseba(int id)
     {
         String sql = "DELETE FROM DOGODEK WHERE id=?";
@@ -60,6 +79,11 @@ public class OsebaDAO {
         return jdbcTemplate.update(sql,new Object[]{id});
     }
 
+    /**
+     * Iskanje po e-pošti
+     * @param email
+     * @return
+     */
     public Oseba getByEmail(String email)
     {
         String sql = "SELECT * FROM uporabnik WHERE email=? ";
@@ -91,6 +115,11 @@ public class OsebaDAO {
 
     }
 
+    /**
+     * iskanje po geslu
+     * @param geslo
+     * @return
+     */
     public List<Oseba> getByGeslo(String geslo)
     {
         String sql = "SELECT * FROM uporabnik WHERE geslo=? ";
@@ -112,6 +141,11 @@ public class OsebaDAO {
 
     }
 
+    /**
+     * iskanje po ID-ju
+     * @param id
+     * @return
+     */
     public Oseba getByID(int id)
     {
         String sql = "SELECT * FROM UPORABNIK WHERE id = ?";
@@ -142,6 +176,18 @@ public class OsebaDAO {
 
     }
 
+    /**
+     * posodabljanje uporabnika
+     * @param id
+     * @param ime
+     * @param priimek
+     * @param email
+     * @param telefon
+     * @param geslo
+     * @param datum_rojstva
+     * @param avatar
+     * @return
+     */
     public int updateDogodek(int id,String ime, String priimek, String email, String telefon, String geslo, String datum_rojstva, String avatar){
         String sql = "UPDATE UPORABNIK SET ime=?, priimek=?, email=?,telefon=?,geslo=?,datum_rojstva=?,avatar=? WHERE id=?";
 
