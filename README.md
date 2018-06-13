@@ -97,7 +97,7 @@ Glavne funkcionalnosti naše spletne strani so:
 
 ## Dokumentacija
 
-[Zagonski](Kulturnik/Javadoc/Zagonski/index.html)
+[Dokumentacija](Kulturnik/Javadoc)
 
 
 
@@ -115,7 +115,7 @@ Glavne funkcionalnosti naše spletne strani so:
 
 Za vsak prihajajoči teden smo si organizirali in porazdelili delo, ter si določili cilje, ki jih želimo doseči. Na naslednjih slikah je prikaz porazdelitve dela v petih tednih.
 
-<img src="./PotekDelaPoTednih/DoneTeden1.png" height="450"> <img src="./PotekDelaPoTednih/DoneTedenEna.png" height="450"> <img src="./PotekDelaPoTednih/DoneTeden2.png" height="450"> <img src="./PotekDelaPoTednih/DoneTedenDva.png" height="450"> <img src="./PotekDelaPoTednih/DoneTeden3.png" width="180"> <img src="./PotekDelaPoTednih/DoneTeden4.png" width="180">
+<img src="./PotekDelaPoTednih/DoneTeden1.png" height="450"> <img src="./PotekDelaPoTednih/DoneTedenEna.png" height="450"> <img src="./PotekDelaPoTednih/DoneTeden2.png" height="450"> <img src="./PotekDelaPoTednih/DoneTedenDva.png" height="450"> <img src="./PotekDelaPoTednih/DoneTeden3.png" width="180"> <img src="./PotekDelaPoTednih/DoneTeden4.png" width="180"> <img src="./PotekDelaPoTednih/DoneTeden5.png" width="180">  
 
 
 
@@ -131,7 +131,6 @@ Za vsak prihajajoči teden smo si organizirali in porazdelili delo, ter si dolo�
 
 
 ## Vključene knjižnice
-> * []()
 > * [ajax.googleapis](http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js) 
 > * [captcha-servlet](https://mvnrepository.com/artifact/com.agapsys.libs/captcha-servlet) 
 > * [h2database](http://www.h2database.com/html/main.html) 
