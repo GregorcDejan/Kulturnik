@@ -50,8 +50,9 @@ Vse dogodke, ki jih prikazuje stran Kulturnik.si, lahko tudi urejamo. Vse dogodk
 * [Glavne funkcionalnosti](#Glavne-funkcionalnosti)
 * [Dokumentaicja](#Dokumentacija)
 * [Podatkovna baza](#Podatkovna-baza)
+* [Potek dela po tednih](##Potek-dela-po-tednih)
 * [Avtorji](#Avtorji)
-* [Zunanje knjižnice](#Zunanje-knjižnice)
+* [Vključene knjižnice](##Vključene-knjižnice)
 
 ## Inštalacija in uporaba
 Če želite tudi sami zagnati spletno stran na localhost:8080, za to potrebujete GitHub Desktop 
@@ -108,6 +109,14 @@ Glavne funkcionalnosti naše spletne strani so:
 
 
 
+## Potek dela po tednih
+
+Za vsak prihajajoči teden smo si organizirali in porazdelili delo, ter si določili cilje, ki jih želimo doseči. Na naslednjih slikah je prikaz porazdelitve dela v petih tednih.
+
+<img src="./PotekDelaPoTednih/DoneTeden1.png" height="450"> <img src="./PotekDelaPoTednih/DoneTedenEna.png" height="450"> <img src="./PotekDelaPoTednih/DoneTeden2.png" height="450"> <img src="./PotekDelaPoTednih/DoneTedenDva.png" height="450"> <img src="./PotekDelaPoTednih/DoneTeden3.png" width="180"> <img src="./PotekDelaPoTednih/DoneTeden4.png" width="180">
+
+
+
 
 ## Avtorji
 [<img alt="MerceneX" src="https://avatars2.githubusercontent.com/u/36963174?s=460&v=4" width="117">](https://github.com/MerceneX)|
@@ -119,8 +128,35 @@ Glavne funkcionalnosti naše spletne strani so:
 
 
 
-## Zunanje knjižnice
+## Vključene knjižnice
 
-[Jdbc controller]()
+> * [h2database](http://www.h2database.com/html/main.html)
+> * [jstl](https://docs.oracle.com/javaee/5/jstl/1.1/docs/tlddocs/)
+> * [javax.faces-api](https://mvnrepository.com/artifact/javax.faces/javax.faces-api)
+> * [javax.servlet](https://docs.oracle.com/javaee/7/api/javax/servlet/package-summary.html)
+> * [javax.xml.bind](https://mvnrepository.com/artifact/javax.xml.bind/jaxb-api/2.1)
+> * [javax.xml.parsers](https://docs.oracle.com/javase/7/docs/api/javax/xml/parsers/package-summary.html)
+> * [java.io](https://docs.oracle.com/javase/7/docs/api/java/io/package-summary.html)
+> * [java.net](https://docs.oracle.com/javase/7/docs/api/java/net/package-summary.html)
+> * [java.util](https://docs.oracle.com/javase/7/docs/api/java/util/package-summary.html)
+> * [java.sql](https://docs.oracle.com/javase/7/docs/api/java/sql/package-summary.html)
+> * [org.w3c.dom](https://docs.oracle.com/javase/7/docs/api/org/w3c/dom/package-summary.html)
+> * [primefaces](https://mvnrepository.com/artifact/org.primefaces/primefaces)
+> * [spring-boot-starter-web](https://mvnrepository.com/artifact/org.springframework.boot)
+> * [spring-boot-starter-jdbc](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-using-jdbc-template)
+> * [spring-boot-maven-plugin](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#build-tool-plugins-maven-plugin)
+> * [jaxb-api](https://mvnrepository.com/artifact/javax.xml.bind/jaxb-api)
+> * [captcha-servlet](https://mvnrepository.com/artifact/com.agapsys.libs/captcha-servlet)
+> * [tomcat-embed-jasper](https://tomcat.apache.org/tomcat-9.0-doc/jasper-howto.html)
+> * [Materialize](http://archives.materializecss.com/0.100.2/getting-started.html)
+> * [Material+Icons](https://fonts.googleapis.com/icon?family=Material+Icons)
+> * [JQuery](https://code.jquery.com/jquery-3.2.1.min.js)
+> * [Material+JS](http://archives.materializecss.com/0.100.2/carousel.html)
+> * [ajax.googleapis](http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js)
+> * []()
+
+
+
+
 
 
