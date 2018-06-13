@@ -270,10 +270,10 @@
                 <div class="card-panel grey lighten-3">
                     <span class="black-text grey lighten-3">
                         <ul class="collection grey lighten-3">
-                            <li class="collection-item grey lighten-3"><div>Alvin<a href="#!" class="secondary-content"><i class="material-icons red-text text-lighten-2">send</i></a></div></li>
-                            <li class="collection-item grey lighten-3"><div>Alvin<a href="#!" class="secondary-content"><i class="material-icons red-text text-lighten-2">send</i></a></div></li>
-                            <li class="collection-item grey lighten-3"><div>Alvin<a href="#!" class="secondary-content"><i class="material-icons red-text text-lighten-2">send</i></a></div></li>
-                            <li class="collection-item grey lighten-3"><div>Alvin<a href="#!" class="secondary-content"><i class="material-icons red-text text-lighten-2">send</i></a></div></li>
+                            <c:forEach items="${dogodkiDat}" var="d">
+                            <li class="collection-item grey lighten-3"><div>${d.naziv}<a href="${d.vir}" class="secondary-content"><i class="material-icons red-text text-lighten-2">send</i></a></div></li>
+                            </c:forEach>
+
                         </ul>
                     </span>
                 </div>
@@ -298,10 +298,9 @@
                 <div class="card-panel grey lighten-3">
                     <span class="black-text grey lighten-3">
                         <ul class="collection grey lighten-3">
-                            <li class="collection-item grey lighten-3"><div>Alvin<a href="#!" class="secondary-content"><i class="material-icons red-text text-lighten-2">send</i></a></div></li>
-                            <li class="collection-item grey lighten-3"><div>Alvin<a href="#!" class="secondary-content"><i class="material-icons red-text text-lighten-2">send</i></a></div></li>
-                            <li class="collection-item grey lighten-3"><div>Alvin<a href="#!" class="secondary-content"><i class="material-icons red-text text-lighten-2">send</i></a></div></li>
-                            <li class="collection-item grey lighten-3"><div>Alvin<a href="#!" class="secondary-content"><i class="material-icons red-text text-lighten-2">send</i></a></div></li>
+                            <c:forEach items="${dogodki}" var="d">
+                            <li class="collection-item grey lighten-3"><div>${d.naziv}<a href="${d.vir}" class="secondary-content"><i class="material-icons red-text text-lighten-2">send</i></a></div></li>
+                            </c:forEach>
                         </ul>
                     </span>
                 </div>

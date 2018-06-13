@@ -101,22 +101,14 @@ public class KontrolerBaze {
     @RequestMapping(value = {"/", "/index",}, method = RequestMethod.GET)
     public String zadnjih5(Model model) {
         model.addAttribute("dogodki", dogodki.zadnjihNeki());
-
-
-        return "index";
-    }
-
-    @RequestMapping(value = {"/", "/date",}, method = RequestMethod.GET)
-    public String Danasnji(Model model) throws ParseException {
-
-
         LocalDate date = LocalDate.now();
-
-        model.addAttribute("dogodki", dogodki.getByDatum(date.toString()));
-
+        System.out.println(dogodki.zadnjihNeki().size());
+        model.addAttribute("dogodkiDat", dogodki.getByDatum(date.toString()));
 
         return "index";
     }
+
+
 
     /**
      * dogodek na zemljevidu
