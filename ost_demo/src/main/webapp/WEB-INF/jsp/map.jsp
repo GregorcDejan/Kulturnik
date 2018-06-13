@@ -5,15 +5,12 @@
 <html lang="sl">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Search</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kulturnik</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="/lib/css/materialize.min.css" media="screen,projection"/>
     <link rel="stylesheet" type="text/css" media="screen" href="/lib/css/style.css"/>
-    <link rel="stylesheet" type="text/css" href="materialize.min.css"/>
-    <link rel="stylesheet" type="text/css" href="style.css"/>
     <script src="main.js"></script>
 
     <style>
@@ -334,19 +331,15 @@
 
 </main>
 </body>
+
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="/lib/javascript/materialize.min.js"></script>
-<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-
 <script>
 
 
 
-
-    Materialize.updateTextFields();
     // Every page needs this dingy //
-    $(document).ready(function () {
+    $(function() {
         $('.dropdown-button').dropdown({
             constrainWidth: false,
             hover: true,
@@ -361,8 +354,9 @@
         });
 
         // Page Specific //
-
+        Materialize.updateTextFields();
 
     });
 </script>
+
 </html>

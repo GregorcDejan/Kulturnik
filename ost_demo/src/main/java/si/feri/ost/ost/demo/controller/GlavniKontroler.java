@@ -55,6 +55,12 @@ public class GlavniKontroler {
         return "uporabnik";
     }
 
+    @RequestMapping(value = { "/karta" }, method = RequestMethod.GET)
+    public String karta(Model model) {
+
+        return "karta";
+    }
+
     @RequestMapping(value = { "/map" }, method = RequestMethod.GET)
     public String map(Model model) {
 
