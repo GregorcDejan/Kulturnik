@@ -20,7 +20,7 @@
 
 <main class="teal lighten-5">
     <div class="navbar-fixed">
-        <nav class=" teal darken-2 z-depth-3">
+        <nav class="teal darken-2 z-depth-3">
             <div class="nav-wrapper">
 
                 <a href="index" class="brand-logo">Kulturnik</a>
@@ -38,23 +38,22 @@
                             <i class="material-icons left">person</i>
                         </a>
                         <ul id='dropdownPerson' class='dropdown-content'>
-                            <% if (Boolean.valueOf(String.valueOf(session.getAttribute("uporabnikPrijavljen"))))
-                            { %>
+                            <% if (Boolean.valueOf(String.valueOf(session.getAttribute("uporabnikPrijavljen")))) { %>
                             <li class="collection-item avatar valign-wrapper">
                                 <i class="material-icons right teal-text">person </i>
                                 <form action="/events" method="get">
-                                <button class="btn-flat teal-text" name="event" value="Moji dogodki">
+                                    <button class="btn-flat teal-text" name="event" value="Moji dogodki">
                                 <span class="right ">
                                     <%=
-                                  String.valueOf(session.getAttribute("imeUporabnika"))
-                                  %>
+                                    String.valueOf(session.getAttribute("imeUporabnika"))
+                                    %>
                                   <%=
                                   String.valueOf(session.getAttribute("priimekUporabnika"))
                                   %>
                                 </span>
-                                 </button>
+                                    </button>
                                 </form>
-                                </li>
+                            </li>
                             <li class="divider"></li>
                             <li>
                                 <a href="add">
@@ -64,25 +63,25 @@
                                     </form>
                                 </a>
                             </li>
-                                    <li class="divider"></li>
-                                    <li>
-                                        <a href="#!">
-                                            <form action="/izpis" method="get">
-                                                <button class="btn-flat teal-text">Izpis</button>
-                                            </form>
-                                        </a>
-                                    </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="#!">
+                                    <form action="/izpis" method="get">
+                                        <button class="btn-flat teal-text">Izpis</button>
+                                    </form>
+                                </a>
+                            </li>
 
-                            <%  }  else { %>
-                                    <li class="collection-item avatar valign-wrapper">
-                                        <i class="material-icons right teal-text">person </i>
-                                        <span class="right ">
+                            <% } else { %>
+                            <li class="collection-item avatar valign-wrapper">
+                                <i class="material-icons right teal-text">person </i>
+                                <span class="right ">
 
                                      <%="Neprijavljen uporabnik"%>
 
                                 </span>
 
-                                    </li>
+                            </li>
                             <li class="divider"></li>
                             <li>
                                 <a href="vpis">
@@ -202,21 +201,7 @@
                 <img src="${pageContext.request.contextPath}/lib/slike/generic-event.jpg">
             </a>
         </div>
-        <div class="row">
-            <div class="col s12">
-                <h3 class="center-align">O nas</h3>
-                <p class="flow-text center-align">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis
-                    enim corrupti excepturi fuga nam assumenda
-                    repudiandae harum recusandae beatae! Quis porro obcaecati dolor, quasi explicabo illo nihil quas
-                    ipsum vitae!
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium error provident iste facere,
-                    nostrum sed
-                    eaque consectetur blanditiis cumque. Voluptatum blanditiis tempora quam, nesciunt vitae eveniet
-                    officiis possimus
-                    inventore perspiciatis?
-                </p>
-            </div>
-        </div>
+
         <div class="row">
             <div class="col s12 xl3">
                 <h3 class="center-align">Kontakt</h3>
@@ -281,14 +266,19 @@
                 </div>
             </div>
             <div class="col s12 xl6 section">
-                <h3 class="center-align">Dogodki na dlani</h3>
-                <p class="flow-text center-align">
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi libero hic, laborum rem iusto quam
-                    unde, itaque repudiandae
-                    molestiae ipsum obcaecati. Consequuntur eveniet harum, dolore minus beatae illo impedit? Odio.
-                </p>
+                <h3 class="center-align">Današnji dogodki</h3>
+                <div class="card-panel grey lighten-3">
+                    <span class="black-text grey lighten-3">
+                        <ul class="collection grey lighten-3">
+                            <li class="collection-item grey lighten-3"><div>Alvin<a href="#!" class="secondary-content"><i class="material-icons red-text text-lighten-2">send</i></a></div></li>
+                            <li class="collection-item grey lighten-3"><div>Alvin<a href="#!" class="secondary-content"><i class="material-icons red-text text-lighten-2">send</i></a></div></li>
+                            <li class="collection-item grey lighten-3"><div>Alvin<a href="#!" class="secondary-content"><i class="material-icons red-text text-lighten-2">send</i></a></div></li>
+                            <li class="collection-item grey lighten-3"><div>Alvin<a href="#!" class="secondary-content"><i class="material-icons red-text text-lighten-2">send</i></a></div></li>
+                        </ul>
+                    </span>
+                </div>
             </div>
-            <div class="col s12 xl3">
+            <!--div class="col s12 xl3">
                 <h3 class="center-align">Zadnjih 5</h3>
                 <p class="flow-text center-align">
                     <div class="card grey lighten-3 hoverable">
@@ -298,9 +288,65 @@
                 <div id="napovednikbox2" class="grey-text text-darken-2 "><a href="${d.vir}">${d.naziv}</a></div>
                 </p>
                 </c:forEach>
+            </--div>
+                <div class="card-action red lighten-2 center-align">
+                    <a href="https://www.napovednik.com" class="grey-text text-lighten-2">Ne spreglejte tudi</a>
+                </div>
+            </div-->
+            <div class="col s12 xl3">
+                <h3 class="center-align">Zadnjih 5</h3>
+                <div class="card-panel grey lighten-3">
+                    <span class="black-text grey lighten-3">
+                        <ul class="collection grey lighten-3">
+                            <li class="collection-item grey lighten-3"><div>Alvin<a href="#!" class="secondary-content"><i class="material-icons red-text text-lighten-2">send</i></a></div></li>
+                            <li class="collection-item grey lighten-3"><div>Alvin<a href="#!" class="secondary-content"><i class="material-icons red-text text-lighten-2">send</i></a></div></li>
+                            <li class="collection-item grey lighten-3"><div>Alvin<a href="#!" class="secondary-content"><i class="material-icons red-text text-lighten-2">send</i></a></div></li>
+                            <li class="collection-item grey lighten-3"><div>Alvin<a href="#!" class="secondary-content"><i class="material-icons red-text text-lighten-2">send</i></a></div></li>
+                        </ul>
+                    </span>
+                </div>
             </div>
-            <div class="card-action red lighten-2 center-align">
-                <a href="https://www.napovednik.com" class="grey-text text-lighten-2">Ne spreglejte tudi</a>
+        </div>
+        <div class="row">
+            <div class="col s12">
+                <h3 class="center-align">O nas</h3>
+                <p class="flow-text center-align">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis
+                    enim corrupti excepturi fuga nam assumenda
+                    repudiandae harum recusandae beatae! Quis porro obcaecati dolor, quasi explicabo illo nihil quas
+                    ipsum vitae!
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium error provident iste facere,
+                    nostrum sed
+                    eaque consectetur blanditiis cumque. Voluptatum blanditiis tempora quam, nesciunt vitae eveniet
+                    officiis possimus
+                    inventore perspiciatis?
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis
+                    enim corrupti excepturi fuga nam assumenda
+                    repudiandae harum recusandae beatae! Quis porro obcaecati dolor, quasi explicabo illo nihil quas
+                    ipsum vitae!
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium error provident iste facere,
+                    nostrum sed
+                    eaque consectetur blanditiis cumque. Voluptatum blanditiis tempora quam, nesciunt vitae eveniet
+                    officiis possimus
+                    inventore perspiciatis?
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis
+                    enim corrupti excepturi fuga nam assumenda
+                    repudiandae harum recusandae beatae! Quis porro obcaecati dolor, quasi explicabo illo nihil quas
+                    ipsum vitae!
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium error provident iste facere,
+                    nostrum sed
+                    eaque consectetur blanditiis cumque. Voluptatum blanditiis tempora quam, nesciunt vitae eveniet
+                    officiis possimus
+                    inventore perspiciatis?
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis
+                    enim corrupti excepturi fuga nam assumenda
+                    repudiandae harum recusandae beatae! Quis porro obcaecati dolor, quasi explicabo illo nihil quas
+                    ipsum vitae!
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium error provident iste facere,
+                    nostrum sed
+                    eaque consectetur blanditiis cumque. Voluptatum blanditiis tempora quam, nesciunt vitae eveniet
+                    officiis possimus
+                    inventore perspiciatis?
+                </p>
             </div>
         </div>
 
@@ -334,7 +380,6 @@
             fullWidth: true,
             noWrap: true
         });
-
 
 
     });

@@ -5,7 +5,7 @@
 #sidenav-overlay {
   z-index: 1;
 }
-#napovednikbox2 a {
+.napovednikbox2 a {
   color: #000;
   font-weight: 700;
   text-decoration: none;
@@ -15,7 +15,7 @@
     center/auto 16px no-repeat;
 }
 
-#napovednikbox2 a:hover {
+.napovednikbox2 a:hover {
   font-size: larger;
   text-decoration: underline;
 }

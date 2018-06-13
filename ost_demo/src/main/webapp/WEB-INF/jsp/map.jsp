@@ -239,7 +239,7 @@
                 function initMap() {
                     var map = new google.maps.Map(document.getElementById('map'), {
                         zoom: 15,
-                        center: {lat: 46.554007, lng: 15.648498}
+                        center: {lat: 46.104096, lng:14.704530}
                     });
                     geocoder = new google.maps.Geocoder();
 
@@ -254,8 +254,8 @@
                             geocoder.geocode({'address': locations[i]}, function (results, status) {
                                 if (status === 'OK') {
 
-                                    map.setCenter(46.0569465, 14.5057515);
-                                    map.setZoom(8.5);
+                                    map.setCenter(46.245013, 15.259217);
+                                    map.setZoom(8.7);
                                     var marker = new google.maps.Marker({
                                         map: map,
                                         position: results[0].geometry.location
