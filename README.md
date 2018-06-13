@@ -36,10 +36,10 @@ Vse dogodke, ki jih prikazuje stran Kulturnik.si, lahko tudi urejamo. Vse dogodk
 
 ## Kompatibilnost
 
-|       Java        | 
-| ----------------- |
-| `1.0`             | 
-| `2.0`             | 
+|       Java        | Maven |
+| ----------------- |------|
+| `1.8`             | `1.0`|
+
 
 
 
@@ -84,7 +84,9 @@ Glavne funkcionalnosti naše spletne strani so:
 	* po naprednih filtrih (datum pričetka dogodka, maksimalni cenovni rang)
 * sortiranje dogodkov glede na ceno (najcenejše/najdražje) ali glede na abecedni vrstni red naziva
 * zbranih zadnijh 5 dogodkov, ki so bili dodani v našo bazo
+* zbrani dogodki, ki se bodo odvili nocoj
 * prikazovanje vseh dogodkov na zemljevidu
+* izpis dogodkov, ki se zgodijo na določeni lokaciji
 * prikaz posameznega dogodka z natančno lokacijo v Google Maps (kar omogoča uporabnikom lažje iskanje prizorišča dogodka)
 * zbiranje podatkov o dogodkih iz drugih virov
 * izvoz podatkov o vseh dogodkih zbranih in dodanih na našo stran
@@ -95,7 +97,7 @@ Glavne funkcionalnosti naše spletne strani so:
 
 ## Dokumentacija
 
-
+[Zagonski](Kulturnik/Javadoc/Zagonski/index.html)
 
 
 
@@ -129,32 +131,30 @@ Za vsak prihajajoči teden smo si organizirali in porazdelili delo, ter si dolo�
 
 
 ## Vključene knjižnice
-
-> * [h2database](http://www.h2database.com/html/main.html)
-> * [jstl](https://docs.oracle.com/javaee/5/jstl/1.1/docs/tlddocs/)
-> * [javax.faces-api](https://mvnrepository.com/artifact/javax.faces/javax.faces-api)
-> * [javax.servlet](https://docs.oracle.com/javaee/7/api/javax/servlet/package-summary.html)
-> * [javax.xml.bind](https://mvnrepository.com/artifact/javax.xml.bind/jaxb-api/2.1)
-> * [javax.xml.parsers](https://docs.oracle.com/javase/7/docs/api/javax/xml/parsers/package-summary.html)
-> * [java.io](https://docs.oracle.com/javase/7/docs/api/java/io/package-summary.html)
-> * [java.net](https://docs.oracle.com/javase/7/docs/api/java/net/package-summary.html)
-> * [java.util](https://docs.oracle.com/javase/7/docs/api/java/util/package-summary.html)
-> * [java.sql](https://docs.oracle.com/javase/7/docs/api/java/sql/package-summary.html)
-> * [org.w3c.dom](https://docs.oracle.com/javase/7/docs/api/org/w3c/dom/package-summary.html)
-> * [primefaces](https://mvnrepository.com/artifact/org.primefaces/primefaces)
-> * [spring-boot-starter-web](https://mvnrepository.com/artifact/org.springframework.boot)
-> * [spring-boot-starter-jdbc](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-using-jdbc-template)
-> * [spring-boot-maven-plugin](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#build-tool-plugins-maven-plugin)
-> * [jaxb-api](https://mvnrepository.com/artifact/javax.xml.bind/jaxb-api)
-> * [captcha-servlet](https://mvnrepository.com/artifact/com.agapsys.libs/captcha-servlet)
-> * [tomcat-embed-jasper](https://tomcat.apache.org/tomcat-9.0-doc/jasper-howto.html)
-> * [Materialize](http://archives.materializecss.com/0.100.2/getting-started.html)
-> * [Material+Icons](https://fonts.googleapis.com/icon?family=Material+Icons)
-> * [JQuery](https://code.jquery.com/jquery-3.2.1.min.js)
-> * [Material+JS](http://archives.materializecss.com/0.100.2/carousel.html)
-> * [ajax.googleapis](http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js)
 > * []()
-
+> * [ajax.googleapis](http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js) 
+> * [captcha-servlet](https://mvnrepository.com/artifact/com.agapsys.libs/captcha-servlet) 
+> * [h2database](http://www.h2database.com/html/main.html) 
+> * [java.io](https://docs.oracle.com/javase/7/docs/api/java/io/package-summary.html) 
+> * [java.net](https://docs.oracle.com/javase/7/docs/api/java/net/package-summary.html) 
+> * [java.sql](https://docs.oracle.com/javase/7/docs/api/java/sql/package-summary.html) 
+> * [java.util](https://docs.oracle.com/javase/7/docs/api/java/util/package-summary.html) 
+> * [javax.faces-api](https://mvnrepository.com/artifact/javax.faces/javax.faces-api) 
+> * [javax.servlet](https://docs.oracle.com/javaee/7/api/javax/servlet/package-summary.html)
+> * [javax.xml.bind](https://mvnrepository.com/artifact/javax.xml.bind/jaxb-api/2.1) 
+> * [javax.xml.parsers](https://docs.oracle.com/javase/7/docs/api/javax/xml/parsers/package-summary.html) 
+> * [jaxb-api](https://mvnrepository.com/artifact/javax.xml.bind/jaxb-api) 
+> * [JQuery](https://code.jquery.com/jquery-3.2.1.min.js)
+> * [jstl](https://docs.oracle.com/javaee/5/jstl/1.1/docs/tlddocs/) 
+> * [Material+Icons](http://archives.materializecss.com/0.100.2/icons.html) 
+> * [Material+JS](http://archives.materializecss.com/0.100.2/carousel.html) 
+> * [Materialize](http://archives.materializecss.com/0.100.2/getting-started.html)
+> * [org.w3c.dom](https://docs.oracle.com/javase/7/docs/api/org/w3c/dom/package-summary.html) 
+> * [primefaces](https://mvnrepository.com/artifact/org.primefaces/primefaces) 
+> * [spring-boot-maven-plugin](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#build-tool-plugins-maven-plugin)
+> * [spring-boot-starter-jdbc](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-using-jdbc-template) 
+> * [spring-boot-starter-web](https://mvnrepository.com/artifact/org.springframework.boot) 
+> * [tomcat-embed-jasper](https://tomcat.apache.org/tomcat-9.0-doc/jasper-howto.html)
 
 
 
