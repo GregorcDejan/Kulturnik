@@ -299,7 +299,7 @@
                 <!-- Konec ENE Karte-->
             </c:forEach>
         </div>
-        <form action="/downXML " method="post" target="_blank">
+        <form action="/downXML " method="get" target="_blank">
 
             <button class="btn valign-wrapper right blue lighten-1 waves-effect"
                     type="submit">

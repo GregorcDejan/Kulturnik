@@ -732,7 +732,7 @@ public class KontrolerBaze {
     }
 
 
-    @RequestMapping(value = {"/downXML"}, method = RequestMethod.POST)
+    @RequestMapping(value = {"/downXML"}, method = RequestMethod.GET)
     @ResponseBody
     public String testing123(Model model) {
         List<Dogodek> dogodk=dogodki.getAllDogodki();
