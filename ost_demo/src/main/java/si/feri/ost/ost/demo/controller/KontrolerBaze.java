@@ -834,7 +834,7 @@ public class KontrolerBaze {
         List<Dogodek> dogodk=dogodki.getAllDogodki();
 
 
-        String zaZapisat="<br /><hr />";
+        String zaZapisat="<pre>";
 
 
 
@@ -871,7 +871,7 @@ public class KontrolerBaze {
         }
         finally {}
 
-        zaZapisat+="  ";
+        zaZapisat+="</pre>";
         System.out.println("_____________________________________________________________________________");
         System.out.println(zaZapisat);
         /*try {
