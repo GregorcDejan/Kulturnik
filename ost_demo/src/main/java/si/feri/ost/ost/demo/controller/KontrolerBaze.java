@@ -364,9 +364,9 @@ public class KontrolerBaze {
             db = dbf.newDocumentBuilder();
             Document doc = db.parse(url.openStream());
             doc.getDocumentElement().normalize();
-            //System.out.println("Root element: " + doc.getDocumentElement().getNodeName());
+
             NodeList nList = doc.getElementsByTagName("movie");
-            //System.out.println("--------------------------------------------------------------------------------------------------------------------------");
+
             for (int temp = 0; temp < nList.getLength(); temp++) {
 
                 Node nNode = nList.item(temp);
@@ -747,7 +747,7 @@ public class KontrolerBaze {
             System.out.println(dogodek);
 
         }
-        File file = new File("C:\\Users\\Uporabnik\\Desktop\\text.xml");
+        File file = new File("text.xml");
             try {
 
             for(int i=0;i<dogodk.size();i++)
@@ -778,13 +778,13 @@ public class KontrolerBaze {
         zaZapisat+="  ";
         System.out.println("_____________________________________________________________________________");
         System.out.println(zaZapisat);
-        try {
+        /*try {
             FileWriter fw = new FileWriter(file);
             fw.write(zaZapisat);
         } catch (IOException e) {
 
             e.printStackTrace();
-        }
+        }*/
         return zaZapisat;
 
     }
