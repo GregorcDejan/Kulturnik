@@ -13,7 +13,7 @@
     <link type="text/css" rel="stylesheet" href="/lib/css/materialize.min.css" media="screen,projection"/>
     <link rel="stylesheet" type="text/css" media="screen" href="/lib/css/style.css"/>
 </head>
-<body>
+<body class="teal lighten-5">
 
 
 <main class="teal lighten-5">
@@ -71,7 +71,8 @@
                                 </a>
                             </li>
 
-                            <%  }  else { %>
+                            <% } else
+                            { %>
                             <li class="collection-item avatar valign-wrapper">
                                 <i class="material-icons right teal-text">person </i>
                                 <span class="right ">
@@ -188,11 +189,18 @@
         <h2 class="center-align">
             ${Kategorija}
             <span class="right">
-                <form action="/parseXML">
-                    <button class="btn waves-effect waves-light btn-flat btn-floating " name="event" value="${Kategorija}" >
+                <form action="/downXML " method="get" target="_blank" class="right">
+                     <button class="btn waves-effect waves-light btn-flat btn-floating" type="submit">
+                        <i class="material-icons black-text">import_export</i>
+                     </button>
+                </form>
+                <form action="/parseXML" class="right">
+                    <button class="btn waves-effect waves-light btn-flat btn-floating" name="event"
+                            value="${Kategorija}">
                          <i class="material-icons black-text">refresh</i>
                     </button>
                 </form>
+
             </span>
         </h2>
         <hr/>
@@ -226,7 +234,8 @@
                         <div class="col l4 offset-s1 s5">
                             <p class="range-field">
                                 <label id="najCenaLabel" for="najCena">Max Cena: ${najvisjaCena}</label>
-                                <input type="range" id="najCena" min=${najnizjaCena} max=${najvisjaCena} value="100" name="cenaDogodka"
+                                <input type="range" id="najCena" min=${najnizjaCena} max=${najvisjaCena} value="100"
+                                       name="cenaDogodka"
                                        oninput="displayContent()"/>
                             </p>
                         </div>
@@ -299,19 +308,37 @@
                 <!-- Konec ENE Karte-->
             </c:forEach>
         </div>
-        <form action="/downXML " method="get" target="_blank">
 
-            <button class="btn valign-wrapper right blue lighten-1 waves-effect"
-                    type="submit">
-                <div class="valign-wrapper"> Izvozi vse dogodke
-
-                </div>
-            </button>
-        </form>
         <!-- Konec Vrstice-->
 
     </div>
 </main>
+<footer class="page-footer teal lighten-3">
+    <div class="container">
+        <div class="row">
+            <div class="col l6 s12">
+                <h5 class="white-text">Kulturnik</h5>
+                <p class="grey-text text-lighten-4">Brought to you by a team of enthusiastic students of information
+                    technologies</p>
+            </div>
+            <div class="col l6 s12">
+                <ul>
+                    <li class="grey-text text-lighten-3"><h5>Brought to you by</h5></li>
+                    <li class="grey-text text-lighten-3">Fakulteta za Elektrotehniko Računalništvo in Informatiko</li>
+                    <li class="grey-text text-lighten-3">Univerza v Mariboru</li>
+                    <li class="grey-text text-lighten-3">Praktikum I</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container">
+            © 2018 Copyright Praktikum Powerhouse
+            <a class="grey-text text-lighten-4 right" href="index">Kulturnik</a>
+        </div>
+    </div>
+</footer>
 </body>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="/lib/javascript/materialize.min.js"></script>
@@ -319,17 +346,13 @@
 <script>
     function showNapredno() {
         $('#naprednoShowHide').toggle(500, 'linear');
-        if(document.getElementById('naprednoShow').innerText === 'remove')
-        {
+        if (document.getElementById('naprednoShow').innerText === 'remove') {
             document.getElementById('naprednoShow').innerText = 'add';
         }
-        else if(document.getElementById('naprednoShow').innerText === 'add')
-        {
+        else if (document.getElementById('naprednoShow').innerText === 'add') {
             document.getElementById('naprednoShow').innerText = 'remove';
         }
     }
-
-
 
 
     function displayContent() {
