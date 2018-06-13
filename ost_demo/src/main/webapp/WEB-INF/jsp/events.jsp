@@ -299,35 +299,17 @@
                 <!-- Konec ENE Karte-->
             </c:forEach>
         </div>
+        <form action="/downXML " method="get" target="_blank">
 
+            <button class="btn valign-wrapper right blue lighten-1 waves-effect"
+                    type="submit">
+                <div class="valign-wrapper"> Izvozi vse dogodke
+
+                </div>
+            </button>
+        </form>
         <!-- Konec Vrstice-->
-        <ul class="pagination right">
-            <li class="disabled">
-                <a href="#!">
-                    <i class="material-icons">chevron_left</i>
-                </a>
-            </li>
-            <li class="active teal darken-2">
-                <a href="#!">1</a>
-            </li>
-            <li class="waves-effect">
-                <a href="#!">2</a>
-            </li>
-            <li class="waves-effect">
-                <a href="#!">3</a>
-            </li>
-            <li class="waves-effect">
-                <a href="#!">4</a>
-            </li>
-            <li class="waves-effect">
-                <a href="#!">5</a>
-            </li>
-            <li class="waves-effect">
-                <a href="#!">
-                    <i class="material-icons">chevron_right</i>
-                </a>
-            </li>
-        </ul>
+
     </div>
 </main>
 </body>
