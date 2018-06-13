@@ -26,15 +26,6 @@
 
 <body>
 
-<% if (Boolean.valueOf(String.valueOf(session.getAttribute("uporabnikPrijavljen"))))
-{
-%>
-Prijavljeni ste kot <%=
-String.valueOf(session.getAttribute("imeUporabnika"))%>
-<%= String.valueOf(session.getAttribute("priimekUporabnika"))
-
-%><%}%>
-
 <main class="teal lighten-5">
     <div class="navbar-fixed">
         <nav class=" teal darken-2 z-depth-3">
@@ -45,8 +36,8 @@ String.valueOf(session.getAttribute("imeUporabnika"))%>
                     <i class="material-icons">menu</i>
                 </a>
                 <ul class="right show-on-med-and-down">
-                    <li>
-                        <a href="#">
+                    <li  class="active">
+                        <a href="map">
                             <i class="material-icons">place</i>
                         </a>
                     </li>
@@ -118,7 +109,7 @@ String.valueOf(session.getAttribute("imeUporabnika"))%>
                 </ul>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
 
-                    <li class="active">
+                    <li >
                         <a href="index">Domov</a>
                     </li>
                     <li>
@@ -173,7 +164,7 @@ String.valueOf(session.getAttribute("imeUporabnika"))%>
                 </ul>
                 <ul class="side-nav" id="mobile-sidenav">
                     <form action="/events" method="get">
-                        <li class="active">
+                        <li >
                             <a href="index">Home</a>
                         </li>
                         <li>
@@ -201,7 +192,16 @@ String.valueOf(session.getAttribute("imeUporabnika"))%>
     <div class="container">
 
         <div class="row">
-            <h2 class="center-align">Lokacija dogodka ${naslovDogodka} </h2>
+            <c:choose>
+                <c:when test="${celZemljevid==false}">
+                    <h2 class="center-align">Lokacija dogodka ${naslovDogodka} </h2>
+                </c:when>
+
+                <c:otherwise>
+                    <h2 class="center-align">Lokacije vseh dogodkov </h2>
+                </c:otherwise>
+            </c:choose>
+
             <div id="map"></div>
             <script>
 
