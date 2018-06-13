@@ -5,15 +5,12 @@
 <html lang="sl">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Search</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kulturnik</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="/lib/css/materialize.min.css" media="screen,projection"/>
     <link rel="stylesheet" type="text/css" media="screen" href="/lib/css/style.css"/>
-    <link rel="stylesheet" type="text/css" href="materialize.min.css"/>
-    <link rel="stylesheet" type="text/css" href="style.css"/>
     <script src="main.js"></script>
 
     <style>
@@ -26,15 +23,6 @@
 
 <body>
 
-<% if (Boolean.valueOf(String.valueOf(session.getAttribute("uporabnikPrijavljen"))))
-{
-%>
-Prijavljeni ste kot <%=
-String.valueOf(session.getAttribute("imeUporabnika"))%>
-<%= String.valueOf(session.getAttribute("priimekUporabnika"))
-
-%><%}%>
-
 <main class="teal lighten-5">
     <div class="navbar-fixed">
         <nav class=" teal darken-2 z-depth-3">
@@ -45,8 +33,8 @@ String.valueOf(session.getAttribute("imeUporabnika"))%>
                     <i class="material-icons">menu</i>
                 </a>
                 <ul class="right show-on-med-and-down">
-                    <li>
-                        <a href="#">
+                    <li  class="active">
+                        <a href="map">
                             <i class="material-icons">place</i>
                         </a>
                     </li>
@@ -118,7 +106,7 @@ String.valueOf(session.getAttribute("imeUporabnika"))%>
                 </ul>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
 
-                    <li class="active">
+                    <li >
                         <a href="index">Domov</a>
                     </li>
                     <li>
@@ -173,7 +161,7 @@ String.valueOf(session.getAttribute("imeUporabnika"))%>
                 </ul>
                 <ul class="side-nav" id="mobile-sidenav">
                     <form action="/events" method="get">
-                        <li class="active">
+                        <li >
                             <a href="index">Home</a>
                         </li>
                         <li>
@@ -201,7 +189,16 @@ String.valueOf(session.getAttribute("imeUporabnika"))%>
     <div class="container">
 
         <div class="row">
-            <h2 class="center-align">Lokacija dogodka ${naslovDogodka} </h2>
+            <c:choose>
+                <c:when test="${celZemljevid==false}">
+                    <h2 class="center-align">Lokacija dogodka ${naslovDogodka} </h2>
+                </c:when>
+
+                <c:otherwise>
+                    <h2 class="center-align">Lokacije vseh dogodkov </h2>
+                </c:otherwise>
+            </c:choose>
+
             <div id="map"></div>
             <script>
 
@@ -334,19 +331,15 @@ String.valueOf(session.getAttribute("imeUporabnika"))%>
 
 </main>
 </body>
+
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="/lib/javascript/materialize.min.js"></script>
-<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-
 <script>
 
 
 
-
-    Materialize.updateTextFields();
     // Every page needs this dingy //
-    $(document).ready(function () {
+    $(function() {
         $('.dropdown-button').dropdown({
             constrainWidth: false,
             hover: true,
@@ -361,8 +354,9 @@ String.valueOf(session.getAttribute("imeUporabnika"))%>
         });
 
         // Page Specific //
-
+        Materialize.updateTextFields();
 
     });
 </script>
+
 </html>
