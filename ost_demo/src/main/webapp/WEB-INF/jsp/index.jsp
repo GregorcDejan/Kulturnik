@@ -38,7 +38,8 @@
                             <i class="material-icons left">person</i>
                         </a>
                         <ul id='dropdownPerson' class='dropdown-content'>
-                            <% if (Boolean.valueOf(String.valueOf(session.getAttribute("uporabnikPrijavljen")))) { %>
+                            <% if (Boolean.valueOf(String.valueOf(session.getAttribute("uporabnikPrijavljen"))))
+                            { %>
                             <li class="collection-item avatar valign-wrapper">
                                 <i class="material-icons right teal-text">person </i>
                                 <form action="/events" method="get">
@@ -72,7 +73,8 @@
                                 </a>
                             </li>
 
-                            <% } else { %>
+                            <% } else
+                            { %>
                             <li class="collection-item avatar valign-wrapper">
                                 <i class="material-icons right teal-text">person </i>
                                 <span class="right ">
@@ -184,96 +186,29 @@
             <h1 class="center-align col s12">Kulturnik</h1>
             <hr/>
         </div>
-        <div class="carousel carousel-slider hoverable z-depth-4" data-indicators="true">
-            <a class="carousel-item" href="#one!">
-                <img src="${pageContext.request.contextPath}/lib/slike/hkphil1718.JPG">
-            </a>
-            <a class="carousel-item" href="#two!">
-                <img src="${pageContext.request.contextPath}/lib/slike/bkpam2284930_gallery6.jpeg">
-            </a>
-            <a class="carousel-item" href="#three!">
-                <img src="${pageContext.request.contextPath}/lib/slike/hammerfall.jpg">
-            </a>
-            <a class="carousel-item" href="#four!">
-                <img src="${pageContext.request.contextPath}/lib/slike/musicLogo.png">
-            </a>
-            <a class="carousel-item" href="#five!">
-                <img src="${pageContext.request.contextPath}/lib/slike/generic-event.jpg">
-            </a>
-        </div>
 
         <div class="row">
-            <div class="col s12 xl3">
-                <h3 class="center-align">Kontakt</h3>
-                <div class="grey lighten-3">
-                    <ul class="collection z-depth-1">
-                        <li class="collection-item avatar grey lighten-3">
-                            <img src="${pageContext.request.contextPath}/lib/slike/lucka.jpg" alt="" class="circle">
-                            <span class="title">Lucija Brezočnik</span>
-                            <p>
-                                Project Owner
-                                <br/> lucija.brezocnik@um.si
-                            </p>
-                            <a href="#!" class="secondary-content">
-                                <i class="material-icons red-text text-lighten-2">send</i>
-                            </a>
-                        </li>
-                        <li class="collection-item avatar grey lighten-3">
-                            <img src="${pageContext.request.contextPath}/lib/slike/lepotec.jpg" alt="" class="circle">
-                            <span class="title">Marko Gluhak</span>
-                            <p>
-                                Front-End
-                                <br/> markogl@comtrade.com
-                            </p>
-                            <a href="#!" class="secondary-content">
-                                <i class="material-icons red-text text-lighten-2">send</i>
-                            </a>
-                        </li>
-                        <li class="collection-item avatar grey lighten-3">
-                            <img src="${pageContext.request.contextPath}/lib/slike/ninc.jpg" alt="" class="circle">
-                            <span class="title">Nina Kliček</span>
-                            <p>
-                                Back-End
-                                <br/> nina.klicek@student.um.si
-                            </p>
-                            <a href="#!" class="secondary-content">
-                                <i class="material-icons red-text text-lighten-2">send</i>
-                            </a>
-                        </li>
-                        <li class="collection-item avatar grey lighten-3">
-                            <img src="${pageContext.request.contextPath}/lib/slike/dejc.jpg" alt="" class="circle">
-                            <span class="title">Dejan Gregorc</span>
-                            <p>
-                                Back-End
-                                <br/> gregorc.dejan@gmail.com
-                            </p>
-                            <a href="#!" class="secondary-content">
-                                <i class="material-icons red-text text-lighten-2">send</i>
-                            </a>
-                        </li>
-                        <li class="collection-item avatar grey lighten-3">
-                            <img src="${pageContext.request.contextPath}/lib/slike/rusha.jpg" alt="" class="circle">
-                            <span class="title">Maruša Konečnik</span>
-                            <p>
-                                Back-End
-                                <br/> marusa.konecnik@student.um.si
-                            </p>
-                            <a href="#!" class="secondary-content">
-                                <i class="material-icons red-text text-lighten-2">send</i>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col s12 xl6 section">
+
+            <div class="col offset-s1 offset-l1 s12 l5 section">
                 <h3 class="center-align">Današnji dogodki</h3>
                 <div class="card-panel grey lighten-3">
                     <span class="black-text grey lighten-3">
                         <ul class="collection grey lighten-3">
-                            <li class="collection-item grey lighten-3"><div>Alvin<a href="#!" class="secondary-content"><i class="material-icons red-text text-lighten-2">send</i></a></div></li>
-                            <li class="collection-item grey lighten-3"><div>Alvin<a href="#!" class="secondary-content"><i class="material-icons red-text text-lighten-2">send</i></a></div></li>
-                            <li class="collection-item grey lighten-3"><div>Alvin<a href="#!" class="secondary-content"><i class="material-icons red-text text-lighten-2">send</i></a></div></li>
-                            <li class="collection-item grey lighten-3"><div>Alvin<a href="#!" class="secondary-content"><i class="material-icons red-text text-lighten-2">send</i></a></div></li>
+                            <li class="collection-item grey lighten-3"><div>Alvin<a href="go!" class="secondary-content"><i
+                                    class="material-icons red-text text-lighten-2">send</i></a></div>
+                            </li>
+                            <li class="collection-item grey lighten-3"><div>Alvin<a href="go!" class="secondary-content"><i
+                                    class="material-icons red-text text-lighten-2">send</i></a></div>
+                            </li>
+                            <li class="collection-item grey lighten-3"><div>Alvin<a href="go!" class="secondary-content"><i
+                                    class="material-icons red-text text-lighten-2">send</i></a></div>
+                            </li>
+                            <li class="collection-item grey lighten-3"><div>Alvin<a href="go!" class="secondary-content"><i
+                                    class="material-icons red-text text-lighten-2">send</i></a></div>
+                            </li>
+                            <li class="collection-item grey lighten-3"><div>Alvin<a href="go!" class="secondary-content"><i
+                                    class="material-icons red-text text-lighten-2">send</i></a></div>
+                            </li>
                         </ul>
                     </span>
                 </div>
@@ -293,42 +228,116 @@
                     <a href="https://www.napovednik.com" class="grey-text text-lighten-2">Ne spreglejte tudi</a>
                 </div>
             </div-->
-            <div class="col s12 xl3">
+            <div class="col s12 l5">
                 <h3 class="center-align">Zadnjih 5</h3>
                 <div class="card-panel grey lighten-3">
                     <span class="black-text grey lighten-3">
                         <ul class="collection grey lighten-3">
-                            <li class="collection-item grey lighten-3"><div>Alvin<a href="#!" class="secondary-content"><i class="material-icons red-text text-lighten-2">send</i></a></div></li>
-                            <li class="collection-item grey lighten-3"><div>Alvin<a href="#!" class="secondary-content"><i class="material-icons red-text text-lighten-2">send</i></a></div></li>
-                            <li class="collection-item grey lighten-3"><div>Alvin<a href="#!" class="secondary-content"><i class="material-icons red-text text-lighten-2">send</i></a></div></li>
-                            <li class="collection-item grey lighten-3"><div>Alvin<a href="#!" class="secondary-content"><i class="material-icons red-text text-lighten-2">send</i></a></div></li>
+                            <li class="collection-item grey lighten-3"><div>Alvin<a href="go!" class="secondary-content"><i
+                                    class="material-icons red-text text-lighten-2">send</i></a></div>
+                            </li>
+                            <li class="collection-item grey lighten-3"><div>Alvin<a href="go!" class="secondary-content"><i
+                                    class="material-icons red-text text-lighten-2">send</i></a></div>
+                            </li>
+                            <li class="collection-item grey lighten-3"><div>Alvin<a href="go!" class="secondary-content"><i
+                                    class="material-icons red-text text-lighten-2">send</i></a></div>
+                            </li>
+                            <li class="collection-item grey lighten-3"><div>Alvin<a href="go!" class="secondary-content"><i
+                                    class="material-icons red-text text-lighten-2">send</i></a></div>
+                            </li>
+                            <li class="collection-item grey lighten-3"><div>Alvin<a href="go!" class="secondary-content"><i
+                                    class="material-icons red-text text-lighten-2">send</i></a></div>
+                            </li>
                         </ul>
                     </span>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col s12">
+            <div class="carousel carousel-slider hoverable z-depth-4" data-indicators="true">
+                <a class="carousel-item" href="#one!">
+                    <img src="${pageContext.request.contextPath}/lib/slike/hkphil1718.JPG">
+                </a>
+                <a class="carousel-item" href="#two!">
+                    <img src="${pageContext.request.contextPath}/lib/slike/bkpam2284930_gallery6.jpeg">
+                </a>
+                <a class="carousel-item" href="#three!">
+                    <img src="${pageContext.request.contextPath}/lib/slike/hammerfall.jpg">
+                </a>
+                <a class="carousel-item" href="#four!">
+                    <img src="${pageContext.request.contextPath}/lib/slike/musicLogo.png">
+                </a>
+                <a class="carousel-item" href="#five!">
+                    <img src="${pageContext.request.contextPath}/lib/slike/generic-event.jpg">
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 m4">
+                <h3 class="center-align">Kontakt</h3>
+                <div class="grey lighten-3">
+                    <ul class="collection z-depth-1">
+                        <li class="collection-item avatar grey lighten-3">
+                            <img src="${pageContext.request.contextPath}/lib/slike/lucka.jpg" alt="" class="circle">
+                            <span class="title">Lucija Brezočnik</span>
+                            <p>
+                                Project Owner
+                                <br/> lucija.brezocnik@um.si
+                            </p>
+                            <a href="https://www.facebook.com/lucija.brezocnik" class="secondary-content">
+                                <i class="material-icons red-text text-lighten-2">send</i>
+                            </a>
+                        </li>
+                        <li class="collection-item avatar grey lighten-3">
+                            <img src="${pageContext.request.contextPath}/lib/slike/lepotec.jpg" alt="" class="circle">
+                            <span class="title">Marko Gluhak</span>
+                            <p>
+                                Front-End
+                                <br/> markogl@comtrade.com
+                            </p>
+                            <a href="https://github.com/MerceneX" class="secondary-content">
+                                <i class="material-icons red-text text-lighten-2">send</i>
+                            </a>
+                        </li>
+                        <li class="collection-item avatar grey lighten-3">
+                            <img src="${pageContext.request.contextPath}/lib/slike/ninc.jpg" alt="" class="circle">
+                            <span class="title">Nina Kliček</span>
+                            <p>
+                                Back-End
+                                <br/> nina.klicek@student.um.si
+                            </p>
+                            <a href="https://github.com/KlicekNina" class="secondary-content">
+                                <i class="material-icons red-text text-lighten-2">send</i>
+                            </a>
+                        </li>
+                        <li class="collection-item avatar grey lighten-3">
+                            <img src="${pageContext.request.contextPath}/lib/slike/dejc.jpg" alt="" class="circle">
+                            <span class="title">Dejan Gregorc</span>
+                            <p>
+                                Back-End
+                                <br/> gregorc.dejan@gmail.com
+                            </p>
+                            <a href="https://github.com/WiiTheThird" class="secondary-content">
+                                <i class="material-icons red-text text-lighten-2">send</i>
+                            </a>
+                        </li>
+                        <li class="collection-item avatar grey lighten-3">
+                            <img src="${pageContext.request.contextPath}/lib/slike/rusha.jpg" alt="" class="circle">
+                            <span class="title">Maruša Konečnik</span>
+                            <p>
+                                Back-End
+                                <br/> marusa.konecnik@student.um.si
+                            </p>
+                            <a href="https://github.com/marusakonecnik" class="secondary-content">
+                                <i class="material-icons red-text text-lighten-2">send</i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col m8">
                 <h3 class="center-align">O nas</h3>
                 <p class="flow-text center-align">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis
-                    enim corrupti excepturi fuga nam assumenda
-                    repudiandae harum recusandae beatae! Quis porro obcaecati dolor, quasi explicabo illo nihil quas
-                    ipsum vitae!
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium error provident iste facere,
-                    nostrum sed
-                    eaque consectetur blanditiis cumque. Voluptatum blanditiis tempora quam, nesciunt vitae eveniet
-                    officiis possimus
-                    inventore perspiciatis?
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis
-                    enim corrupti excepturi fuga nam assumenda
-                    repudiandae harum recusandae beatae! Quis porro obcaecati dolor, quasi explicabo illo nihil quas
-                    ipsum vitae!
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium error provident iste facere,
-                    nostrum sed
-                    eaque consectetur blanditiis cumque. Voluptatum blanditiis tempora quam, nesciunt vitae eveniet
-                    officiis possimus
-                    inventore perspiciatis?
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis
                     enim corrupti excepturi fuga nam assumenda
                     repudiandae harum recusandae beatae! Quis porro obcaecati dolor, quasi explicabo illo nihil quas
                     ipsum vitae!
@@ -357,7 +366,9 @@
         <div class="row">
             <div class="col l6 s12">
                 <h5 class="white-text">Kulturnik</h5>
-                <p class="grey-text text-lighten-4">Brought to you by a team of enthusiastic students of information technologies</p>
+                <p class="grey-text text-lighten-4">Brought to you by a team of enthusiastic students of information
+                    technologies</p>
+                <p class="grey-text text-lighten-4"><a class="grey-text text-lighten-4" href="https://github.com/WiiTheThird/Kulturnik">Visit Kulturnik on GitHub</a></p>
             </div>
             <div class="col l6 s12">
                 <ul>
