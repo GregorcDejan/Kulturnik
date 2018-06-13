@@ -834,7 +834,7 @@ public class KontrolerBaze {
         List<Dogodek> dogodk=dogodki.getAllDogodki();
 
 
-        String zaZapisat="<![CDATA[<pre>";
+        String zaZapisat="";
 
 
 
@@ -848,7 +848,7 @@ public class KontrolerBaze {
 
             for(int i=0;i<dogodk.size();i++)
             {
-
+                zaZapisat+="<![CDATA[";
                 JAXBContext jaxbContext = JAXBContext.newInstance(Dogodek.class);
                 Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
                 jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
@@ -858,7 +858,7 @@ public class KontrolerBaze {
                 StringWriter sw = new StringWriter();
                 jaxbMarshaller.marshal(dogodk.get(i), sw);
                 String xmlString = sw.toString();
-                zaZapisat+=xmlString;
+                zaZapisat+=xmlString+"]]";
 
 
 
@@ -871,7 +871,7 @@ public class KontrolerBaze {
         }
         finally {}
 
-        zaZapisat+="</pre>]]";
+        zaZapisat+="]]";
         System.out.println("_____________________________________________________________________________");
         System.out.println(zaZapisat);
         /*try {
