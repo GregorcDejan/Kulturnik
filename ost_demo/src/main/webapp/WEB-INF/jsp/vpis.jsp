@@ -248,7 +248,9 @@ String.valueOf(session.getAttribute("imeUporabnika"))%>
         <div class="row">
             <div class="col l6 s12">
                 <h5 class="white-text">Kulturnik</h5>
-                <p class="grey-text text-lighten-4">Brought to you by a team of enthusiastic students of information technologies</p>
+                <p class="grey-text text-lighten-4">Brought to you by a team of enthusiastic students of information
+                    technologies</p>
+                <p class="grey-text text-lighten-4"><a class="grey-text text-lighten-4" href="https://github.com/WiiTheThird/Kulturnik">Visit Kulturnik on GitHub</a></p>
             </div>
             <div class="col l6 s12">
                 <ul>
