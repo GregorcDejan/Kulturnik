@@ -268,8 +268,8 @@ String.valueOf(session.getAttribute("imeUporabnika"))%>
 
 
                                         var infowindow = new google.maps.InfoWindow({
-                                            content: '<div id="content" style="font-family:\'Times New Roman\';padding:16px; ;border-radius:5px;max-width:260px;box-shadow:none;">'
-                                            +locations[i]+'<br> ' +
+                                            content: '<div id="content" class="flow-text" style=padding:16px; ;border-radius:5px;max-width:260px;box-shadow:none;">'
+                                            +locations[i]+'<br><br>  ' +
                                             '<form action="/dogodkiPoLokaciji" method="get"><button type="submit"class="btn valign-wrapper right blue lighten-1 waves-effect" id="button" value="'+locations[i]+'" name="lokacija">Prikaži dogodke</button></form> ' +
                                             '</div>'
 

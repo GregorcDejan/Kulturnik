@@ -105,13 +105,12 @@ public class KontrolerBaze {
         String naslov = d.getLokacija();
         model.addAttribute("naslovLokacije", naslov);
 
-<<<<<<< HEAD
         model.addAttribute("naslovDogodka",d.getNaziv());
 
         model.addAttribute("celZemljevid",false);
-=======
+
         model.addAttribute("naslovDogodka", d.getNaziv());
->>>>>>> bcf2cc7f60d33fb610bee18144cd93d2aaef9bdb
+
         return "map";
     }
 
@@ -208,6 +207,27 @@ public class KontrolerBaze {
     public String odstranjevanjeD(Model model, @RequestParam(value = "ime", required = false) String id) {
         int x=Integer.parseInt(id);
         dogodki.deleteDogodek(x);
+
+        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+        HttpSession session = request.getSession(true);
+
+        List<Oseba> rez = new ArrayList<>();
+        int idUporabnika = Integer.parseInt(String.valueOf(session.getAttribute("idUporabnika")));
+        List<Dogodek> dogodkiUporabnikaByID ;/*= dogodki.getByIdUporabnika(idUporabnika);
+                    List<Dogodek> vsiDogodki = dogodki.getAllDogodki();*/
+        if(idUporabnika==666){
+            dogodkiUporabnikaByID= dogodki.getAllDogodki();
+
+        }else{
+            dogodkiUporabnikaByID= dogodki.getByIdUporabnika(idUporabnika);
+        }
+
+        Oseba prijavljenUporabnik = osebe.getByID(idUporabnika);
+        rez.add(prijavljenUporabnik);
+
+        model.addAttribute("dogodki", dogodkiUporabnikaByID);
+        model.addAttribute("uporabnik", rez);
+        model.addAttribute("stDogodkovUporabnika", dogodkiUporabnikaByID.size());
         return "uporabnik";
     }
 

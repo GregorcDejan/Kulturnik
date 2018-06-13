@@ -74,6 +74,8 @@ public class GlavniKontroler {
 
 
 
+
+
         return "map";
     }
 
@@ -93,6 +95,9 @@ public class GlavniKontroler {
        model.addAttribute("dogodki",dogodkiPoLokaciji);
 
        lokacija = lokacija.substring(1);
+
+       model.addAttribute("lokacijaDogodka",lokacija);
+
 
        int p=4;
         return "events";

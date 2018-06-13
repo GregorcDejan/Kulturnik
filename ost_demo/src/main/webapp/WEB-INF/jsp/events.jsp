@@ -180,7 +180,11 @@
     </div>
     <div class="container">
 
-
+        <c:choose>
+            <c:when test="${lokacijaDogodka!=null}">
+                <h2 class="center-align">Dogodki na lokaciji ${lokacijaDogodka}</h2>
+            </c:when>
+        </c:choose>
         <h2 class="center-align">
             ${Kategorija}
             <span class="right">
