@@ -45,14 +45,14 @@ Vse dogodke, ki jih prikazuje stran Kulturnik.si, lahko tudi urejamo. Vse dogodk
 
 
 ## Kazalo 
-* [O projektu](#O-projektu)
-* [Inštalacija in uporaba](#Inštalacija-in-uporaba)
-* [Glavne funkcionalnosti](#Glavne-funkcionalnosti)
-* [Dokumentaicja](#Dokumentacija)
-* [Podatkovna baza](#Podatkovna-baza)
-* [Potek dela po tednih](##Potek-dela-po-tednih)
-* [Avtorji](#Avtorji)
-* [Vključene knjižnice](##Vključene-knjižnice)
+* [O projektu](https://github.com/WiiTheThird/Kulturnik#O-projektu)
+* [Inštalacija in uporaba](https://github.com/WiiTheThird/Kulturnik#Inštalacija-in-uporaba)
+* [Glavne funkcionalnosti](https://github.com/WiiTheThird/Kulturnik#Glavne-funkcionalnosti)
+* [Dokumentaicja](https://github.com/WiiTheThird/Kulturnik#Dokumentacija)
+* [Podatkovna baza](https://github.com/WiiTheThird/Kulturnik#Podatkovna-baza)
+* [Potek dela po tednih](https://github.com/WiiTheThird/Kulturnik#Potek-dela-po-tednih)
+* [Avtorji](https://github.com/WiiTheThird/Kulturnik#Avtorji)
+* [Vključene knjižnice](https://github.com/WiiTheThird/Kulturnik#Vključene-knjižnice)
 
 ## Inštalacija in uporaba
 Če želite tudi sami zagnati spletno stran na localhost:8080, za to potrebujete GitHub Desktop 
@@ -120,7 +120,7 @@ Vzpostavitev baze smo začeli z oblikovanjem [E-R modela](ER-D.pdf), nato pa smo
 
 Za vsak prihajajoči teden smo si organizirali in porazdelili delo, ter si določili cilje, ki jih želimo doseči. Na naslednjih slikah je prikaz porazdelitve dela v petih tednih.
 
-<img src="./PotekDelaPoTednih/DoneTeden1.png" height="450"> <img src="./PotekDelaPoTednih/DoneTedenEna.png" height="450"> <img src="./PotekDelaPoTednih/DoneTeden2.png" height="450"> <img src="./PotekDelaPoTednih/DoneTedenDva.png" height="450"> <img src="./PotekDelaPoTednih/DoneTeden3.png" width="180"> <img src="./PotekDelaPoTednih/DoneTeden4.png" width="180"> <img src="./PotekDelaPoTednih/DoneTeden5.png" width="180">  
+<img src="./PotekDelaPoTednih/Teden1.png" height="450"> <img src="./PotekDelaPoTednih/TedenEna.png" height="450"> <img src="./PotekDelaPoTednih/Teden2.png" height="450"> <img src="./PotekDelaPoTednih/TedenDva.png" height="450"> <img src="./PotekDelaPoTednih/Teden3.png" width="195"> <img src="./PotekDelaPoTednih/Teden4.png" width="195"> <img src="./PotekDelaPoTednih/Teden5.png" width="195">  
 
 
 
