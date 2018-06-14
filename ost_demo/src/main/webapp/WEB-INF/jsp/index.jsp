@@ -191,11 +191,11 @@
 
             <div class="col offset-s1 offset-l1 s12 l5 section">
                 <h3 class="center-align">Današnji dogodki</h3>
-                <div class="card-panel grey lighten-3">
+                <div class="card-panel grey lighten-3 large">
                     <span class="black-text grey lighten-3">
-                        <ul class="collection grey lighten-3">
+                        <ul class="collection grey lighten-3 z-depth-3">
                             <c:forEach items="${dogodkiDat}" var="d">
-                                <li class="collection-item grey lighten-3"><div>${d.naziv}<a href="${d.vir}" class="secondary-content"><i class="material-icons red-text text-lighten-2">send</i></a></div></li>
+                                <li class="collection-item grey lighten-2 hoverable"><div class="truncate">${d.naziv}<a href="${d.vir}" class="secondary-content"><i class="material-icons red-text text-lighten-2">send</i></a></div></li>
                             </c:forEach>
 
                         </ul>
@@ -219,11 +219,11 @@
             </div-->
             <div class="col s12 l5">
                 <h3 class="center-align">Zadnjih 5</h3>
-                <div class="card-panel grey lighten-3">
-                    <span class="black-text grey lighten-3">
-                        <ul class="collection grey lighten-3">
+                <div class="card-panel grey lighten-3 large">
+                    <span class="black-text grey z-depth-3 lighten-3">
+                        <ul class="collection grey lighten-3  z-depth-3">
                             <c:forEach items="${dogodki}" var="d">
-                                <li class="collection-item grey lighten-3"><div>${d.naziv}<a href="${d.vir}" class="secondary-content"><i class="material-icons red-text text-lighten-2">send</i></a></div></li>
+                                <li class="collection-item grey lighten-2 hoverable"><div class="truncate">${d.naziv}<a href="${d.vir}" class="secondary-content"><i class="material-icons red-text text-lighten-2">send</i></a></div></li>
                             </c:forEach>
                         </ul>
                     </span>
@@ -314,24 +314,12 @@
             </div>
             <div class="col s12 m8">
                 <h3 class="center-align">O nas</h3>
-                <p class="flow-text center-align">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis
-                    enim corrupti excepturi fuga nam assumenda
-                    repudiandae harum recusandae beatae! Quis porro obcaecati dolor, quasi explicabo illo nihil quas
-                    ipsum vitae!
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium error provident iste facere,
-                    nostrum sed
-                    eaque consectetur blanditiis cumque. Voluptatum blanditiis tempora quam, nesciunt vitae eveniet
-                    officiis possimus
-                    inventore perspiciatis?
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis
-                    enim corrupti excepturi fuga nam assumenda
-                    repudiandae harum recusandae beatae! Quis porro obcaecati dolor, quasi explicabo illo nihil quas
-                    ipsum vitae!
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium error provident iste facere,
-                    nostrum sed
-                    eaque consectetur blanditiis cumque. Voluptatum blanditiis tempora quam, nesciunt vitae eveniet
-                    officiis possimus
-                    inventore perspiciatis?
+                <p class="flow-text left-align">Dobrodošli v našem prvem večjem skupinskem projektu. <br/> Smo mlada ekipa študentov
+                    Fakultete za Elektrotehniko, Rečunalništvo in Informatiko in ta spletna stran je narejena kot simulacija praktičnega dela za stranko.
+                    Pod mentorstvom Lucije Brezočnik smo prišli na idejo posredne platforme za zbiranje vse mogočih dogodkov, ki smo jih razdelili na smiselne kategorije.
+                    <br/>Tehnologije, ki smo se jih poslužili so Spring boot ogrodje in Java programski jezik za strežniško konfiguracijo in Materialize CSS ogrodje
+                    za grajenje samega izgleda spletne strani, da je dobila podobo ki jo želimo. Strmeli smo k dinamični rešitvi, ki svojo kompleksno stran skrije na
+                    strežniški logiki in preprosto uporabniško izkušnjo, ki jo vodi materialistično oblikovanje.
                 </p>
             </div>
         </div>

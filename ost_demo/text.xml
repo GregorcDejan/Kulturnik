@@ -1,9 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <dogodek>
+<<<<<<< HEAD
     <datum>0034-01-06</datum>
     <idUporabnika>0</idUporabnika>
     <naziv>Ennstal Classic - Porsche Night</naziv>
     <slikaURL>https://www.mearto.com/assets/no-image-83a2b680abc7af87cfff7777d0756fadb9f9aecd5ebda5d34f8139668e0fc842.png</slikaURL>
     <tip>Šport</tip>
     <vir>http://www.eventim.si/si/vstopnice/ennstal-classic-porsche-night-grobming-416766/event.html</vir>
+=======
+    <cena>6</cena>
+    <datum>2018-06-14</datum>
+    <idUporabnika>0</idUporabnika>
+    <izvajalec>Blitz Film &amp; Video Distribution</izvajalec>
+    <kraj>Ljubljana</kraj>
+    <lokacija>Kolosej Ljubljana</lokacija>
+    <naziv>Z ljubeznijo, Simon</naziv>
+    <opis>Simon Spier ima veliko skrivnost, ki jo uspešno skriva pred svojo družino, prijatelji in sošolci: Simon je gej. Ko ta skrivnost postane ogrožena, se mora soočiti z vsemi in se javno ter osebno sprijazniti s svojo identiteto.</opis>
+    <slikaURL>http://www.kolosej.si/media/movies/2018/04/09/lovesimon_poster.jpg</slikaURL>
+    <tip>Film</tip>
+    <ura>18:45:00</ura>
+    <vir>http://www.kolosej.si/filmi/film/z-ljubeznijo-simon/</vir>
+>>>>>>> 191434f9166ca5da43533a9133c3f1b2707e37ae
 </dogodek>
