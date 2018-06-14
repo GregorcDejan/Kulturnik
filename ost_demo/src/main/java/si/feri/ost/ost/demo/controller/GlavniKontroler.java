@@ -17,6 +17,7 @@ import si.feri.ost.ost.demo.Razredi.Oseba;
 import javax.servlet.ServletRequestAttributeEvent;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -145,6 +146,8 @@ public class GlavniKontroler {
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
         HttpSession session = request.getSession(true);
         model.addAttribute("dogodki",dogodki.zadnjihNeki());
+        LocalDate date = LocalDate.now();
+        model.addAttribute("dogodkiDat",dogodki.getByDatum(date.toString()));
         session.invalidate();
 
         return "index";
