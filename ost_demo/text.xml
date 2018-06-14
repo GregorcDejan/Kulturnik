@@ -1,18 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <dogodek>
-    <cena>6</cena>
-    <datum>2018-06-07</datum>
+    <datum>0034-01-06</datum>
     <idUporabnika>0</idUporabnika>
-    <izvajalec>Fivia</izvajalec>
-    <kraj>Ljubljana</kraj>
-    <lokacija>Kino Komuna</lokacija>
-    <naziv>Stalinova smrt</naziv>
-    <opis>Politično življenje v Sovjetski zvezi v 50-ih letih dobi mračno komično obliko v novem filmu Stalinova smrt mojstra politične satire, škotskega režiserja Armanda Iannuccija. Priredba francoskega stripa "La mort de Stalin" ("The Death of Stalin") postavlja v središče politično delovanje in nemire po smrti nekdanjega sovjetskega voditelja Josepha Stalina in jih prikaže na najbolj zabaven način.
-
-Filmsko dogajanje poteka v Moskvi leta 1953. Po smrti sovjetskega diktatorja Stalina sledi popoln kaos v vrhu vlade, hkrati pa se prične boj za prosto delovno mesto. Med političnimi voditelji se začenja tekmovanje za prevlado … Georgij Malenkov (JEFFREY TAMBOR), Nikita Hruščov (STEVE BUSCEMI) in šef policije Lavrentij Pavlovič Berija (SIMON RUSSELL BEALE). Medtem ko delajo veliko zmedo na samem vrhu prepiri le eskalirajo, drug drugemu pa zabadajo nož v hrbet. Ne ve se kdo sploh vodi državo.
-</opis>
-    <slikaURL>http://www.kolosej.si/media/movies/2018/04/17/stalinovasmrt_poster.jpg</slikaURL>
-    <tip>Film</tip>
-    <ura>14:30:00</ura>
-    <vir>http://www.kolosej.si/filmi/film/stalinova-smrt/</vir>
+    <naziv>Ennstal Classic - Porsche Night</naziv>
+    <slikaURL>https://www.mearto.com/assets/no-image-83a2b680abc7af87cfff7777d0756fadb9f9aecd5ebda5d34f8139668e0fc842.png</slikaURL>
+    <tip>Šport</tip>
+    <vir>http://www.eventim.si/si/vstopnice/ennstal-classic-porsche-night-grobming-416766/event.html</vir>
 </dogodek>
