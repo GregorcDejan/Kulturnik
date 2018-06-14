@@ -98,15 +98,15 @@ Glavne funkcionalnosti naše spletne strani so:
 ## Dokumentacija
 1. [Javadoc](./Javadoc)
 	1. [Dogodek](Javadoc/Dogodek)
-	1. [Oseba](Kulturnik/Javadoc/Oseba/Oseba.java)
-	1. [DogodekComparator](Kulturnik/Javadoc/DogodekComparator/DogodekComparator.java)
-	1. [DogodekDAO](Kulturnik/Javadoc/DogodekDAO/DogodekDAO.java)
-	1. [OsebaDAO](Kulturnik/Javadoc/OsebaDAO/OsebaDAO.java)
-	1. [GlavniKontroler](Kulturnik/Javadoc/GlavniKontroler/GlavniKontroler.java)
-	1. [KontrolerBaze](Kulturnik/Javadoc/KontrolerBaze/KontrolerBaze.java)
-	1. [KontrolerDogodki](Kulturnik/Javadoc/KontrolerDogodki/KontrolerDogodki.java)
-	1. [KontrolerOsebe](Kulturnik/Javadoc/KontrolerOsebe/KontrolerOsebe.java)
-	1. [Zagonski](Kulturnik/Javadoc/Zagonski/Zagonski.java)
+	1. [Oseba](Javadoc/Oseba)
+	1. [DogodekComparator](Javadoc/DogodekComparator)
+	1. [DogodekDAO](Javadoc/DogodekDAO)
+	1. [OsebaDAO](Javadoc/OsebaDAO)
+	1. [GlavniKontroler](Javadoc/GlavniKontroler)
+	1. [KontrolerBaze](Javadoc/KontrolerBaze)
+	1. [KontrolerDogodki](Javadoc/KontrolerDogodki)
+	1. [KontrolerOsebe](Javadoc/KontrolerOsebe)
+	1. [Zagonski](Javadoc/Zagonski)
 
 
 ## Podatkovna baza
