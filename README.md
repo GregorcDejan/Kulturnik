@@ -97,7 +97,7 @@ Glavne funkcionalnosti naše spletne strani so:
 
 ## Dokumentacija
 1. [Javadoc](./Javadoc)
-	1. [Dogodek](Javadoc/Dogodek/Dogodek.java)
+	1. [Dogodek](Javadoc/Dogodek)
 	1. [Oseba](Kulturnik/Javadoc/Oseba/Oseba.java)
 	1. [DogodekComparator](Kulturnik/Javadoc/DogodekComparator/DogodekComparator.java)
 	1. [DogodekDAO](Kulturnik/Javadoc/DogodekDAO/DogodekDAO.java)
