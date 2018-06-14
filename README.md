@@ -45,14 +45,14 @@ Vse dogodke, ki jih prikazuje stran Kulturnik.si, lahko tudi urejamo. Vse dogodk
 
 
 ## Kazalo 
-* [O projektu](https://github.com/WiiTheThird/Kulturnik#O-projektu)
-* [Inštalacija in uporaba](https://github.com/WiiTheThird/Kulturnik#Inštalacija-in-uporaba)
-* [Glavne funkcionalnosti](https://github.com/WiiTheThird/Kulturnik#Glavne-funkcionalnosti)
-* [Dokumentaicja](https://github.com/WiiTheThird/Kulturnik#Dokumentacija)
-* [Podatkovna baza](https://github.com/WiiTheThird/Kulturnik#Podatkovna-baza)
-* [Potek dela po tednih](https://github.com/WiiTheThird/Kulturnik#Potek-dela-po-tednih)
-* [Avtorji](https://github.com/WiiTheThird/Kulturnik#Avtorji)
-* [Vključene knjižnice](https://github.com/WiiTheThird/Kulturnik#Vključene-knjižnice)
+* [O projektu](https://github.com/WiiTheThird/Kulturnik#o-projektu)
+* [Inštalacija in uporaba](https://github.com/WiiTheThird/Kulturnik#inštalacija-in-uporaba)
+* [Glavne funkcionalnosti](https://github.com/WiiTheThird/Kulturnik#glavne-funkcionalnosti)
+* [Dokumentaicja](https://github.com/WiiTheThird/Kulturnik#dokumentacija)
+* [Podatkovna baza](https://github.com/WiiTheThird/Kulturnik#podatkovna-baza)
+* [Potek dela po tednih](https://github.com/WiiTheThird/Kulturnik#potek-dela-po-tednih)
+* [Avtorji](https://github.com/WiiTheThird/Kulturnik#avtorji)
+* [Vključene knjižnice](https://github.com/WiiTheThird/Kulturnik#vključene-knjižnice)
 
 ## Inštalacija in uporaba
 Če želite tudi sami zagnati spletno stran na localhost:8080, za to potrebujete GitHub Desktop 
